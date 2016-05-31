@@ -130,15 +130,17 @@ def publish_to_self(dynamic_id):
     forward.push_object_game(5101, response.SerializeToString(), [dynamic_id])
 
 
-def publish_to_room(dynamic_id_list, account_id, next_account_id, cards):
+def publish_to_room(dynamic_id, account_id, next_account_id, cards, self_cards):
     response = game_poker_pb2.m_5102_toc()
     response.execute_account_id = account_id
     response.next_account_id = next_account_id
     for card_id in cards:
         response.cards.append(card_id)
-    func.log_info('[game] 5102 publish_to_room dynamic_id_list: {}, response: {}'.format(
-        dynamic_id_list, response))
-    forward.push_object_game(5102, response.SerializeToString(), dynamic_id_list)
+    for card_id in self_cards:
+        response.card_list.append(card_id)
+    func.log_info('[game] 5102 publish_to_room dynamic_id: {}, response: {}'.format(
+            dynamic_id, response))
+    forward.push_object_game(5102, response.SerializeToString(), [dynamic_id])
 
 
 def send_poker_bomb(account_id, point, dynamic_id_list):

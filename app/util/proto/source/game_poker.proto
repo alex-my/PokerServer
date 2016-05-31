@@ -15,6 +15,7 @@ message m_5102_toc {
     required uint32 execute_account_id = 1;     // 当前出牌人
     required uint32 next_account_id = 2;        // 下一位出牌人
     repeated uint32 cards = 3;                  // 牌, 当其为空的时候, 为pass
+    repeated uint32 card_list = 4;              // 自己的牌
 }
 
 // 炸弹

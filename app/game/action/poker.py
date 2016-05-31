@@ -46,12 +46,13 @@ def poker_publish(dynamic_id, cards):
     else:
         next_execute_id = room.execute_account_id
     send.publish_to_self(dynamic_id)
-    dynamic_id_list = room.get_room_dynamic_id_list()
-    send.publish_to_room(dynamic_id_list, account_id, next_execute_id, card_list)
+    for _player in room.players:
+        send.publish_to_room(_player.dynamic_id, account_id, next_execute_id, card_list, _player.card_list)
     # 判断是否有炸弹
     if check_card_bomb(card_list):
         bomb(account_id, room)
         player.bomb_count = 1
+    dynamic_id_list = room.get_room_dynamic_id_list()
     # 判断牌是否少量(需要提醒其他玩家)
     if card_list and check_card_few(player):
         card_few(account_id, player.get_card_count(), dynamic_id_list)

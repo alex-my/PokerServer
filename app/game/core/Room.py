@@ -65,6 +65,10 @@ class Room(object):
         return self._player_list
 
     @property
+    def players(self):
+        return self._players.values()
+
+    @property
     def execute_account_id(self):
         return self._execute_account_id
 
