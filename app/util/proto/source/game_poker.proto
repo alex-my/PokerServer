@@ -1,0 +1,49 @@
+// 扑克牌: 5100 ~ 5199
+
+
+// 出牌
+message m_5101_tos {
+    repeated uint32 cards = 1;
+}
+
+message m_5101_toc {
+
+}
+
+// 转发出牌信息给房间所有玩家(包括出牌人)
+message m_5102_toc {
+    required uint32 execute_account_id = 1;     // 当前出牌人
+    required uint32 next_account_id = 2;        // 下一位出牌人
+    repeated uint32 cards = 3;                  // 牌, 当其为空的时候, 为pass
+}
+
+// 炸弹
+message m_5103_toc {
+    required uint32 account_id = 1;             // 出炸弹的玩家 (自己不会被扣除分数)
+    required uint32 point = 2;                  // 扣除的积分
+}
+
+// 少量牌时候的通知
+message m_5104_toc {
+    required uint32 account_id = 1;
+    required uint32 card_count = 2;             // 牌的数量
+}
+
+
+// 房间达到游戏次数上限，房间失效
+message m_5105_toc {
+    repeated p_room_full room_fulls = 1;
+    optional uint32 server_t = 2;
+}
+
+message p_room_full {
+    required uint32 account_id = 1;             // 玩家帐号ID
+    required uint32 rank = 2;                   // 排名
+    required int32  point_change = 3;           // 积分变化
+    required uint32 win_count = 4;              // 赢的场数
+    required uint32 lose_count = 5;             // 输的场数
+    required uint32 bomb_count = 6;             // 炸弹数量
+    required uint32 max_point = 7;              // 单场最高分
+}
+
+

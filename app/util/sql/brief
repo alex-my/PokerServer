@@ -1,0 +1,15 @@
+sql/create: 创建和摧毁数据库
+sql/base: 初始数据库
+sql/update: 在base数据库上不断的升级, 按日期命名
+sql/complete: 完整数据库
+
+
+1 新服
+-1: 执行sql/create/create_mysql.sql, 创建数据库
+-2: 执行sql/complete/*.sql, 创建全部的表
+
+
+2 旧服
+-1: 根据日期执行sql/update中的语句
+
+

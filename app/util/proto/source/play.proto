@@ -1,0 +1,32 @@
+
+// 玩家操作
+message m_4001_tos {
+    required uint32 operate = 1; // 1 准备, 2 暂离, 3 解散房间, 4 切牌
+}
+
+message m_4001_toc {
+    required uint32 operate = 1; // 1 准备, 2 暂离, 3 解散房间, 4 切牌
+}
+
+// 向房间内所有玩家广播某个玩家的操作
+message m_4002_toc {
+    required uint32 account_id = 1; // 账号ID
+    required uint32 operate = 2; // 1 准备, 2 暂离, 3 解散房间, 4 切牌
+}
+
+// 所有玩家准备好后, 发牌给所有玩家
+message m_4003_toc {
+    required uint32 execute_account_id = 1; // 当前出牌玩家
+    repeated uint32	cards = 2;              // 发牌
+}
+
+// 游戏结算
+message m_4004_toc {
+    repeated p_close_info close_info = 1;
+    required uint32 win_account_id = 2;
+}
+
+message p_close_info {
+    required uint32 account_id = 1;         // 玩家账号ID
+    required uint32 card_count = 2;         // 剩余的牌数
+}

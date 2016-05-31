@@ -1,0 +1,108 @@
+{
+  "master": {
+    "roothost":"localhost",
+    "rootport": 8511,
+    "webport": 8521
+  },
+  "servers": {
+    "net": {
+      "netport": 8531,
+      "name":"net",
+      "remoteport":[
+        {
+          "rootport": 9001,
+          "rootname": "auth"
+        },
+        {
+          "rootport": 9002,
+          "rootname": "gate"
+        }
+      ],
+      "app":"app.netserver",
+      "log": "logs/net.log"
+    },
+    "auth": {
+      "rootport": 9001,
+      "name": "auth",
+      "app": "app.authserver",
+      "reload":"app.auth.authreload",
+      "log": "logs/auth.log",
+      "db": true
+    },
+    "gate": {
+      "rootport": 9002,
+      "name": "gate",
+      "remoteport":[
+        {
+          "rootport": 9001,
+          "rootname": "auth"
+        }
+      ],
+      "app": "app.gateserver",
+      "reload":"app.gate.gatereload",
+      "log": "logs/gate.log",
+      "db": true
+    },
+    "share": {
+      "rootport": 9003,
+      "name": "share",
+      "remoteport":[
+        {
+          "rootport": 9002,
+          "rootname": "gate"
+        }
+      ],
+      "app": "app.shareserver",
+      "reload": "app.share.sharereload",
+      "log": "logs/share.log",
+      "db": true
+    },
+    "game1": {
+      "remoteport":[
+        {
+          "rootport": 9002,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 9003,
+          "rootname": "share"
+        }
+      ],
+      "name": "game",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload",
+      "log": "logs/game1.log"
+    },
+    "game2": {
+      "remoteport":[
+        {
+          "rootport": 9002,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 9003,
+          "rootname": "share"
+        }
+      ],
+      "name": "game",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload",
+      "log": "logs/game2.log"
+    }
+  },
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "passwd": "123456",
+    "port": 3306,
+    "db": "bbg_server",
+    "charset": "utf8",
+    "autocommit": true
+  },
+  "memcached": {
+    "urls": ["127.0.0.1:11211"],
+    "hostname": "games_bbg"
+  }
+}

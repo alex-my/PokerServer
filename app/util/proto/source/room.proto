@@ -1,0 +1,85 @@
+
+// 创建房间
+message m_3001_tos{
+    required uint32 room_type = 1;      // 房间类型
+    required uint32 rounds = 2;		    // 房间允许回合数, 例如打10盘就关闭房间, 20盘关闭房间, 30盘关闭房间, ...
+}
+
+message m_3001_toc{
+    required uint32 room_id = 1;        // 房间ID
+    required uint32 room_type = 2;      // 房间类型
+    optional uint32 rounds = 3;         // 房间允许回合数
+}
+
+// 加入房间/恢复房间
+message m_3002_tos {
+    required uint32 room_id = 1;            // room id
+}
+
+message m_3002_toc {
+    required uint32 room_id = 1;            // room id
+    repeated p_user_room user_room = 2;     // 房间中的玩家信息
+    repeated uint32 user_cards = 3;         // 自己手中拥有的牌
+    optional uint32 execute_account_id = 4; // 当前出牌玩家
+    optional uint32 last_account_id = 5;    // 最后一次出牌的玩家
+    repeated uint32 last_cards = 6;         // 最后一次出的牌
+    required uint32 user_id = 7;            // 房主ID
+    optional uint32 rounds = 8;             // 房间当前回合数
+    optional uint32 max_rounds = 9;         // 房间允许回合数
+}
+
+message p_user_room {
+    required uint32 position = 1;       // 位置 1, 2, 3, ...
+    required uint32 account_id = 2;     // 账号ID
+    optional string name = 3;           // 玩家名
+    optional uint32 head_frame = 4;     // 头像框
+    optional uint32 head_icon = 5;      // 头像
+    optional uint32 sex = 6;            // 性别
+    optional string ip = 7;             // IP地址 "120.1.1.2"
+    optional int32 point = 8;           // 积分
+    optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备
+}
+
+// 广播玩家进入房间消息
+message m_3005_toc {
+    required p_user_room user_room = 1;
+}
+
+// 广播玩家离开房间消息
+message m_3006_toc {
+    required uint32 account_id = 1;
+}
+
+// 短消息ID
+message m_3101_tos {
+	required uint32 message = 1;
+}
+
+// 短消息ID
+message m_3101_toc {
+	required uint32 message = 1;
+}
+
+// 转发短消息给房间内所有玩家
+message m_3102_toc {
+    required uint32 account_id = 1; // 账号ID
+    required uint32 message = 2;
+}
+
+// 云语音url
+message m_3103_tos{
+	required string voice_url = 1;
+}
+
+// 云语音url
+message m_3103_toc{
+	required string voice_url = 1;
+}
+
+// 转发云语音url给房间内所有玩家
+message m_3104_toc {
+    required uint32 account_id = 1; // 账号ID
+    required uint32 voice_url = 2;
+}
+
+

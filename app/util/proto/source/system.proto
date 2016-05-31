@@ -1,0 +1,21 @@
+
+// 系统通知
+message m_9001_toc {
+    required string content = 1;    // 内容
+}
+
+// 强制下线
+message m_9002_toc {
+    required uint32 t = 1;          // t=0: 立即下线; t=时间戳: 到这个点下线
+}
+
+// 玩家变化
+message m_9003_toc {
+    repeated p_role_change role_change = 1;
+}
+
+message p_role_change {
+    required uint32 change_type = 1;    // 另外定义
+    required uint32 change_value = 2;
+}
+

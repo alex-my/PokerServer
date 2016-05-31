@@ -1,0 +1,94 @@
+# coding:utf8
+import hashlib
+from app.auth.action import send
+from app.auth.authservice import request_gate_node
+from app.util.common import func
+from app.util.defines import channel, content, dbname
+from app.util.driver import dbexecute
+
+
+def account_register(dynamic_id, user_name, password):
+    """
+    账号注册
+    :param dynamic_id:
+    :param user_name:
+    :param password:
+    :return:
+    """
+    if not user_name or not password:
+        send.system_notice(dynamic_id, content.ACCOUNT_NULL)
+        return
+    if not func.check_english(user_name):
+        send.system_notice(dynamic_id, content.ACCOUNT_ENGLISH)
+        return
+    sql = 'select * from {} where user_name="{}"'.format(dbname.DB_ACCOUNT, user_name)
+    if dbexecute.query_one(sql):
+        send.system_notice(dynamic_id, content.ACCOUNT_EXIST)
+        return
+    token_key = _create_token_key(user_name, password)
+    encrypt_password = func.encrypt_password(user_name, password, token_key)
+    t = func.time_get()
+    account_data = {
+        'uuid': user_name,      # 裸包使用账户名做为uuid
+        'cid': channel.CHANNEL_ZERO,
+        'user_name': user_name,
+        'password': encrypt_password,
+        'token_key': token_key,
+        'create_time': t,
+        'last_login': t,
+        'last_logout': t,
+        'name': user_name,
+        'sex': func.random_get(1, 2)
+    }
+    account_id = dbexecute.insert_auto_increment_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data})
+    if account_id:
+        func.log_info('[Auth] user_name: {}, account_id: {} register success'.format(user_name, account_id))
+        send.account_register(dynamic_id, user_name, password, account_id)
+    else:
+        func.log_error('[Auth] user_name: {} register failed'.format(user_name))
+
+
+def _create_token_key(user_name, password):
+    m = hashlib.md5()
+    m.update(str(user_name) + str(func.time_get()) + str(password) + str(func.random_get(100, 500000)))
+    return m.hexdigest()
+
+
+def account_verify(dynamic_id, user_name, password):
+    """
+    账号密码登陆验证
+    :param dynamic_id:
+    :param user_name:
+    :param password:
+    :return:
+    """
+    if not user_name or not password:
+        send.system_notice(dynamic_id, content.ACCOUNT_NULL)
+        return
+    if not func.check_english(user_name):
+        send.system_notice(dynamic_id, content.ACCOUNT_ENGLISH)
+        return
+    sql = 'select * from {} where user_name="{}"'.format(dbname.DB_ACCOUNT, user_name)
+    result = dbexecute.query_one(sql)
+    if not result:
+        send.system_notice(dynamic_id, content.ACCOUNT_DO_NOT_EXIST)
+        return
+    encrypt_password = func.encrypt_password(user_name, password, result['token_key'])
+    if encrypt_password != result['password']:
+        send.system_notice(dynamic_id, content.ACCOUNT_PASSWORD_ERROR)
+        return
+    account_id = result['account_id']
+    verify_key = _create_verify_key(account_id, result['token_key'])
+    notice_gate_user_login(account_id, verify_key)
+    t = func.time_get()
+    send.account_verify(dynamic_id, t, account_id, verify_key)
+
+
+def _create_verify_key(account_id, token_key):
+    m = hashlib.md5()
+    m.update(str(account_id) + str(token_key) + str(func.time_get()) + str(func.random_get(10000, 500000)))
+    return m.hexdigest()
+
+
+def notice_gate_user_login(account_id, verify_key):
+    request_gate_node('notice_user_login_verify', account_id, verify_key)
