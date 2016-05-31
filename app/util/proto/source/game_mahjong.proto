@@ -1,1 +1,66 @@
-// 麻将: 5200 ~ 5299
+
+// m_5201_toc: 玩家拿到这张牌后, 需要执行m_5202_tos出牌
+// m_5202_toc: 表示出牌结束,玩家出的牌会通过 m_5203_toc广播给房间所有玩家
+// m_5203_toc: 收到玩家的出牌a,并且强制更新自己手上的所有牌,防止网络异常造成牌不正确.
+//             同时,对于牌a,玩家可能有各种响应operate. 但是不一定能够操作, operator_able为true的玩家才可以操作, 如果是false,则
+//             只是显示这些操作却不能操作.
+//             比如A出牌, B吃, C碰, D胡. 则真正可以进行操作的只有D
+// m_5204_tos: 玩家的操作, 收到m_5203_toc的操作指令后可执行这条指令. 另外, 收到m_5201_toc的玩家也可以暗杠, 自摸.
+//             服务器会通过m_5204_toc将操作广播到整个房间. 进行操作的玩家还会收到m_5201_toc或者需要发送m_5202_tos
+//             比如B碰了A的牌, B需要执行m_5204_tos将碰的牌传到服务器外,还要执行m_5202_tos打出一张牌
+//             比如B明杠了A的牌,B需要执行m_5204_tos将碰的牌传到服务器外, 还会收到m_5201_toc补一张牌,然后执行m_5202_tos打出一张牌
+// m_5205_toc: 比如打完10局,进行结算. 单局结算见play.proto m_4004_toc
+
+
+// 拿牌
+message m_5201_toc {
+    required uint32 card = 1;   // 单张牌
+}
+
+
+// 玩家出牌
+message m_5202_tos {
+    required uint32 card = 1;   // 单张牌
+}
+
+message m_5202_toc {
+
+}
+
+// 广播给所有人玩家出的牌
+message m_5203_toc {
+    required uint32 execute_account_id = 1;     // 出牌人
+    required uint32 card = 2;                   // 单张牌
+    required uint32 card_list = 3;              // (防止网络异常)强制更新接收者牌(每个玩家收自己的牌)
+    required bool operator_able = 4;            // 如果为true才可以操作operator, 否则只是显示而已,等待优先级更高的人操作
+    repeated uint32 operator = 5;               // 接收者收到牌后的操作 0 不操作, 1 吃, 2 碰, 3 明杠, 5 胡
+}
+
+// 玩家操作
+message m_5204_tos {
+    required uint32 operator = 1;               // 0 不操作, 1 吃, 2 碰, 3 明杠, 4 暗杠, 5 胡, 6 自摸
+    repeated uint32 cards = 2;                  // 操作的牌
+}
+
+message m_5204_toc {
+    required uint32 execute_account_id = 1;     // 操作的玩家
+    required uint32 operator = 2;               // 0 不操作, 1 吃, 2 碰, 3 明杠, 4 暗杠, 5 胡, 6 自摸
+    repeated uint32 cards = 3;                  // 操作的牌
+}
+
+// 房间达到游戏次数上限，房间失效
+message m_5205_toc {
+    repeated p_room_full room_fulls = 1;
+    optional uint32 server_t = 2;
+}
+
+message p_room_full {
+    required uint32 account_id = 1;             // 玩家帐号ID
+    required uint32 rank = 2;                   // 排名
+    required int32  point_change = 3;           // 积分变化
+    required uint32 win_count = 4;              // 赢的场数
+    required uint32 lose_count = 5;             // 输的场数
+    required uint32 max_point = 6;              // 单场最高分
+}
+
+
