@@ -49,6 +49,6 @@ def room_voice_message_3103(dynamic_id, proto):
     """
     argument = room_pb2.m_3103_tos()
     argument.ParseFromString(proto)
-    room.room_voice_message(dynamic_id, argument.message)
+    room.room_voice_message(dynamic_id, argument.voice_url)
     return None
 

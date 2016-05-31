@@ -79,7 +79,7 @@ message m_3103_toc{
 // 转发云语音url给房间内所有玩家
 message m_3104_toc {
     required uint32 account_id = 1; // 账号ID
-    required uint32 voice_url = 2;
+    required string voice_url = 2;
 }
 
 
