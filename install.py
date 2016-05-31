@@ -60,7 +60,7 @@ version() {
 }
 
 update() {
-    cd """ + path + """ && svn update
+    cd """ + path + """ && git pull origin master
 }
 
 status() {
