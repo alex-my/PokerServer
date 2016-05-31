@@ -46,7 +46,7 @@ def user_ready(dynamic_id, operator):
         # 判断是否由玩家切牌
         if check_switch(room):
             switch_cards(room)
-        dispatch_all_card(room)
+        room.dispatch_all_card()
     notice_all_room_user_operator(room, account_id, operator)
     return True
 
@@ -111,16 +111,6 @@ def user_switch(dynamic_id):
 def notice_all_room_user_operator(room, account_id, operator):
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.dispatch_user_operator(account_id, operator, dynamic_id_list)
-
-
-def dispatch_all_card(room):
-    room.random_cards()
-    room.room_player_status(status.PLAYER_STATUS_NORMAL)
-    execute_account_id = room.execute_account_id
-    func.log_info('[game] dispatch_all_card room_account_id_list: {}'.format(room.room_account_id_list))
-    for account_id in room.room_account_id_list:
-        player = room.get_player(account_id)
-        send.player_dispatch_cards(execute_account_id, player)
 
 
 def check_owner_in(room):

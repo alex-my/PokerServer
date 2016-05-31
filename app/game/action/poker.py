@@ -45,9 +45,9 @@ def poker_publish(dynamic_id, cards):
         next_execute_id = 0
     else:
         next_execute_id = room.execute_account_id
-    send.publish_to_self(dynamic_id)
+    send.publish_poker_to_self(dynamic_id)
     for _player in room.players:
-        send.publish_to_room(_player.dynamic_id, account_id, next_execute_id, card_list, _player.card_list)
+        send.publish_poker_to_room(_player.dynamic_id, account_id, next_execute_id, card_list, _player.card_list)
     # 判断是否有炸弹
     if check_card_bomb(card_list):
         bomb(account_id, room)

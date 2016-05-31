@@ -1,7 +1,8 @@
 # coding:utf8
 from firefly.utils.singleton import Singleton
-from app.game.core.Room import Room
-from app.util.defines import dbname
+from app.game.core.RoomMahjong import RoomMahjong
+from app.game.core.RoomPoker import RoomPoker
+from app.util.defines import dbname, rule
 from app.util.driver import dbexecute
 from app.util.common import func
 
@@ -41,12 +42,22 @@ class RoomManager:
         sql = 'select * from {} where room_id={}'.format(dbname.DB_ROOM, room_id)
         result = dbexecute.query_one(sql)
         if result:
-            room = Room()
-            room.init(result)
-            self.add_room(room)
+            room = self._create_room(result.get('room_type'))
+            if room:
+                room.init(result)
+                self.add_room(room)
             return room
         else:
             return None
+
+    def _create_room(self, room_type):
+        if room_type in [rule.GAME_TYPE_PDK]:
+            room = RoomPoker()
+        elif room_type in [rule.GAME_TYPE_ZZMJ]:
+            room = RoomMahjong()
+        else:
+            room = None
+        return room
 
     def add_player_room(self, account_id, room_id):
         self._player_room[account_id] = room_id

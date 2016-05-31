@@ -123,14 +123,14 @@ def game_over(win_account_id, all_player_info, dynamic_id_list):
     forward.push_object_game(4004, response.SerializeToString(), dynamic_id_list)
 
 
-def publish_to_self(dynamic_id):
+def publish_poker_to_self(dynamic_id):
     response = game_poker_pb2.m_5101_toc()
-    func.log_info('[game] 5101 publish_to_self dynamic_id: {}, response: {}'.format(
+    func.log_info('[game] 5101 publish_poker_to_self dynamic_id: {}, response: {}'.format(
         dynamic_id, response))
     forward.push_object_game(5101, response.SerializeToString(), [dynamic_id])
 
 
-def publish_to_room(dynamic_id, account_id, next_account_id, cards, self_cards):
+def publish_poker_to_room(dynamic_id, account_id, next_account_id, cards, self_cards):
     response = game_poker_pb2.m_5102_toc()
     response.execute_account_id = account_id
     response.next_account_id = next_account_id
@@ -138,7 +138,7 @@ def publish_to_room(dynamic_id, account_id, next_account_id, cards, self_cards):
         response.cards.append(card_id)
     for card_id in self_cards:
         response.card_list.append(card_id)
-    func.log_info('[game] 5102 publish_to_room dynamic_id: {}, response: {}'.format(
+    func.log_info('[game] 5102 publish_poker_to_room dynamic_id: {}, response: {}'.format(
             dynamic_id, response))
     forward.push_object_game(5102, response.SerializeToString(), [dynamic_id])
 
@@ -179,4 +179,26 @@ def send_room_full(dynamic_id_list, statistic_list):
         dynamic_id_list, response
     ))
     forward.push_object_game(5105, response.SerializeToString(), dynamic_id_list)
+
+
+def dispatch_mahjong_card(dynamic_id, card):
+    response = game_mahjong_pb2.m_5201_toc()
+    response.card = card
+    func.log_info('[game] 5201 dispatch_mahjong_card dynamic_id: {}, response: {}'.format(
+        dynamic_id, response
+    ))
+
+
+def publish_mahjong_to_self(dynamic_id):
+    response = game_mahjong_pb2.m_5202_toc()
+    func.log_info('[game] 5202 publish_mahjong_to_self dynamic_id: {}, response: {}'.format(
+            dynamic_id, response))
+    forward.push_object_game(5202, response.SerializeToString(), [dynamic_id])
+
+
+def publish_mahjong_to_room(player, execute_account_id, cards):
+    response = game_mahjong_pb2.m_5203_toc()
+    # TODO: publish_mahjong_to_room
+
+
 

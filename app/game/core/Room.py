@@ -27,6 +27,7 @@ class Room(object):
         self._last_cards = []           # 上次执行的牌
         self._pre_win_account_id = 0    # 上次赢的玩家ID
         self._rounds = 1                # 房间回合数
+        self._cards = []                # 所有牌
 
         self._switch_account_id = 0     # 切牌的帐号
 
@@ -170,16 +171,20 @@ class Room(object):
 
     def random_cards(self):
         unit_count, player_count = self._config['unit_count'], self._config['player_count']
-        cards = range(1, unit_count + 1)
-        random.shuffle(cards)
+        self._cards = range(1, unit_count + 1)
+        random.shuffle(self._cards)
         self._execute_account_id = self.get_original_execute()
         # dispatch to all player
-        count = unit_count / player_count
+        original_count = self._config['original_count']
+        dispatch_list = []
         for index in xrange(player_count):
-            card_list = cards[index * count: (index + 1) * count]
+            card_list = self._cards[index * original_count: (index + 1) * original_count]
             account_id = self._ready_list[index]
             player = self.get_player(account_id)
             player.cards = card_list
+            dispatch_list.extend(card_list)
+        cards = [card_id for card_id in self._cards if card_id not in dispatch_list]
+        self._cards = cards
 
     def room_player_status(self, _status):
         for player in self._players.values():
