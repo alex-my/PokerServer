@@ -23,7 +23,6 @@ class Player(object):
         self._statistic_point = 0           # 本轮积分变化
         self._statistic_win_count = 0       # 本轮赢的场数
         self._statistic_lose_count = 0      # 本轮输的场数
-        self._statistic_bomb_count = 0      # 本轮炸弹场数
         self._statistic_max_point = 0       # 本轮单场最高积分
 
     @property
@@ -100,6 +99,9 @@ class Player(object):
         for card_id in card_list:
             self._cards[card_id] = False
 
+    def add_card(self, card_id):
+        self._cards[card_id] = False
+
     @property
     def win_count(self):
         return self._statistic_win_count
@@ -116,17 +118,17 @@ class Player(object):
     def lose_count(self, _count):
         self._statistic_lose_count += _count
 
-    @property
-    def bomb_count(self):
-        return self._statistic_bomb_count
-
-    @bomb_count.setter
-    def bomb_count(self, _count):
-        self._statistic_bomb_count += _count
-
-    def card_publish(self, cards):
+    def cards_publish(self, cards):
         for card_id in cards:
             self._cards[card_id] = True
+
+    def card_publish(self, card_id):
+        if card_id in self._cards:
+            self._cards[card_id] = True
+        else:
+            raise Exception('[game] Player card_publish card_id: {} not in cards: {}'.format(
+                card_id, self._cards
+            ))
 
     def is_card_clear(self):
         return len(self.card_list) == 0
@@ -142,29 +144,3 @@ class Player(object):
         self._statistic_point += _point
         if _point > self._statistic_max_point:
             self._statistic_max_point = _point
-
-    def get_data(self):
-        return {
-            'position': self.position,
-            'account_id': self.account_id,
-            'name': self.name,
-            'head_frame': self.head_frame,
-            'head_icon': self.head_icon,
-            'sex': self.sex,
-            'ip': self.ip,
-            'point': self.point,
-            'status': self.status
-        }
-
-    def is_card_few(self):
-        return self.get_card_count() == 1
-
-    def get_statistic_data(self):
-        return {
-            'account_id': self.account_id,
-            'point_change': self._statistic_point,
-            'win_count': self._statistic_win_count,
-            'lose_count': self._statistic_lose_count,
-            'bomb_count': self._statistic_bomb_count,
-            'max_point': self._statistic_max_point
-        }

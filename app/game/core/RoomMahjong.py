@@ -1,7 +1,7 @@
 # coding:utf8
 from app.game.core.Room import Room
-from app.game.action import send
-from app.util.defines import status
+from app.game.action import send, mahjong
+from app.util.defines import status, games
 from app.util.common import func
 
 
@@ -19,12 +19,18 @@ class RoomMahjong(Room):
             player = self.get_player(account_id)
             send.player_dispatch_cards(execute_account_id, player)
             if account_id == execute_account_id:
-                card = self.pop_card()
-                send.dispatch_mahjong_card(player.dynamic_id, card)
+                mahjong.dispatch_mahjong_card(player.dynamic_id)
 
     def pop_card(self):
         return self._cards.pop()
 
     def is_card_clear(self):
         return len(self._cards) == 0
+
+    def get_player_operator(self, card):
+        pass
+
+    @staticmethod
+    def get_mahjong_name(card):
+        return games.MAH_CONFIG.get(card, {}).get(card, card)
 

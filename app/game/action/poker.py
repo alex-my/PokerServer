@@ -34,10 +34,10 @@ def poker_publish(dynamic_id, cards):
     func.log_info('[poker_publish] account_id: {}, dynamic_id: {}, card_list: {}'.format(
         account_id, dynamic_id, card_list
     ))
-    if not check_card_publish_valid(player, card_list):
+    if not check_poker_publish_valid(player, card_list):
         send.system_notice(dynamic_id, content.PLAY_CARD_UN_VALID)
         return
-    player.card_publish(card_list)
+    player.cards_publish(card_list)
     room.calc_next_execute_account_id()
     room.record_last(account_id, card_list)
     # 判断牌局是否结束
@@ -67,7 +67,7 @@ def poker_publish(dynamic_id, cards):
             play.remove_room(room)
 
 
-def check_card_publish_valid(player, cards):
+def check_poker_publish_valid(player, cards):
     card_list = player.card_list
     for card_id in cards:
         if card_id not in card_list:

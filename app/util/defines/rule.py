@@ -24,9 +24,13 @@ rule_configs = {
         },
         'player_count': 4,
         'unit_count': 108,       # 108张麻将牌
-        'original_count': 16     # 每个玩家初始牌数
+        'original_count': 13     # 每个玩家初始牌数
     }
 }
+
+
+
+
 
 
 

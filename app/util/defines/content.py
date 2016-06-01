@@ -4,6 +4,7 @@
 """
 
 SYSTEM_ARGUMENT_LACK = u'缺少参数'
+SYSTEM_ARGUMENT_ERROR = u'参数不正确'
 
 ACCOUNT_ENGLISH = u'账号请使用字母'
 ACCOUNT_EXIST = u'账号已存在'

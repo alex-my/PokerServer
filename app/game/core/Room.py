@@ -4,7 +4,8 @@
 """
 import random
 from app.game.core.PlayerManager import PlayerManager
-from app.game.core.Player import Player
+from app.game.core.PlayerMahjong import PlayerMahjong
+from app.game.core.PlayerPoker import PlayerPoker
 from app.util.common import func
 from app.util.defines import rule, status
 
@@ -115,7 +116,7 @@ class Room(object):
         if account_id not in self._player_list:
             kwargs['position'] = position
             kwargs['room_id'] = self._room_id
-            player = Player(**kwargs)
+            player = self._create_player(**kwargs)
             player.dynamic_id = dynamic_id
             self.add_player(player)
             self._player_list.append(account_id)
@@ -127,6 +128,13 @@ class Room(object):
                 player.room_id = self._room_id
                 player.position = position
                 player.status = status.PLAYER_STATUS_NORMAL
+
+    def _create_player(self, **kwargs):
+        if self._room_type == rule.GAME_TYPE_PDK:
+            return PlayerPoker(**kwargs)
+        elif self._room_type == rule.GAME_TYPE_ZZMJ:
+            return PlayerMahjong(**kwargs)
+        raise Exception('[game] Room _create_player unvalid room_type: {}'.format(self._room_type))
 
     def add_player(self, player):
         self._players[player.account_id] = player

@@ -18,15 +18,13 @@
           "rootname": "gate"
         }
       ],
-      "app":"app.netserver",
-      "log": "logs/net.log"
+      "app":"app.netserver"
     },
     "auth": {
       "rootport": 9001,
       "name": "auth",
       "app": "app.authserver",
       "reload":"app.auth.authreload",
-      "log": "logs/auth.log",
       "db": true
     },
     "gate": {
@@ -40,7 +38,6 @@
       ],
       "app": "app.gateserver",
       "reload":"app.gate.gatereload",
-      "log": "logs/gate.log",
       "db": true
     },
     "share": {
@@ -54,7 +51,6 @@
       ],
       "app": "app.shareserver",
       "reload": "app.share.sharereload",
-      "log": "logs/share.log",
       "db": true
     },
     "game1": {
@@ -71,25 +67,7 @@
       "name": "game",
       "db": true,
       "app": "app.gameserver",
-      "reload": "app.game.gamereload",
-      "log": "logs/game1.log"
-    },
-    "game2": {
-      "remoteport":[
-        {
-          "rootport": 9002,
-          "rootname": "gate"
-        },
-        {
-          "rootport": 9003,
-          "rootname": "share"
-        }
-      ],
-      "name": "game",
-      "db": true,
-      "app": "app.gameserver",
-      "reload": "app.game.gamereload",
-      "log": "logs/game2.log"
+      "reload": "app.game.gamereload"
     }
   },
   "db": {
