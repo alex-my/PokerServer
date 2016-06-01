@@ -74,6 +74,10 @@ class Room(object):
     def execute_account_id(self):
         return self._execute_account_id
 
+    @execute_account_id.setter
+    def execute_account_id(self, _account_id):
+        self._execute_account_id = _account_id
+
     @property
     def win_account_id(self):
         return self._pre_win_account_id
@@ -256,7 +260,7 @@ class Room(object):
 
     def room_reset(self):
         for player in self._players.values():
-            Player.status = status.PLAYER_STATUS_NORMAL
+            player.status = status.PLAYER_STATUS_NORMAL
             player.player_reset()
         self._ready_list = []
         self._execute_account_id = 0

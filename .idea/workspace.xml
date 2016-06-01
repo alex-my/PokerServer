@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/game/core/PlayerPoker.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/util/defines/games.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/poker.py" afterPath="$PROJECT_DIR$/app/game/action/poker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/Player.py" afterPath="$PROJECT_DIR$/app/game/core/Player.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/send.py" afterPath="$PROJECT_DIR$/app/game/action/send.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/Room.py" afterPath="$PROJECT_DIR$/app/game/core/Room.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/RoomMahjong.py" afterPath="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/initconfig.py" afterPath="$PROJECT_DIR$/app/game/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/content.py" afterPath="$PROJECT_DIR$/app/util/defines/content.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/rule.py" afterPath="$PROJECT_DIR$/app/util/defines/rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.json" afterPath="$PROJECT_DIR$/config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/auth.log" afterPath="$PROJECT_DIR$/logs/auth.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/game1.log" afterPath="$PROJECT_DIR$/logs/game1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/game2.log" afterPath="$PROJECT_DIR$/logs/game2.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/gate.log" afterPath="$PROJECT_DIR$/logs/gate.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/net.log" afterPath="$PROJECT_DIR$/logs/net.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/share.log" afterPath="$PROJECT_DIR$/logs/share.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/service/mahjong.py" afterPath="$PROJECT_DIR$/app/game/service/mahjong.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/game_mahjong_pb2.py" afterPath="$PROJECT_DIR$/app/util/proto/game_mahjong_pb2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" afterPath="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,38 +34,106 @@
     <favorites_list name="PokerServer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.8767605">
-              <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rule.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/util/defines/rule.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/game/service/mahjong.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.41900826">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.582199">
+                  <caret line="157" column="53" selection-start-line="157" selection-start-column="53" selection-end-line="157" selection-end-column="53" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="games.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="send.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="212" column="25" selection-start-line="212" selection-start-column="4" selection-end-line="212" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/game/service/mahjong.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="game_mahjong.proto" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="346" column="24" selection-start-line="346" selection-start-column="4" selection-end-line="346" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RoomMahjong.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Room.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.35344827">
+                  <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="poker.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="41" column="15" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="20" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -103,26 +160,26 @@
         <option value="$PROJECT_DIR$/tool/client_simulator.py" />
         <option value="$PROJECT_DIR$/app/util/common/func.py" />
         <option value="$PROJECT_DIR$/app/util/proto/source/game_poker.proto" />
-        <option value="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" />
         <option value="$PROJECT_DIR$/app/game/service/__init__.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomManager.py" />
-        <option value="$PROJECT_DIR$/app/game/action/send.py" />
         <option value="$PROJECT_DIR$/app/game/action/play.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomPoker.py" />
-        <option value="$PROJECT_DIR$/app/game/service/mahjong.py" />
         <option value="$PROJECT_DIR$/app/util/defines/operators.py" />
         <option value="$PROJECT_DIR$/app/game/initconfig.py" />
         <option value="$PROJECT_DIR$/config.json" />
-        <option value="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
         <option value="$PROJECT_DIR$/app/util/defines/content.py" />
         <option value="$PROJECT_DIR$/app/game/action/poker.py" />
-        <option value="$PROJECT_DIR$/app/game/core/Room.py" />
         <option value="$PROJECT_DIR$/app/game/core/Player.py" />
         <option value="$PROJECT_DIR$/app/game/core/PlayerPoker.py" />
         <option value="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
         <option value="$PROJECT_DIR$/app/util/defines/rule.py" />
         <option value="$PROJECT_DIR$/app/util/defines/games.py" />
+        <option value="$PROJECT_DIR$/app/game/service/mahjong.py" />
+        <option value="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" />
+        <option value="$PROJECT_DIR$/app/game/action/send.py" />
+        <option value="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
+        <option value="$PROJECT_DIR$/app/game/core/Room.py" />
       </list>
     </option>
   </component>
@@ -143,7 +200,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="31" />
+    <option name="x" value="62" />
     <option name="y" value="23" />
     <option name="width" value="2462" />
     <option name="height" value="1404" />
@@ -1022,7 +1079,7 @@
       <option name="number" value="Default" />
       <updated>1464663441076</updated>
       <workItem from="1464663442285" duration="705000" />
-      <workItem from="1464664672565" duration="31871000" />
+      <workItem from="1464664672565" duration="38174000" />
     </task>
     <task id="LOCAL-00001" summary="fix voice_url bugs.">
       <created>1464665621623</created>
@@ -1060,14 +1117,20 @@
       <option name="project" value="LOCAL" />
       <updated>1464703649273</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="mahjong check.">
+      <created>1464777301562</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1464777301562</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32576000" />
+    <option name="totallyTimeSpent" value="38879000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="31" y="23" width="2462" height="1404" extended-state="0" />
+    <frame x="62" y="23" width="2462" height="1404" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1077,12 +1140,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2339939" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2652439" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25132075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2644817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2507622" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122727275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1114,7 +1177,8 @@
     <MESSAGE value="force sync own cards." />
     <MESSAGE value="original protocol about mahjong." />
     <MESSAGE value="add mahjong." />
-    <option name="LAST_COMMIT_MESSAGE" value="add mahjong." />
+    <MESSAGE value="mahjong check." />
+    <option name="LAST_COMMIT_MESSAGE" value="mahjong check." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1338,58 +1402,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="185" column="24" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/util/defines/content.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.444443">
-          <caret line="279" column="49" selection-start-line="279" selection-start-column="49" selection-end-line="279" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5185184">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/Player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7546948">
-          <caret line="138" column="27" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0463079">
-          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1402,14 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/service/mahjong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/PlayerPoker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8438967">
@@ -1418,9 +1426,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/Player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3329776">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/util/defines/rule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.48665956">
           <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
@@ -1428,16 +1444,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2230047">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/service/mahjong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="212" column="25" selection-start-line="212" selection-start-column="4" selection-end-line="212" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.8767605">
-          <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="346" column="24" selection-start-line="346" selection-start-column="4" selection-end-line="346" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35344827">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -16,3 +16,17 @@ def mahjong_publish_5202(dynamic_id, proto):
     argument.ParseFromString(proto)
     mahjong.mahjong_publish(dynamic_id, argument.card)
     return None
+
+
+@game_service_handle
+def mahjong_operator_5204(dynamic_id, proto):
+    """
+    user operator
+    :param dynamic_id:
+    :param proto:
+    :return:
+    """
+    argument = game_mahjong_pb2.m_5204_tos()
+    argument.ParseFromString(proto)
+    mahjong.mahjong_operator(dynamic_id, argument.operator, argument.cards)
+    return None

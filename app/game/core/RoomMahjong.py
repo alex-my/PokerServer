@@ -10,6 +10,19 @@ class RoomMahjong(Room):
     def __init__(self):
         super(RoomMahjong, self).__init__()
 
+        self._operators = dict()
+
+    @property
+    def operators(self):
+        return self._operators
+
+    @operators.setter
+    def operators(self, _operators):
+        self._operators = _operators
+
+    def del_operators(self, _player):
+        del self._operators[_player]
+
     def dispatch_all_card(self):
         self.random_cards()
         self.room_player_status(status.PLAYER_STATUS_NORMAL)

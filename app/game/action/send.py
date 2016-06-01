@@ -181,9 +181,11 @@ def send_room_full(dynamic_id_list, statistic_list):
     forward.push_object_game(5105, response.SerializeToString(), dynamic_id_list)
 
 
-def dispatch_mahjong_card(dynamic_id, card):
+def dispatch_mahjong_card(dynamic_id, card, operator_list):
     response = game_mahjong_pb2.m_5201_toc()
     response.card = card
+    for operator in operator_list:
+        response.operator.append(operator)
     func.log_info('[game] 5201 dispatch_mahjong_card dynamic_id: {}, response: {}'.format(
         dynamic_id, response
     ))
@@ -196,9 +198,32 @@ def publish_mahjong_to_self(dynamic_id):
     forward.push_object_game(5202, response.SerializeToString(), [dynamic_id])
 
 
-def publish_mahjong_to_room(player, execute_account_id, cards):
+def publish_mahjong_to_room(player, execute_account_id, card_list, card_id, operator_account_id, operator_list):
     response = game_mahjong_pb2.m_5203_toc()
-    # TODO: publish_mahjong_to_room
+    response.execute_account_id = execute_account_id
+    response.card = card_id
+    for _card_id in card_list:
+        response.card_list.append(_card_id)
+    response.operator_able = player.account_id == operator_account_id
+    for operator in operator_list:
+        response.operator.append(operator)
+    forward.push_object_game(5203, response.SerializeToString(), [player.dynamic_id])
 
+
+def send_mahjong_operator(dynamic_id, execute_account_id, operator, card_list):
+    response = game_mahjong_pb2.m_5204_toc()
+    response.execute_account_id = execute_account_id
+    response.operator = operator
+    for card_id in card_list:
+        response.cards.append(card_id)
+    forward.push_object_game(5204, response.SerializeToString(), [dynamic_id])
+
+
+def send_mahjong_operator_select(dynamic_id, operator_able, operators):
+    response = game_mahjong_pb2.m_5205_toc()
+    response.operator_able = operator_able
+    for operator in operators:
+        response.operator.append(operator)
+    forward.push_object_game(5205, response.SerializeToString(), [dynamic_id])
 
 

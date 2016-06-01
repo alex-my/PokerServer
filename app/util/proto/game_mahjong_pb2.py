@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='game_mahjong.proto',
   package='',
-  serialized_pb=_b('\n\x12game_mahjong.proto\"\x1a\n\nm_5201_toc\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\"\x1a\n\nm_5202_tos\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\"\x0c\n\nm_5202_toc\"r\n\nm_5203_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x0c\n\x04\x63\x61rd\x18\x02 \x02(\r\x12\x11\n\tcard_list\x18\x03 \x02(\r\x12\x15\n\roperator_able\x18\x04 \x02(\x08\x12\x10\n\x08operator\x18\x05 \x03(\r\"-\n\nm_5204_tos\x12\x10\n\x08operator\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"I\n\nm_5204_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\"@\n\nm_5205_toc\x12 \n\nroom_fulls\x18\x01 \x03(\x0b\x32\x0c.p_room_full\x12\x10\n\x08server_t\x18\x02 \x01(\r\"\x7f\n\x0bp_room_full\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04rank\x18\x02 \x02(\r\x12\x14\n\x0cpoint_change\x18\x03 \x02(\x05\x12\x11\n\twin_count\x18\x04 \x02(\r\x12\x12\n\nlose_count\x18\x05 \x02(\r\x12\x11\n\tmax_point\x18\x06 \x02(\r')
+  serialized_pb=_b('\n\x12game_mahjong.proto\",\n\nm_5201_toc\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x03(\r\"\x1a\n\nm_5202_tos\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\"\x0c\n\nm_5202_toc\"r\n\nm_5203_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x0c\n\x04\x63\x61rd\x18\x02 \x02(\r\x12\x11\n\tcard_list\x18\x03 \x03(\r\x12\x15\n\roperator_able\x18\x04 \x02(\x08\x12\x10\n\x08operator\x18\x05 \x03(\r\"-\n\nm_5204_tos\x12\x10\n\x08operator\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"I\n\nm_5204_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\"5\n\nm_5205_toc\x12\x15\n\roperator_able\x18\x01 \x02(\x08\x12\x10\n\x08operator\x18\x02 \x02(\r\"@\n\nm_5206_toc\x12 \n\nroom_fulls\x18\x01 \x03(\x0b\x32\x0c.p_room_full\x12\x10\n\x08server_t\x18\x02 \x01(\r\"\x7f\n\x0bp_room_full\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04rank\x18\x02 \x02(\r\x12\x14\n\x0cpoint_change\x18\x03 \x02(\x05\x12\x11\n\twin_count\x18\x04 \x02(\r\x12\x12\n\nlose_count\x18\x05 \x02(\r\x12\x11\n\tmax_point\x18\x06 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -39,6 +39,13 @@ _M_5201_TOC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='operator', full_name='m_5201_toc.operator', index=1,
+      number=2, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -51,7 +58,7 @@ _M_5201_TOC = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=22,
-  serialized_end=48,
+  serialized_end=66,
 )
 
 
@@ -80,8 +87,8 @@ _M_5202_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=50,
-  serialized_end=76,
+  serialized_start=68,
+  serialized_end=94,
 )
 
 
@@ -103,8 +110,8 @@ _M_5202_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=78,
-  serialized_end=90,
+  serialized_start=96,
+  serialized_end=108,
 )
 
 
@@ -131,8 +138,8 @@ _M_5203_TOC = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='card_list', full_name='m_5203_toc.card_list', index=2,
-      number=3, type=13, cpp_type=3, label=2,
-      has_default_value=False, default_value=0,
+      number=3, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -161,8 +168,8 @@ _M_5203_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=206,
+  serialized_start=110,
+  serialized_end=224,
 )
 
 
@@ -198,8 +205,8 @@ _M_5204_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=208,
-  serialized_end=253,
+  serialized_start=226,
+  serialized_end=271,
 )
 
 
@@ -242,8 +249,8 @@ _M_5204_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=255,
-  serialized_end=328,
+  serialized_start=273,
+  serialized_end=346,
 )
 
 
@@ -255,14 +262,51 @@ _M_5205_TOC = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='room_fulls', full_name='m_5205_toc.room_fulls', index=0,
+      name='operator_able', full_name='m_5205_toc.operator_able', index=0,
+      number=1, type=8, cpp_type=7, label=2,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='operator', full_name='m_5205_toc.operator', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=348,
+  serialized_end=401,
+)
+
+
+_M_5206_TOC = _descriptor.Descriptor(
+  name='m_5206_toc',
+  full_name='m_5206_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='room_fulls', full_name='m_5206_toc.room_fulls', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='server_t', full_name='m_5205_toc.server_t', index=1,
+      name='server_t', full_name='m_5206_toc.server_t', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -279,8 +323,8 @@ _M_5205_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=330,
-  serialized_end=394,
+  serialized_start=403,
+  serialized_end=467,
 )
 
 
@@ -344,11 +388,11 @@ _P_ROOM_FULL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=396,
-  serialized_end=523,
+  serialized_start=469,
+  serialized_end=596,
 )
 
-_M_5205_TOC.fields_by_name['room_fulls'].message_type = _P_ROOM_FULL
+_M_5206_TOC.fields_by_name['room_fulls'].message_type = _P_ROOM_FULL
 DESCRIPTOR.message_types_by_name['m_5201_toc'] = _M_5201_TOC
 DESCRIPTOR.message_types_by_name['m_5202_tos'] = _M_5202_TOS
 DESCRIPTOR.message_types_by_name['m_5202_toc'] = _M_5202_TOC
@@ -356,6 +400,7 @@ DESCRIPTOR.message_types_by_name['m_5203_toc'] = _M_5203_TOC
 DESCRIPTOR.message_types_by_name['m_5204_tos'] = _M_5204_TOS
 DESCRIPTOR.message_types_by_name['m_5204_toc'] = _M_5204_TOC
 DESCRIPTOR.message_types_by_name['m_5205_toc'] = _M_5205_TOC
+DESCRIPTOR.message_types_by_name['m_5206_toc'] = _M_5206_TOC
 DESCRIPTOR.message_types_by_name['p_room_full'] = _P_ROOM_FULL
 
 m_5201_toc = _reflection.GeneratedProtocolMessageType('m_5201_toc', (_message.Message,), dict(
@@ -406,6 +451,13 @@ m_5205_toc = _reflection.GeneratedProtocolMessageType('m_5205_toc', (_message.Me
   # @@protoc_insertion_point(class_scope:m_5205_toc)
   ))
 _sym_db.RegisterMessage(m_5205_toc)
+
+m_5206_toc = _reflection.GeneratedProtocolMessageType('m_5206_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_5206_TOC,
+  __module__ = 'game_mahjong_pb2'
+  # @@protoc_insertion_point(class_scope:m_5206_toc)
+  ))
+_sym_db.RegisterMessage(m_5206_toc)
 
 p_room_full = _reflection.GeneratedProtocolMessageType('p_room_full', (_message.Message,), dict(
   DESCRIPTOR = _P_ROOM_FULL,
