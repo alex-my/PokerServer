@@ -38,7 +38,15 @@ message p_user_room {
     optional string ip = 7;             // IP地址 "120.1.1.2"
     optional int32 point = 8;           // 积分
     optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备
+    repeated uint32 pre_cards = 10;     // 玩家已经出的牌
+    repeated p_cards award_cards = 11;  // 玩家已经获得的牌（比如麻将中已经吃，碰，杠的牌）
 }
+
+// 之前每次出的牌
+message p_cards {
+    repeated uint32 cards = 1;
+}
+
 
 // 广播玩家进入房间消息
 message m_3005_toc {
