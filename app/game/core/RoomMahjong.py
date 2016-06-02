@@ -10,10 +10,8 @@ class RoomMahjong(Room):
         self._player_operators = dict()   # {account_id: [operator, ...], ...}
         self._operators = dict()          # {operator: [[account_id, position], ...], ...}
         self._craps_list = []
-        self._start_position = None
-        self._start_num = True
-        self._end_position = None
-        self._end_num = True
+        self._start_num = 0
+        self._end_num = 0
         self._maker_account_id = None
         self._make_position = 0
 
@@ -61,19 +59,19 @@ class RoomMahjong(Room):
 
     @property
     def mahjong_start(self):
-        return self._start_position, self._start_num
+        return self._start_num
 
     @mahjong_start.setter
-    def mahjong_start(self, start_position, start_cover):
-        self._start_position, self._start_num = start_position, start_cover
+    def mahjong_start(self, _num):
+        self._start_num += _num
 
     @property
     def mahjong_end(self):
-        return self._end_position, self._end_num
+        return self._end_num
 
     @mahjong_end.setter
-    def mahjong_end(self, end_position, end_num):
-        self._end_position, self._end_num = end_position, end_num
+    def mahjong_end(self, _num):
+        self._end_num += _num
 
     @property
     def maker_account_id(self):
@@ -107,10 +105,9 @@ class RoomMahjong(Room):
             'user_id': self._account_id,
             'rounds': self._rounds,
             'max_rounds': self._max_rounds,
-            'mahjong_start_position': self._start_position,
-            'mahjong_start_cover': self._start_num,
-            'mahjong_end_position': self._end_position,
-            'mahjong_end_cover': self._end_num,
+            'mahjong_start_num': self._start_num,
+            'mahjong_end_num': self._end_num,
+            'craps': self._craps_list,
             'maker_account_id': self._maker_account_id
         }
 
@@ -119,10 +116,8 @@ class RoomMahjong(Room):
             player.status = status.PLAYER_STATUS_NORMAL
             player.player_reset()
 
-        self._start_position = None
-        self._start_num = True
-        self._end_position = None
-        self._end_num = True
+        self._start_num = 0
+        self._end_num = 0
 
         self._ready_list = []
         self._execute_account_id = 0

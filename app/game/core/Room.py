@@ -89,6 +89,10 @@ class Room(object):
         return self._config['player_count']
 
     @property
+    def original_count(self):
+        return self._config['original_count']
+
+    @property
     def rounds(self):
         return self._rounds
 

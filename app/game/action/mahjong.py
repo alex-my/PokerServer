@@ -349,26 +349,10 @@ def mahjong_operator_kong(room, player, card_list):
 
 
 def calc_mahjong_next_position(room, from_start):
-    maker_position = room.maker_position
     if from_start:
-        start_position, start_num = room.mahjong_start
-        start_num += 1
-        max_num = 28 if (maker_position % 2) == (start_position % 2) else 26
-        if start_num > max_num:
-            start_num = 1
-            start_position = (room.player_count + start_position - 1) % room.player_count
-            if start_position == 0:
-                start_position = room.player_count
-            room.mahjong_start = start_position, start_num
+        room.mahjong_start = 1
     else:
-        end_position, end_num = room.mahjong_end
-        end_num -= 1
-        if end_num < 0:
-            end_position = (room.player_count + end_position + 1) % room.player_count
-            if end_position == 0:
-                end_position = room.player_count
-            end_num = 28 if (maker_position % 2) == (end_position % 2) else 26
-            room.mahjong_end = end_position, end_num
+        room.mahjong_end = 1
 
 
 def mahjong_close(room, win_account_id):

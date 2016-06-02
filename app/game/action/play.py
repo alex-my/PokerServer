@@ -168,20 +168,19 @@ def dispatch_mahjong_to_room(room):
     craps_1 = func.random_get(1, 6)
     craps_2 = func.random_get(1, 6)
     room.craps = [craps_1, craps_2]
-    maker_player = room.get_player(execute_account_id)
-    start_position, start_num, end_position, end_num = calc_mahjong_position(
-            room.player_count, craps_1, craps_2, maker_player.position)
-    room.mahjong_start = start_position, start_num
-    room.mahjong_end = end_position, end_num
+    # maker_player = room.get_player(execute_account_id)
+    # start_position, start_num, end_position, end_num = calc_mahjong_position(
+    #         room.player_count, craps_1, craps_2, maker_player.position)
+    original_count = room.original_count * room.player_count
+    room.mahjong_start = original_count
+    room.mahjong_end = 1
     if room.rounds <= 1:
         room.maker_account_id = execute_account_id
     mahjong_craps = {
         'maker_account_id': execute_account_id,
         'craps': [craps_1, craps_2],
-        'mahjong_start_position': start_position,
-        'mahjong_start_num': start_num,
-        'mahjong_end_position': end_position,
-        'mahjong_end_num': end_num
+        'mahjong_start_num': room.mahjong_start,
+        'mahjong_end_num': room.mahjong_end
     }
     for player in room.players:
         send.send_mahjong_craps(player.dynamic_id, **mahjong_craps)
@@ -190,10 +189,10 @@ def dispatch_mahjong_to_room(room):
             mahjong.dispatch_mahjong_card(player.dynamic_id, True)
 
 
-def calc_mahjong_position(player_count, craps_1, craps_2, maker_position):
-    select_position = (craps_1 + craps_2) % player_count + (maker_position - 1)
-    start_position, end_position = select_position, select_position
-    min_craps = min(craps_1, craps_2)
-    end_num = 2 * min_craps
-    start_num = end_num + 1
-    return start_position, start_num, end_position, end_num
+# def calc_mahjong_position(player_count, craps_1, craps_2, maker_position):
+#     select_position = (craps_1 + craps_2) % player_count + (maker_position - 1)
+#     start_position, end_position = select_position, select_position
+#     min_craps = min(craps_1, craps_2)
+#     end_num = 2 * min_craps
+#     start_num = end_num + 1
+#     return start_position, start_num, end_position, end_num

@@ -16,10 +16,8 @@
 message m_5201_toc {
     required uint32 maker_account_id = 1;           // 庄家帐号ID 和 m_4003_toc中的相同
     repeated uint32 craps = 2;                      // 多枚色子点数
-    optional uint32 mahjong_start_position = 3;     // 未获取的麻将头部当前位置(1, 2, 3, 4)
-    optional uint32 mahjong_start_num = 4;          // 未获取的麻将头部第几张牌
-    optional uint32 mahjong_end_position = 5;       // 未获取的麻将尾部当前位置(1, 2, 3, 4)
-    optional uint32 mahjong_end_num = 6;            // 未获取的麻将尾部第几张牌
+    optional uint32 mahjong_start_num = 3;          // 拿牌第几张
+    optional uint32 mahjong_end_num = 4;            // 补牌第几章
 }
 
 // 拿牌

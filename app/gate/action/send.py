@@ -144,12 +144,12 @@ def enter_mahjong_room(dynamic_id, room_id, room_data):
         response.user_id = room_data['user_id']
         response.rounds = room_data['rounds']
         response.max_rounds = room_data['max_rounds']
-
-        response.mahjong_start_position = room_data.get('mahjong_start_position', 0)
-        response.mahjong_start_num = room_data.get('mahjong_start_num', 0)
-        response.mahjong_end_position = room_data.get('mahjong_end_position', 0)
-        response.mahjong_end_num = room_data.get('mahjong_end_num', 0)
+        craps = room_data.get('craps', [])
+        for crap in craps:
+            response.craps.append(crap)
         response.maker_account_id = room_data.get('maker_account_id', 0)
+        response.mahjong_start_num = room_data.get('mahjong_start_num', 0)
+        response.mahjong_end_num = room_data.get('mahjong_end_num', 0)
 
     func.log_info('[gate] 3003 response: {}'.format(response))
     forward.push_object_gate(3003, response.SerializeToString(), [dynamic_id])

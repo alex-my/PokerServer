@@ -187,9 +187,7 @@ def send_mahjong_craps(dynamic_id, **kwargs):
     craps = kwargs.get('craps', [])
     for crap in craps:
         response.craps.append(crap)
-    response.mahjong_start_position = kwargs.get('mahjong_start_position', 0)
     response.mahjong_start_num = kwargs.get('mahjong_start_num', 0)
-    response.mahjong_end_position = kwargs.get('mahjong_end_position', 0)
     response.mahjong_end_num = kwargs.get('mahjong_end_num', 0)
     func.log_info('[game] 5201 send_mahjong_craps dynamic_id: {}, response: {}'.format(
         dynamic_id, response
