@@ -69,7 +69,7 @@ def create_room(dynamic_id, room_id, room_type, rounds):
     forward.push_object_gate(3001, response.SerializeToString(), [dynamic_id])
 
 
-def enter_room(dynamic_id, room_id, room_data):
+def enter_poker_room(dynamic_id, room_id, room_data):
     """
     enter/resume room
     :param dynamic_id:
@@ -105,3 +105,51 @@ def enter_room(dynamic_id, room_id, room_data):
     func.log_info('[gate] 3002 response: {}'.format(response))
     forward.push_object_gate(3002, response.SerializeToString(), [dynamic_id])
 
+
+def enter_mahjong_room(dynamic_id, room_id, room_data):
+    """
+    enter/resume room
+    :param dynamic_id:
+    :param room_id:
+    :param room_data:
+    :return:
+    """
+    response = room_pb2.m_3003_toc()
+    response.room_id = room_id
+    if room_data:
+        for user_info in room_data['user_room']:
+            user_room = response.user_room.add()
+            user_room.position = user_info['position']
+            user_room.account_id = user_info['account_id']
+            user_room.name = user_info['name']
+            user_room.head_frame = user_info['head_frame']
+            user_room.head_icon = user_info['head_icon']
+            user_room.sex = user_info['sex']
+            user_room.ip = user_info['ip']
+            user_room.point = user_info['point']
+            user_room.status = user_info['status']
+            for card_id in user_info.get('pre_cards', []):
+                user_room.pre_cards.append(card_id)
+            for card_list in user_info.get('award_cards', []):
+                award_cards = user_room.award_cards.add()
+                for card_id in card_list:
+                    award_cards.append(card_id)
+
+        for card_id in room_data['user_cards']:
+            response.user_cards.append(card_id)
+        response.execute_account_id = room_data['execute_account_id']
+        response.last_account_id = room_data['last_account_id']
+        for card_id in room_data['last_cards']:
+            response.last_cards.append(card_id)
+        response.user_id = room_data['user_id']
+        response.rounds = room_data['rounds']
+        response.max_rounds = room_data['max_rounds']
+
+        response.mahjong_start_position = room_data.get('mahjong_start_position', 0)
+        response.mahjong_start_cover = room_data.get('mahjong_start_cover', 0)
+        response.mahjong_end_position = room_data.get('mahjong_end_position', 0)
+        response.mahjong_end_cover = room_data.get('mahjong_end_cover', 0)
+        response.maker_account_id = room_data.get('maker_account_id', 0)
+
+    func.log_info('[gate] 3003 response: {}'.format(response))
+    forward.push_object_gate(3003, response.SerializeToString(), [dynamic_id])

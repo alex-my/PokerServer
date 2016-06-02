@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='room.proto',
   package='',
-  serialized_pb=_b('\n\nroom.proto\"/\n\nm_3001_tos\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0e\n\x06rounds\x18\x02 \x02(\r\"@\n\nm_3001_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x0e\n\x06rounds\x18\x03 \x01(\r\"\x1d\n\nm_3002_tos\x12\x0f\n\x07room_id\x18\x01 \x02(\r\"\xd0\x01\n\nm_3002_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x1f\n\tuser_room\x18\x02 \x03(\x0b\x32\x0c.p_user_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\"\xd2\x01\n\x0bp_user_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\x12\x11\n\tpre_cards\x18\n \x03(\r\x12\x1d\n\x0b\x61ward_cards\x18\x0b \x03(\x0b\x32\x08.p_cards\"\x18\n\x07p_cards\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"-\n\nm_3005_toc\x12\x1f\n\tuser_room\x18\x01 \x02(\x0b\x32\x0c.p_user_room\" \n\nm_3006_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\"\x1d\n\nm_3101_tos\x12\x0f\n\x07message\x18\x01 \x02(\r\"\x1d\n\nm_3101_toc\x12\x0f\n\x07message\x18\x01 \x02(\r\"1\n\nm_3102_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07message\x18\x02 \x02(\r\"\x1f\n\nm_3103_tos\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"\x1f\n\nm_3103_toc\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"3\n\nm_3104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x11\n\tvoice_url\x18\x02 \x02(\t')
+  serialized_pb=_b('\n\nroom.proto\"/\n\nm_3001_tos\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0e\n\x06rounds\x18\x02 \x02(\r\"@\n\nm_3001_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x0e\n\x06rounds\x18\x03 \x01(\r\"\x1d\n\nm_3002_tos\x12\x0f\n\x07room_id\x18\x01 \x02(\r\"\xd0\x01\n\nm_3002_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x1f\n\tuser_room\x18\x02 \x03(\x0b\x32\x0c.p_user_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\"\xa0\x01\n\x0bp_user_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\"\xe4\x02\n\nm_3003_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12#\n\tuser_room\x18\x02 \x03(\x0b\x32\x10.p_user_mah_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\x12\x1e\n\x16mahjong_start_position\x18\n \x01(\r\x12\x1b\n\x13mahjong_start_cover\x18\x0b \x01(\x08\x12\x1c\n\x14mahjong_end_position\x18\x0c \x01(\r\x12\x19\n\x11mahjong_end_cover\x18\r \x01(\r\x12\x18\n\x10maker_account_id\x18\x0e \x01(\r\"\xd6\x01\n\x0fp_user_mah_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\x12\x11\n\tpre_cards\x18\n \x03(\r\x12\x1d\n\x0b\x61ward_cards\x18\x0b \x03(\x0b\x32\x08.p_cards\"\x18\n\x07p_cards\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"-\n\nm_3005_toc\x12\x1f\n\tuser_room\x18\x01 \x02(\x0b\x32\x0c.p_user_room\" \n\nm_3006_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\"\x1d\n\nm_3101_tos\x12\x0f\n\x07message\x18\x01 \x02(\r\"\x1d\n\nm_3101_toc\x12\x0f\n\x07message\x18\x01 \x02(\r\"1\n\nm_3102_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07message\x18\x02 \x02(\r\"\x1f\n\nm_3103_tos\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"\x1f\n\nm_3103_toc\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"3\n\nm_3104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x11\n\tvoice_url\x18\x02 \x02(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -292,15 +292,222 @@ _P_USER_ROOM = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=372,
+  serialized_end=532,
+)
+
+
+_M_3003_TOC = _descriptor.Descriptor(
+  name='m_3003_toc',
+  full_name='m_3003_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
     _descriptor.FieldDescriptor(
-      name='pre_cards', full_name='p_user_room.pre_cards', index=9,
+      name='room_id', full_name='m_3003_toc.room_id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='user_room', full_name='m_3003_toc.user_room', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='user_cards', full_name='m_3003_toc.user_cards', index=2,
+      number=3, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='execute_account_id', full_name='m_3003_toc.execute_account_id', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='last_account_id', full_name='m_3003_toc.last_account_id', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='last_cards', full_name='m_3003_toc.last_cards', index=5,
+      number=6, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='user_id', full_name='m_3003_toc.user_id', index=6,
+      number=7, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rounds', full_name='m_3003_toc.rounds', index=7,
+      number=8, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='max_rounds', full_name='m_3003_toc.max_rounds', index=8,
+      number=9, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mahjong_start_position', full_name='m_3003_toc.mahjong_start_position', index=9,
+      number=10, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mahjong_start_cover', full_name='m_3003_toc.mahjong_start_cover', index=10,
+      number=11, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mahjong_end_position', full_name='m_3003_toc.mahjong_end_position', index=11,
+      number=12, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mahjong_end_cover', full_name='m_3003_toc.mahjong_end_cover', index=12,
+      number=13, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='maker_account_id', full_name='m_3003_toc.maker_account_id', index=13,
+      number=14, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=535,
+  serialized_end=891,
+)
+
+
+_P_USER_MAH_ROOM = _descriptor.Descriptor(
+  name='p_user_mah_room',
+  full_name='p_user_mah_room',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='position', full_name='p_user_mah_room.position', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='account_id', full_name='p_user_mah_room.account_id', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='p_user_mah_room.name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='head_frame', full_name='p_user_mah_room.head_frame', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='head_icon', full_name='p_user_mah_room.head_icon', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sex', full_name='p_user_mah_room.sex', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ip', full_name='p_user_mah_room.ip', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='point', full_name='p_user_mah_room.point', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='p_user_mah_room.status', index=8,
+      number=9, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pre_cards', full_name='p_user_mah_room.pre_cards', index=9,
       number=10, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='award_cards', full_name='p_user_room.award_cards', index=10,
+      name='award_cards', full_name='p_user_mah_room.award_cards', index=10,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -317,8 +524,8 @@ _P_USER_ROOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=372,
-  serialized_end=582,
+  serialized_start=894,
+  serialized_end=1108,
 )
 
 
@@ -347,8 +554,8 @@ _P_CARDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=584,
-  serialized_end=608,
+  serialized_start=1110,
+  serialized_end=1134,
 )
 
 
@@ -377,8 +584,8 @@ _M_3005_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=610,
-  serialized_end=655,
+  serialized_start=1136,
+  serialized_end=1181,
 )
 
 
@@ -407,8 +614,8 @@ _M_3006_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=657,
-  serialized_end=689,
+  serialized_start=1183,
+  serialized_end=1215,
 )
 
 
@@ -437,8 +644,8 @@ _M_3101_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=691,
-  serialized_end=720,
+  serialized_start=1217,
+  serialized_end=1246,
 )
 
 
@@ -467,8 +674,8 @@ _M_3101_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=722,
-  serialized_end=751,
+  serialized_start=1248,
+  serialized_end=1277,
 )
 
 
@@ -504,8 +711,8 @@ _M_3102_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=753,
-  serialized_end=802,
+  serialized_start=1279,
+  serialized_end=1328,
 )
 
 
@@ -534,8 +741,8 @@ _M_3103_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=804,
-  serialized_end=835,
+  serialized_start=1330,
+  serialized_end=1361,
 )
 
 
@@ -564,8 +771,8 @@ _M_3103_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=837,
-  serialized_end=868,
+  serialized_start=1363,
+  serialized_end=1394,
 )
 
 
@@ -601,18 +808,21 @@ _M_3104_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=870,
-  serialized_end=921,
+  serialized_start=1396,
+  serialized_end=1447,
 )
 
 _M_3002_TOC.fields_by_name['user_room'].message_type = _P_USER_ROOM
-_P_USER_ROOM.fields_by_name['award_cards'].message_type = _P_CARDS
+_M_3003_TOC.fields_by_name['user_room'].message_type = _P_USER_MAH_ROOM
+_P_USER_MAH_ROOM.fields_by_name['award_cards'].message_type = _P_CARDS
 _M_3005_TOC.fields_by_name['user_room'].message_type = _P_USER_ROOM
 DESCRIPTOR.message_types_by_name['m_3001_tos'] = _M_3001_TOS
 DESCRIPTOR.message_types_by_name['m_3001_toc'] = _M_3001_TOC
 DESCRIPTOR.message_types_by_name['m_3002_tos'] = _M_3002_TOS
 DESCRIPTOR.message_types_by_name['m_3002_toc'] = _M_3002_TOC
 DESCRIPTOR.message_types_by_name['p_user_room'] = _P_USER_ROOM
+DESCRIPTOR.message_types_by_name['m_3003_toc'] = _M_3003_TOC
+DESCRIPTOR.message_types_by_name['p_user_mah_room'] = _P_USER_MAH_ROOM
 DESCRIPTOR.message_types_by_name['p_cards'] = _P_CARDS
 DESCRIPTOR.message_types_by_name['m_3005_toc'] = _M_3005_TOC
 DESCRIPTOR.message_types_by_name['m_3006_toc'] = _M_3006_TOC
@@ -657,6 +867,20 @@ p_user_room = _reflection.GeneratedProtocolMessageType('p_user_room', (_message.
   # @@protoc_insertion_point(class_scope:p_user_room)
   ))
 _sym_db.RegisterMessage(p_user_room)
+
+m_3003_toc = _reflection.GeneratedProtocolMessageType('m_3003_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_3003_TOC,
+  __module__ = 'room_pb2'
+  # @@protoc_insertion_point(class_scope:m_3003_toc)
+  ))
+_sym_db.RegisterMessage(m_3003_toc)
+
+p_user_mah_room = _reflection.GeneratedProtocolMessageType('p_user_mah_room', (_message.Message,), dict(
+  DESCRIPTOR = _P_USER_MAH_ROOM,
+  __module__ = 'room_pb2'
+  # @@protoc_insertion_point(class_scope:p_user_mah_room)
+  ))
+_sym_db.RegisterMessage(p_user_mah_room)
 
 p_cards = _reflection.GeneratedProtocolMessageType('p_cards', (_message.Message,), dict(
   DESCRIPTOR = _P_CARDS,

@@ -1,8 +1,5 @@
 # coding:utf8
 from app.game.core.Room import Room
-from app.game.action import send
-from app.util.defines import status
-from app.util.common import func
 
 
 class RoomPoker(Room):
@@ -10,12 +7,20 @@ class RoomPoker(Room):
     def __init__(self):
         super(RoomPoker, self).__init__()
 
-    def dispatch_all_card(self):
-        self.random_cards()
-        self.room_player_status(status.PLAYER_STATUS_NORMAL)
-        execute_account_id = self.execute_account_id
-        func.log_info('[game] RoomPoker dispatch_all_card room_account_id_list: {}'.format(self.room_account_id_list))
-        for account_id in self.room_account_id_list:
-            player = self.get_player(account_id)
-            send.player_dispatch_cards(execute_account_id, player)
+    def get_room_data(self, account_id):
+        user_list = []
+        for _player in self._players.values():
+            user_list.append(_player.get_data())
+        player = self.get_player(account_id)
+        return {
+            'user_room': user_list,
+            'user_cards': player.card_list,
+            'execute_account_id': self._execute_account_id,
+            'last_account_id': self._last_account_id,
+            'last_cards': self._last_cards,
+            'user_id': self._account_id,
+            'rounds': self._rounds,
+            'max_rounds': self._max_rounds
+        }
+
 

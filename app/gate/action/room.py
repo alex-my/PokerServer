@@ -6,7 +6,7 @@ from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.gate.core.RoomProxy import RoomProxy
 from app.gate.action import send
 from app.util.common import func
-from app.util.defines import content, dbname
+from app.util.defines import content, dbname, rule
 from app.util.driver import dbexecute
 
 
@@ -133,7 +133,10 @@ def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data):
     user.room_id = room.room_id
     user.room_type = room.room_type
     room.account_id_list = user.account_id
-    send.enter_room(user.dynamic_id, room_id, room_data)
+    if room.room_type == rule.GAME_TYPE_PDK:
+        send.enter_poker_room(user.dynamic_id, room_id, room_data)
+    elif room.room_type == rule.GAME_TYPE_ZZMJ:
+        send.enter_mahjong_room(user.dynamic_id, room_id, room_data)
 
 
 def remove_room(room_id):

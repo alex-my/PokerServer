@@ -3,17 +3,12 @@ import copy
 import operator
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, play
+from app.game.action import send
 from app.util.common import func
 from app.util.defines import content, games
 
 
 def dispatch_mahjong_card(dynamic_id):
-    """
-    玩家获取一张牌
-    :param dynamic_id:
-    :return:
-    """
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
@@ -36,6 +31,9 @@ def dispatch_mahjong_card_account(account_id, dynamic_id):
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
         return
     card_id = room.pop_card()
+    func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}, card_name: {}'.format(
+        account_id, card_id, room.get_mahjong_name(card_id)
+    ))
     operator_list = []
     card_list = player.card_list
     if check_mahjong_drawn(card_id, card_list):
@@ -47,12 +45,6 @@ def dispatch_mahjong_card_account(account_id, dynamic_id):
 
 
 def mahjong_publish(dynamic_id, card_id):
-    """
-    玩家出牌
-    :param dynamic_id:
-    :param card_id:
-    :return:
-    """
     if not isinstance(card_id, int) or card_id <= 0 or card_id > 108:
         send.system_notice(dynamic_id, content.SYSTEM_ARGUMENT_ERROR)
         return
@@ -80,8 +72,8 @@ def mahjong_publish(dynamic_id, card_id):
         send.system_notice(dynamic_id, content.PLAY_CARD_UN_VALID)
         return
 
-    player_operators = dict()
-    operators = dict()
+    player_operators = dict()   # {account_id: [operator, ...], ...}
+    operators = dict()          # {operator: [account_id, position], ...}
 
     def _add_operator_log(_account_id, _position, _operator, ops):
         _l = ops.setdefault(_operator, [])
@@ -104,11 +96,10 @@ def mahjong_publish(dynamic_id, card_id):
         if check_mahjong_light_kong(card_id, _player_card_list) or check_mahjong_pong_kong(card_id, _player):
             operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
-        player_operators[_player] = operator_list
+        player_operators[_player.account_id] = operator_list
 
-    room.calc_next_execute_account_id()
     room.record_last(account_id, card_id)
-    room.operators = player_operators
+    room.operators = player_operators, operators
     # select operator_account_id
     operator_account_id = select_mahjong_operator_account_id(operators, account_id, player.position)
     send.publish_mahjong_to_self(dynamic_id)
@@ -118,13 +109,6 @@ def mahjong_publish(dynamic_id, card_id):
 
 
 def mahjong_operator(dynamic_id, operator, cards):
-    """
-    玩家操作
-    :param dynamic_id:
-    :param operator:
-    :param cards:
-    :return:
-    """
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)

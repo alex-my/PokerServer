@@ -2,9 +2,9 @@
 from app.game.gameservice import request_gate_node
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send
+from app.game.action import send, mahjong
 from app.util.common import func
-from app.util.defines import content, operators, status
+from app.util.defines import content, operators, rule, status
 
 
 def user_operator(dynamic_id, operator):
@@ -46,7 +46,7 @@ def user_ready(dynamic_id, operator):
         # 判断是否由玩家切牌
         if check_switch(room):
             switch_cards(room)
-        room.dispatch_all_card()
+        dispatch_cards_to_room(room)
     notice_all_room_user_operator(room, account_id, operator)
     return True
 
@@ -142,3 +142,51 @@ def remove_room(room):
     # 从RoomManager移除房间信息
     RoomManager().drop_room(room)
 
+
+def dispatch_cards_to_room(room):
+    if room.room_type == rule.GAME_TYPE_PDK:
+        dispatch_poker_to_room(room)
+    elif room.room_type == rule.GAME_TYPE_ZZMJ:
+        dispatch_mahjong_to_room(room)
+
+
+def dispatch_poker_to_room(room):
+    func.log_info('[game] dispatch_poker_to_room')
+    room.random_cards()
+    room.room_player_status(status.PLAYER_STATUS_NORMAL)
+    execute_account_id = room.execute_account_id
+    for player in room.players:
+        send.player_dispatch_cards(execute_account_id, player)
+
+
+def dispatch_mahjong_to_room(room):
+    func.log_info('[game] dispatch_mahjong_to_room')
+    room.random_cards()
+    room.room_player_status(status.PLAYER_STATUS_NORMAL)
+    execute_account_id = room.execute_account_id
+    craps_1 = func.random_get(1, 6)
+    craps_2 = func.random_get(1, 6)
+    room.craps = [craps_1, craps_2]
+    maker_player = room.get_player(execute_account_id)
+    start_position, start_cover, end_position, end_cover = calc_mahjong_position(
+            craps_1 + craps_2, maker_player.position)
+    room.mahjong_start = start_position, start_cover
+    room.mahjong_end = end_position, end_cover
+    mahjong_craps = {
+        'maker_account_id': execute_account_id,
+        'craps': [craps_1, craps_2],
+        'mahjong_start_position': start_position,
+        'mahjong_start_cover': start_cover,
+        'mahjong_end_position': end_position,
+        'mahjong_end_cover': end_cover
+    }
+    for player in room.players:
+        send.send_mahjong_craps(player.dynamic_id, **mahjong_craps)
+        send.player_dispatch_cards(execute_account_id, player)
+        if player.account_id == execute_account_id:
+            mahjong.dispatch_mahjong_card(player.dynamic_id)
+
+
+def calc_mahjong_position(craps_point, maker_position):
+    # TODO: calc_mahjong_position
+    return 0, 0, 0, 0

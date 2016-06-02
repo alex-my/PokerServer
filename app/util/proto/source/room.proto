@@ -16,6 +16,7 @@ message m_3002_tos {
     required uint32 room_id = 1;            // room id
 }
 
+// 扑克牌
 message m_3002_toc {
     required uint32 room_id = 1;            // room id
     repeated p_user_room user_room = 2;     // 房间中的玩家信息
@@ -38,6 +39,36 @@ message p_user_room {
     optional string ip = 7;             // IP地址 "120.1.1.2"
     optional int32 point = 8;           // 积分
     optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备
+}
+
+// 麻将
+message m_3003_toc {
+    required uint32 room_id = 1;            // room id
+    repeated p_user_mah_room user_room = 2; // 房间中的玩家信息
+    repeated uint32 user_cards = 3;         // 自己手中拥有的牌
+    optional uint32 execute_account_id = 4; // 当前出牌玩家
+    optional uint32 last_account_id = 5;    // 最后一次出牌的玩家
+    repeated uint32 last_cards = 6;         // 最后一次出的牌
+    required uint32 user_id = 7;            // 房主ID
+    optional uint32 rounds = 8;             // 房间当前回合数
+    optional uint32 max_rounds = 9;         // 房间允许回合数
+    optional uint32 mahjong_start_position = 10;    // 未获取的麻将头部当前位置
+    optional bool   mahjong_start_cover = 11;       // 未获取的麻将头部是否重叠(true: 重叠,此位置有两个麻将)
+    optional uint32 mahjong_end_position = 12;      // 未获取的麻将尾部当前位置
+    optional uint32 mahjong_end_cover = 13;         // 未获取的麻将尾部是否重叠(true: 重叠,此位置有两个麻将)
+    optional uint32 maker_account_id = 14;          // 庄家账号ID
+}
+
+message p_user_mah_room {
+    required uint32 position = 1;       // 位置 1, 2, 3, ...
+    required uint32 account_id = 2;     // 账号ID
+    optional string name = 3;           // 玩家名
+    optional uint32 head_frame = 4;     // 头像框
+    optional uint32 head_icon = 5;      // 头像
+    optional uint32 sex = 6;            // 性别
+    optional string ip = 7;             // IP地址 "120.1.1.2"
+    optional int32 point = 8;           // 积分
+    optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备
     repeated uint32 pre_cards = 10;     // 玩家已经出的牌
     repeated p_cards award_cards = 11;  // 玩家已经获得的牌（比如麻将中已经吃，碰，杠的牌）
 }
@@ -46,7 +77,6 @@ message p_user_room {
 message p_cards {
     repeated uint32 cards = 1;
 }
-
 
 // 广播玩家进入房间消息
 message m_3005_toc {
