@@ -230,16 +230,16 @@ def publish_mahjong_to_room(player, execute_account_id, card_list, card_id, oper
     forward.push_object_game(5204, response.SerializeToString(), [player.dynamic_id])
 
 
-def send_mahjong_operator(dynamic_id, execute_account_id, operator, card_list):
+def send_mahjong_operator(dynamic_id_list, execute_account_id, operator, card_list):
     response = game_mahjong_pb2.m_5205_toc()
     response.execute_account_id = execute_account_id
     response.operator = operator
     for card_id in card_list:
         response.cards.append(card_id)
-    func.log_info('[game] 5205 send_mahjong_operator dynamic_id: {}, response: {}'.format(
-        dynamic_id, response
+    func.log_info('[game] 5205 send_mahjong_operator dynamic_id_list: {}, response: {}'.format(
+            dynamic_id_list, response
     ))
-    forward.push_object_game(5205, response.SerializeToString(), [dynamic_id])
+    forward.push_object_game(5205, response.SerializeToString(), dynamic_id_list)
 
 
 def send_mahjong_operator_select(dynamic_id, operator_able, operators):

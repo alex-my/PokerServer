@@ -30,8 +30,6 @@ class Room(object):
         self._rounds = 1                # 房间回合数
         self._cards = []                # 所有牌
 
-        self._switch_account_id = 0     # 切牌的帐号
-
     def init(self, result):
         self._room_id = result.get('room_id')
         self._room_type = result.get('room_type')
@@ -98,14 +96,6 @@ class Room(object):
     def max_rounds(self):
         return self._max_rounds
 
-    @property
-    def switch_account_id(self):
-        return self._switch_account_id
-
-    @switch_account_id.setter
-    def switch_account_id(self, _id):
-        self._switch_account_id = _id
-
     def is_room_full(self, account_id):
         if len(self._player_list) >= self._config['player_count']:
             for _account_id in self._player_list:
@@ -169,7 +159,6 @@ class Room(object):
         unit_count, player_count = self._config['unit_count'], self._config['player_count']
         self._cards = range(1, unit_count + 1)
         random.shuffle(self._cards)
-        self._execute_account_id = self.get_original_execute()
         # dispatch to all player
         original_count = self._config['original_count']
         dispatch_list = []
@@ -185,9 +174,6 @@ class Room(object):
     def room_player_status(self, _status):
         for player in self._players.values():
             player.status = _status
-
-    def get_original_execute(self):
-        return self._pre_win_account_id if self._pre_win_account_id > 0 else self._ready_list[0]
 
     def calc_next_execute_account_id(self):
         cur_id = self._execute_account_id
@@ -215,43 +201,6 @@ class Room(object):
                 continue
             dynamic_id_list.append(dynamic_id)
         return dynamic_id_list
-
-    def room_point_change(self):
-        unit_count, player_count = self._config['unit_count'], self._config['player_count']
-        card_full_count = unit_count / player_count
-
-        all_player_info = dict()
-        win_player = None
-        win_point = 0
-        for _account_id in self._player_list:
-            _player = self.get_player(_account_id)
-            left_card_count = _player.get_card_count()
-            all_player_info[_player.account_id] = left_card_count
-            if _account_id != self._pre_win_account_id:
-                if left_card_count >= card_full_count:
-                    _player.point_change(-card_full_count * 2)
-                    win_point += card_full_count * 2
-                elif left_card_count > 1:
-                    _player.point_change(-left_card_count)
-                    win_point += left_card_count
-                _player.lose_count = 1
-            else:
-                win_player = _player
-                _player.win_count = 1
-        if win_player and win_point > 0:
-            win_player.point_change(win_point)
-        return all_player_info
-
-    def room_reset(self):
-        for player in self._players.values():
-            player.status = status.PLAYER_STATUS_NORMAL
-            player.player_reset()
-        self._ready_list = []
-        self._execute_account_id = 0
-        self._last_account_id = 0
-        self._last_cards = []
-        self._switch_account_id = 0
-        self._rounds += 1
 
     def is_full_rounds(self):
         return self._rounds > self._max_rounds

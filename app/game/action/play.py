@@ -154,7 +154,8 @@ def dispatch_poker_to_room(room):
     func.log_info('[game] dispatch_poker_to_room')
     room.random_cards()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
-    execute_account_id = room.execute_account_id
+    execute_account_id = room.get_original_execute()
+    room.execute_account_id = execute_account_id
     for player in room.players:
         send.player_dispatch_cards(execute_account_id, player)
 
@@ -162,8 +163,8 @@ def dispatch_poker_to_room(room):
 def dispatch_mahjong_to_room(room):
     func.log_info('[game] dispatch_mahjong_to_room')
     room.random_cards()
+    execute_account_id = room.get_original_execute()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
-    execute_account_id = room.execute_account_id
     craps_1 = func.random_get(1, 6)
     craps_2 = func.random_get(1, 6)
     room.craps = [craps_1, craps_2]
@@ -172,6 +173,8 @@ def dispatch_mahjong_to_room(room):
             craps_1 + craps_2, maker_player.position)
     room.mahjong_start = start_position, start_cover
     room.mahjong_end = end_position, end_cover
+    if room.rounds <= 1:
+        room.maker_account_id = execute_account_id
     mahjong_craps = {
         'maker_account_id': execute_account_id,
         'craps': [craps_1, craps_2],
