@@ -33,7 +33,7 @@ ROOM_TYPE_EXIST = u'已创建该类型的房间，房间号: {}'
 ROOM_UN_FIND = u'房间未找到'
 ROOM_UN_ENTER = u'尚未进入房间'
 ROOM_FULL_USER = u'房间已满'
-ROOM_CLOSE_OWNER = u'只有房主才可以解散房间'
+ROOM_CLOSE_OWNER = u'只有房主才可以发起解散房间动作'
 ROOM_UN_FIND_ROUNDS = u'没有进行{}局的房间'
 
 PLAY_UN_TURN = u'尚未轮到你'
