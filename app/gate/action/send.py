@@ -146,9 +146,9 @@ def enter_mahjong_room(dynamic_id, room_id, room_data):
         response.max_rounds = room_data['max_rounds']
 
         response.mahjong_start_position = room_data.get('mahjong_start_position', 0)
-        response.mahjong_start_cover = room_data.get('mahjong_start_cover', 0)
+        response.mahjong_start_num = room_data.get('mahjong_start_num', 0)
         response.mahjong_end_position = room_data.get('mahjong_end_position', 0)
-        response.mahjong_end_cover = room_data.get('mahjong_end_cover', 0)
+        response.mahjong_end_num = room_data.get('mahjong_end_num', 0)
         response.maker_account_id = room_data.get('maker_account_id', 0)
 
     func.log_info('[gate] 3003 response: {}'.format(response))

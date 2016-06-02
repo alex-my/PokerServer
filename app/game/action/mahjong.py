@@ -8,15 +8,15 @@ from app.util.common import func
 from app.util.defines import content, games
 
 
-def dispatch_mahjong_card(dynamic_id):
+def dispatch_mahjong_card(dynamic_id, from_start):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
         return
-    dispatch_mahjong_card_account(account_id, dynamic_id)
+    dispatch_mahjong_card_account(account_id, dynamic_id, from_start)
 
 
-def dispatch_mahjong_card_account(account_id, dynamic_id):
+def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)
     if not room_id:
@@ -34,7 +34,7 @@ def dispatch_mahjong_card_account(account_id, dynamic_id):
     func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}, card_name: {}'.format(
         account_id, card_id, room.get_mahjong_name(card_id)
     ))
-    # TODO: start_position, start_over, end_position, end_over
+    calc_mahjong_next_position(room, from_start)
     operator_list = []
     card_list = player.card_list
     if check_mahjong_drawn(card_id, card_list):
@@ -144,7 +144,6 @@ def mahjong_operator(dynamic_id, player_operator, cards):
 
 
 def select_mahjong_operator_account_id(operators, execute_account_id, execute_position):
-    # TODO: select_mahjong_operator_account_id
     if games.MAH_OPERATOR_WIN in operators:
         operator_account_list = operators[games.MAH_OPERATOR_WIN]
     elif games.MAH_OPERATOR_KONG_LIGHT in operators:
@@ -326,7 +325,7 @@ def mahjong_operator_none(room, player):
     else:
         room.calc_next_execute_account_id()
         _player = PlayerManager().query_dynamic_id(room.execute_account_id)
-        dispatch_mahjong_card_account(_player.account_id, _player.dynamic_id)
+        dispatch_mahjong_card_account(_player.account_id, _player.dynamic_id, True)
         send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
 
 
@@ -345,8 +344,31 @@ def mahjong_operator_kong(room, player, card_list):
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.send_mahjong_operator(dynamic_id_list, player.account_id, games.MAH_OPERATOR_PONG, card_list)
     room.execute_account_id = player.account_id     # 需要补一张牌
-    dispatch_mahjong_card_account(player.account_id, player.dynamic_id)
+    dispatch_mahjong_card_account(player.account_id, player.dynamic_id, False)
     del room.operators
+
+
+def calc_mahjong_next_position(room, from_start):
+    maker_position = room.maker_position
+    if from_start:
+        start_position, start_num = room.mahjong_start
+        start_num += 1
+        max_num = 28 if (maker_position % 2) == (start_position % 2) else 26
+        if start_num > max_num:
+            start_num = 1
+            start_position = (room.player_count + start_position - 1) % room.player_count
+            if start_position == 0:
+                start_position = room.player_count
+            room.mahjong_start = start_position, start_num
+    else:
+        end_position, end_num = room.mahjong_end
+        end_num -= 1
+        if end_num < 0:
+            end_position = (room.player_count + end_position + 1) % room.player_count
+            if end_position == 0:
+                end_position = room.player_count
+            end_num = 28 if (maker_position % 2) == (end_position % 2) else 26
+            room.mahjong_end = end_position, end_num
 
 
 def mahjong_close(room, win_account_id):

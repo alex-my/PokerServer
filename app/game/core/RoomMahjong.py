@@ -11,16 +11,17 @@ class RoomMahjong(Room):
         self._operators = dict()          # {operator: [[account_id, position], ...], ...}
         self._craps_list = []
         self._start_position = None
-        self._start_cover = True
+        self._start_num = True
         self._end_position = None
-        self._end_cover = True
+        self._end_num = True
         self._maker_account_id = None
+        self._make_position = 0
 
     def get_original_execute(self):
         self._execute_account_id = self._maker_account_id
         self.calc_next_execute_account_id()
-        self._maker_account_id = self.execute_account_id
-        return self._maker_account_id
+        self.maker_account_id = self.execute_account_id
+        return self.execute_account_id
 
     @property
     def operators(self):
@@ -30,7 +31,7 @@ class RoomMahjong(Room):
     def operators(self, _player_operators, _operators):
         self._player_operators, self._operators = _player_operators, _operators
 
-    @property.deleter
+    @operators.deleter
     def operators(self):
         self._player_operators, self._operators = dict(), dict()
 
@@ -60,19 +61,19 @@ class RoomMahjong(Room):
 
     @property
     def mahjong_start(self):
-        return self._start_position, self._start_cover
+        return self._start_position, self._start_num
 
     @mahjong_start.setter
     def mahjong_start(self, start_position, start_cover):
-        self._start_position, self._start_cover = start_position, start_cover
+        self._start_position, self._start_num = start_position, start_cover
 
     @property
     def mahjong_end(self):
-        return self._end_position, self._end_cover
+        return self._end_position, self._end_num
 
     @mahjong_end.setter
-    def mahjong_end(self, end_position, end_cover):
-        self._end_position, self._end_cover = end_position, end_cover
+    def mahjong_end(self, end_position, end_num):
+        self._end_position, self._end_num = end_position, end_num
 
     @property
     def maker_account_id(self):
@@ -81,6 +82,12 @@ class RoomMahjong(Room):
     @maker_account_id.setter
     def maker_account_id(self, _account_id):
         self._maker_account_id = _account_id
+        player = self.get_player(_account_id)
+        self._make_position = player.position
+
+    @property
+    def maker_position(self):
+        return self._make_position
 
     @staticmethod
     def get_mahjong_name(card):
@@ -101,9 +108,9 @@ class RoomMahjong(Room):
             'rounds': self._rounds,
             'max_rounds': self._max_rounds,
             'mahjong_start_position': self._start_position,
-            'mahjong_start_cover': self._start_cover,
+            'mahjong_start_cover': self._start_num,
             'mahjong_end_position': self._end_position,
-            'mahjong_end_cover': self._end_cover,
+            'mahjong_end_cover': self._end_num,
             'maker_account_id': self._maker_account_id
         }
 
@@ -113,9 +120,9 @@ class RoomMahjong(Room):
             player.player_reset()
 
         self._start_position = None
-        self._start_cover = True
+        self._start_num = True
         self._end_position = None
-        self._end_cover = True
+        self._end_num = True
 
         self._ready_list = []
         self._execute_account_id = 0

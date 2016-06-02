@@ -52,10 +52,10 @@ message m_3003_toc {
     required uint32 user_id = 7;            // 房主ID
     optional uint32 rounds = 8;             // 房间当前回合数
     optional uint32 max_rounds = 9;         // 房间允许回合数
-    optional uint32 mahjong_start_position = 10;    // 未获取的麻将头部当前位置
-    optional bool   mahjong_start_cover = 11;       // 未获取的麻将头部是否重叠(true: 重叠,此位置有两个麻将)
-    optional uint32 mahjong_end_position = 12;      // 未获取的麻将尾部当前位置
-    optional uint32 mahjong_end_cover = 13;         // 未获取的麻将尾部是否重叠(true: 重叠,此位置有两个麻将)
+    optional uint32 mahjong_start_position = 10;    // 未获取的麻将头部当前位置(1, 2, 3, 4)
+    optional uint32 mahjong_start_num = 11;         // 未获取的麻将头部第几张牌
+    optional uint32 mahjong_end_position = 12;      // 未获取的麻将尾部当前位置(1, 2, 3, 4)
+    optional uint32 mahjong_end_num = 13;           // 未获取的麻将尾部第几张牌
     optional uint32 maker_account_id = 14;          // 庄家账号ID
 }
 

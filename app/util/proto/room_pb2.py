@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='room.proto',
   package='',
-  serialized_pb=_b('\n\nroom.proto\"/\n\nm_3001_tos\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0e\n\x06rounds\x18\x02 \x02(\r\"@\n\nm_3001_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x0e\n\x06rounds\x18\x03 \x01(\r\"\x1d\n\nm_3002_tos\x12\x0f\n\x07room_id\x18\x01 \x02(\r\"\xd0\x01\n\nm_3002_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x1f\n\tuser_room\x18\x02 \x03(\x0b\x32\x0c.p_user_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\"\xa0\x01\n\x0bp_user_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\"\xe4\x02\n\nm_3003_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12#\n\tuser_room\x18\x02 \x03(\x0b\x32\x10.p_user_mah_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\x12\x1e\n\x16mahjong_start_position\x18\n \x01(\r\x12\x1b\n\x13mahjong_start_cover\x18\x0b \x01(\x08\x12\x1c\n\x14mahjong_end_position\x18\x0c \x01(\r\x12\x19\n\x11mahjong_end_cover\x18\r \x01(\r\x12\x18\n\x10maker_account_id\x18\x0e \x01(\r\"\xd6\x01\n\x0fp_user_mah_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\x12\x11\n\tpre_cards\x18\n \x03(\r\x12\x1d\n\x0b\x61ward_cards\x18\x0b \x03(\x0b\x32\x08.p_cards\"\x18\n\x07p_cards\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"-\n\nm_3005_toc\x12\x1f\n\tuser_room\x18\x01 \x02(\x0b\x32\x0c.p_user_room\" \n\nm_3006_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\"\x1d\n\nm_3101_tos\x12\x0f\n\x07message\x18\x01 \x02(\r\"\x1d\n\nm_3101_toc\x12\x0f\n\x07message\x18\x01 \x02(\r\"1\n\nm_3102_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07message\x18\x02 \x02(\r\"\x1f\n\nm_3103_tos\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"\x1f\n\nm_3103_toc\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"3\n\nm_3104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x11\n\tvoice_url\x18\x02 \x02(\t')
+  serialized_pb=_b('\n\nroom.proto\"/\n\nm_3001_tos\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0e\n\x06rounds\x18\x02 \x02(\r\"@\n\nm_3001_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x0e\n\x06rounds\x18\x03 \x01(\r\"\x1d\n\nm_3002_tos\x12\x0f\n\x07room_id\x18\x01 \x02(\r\"\xd0\x01\n\nm_3002_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x1f\n\tuser_room\x18\x02 \x03(\x0b\x32\x0c.p_user_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\"\xa0\x01\n\x0bp_user_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\"\xe0\x02\n\nm_3003_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12#\n\tuser_room\x18\x02 \x03(\x0b\x32\x10.p_user_mah_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\x12\x1e\n\x16mahjong_start_position\x18\n \x01(\r\x12\x19\n\x11mahjong_start_num\x18\x0b \x01(\r\x12\x1c\n\x14mahjong_end_position\x18\x0c \x01(\r\x12\x17\n\x0fmahjong_end_num\x18\r \x01(\r\x12\x18\n\x10maker_account_id\x18\x0e \x01(\r\"\xd6\x01\n\x0fp_user_mah_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\x12\x11\n\tpre_cards\x18\n \x03(\r\x12\x1d\n\x0b\x61ward_cards\x18\x0b \x03(\x0b\x32\x08.p_cards\"\x18\n\x07p_cards\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"-\n\nm_3005_toc\x12\x1f\n\tuser_room\x18\x01 \x02(\x0b\x32\x0c.p_user_room\" \n\nm_3006_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\"\x1d\n\nm_3101_tos\x12\x0f\n\x07message\x18\x01 \x02(\r\"\x1d\n\nm_3101_toc\x12\x0f\n\x07message\x18\x01 \x02(\r\"1\n\nm_3102_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07message\x18\x02 \x02(\r\"\x1f\n\nm_3103_tos\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"\x1f\n\nm_3103_toc\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"3\n\nm_3104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x11\n\tvoice_url\x18\x02 \x02(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -386,9 +386,9 @@ _M_3003_TOC = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='mahjong_start_cover', full_name='m_3003_toc.mahjong_start_cover', index=10,
-      number=11, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      name='mahjong_start_num', full_name='m_3003_toc.mahjong_start_num', index=10,
+      number=11, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -400,7 +400,7 @@ _M_3003_TOC = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='mahjong_end_cover', full_name='m_3003_toc.mahjong_end_cover', index=12,
+      name='mahjong_end_num', full_name='m_3003_toc.mahjong_end_num', index=12,
       number=13, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -425,7 +425,7 @@ _M_3003_TOC = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=535,
-  serialized_end=891,
+  serialized_end=887,
 )
 
 
@@ -524,8 +524,8 @@ _P_USER_MAH_ROOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=894,
-  serialized_end=1108,
+  serialized_start=890,
+  serialized_end=1104,
 )
 
 
@@ -554,8 +554,8 @@ _P_CARDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1110,
-  serialized_end=1134,
+  serialized_start=1106,
+  serialized_end=1130,
 )
 
 
@@ -584,8 +584,8 @@ _M_3005_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1136,
-  serialized_end=1181,
+  serialized_start=1132,
+  serialized_end=1177,
 )
 
 
@@ -614,8 +614,8 @@ _M_3006_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1183,
-  serialized_end=1215,
+  serialized_start=1179,
+  serialized_end=1211,
 )
 
 
@@ -644,8 +644,8 @@ _M_3101_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1217,
-  serialized_end=1246,
+  serialized_start=1213,
+  serialized_end=1242,
 )
 
 
@@ -674,8 +674,8 @@ _M_3101_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1248,
-  serialized_end=1277,
+  serialized_start=1244,
+  serialized_end=1273,
 )
 
 
@@ -711,8 +711,8 @@ _M_3102_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1279,
-  serialized_end=1328,
+  serialized_start=1275,
+  serialized_end=1324,
 )
 
 
@@ -741,8 +741,8 @@ _M_3103_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1330,
-  serialized_end=1361,
+  serialized_start=1326,
+  serialized_end=1357,
 )
 
 
@@ -771,8 +771,8 @@ _M_3103_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1363,
-  serialized_end=1394,
+  serialized_start=1359,
+  serialized_end=1390,
 )
 
 
@@ -808,8 +808,8 @@ _M_3104_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1396,
-  serialized_end=1447,
+  serialized_start=1392,
+  serialized_end=1443,
 )
 
 _M_3002_TOC.fields_by_name['user_room'].message_type = _P_USER_ROOM
