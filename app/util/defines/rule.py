@@ -15,7 +15,8 @@ rule_configs = {
         },
         'player_count': 3,
         'unit_count': 48,        # 48张扑克牌
-        'original_count': 16     # 每个玩家初始牌数
+        'original_count': 16,    # 每个玩家初始牌数
+        'un_except': []          # 去除的牌
     },
     GAME_TYPE_ZZMJ: {
         'room_price': {
@@ -34,8 +35,9 @@ rule_configs = {
             30: 0
         },
         'player_count': 3,
-        'unit_count': 45,        # 48张扑克牌
-        'original_count': 15     # 每个玩家初始牌数
+        'unit_count': 48,        # 48张扑克牌
+        'original_count': 15,    # 每个玩家初始牌数
+        'un_except': [48, 47, 46, 44, 43, 42, 40]          # 去除的牌
     },
 }
 

@@ -161,7 +161,8 @@ class Room(object):
 
     def random_cards(self):
         unit_count, player_count = self._config['unit_count'], self._config['player_count']
-        self._cards = range(1, unit_count + 1)
+        un_except = self._config.get('un_except', [])
+        self._cards = [_id for _id in range(1, unit_count + 1) if _id not in un_except]
         random.shuffle(self._cards)
         # dispatch to all player
         original_count = self._config['original_count']
