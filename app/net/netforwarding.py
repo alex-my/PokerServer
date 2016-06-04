@@ -48,8 +48,13 @@ def forwarding_0(target_key, _conn, data):
     # 转发到游戏服务器
     if target_key >= 2000:
         return GlobalObject().remote['gate'].callRemote("forwarding",
-                                                        target_key, _conn.transport.sessionno, data)
+                                                        target_key,
+                                                        _conn.transport.sessionno,
+                                                        data)
     # 转发到账号服务器
     else:
         return GlobalObject().remote['auth'].callRemote("forwarding",
-                                                        target_key, _conn.transport.sessionno, data)
+                                                        target_key,
+                                                        _conn.transport.sessionno,
+                                                        _conn.transport.client,
+                                                        data)

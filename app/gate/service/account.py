@@ -6,15 +6,17 @@ from app.util.common import func
 
 
 @remoteserviceHandle('auth')
-def notice_user_login_verify(account_id, verify_key):
+def notice_user_login_verify(account_id, verify_key, address):
     """
     消息从gate推送到客户端
     :param account_id:
     :param verify_key:
+    :param address: ('127.0.0.132', 64801)
     :return:
     """
-    func.log_info('[user verify] account_id: {} \t verify_key: {}'.format(account_id, verify_key))
-    UserManager().record_verify_key(account_id, verify_key)
+    func.log_info('[user verify] account_id: {} \t verify_key: {}, address: {}'.format(
+            account_id, verify_key, address))
+    UserManager().record_verify_key(account_id, verify_key, address)
     return None
 
 

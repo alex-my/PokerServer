@@ -18,6 +18,7 @@ class User(object):
         self._gold = 0
         self._point = 0
         self._ip = ''
+        self._port = 0
         self._is_lock = False   # 是否被锁定
         self._lock_expire = 0   # 锁定结束日期
         self._is_gm = False     # 是否是GM账号
@@ -124,6 +125,9 @@ class User(object):
     @node_name.setter
     def node_name(self, name):
         self._node_name = name
+
+    def record_address(self, _address):
+        self._ip, self._port = _address if _address else ('', 0)
 
     def check_gold(self, count):
         return self._gold >= count

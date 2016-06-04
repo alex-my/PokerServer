@@ -7,10 +7,11 @@ from app.util.defines import channel, content, dbname
 from app.util.driver import dbexecute
 
 
-def account_register(dynamic_id, user_name, password):
+def account_register(dynamic_id, address, user_name, password):
     """
     账号注册
     :param dynamic_id:
+    :param address:
     :param user_name:
     :param password:
     :return:
@@ -32,7 +33,8 @@ def account_register(dynamic_id, user_name, password):
     head_icon = 1
     account_id = _register_process(user_name, password, name, uuid, channel.CHANNEL_ZERO, sex, head_frame, head_icon)
     if account_id:
-        func.log_info('[Auth] user_name: {}, account_id: {} register success'.format(user_name, account_id))
+        func.log_info('[Auth] user_name: {}, account_id: {}, address: {} register success'.format(
+                user_name, account_id, address))
         send.account_register(dynamic_id, user_name, password, account_id)
     else:
         func.log_error('[Auth] user_name: {} register failed'.format(user_name))
@@ -44,10 +46,11 @@ def _create_token_key(user_name, password):
     return m.hexdigest()
 
 
-def account_verify_official(dynamic_id, user_name, password):
+def account_verify_official(dynamic_id, address, user_name, password):
     """
     官方登陆
     :param dynamic_id:
+    :param address: ('127.0.0.132', 64801)
     :param user_name:
     :param password:
     :return:
@@ -69,15 +72,16 @@ def account_verify_official(dynamic_id, user_name, password):
         return
     account_id = result['account_id']
     verify_key = _create_verify_key(account_id, result['token_key'])
-    notice_gate_user_login(account_id, verify_key)
+    notice_gate_user_login(account_id, verify_key, address)
     t = func.time_get()
     send.account_verify_official(dynamic_id, t, account_id, verify_key)
 
 
-def account_verify_channel(dynamic_id, user_name, channel_id, uuid, name, head_frame, head_icon, sex):
+def account_verify_channel(dynamic_id, address, user_name, channel_id, uuid, name, head_frame, head_icon, sex):
     """
     渠道登陆
     :param dynamic_id:
+    :param address: ('127.0.0.132', 64801)
     :param user_name:
     :param channel_id:
     :param uuid:
@@ -111,7 +115,7 @@ def account_verify_channel(dynamic_id, user_name, channel_id, uuid, name, head_f
         return
     account_id = result['account_id']
     verify_key = _create_verify_key(account_id, result['token_key'])
-    notice_gate_user_login(account_id, verify_key)
+    notice_gate_user_login(account_id, verify_key, address)
     t = func.time_get()
     send.account_verify_channel(dynamic_id, t, account_id, verify_key)
 
@@ -122,8 +126,8 @@ def _create_verify_key(account_id, token_key):
     return m.hexdigest()
 
 
-def notice_gate_user_login(account_id, verify_key):
-    request_gate_node('notice_user_login_verify', account_id, verify_key)
+def notice_gate_user_login(account_id, verify_key, address):
+    request_gate_node('notice_user_login_verify', account_id, verify_key, address)
 
 
 def _register_process(user_name, password, name, uuid, channel_id, sex, head_frame, head_icon):

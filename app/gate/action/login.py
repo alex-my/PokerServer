@@ -34,6 +34,8 @@ def user_login(dynamic_id, account_id, verify_key):
     if user.is_lock():
         _user_lock_tips(user)
         return
+    address = UserManager().get_user_address(account_id)
+    user.record_address(address)
     user.dynamic_id = dynamic_id
     UserManager().add_user(user)
     send.login_success(dynamic_id, user)

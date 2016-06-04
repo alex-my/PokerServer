@@ -12,6 +12,7 @@ class UserManager:
         self._users = dict()            # {account_id: User, ...}
         self._users_dynamic = dict()    # {dynamic_id: User, ...}
         self._verify_key = dict()       # {account_id: verify_key, ...}
+        self._address = dict()          # {account_id: address, ...}
 
     def add_user(self, user):
         account_id = user.account_id
@@ -49,8 +50,12 @@ class UserManager:
             except Exception as e:
                 func.log_error('{}'.format(e.message), func.__function_pos__())
 
-    def record_verify_key(self, account_id, verify_key):
+    def record_verify_key(self, account_id, verify_key, address):
         self._verify_key[account_id] = verify_key
+        self._address[account_id] = address if address else ('', 0)
 
     def check_verify_key(self, account_id, verify_key):
         return verify_key is not None and self._verify_key.get(account_id) == verify_key
+
+    def get_user_address(self, account_id):
+        return self._address.get(account_id, ('', 0))

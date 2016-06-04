@@ -5,16 +5,18 @@ from app.util.common import func
 
 
 @rootserviceHandle
-def forwarding(target_key, dynamic_id, data):
+def forwarding(target_key, dynamic_id, address, data):
     """
     转发来自net消息
     :param target_key: 协议ID
     :param dynamic_id: 客户端动态ID
+    :param address: IP地址/端口 ('127.0.0.132', 64801)
     :param data: 数据
     :return:
     """
+    print 'Alex auth forwarding: ', target_key, dynamic_id, address
     if auth_service.is_target_local(target_key):
-        return auth_service.callTarget(target_key, dynamic_id, data)
+        return auth_service.callTarget(target_key, dynamic_id, address, data)
     else:
         func.log_error('target_key: {} do not exist in auth'.format(target_key), func.__function_pos__())
         return None
