@@ -29,6 +29,7 @@ class Room(object):
         self._pre_win_account_id = 0    # 上次赢的玩家ID
         self._rounds = 1                # 房间回合数
         self._cards = []                # 所有牌
+        self._switch_account_id = 0     # 切牌
 
     def init(self, result):
         self._room_id = result.get('room_id')
@@ -93,6 +94,14 @@ class Room(object):
         return self._config['original_count']
 
     @property
+    def switch_account_id(self):
+        return self._switch_account_id
+
+    @switch_account_id.setter
+    def switch_account_id(self, _id):
+        self._switch_account_id = _id
+
+    @property
     def rounds(self):
         return self._rounds
 
@@ -154,7 +163,7 @@ class Room(object):
                 player.status = status.PLAYER_STATUS_READY
 
     def is_all_ready(self):
-        return len(self._ready_list) >= self._config['player_count']
+        return len(self._ready_list) >= self._config['player_count'] and not self._cards
 
     def is_owner_in(self):
         return self._account_id in self._player_list and self._account_id in self._ready_list

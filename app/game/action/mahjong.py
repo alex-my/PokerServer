@@ -62,6 +62,11 @@ def mahjong_publish(dynamic_id, card_id):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return
+    if account_id != room.execute_account_id:
+        func.log_info('[mahjong_publish] account_id: {}, execute_account_id: {} un turn'.format(
+                account_id, room.execute_account_id))
+        send.system_notice(dynamic_id, content.PLAY_UN_TURN)
+        return
     player = room.get_player(account_id)
     if not player:
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
@@ -99,8 +104,9 @@ def mahjong_publish(dynamic_id, card_id):
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
         player_operators[_player.account_id] = operator_list
 
-    room.record_last(account_id, card_id)
-    room.operators = player_operators, operators
+    room.record_last(account_id, [card_id])
+    room.operators = (player_operators, operators)
+    player.card_publish(card_id)
     # select operator_account_id
     operator_account_id = select_mahjong_operator_account_id(operators, account_id, player.position)
     send.publish_mahjong_to_self(dynamic_id)

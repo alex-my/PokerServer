@@ -22,7 +22,7 @@ rule_configs = {
         'room_price': {
             10: 0,
             20: 0,
-            40: 0
+            30: 0
         },
         'player_count': 4,
         'unit_count': 108,       # 108张麻将牌

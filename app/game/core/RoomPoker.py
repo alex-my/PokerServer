@@ -8,18 +8,8 @@ class RoomPoker(Room):
     def __init__(self):
         super(RoomPoker, self).__init__()
 
-        self._switch_account_id = 0     # 切牌的帐号
-
     def get_original_execute(self):
         return self._pre_win_account_id if self._pre_win_account_id > 0 else self._ready_list[0]
-
-    @property
-    def switch_account_id(self):
-        return self._switch_account_id
-
-    @switch_account_id.setter
-    def switch_account_id(self, _id):
-        self._switch_account_id = _id
 
     def get_room_data(self, account_id):
         user_list = []

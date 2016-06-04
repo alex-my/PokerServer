@@ -5,7 +5,7 @@ from app.util.proto import game_mahjong_pb2
 
 
 @game_service_handle
-def mahjong_publish_5202(dynamic_id, proto):
+def mahjong_publish_5203(dynamic_id, proto):
     """
     user publish
     :param dynamic_id:

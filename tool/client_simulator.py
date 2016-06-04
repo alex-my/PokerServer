@@ -19,8 +19,7 @@ sys.path.append(path)
 
 from app.util.common import protocol as client_protocol
 from app.util.common import func
-from app.util.defines import operators
-from app.util.defines import channel
+from app.util.defines import operators, channel, rule
 from app.util.proto import login_pb2, system_pb2, room_pb2, play_pb2, game_poker_pb2, game_mahjong_pb2
 
 reactor = reactor
@@ -438,9 +437,9 @@ def user_login_2001(request):
     func.log_info('[user_enter_2002]')
     client.display_user()
     # ================ test create room
-    # create_room(client, rule.GAME_TYPE_PDK, 2)
+    # create_room(client, rule.GAME_TYPE_ZZMJ, 10)
     # ================ test enter room
-    # enter_room(client, 601739)
+    enter_room(client, 111505)
     return None
 
 
@@ -463,7 +462,7 @@ def create_room_3001(request):
         argument.room_id, argument.room_type, argument.rounds
     ))
     # enter room
-    # enter_room(client, argument.room_id)
+    enter_room(client, argument.room_id)
     return None
 
 
@@ -479,12 +478,29 @@ def enter_room_3002(request):
     argument = room_pb2.m_3002_toc()
     argument.ParseFromString(request)
     client = Client()
-    func.log_info('[enter_room_3002] room_id: {}'.format(argument.room_id))
+    func.log_info('[enter_room_3002] room_id: {}, user_id: {}, rounds: {}, max_rounds: {}'.format(
+            argument.room_id, argument.user_id, argument.rounds, argument.max_rounds))
+    # 准备
+    # user_ready(client)
+
+
+@client_service_handle
+def enter_room_3003(request):
+    argument = room_pb2.m_3003_toc()
+    argument.ParseFromString(request)
+    client = Client()
+    func.log_info('[enter_room_3003] room_id: {}, user_id: {}, rounds: {}, max_rounds: {}'.format(
+            argument.room_id, argument.user_id, argument.rounds, argument.max_rounds))
+    func.log_info('mahjong ---- maker_account_id: {}, craps: {}, mahjong_start_num: {}, mahjong_end_num: {}'.format(
+        argument.maker_account_id, [craps_id for craps_id in argument.craps],
+        argument.mahjong_start_num, argument.mahjong_end_num
+    ))
     # 准备
     user_ready(client)
 
 
 def user_ready(client):
+    func.log_info('[user_ready]')
     response = play_pb2.m_4001_toc()
     response.operate = operators.USER_OPERATOR_READY
     client.push_object(4001, response.SerializeToString())
@@ -516,7 +532,8 @@ def user_publish_card_4003(request):
     func.log_info('[user_publish_card_4003] execute_account_id: {}, card_list: {}'.format(
         argument.execute_account_id, card_list
     ))
-    poker_publish(client, card_list)
+    # poker_publish(client, card_list)
+    mahjong_publish(client, card_list[0])
 
 
 def poker_publish(client, card_list):
@@ -539,6 +556,48 @@ def poker_publish_all_5102(request):
     card_list = [card_id for card_id in argument.cards]
     func.log_info('[poker_publish_all_5102] execute_account_id: {}, next_account_id: {}, cards: {}'.format(
         argument.execute_account_id, argument.next_account_id, card_list
+    ))
+
+
+@client_service_handle
+def mahjong_publish_5201(request):
+    argument = game_mahjong_pb2.m_5201_toc()
+    argument.ParseFromString(request)
+    client = Client()
+    craps_list = [craps_id for craps_id in argument.craps]
+    func.log_info('[mahjong_publish_5201] maker_account_id: {}, craps: {}, mahjong_start_num: {}, mahjong_end_num: {}'.format(
+        argument.maker_account_id, craps_list, argument.mahjong_start_num, argument.mahjong_end_num
+    ))
+
+
+@client_service_handle
+def mahjong_dispatch_5202(request):
+    argument = game_mahjong_pb2.m_5202_toc()
+    argument.ParseFromString(request)
+    operator_list = [operator_id for operator_id in argument.operator]
+    func.log_info('[mahjong_dispatch_5202] card: {}, operator: {}'.format(argument.card, operator_list))
+
+
+def mahjong_publish(client, card_id):
+    response = game_mahjong_pb2.m_5203_tos()
+    response.card = card_id
+    func.log_info('[mahjong_publish] card_id: {}'.format(card_id))
+    client.push_object(5203, response.SerializeToString())
+
+
+@client_service_handle
+def mahjong_publish_5203(request):
+    func.log_info('[mahjong_publish_5203]')
+
+
+@client_service_handle
+def mahjong_publish_5204(request):
+    argument = game_mahjong_pb2.m_5204_toc()
+    argument.ParseFromString(request)
+    operator_list = [operator for operator in argument.operator]
+    card_list = [card_id for card_id in argument.card_list]
+    func.log_info('[mahjong_publish_5204] execute_account_id: {}, card: {}, card_list: {}, operator_able: {}, operator_list: {}'.format(
+        argument.execute_account_id, argument.card, card_list, argument.operator_able, operator_list
     ))
 
 

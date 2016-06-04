@@ -26,6 +26,11 @@ def poker_publish(dynamic_id, cards):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return
+    if account_id != room.execute_account_id:
+        func.log_info('[poker_publish] account_id: {}, execute_account_id: {} un turn'.format(
+                account_id, room.execute_account_id))
+        send.system_notice(dynamic_id, content.PLAY_UN_TURN)
+        return
     player = room.get_player(account_id)
     if not player:
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)

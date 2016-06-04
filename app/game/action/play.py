@@ -168,9 +168,6 @@ def dispatch_mahjong_to_room(room):
     craps_1 = func.random_get(1, 6)
     craps_2 = func.random_get(1, 6)
     room.craps = [craps_1, craps_2]
-    # maker_player = room.get_player(execute_account_id)
-    # start_position, start_num, end_position, end_num = calc_mahjong_position(
-    #         room.player_count, craps_1, craps_2, maker_player.position)
     original_count = room.original_count * room.player_count
     room.mahjong_start = original_count
     room.mahjong_end = 1
@@ -187,12 +184,3 @@ def dispatch_mahjong_to_room(room):
         send.player_dispatch_cards(execute_account_id, player)
         if player.account_id == execute_account_id:
             mahjong.dispatch_mahjong_card(player.dynamic_id, True)
-
-
-# def calc_mahjong_position(player_count, craps_1, craps_2, maker_position):
-#     select_position = (craps_1 + craps_2) % player_count + (maker_position - 1)
-#     start_position, end_position = select_position, select_position
-#     min_craps = min(craps_1, craps_2)
-#     end_num = 2 * min_craps
-#     start_num = end_num + 1
-#     return start_position, start_num, end_position, end_num
