@@ -31,7 +31,7 @@ def account_register(dynamic_id, user_name, password, account_id):
     forward.push_object(1001, response.SerializeToString(), [dynamic_id])
 
 
-def account_verify(dynamic_id, t, account_id, verify_key):
+def account_verify_official(dynamic_id, t, account_id, verify_key):
     """
     推送登陆验证成功消息
     :param dynamic_id:
@@ -45,6 +45,22 @@ def account_verify(dynamic_id, t, account_id, verify_key):
     response.account_id = account_id
     response.verify_key = verify_key
     forward.push_object(1002, response.SerializeToString(), [dynamic_id])
+
+
+def account_verify_channel(dynamic_id, t, account_id, verify_key):
+    """
+    推送登陆验证成功消息
+    :param dynamic_id:
+    :param t:
+    :param account_id: 账号ID
+    :param verify_key: 登陆验证密钥
+    :return:
+    """
+    response = login_pb2.m_1002_toc()
+    response.time = t
+    response.account_id = account_id
+    response.verify_key = verify_key
+    forward.push_object(1003, response.SerializeToString(), [dynamic_id])
 
 
 

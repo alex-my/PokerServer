@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='login.proto',
   package='',
-  serialized_pb=_b('\n\x0blogin.proto\"1\n\nm_1001_tos\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"E\n\nm_1001_toc\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x12\n\naccount_id\x18\x03 \x02(\r\"1\n\nm_1002_tos\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"B\n\nm_1002_toc\x12\x0c\n\x04time\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x12\n\nverify_key\x18\x03 \x02(\t\"4\n\nm_2001_tos\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\nverify_key\x18\x02 \x02(\t\"N\n\nm_2001_toc\x12\x1f\n\tuser_info\x18\x01 \x02(\x0b\x32\x0c.p_user_info\x12\x1f\n\troom_info\x18\x02 \x03(\x0b\x32\x0c.p_room_info\"\xb2\x01\n\x0bp_user_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04uuid\x18\x02 \x02(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\x0c\n\x04gold\x18\x07 \x01(\r\x12\r\n\x05point\x18\x08 \x01(\r\x12\x0f\n\x07room_id\x18\t \x01(\r\x12\x11\n\troom_type\x18\n \x01(\r\"T\n\x0bp_room_info\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0f\n\x07room_id\x18\x02 \x02(\r\x12!\n\nroom_price\x18\x03 \x03(\x0b\x32\r.p_room_price\"2\n\x0cp_room_price\x12\x0e\n\x06rounds\x18\x01 \x02(\r\x12\x12\n\ngold_price\x18\x02 \x02(\r')
+  serialized_pb=_b('\n\x0blogin.proto\"1\n\nm_1001_tos\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"E\n\nm_1001_toc\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x12\n\naccount_id\x18\x03 \x02(\r\"1\n\nm_1002_tos\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"B\n\nm_1002_toc\x12\x0c\n\x04time\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x12\n\nverify_key\x18\x03 \x02(\t\"\x83\x01\n\nm_1003_tos\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x12\n\nchannel_id\x18\x02 \x02(\r\x12\x0c\n\x04uuid\x18\x03 \x02(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x12\n\nhead_frame\x18\x05 \x01(\r\x12\x11\n\thead_icon\x18\x06 \x01(\r\x12\x0b\n\x03sex\x18\x07 \x01(\r\"B\n\nm_1003_toc\x12\x0c\n\x04time\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x12\n\nverify_key\x18\x03 \x02(\t\"4\n\nm_2001_tos\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\nverify_key\x18\x02 \x02(\t\"N\n\nm_2001_toc\x12\x1f\n\tuser_info\x18\x01 \x02(\x0b\x32\x0c.p_user_info\x12\x1f\n\troom_info\x18\x02 \x03(\x0b\x32\x0c.p_room_info\"\xb2\x01\n\x0bp_user_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04uuid\x18\x02 \x02(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\r\x12\x11\n\thead_icon\x18\x05 \x01(\r\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\x0c\n\x04gold\x18\x07 \x01(\r\x12\r\n\x05point\x18\x08 \x01(\r\x12\x0f\n\x07room_id\x18\t \x01(\r\x12\x11\n\troom_type\x18\n \x01(\r\"T\n\x0bp_room_info\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0f\n\x07room_id\x18\x02 \x02(\r\x12!\n\nroom_price\x18\x03 \x03(\x0b\x32\r.p_room_price\"2\n\x0cp_room_price\x12\x0e\n\x06rounds\x18\x01 \x02(\r\x12\x12\n\ngold_price\x18\x02 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -187,6 +187,122 @@ _M_1002_TOC = _descriptor.Descriptor(
 )
 
 
+_M_1003_TOS = _descriptor.Descriptor(
+  name='m_1003_tos',
+  full_name='m_1003_tos',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user_name', full_name='m_1003_tos.user_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='channel_id', full_name='m_1003_tos.channel_id', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='m_1003_tos.uuid', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='m_1003_tos.name', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='head_frame', full_name='m_1003_tos.head_frame', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='head_icon', full_name='m_1003_tos.head_icon', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sex', full_name='m_1003_tos.sex', index=6,
+      number=7, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=257,
+  serialized_end=388,
+)
+
+
+_M_1003_TOC = _descriptor.Descriptor(
+  name='m_1003_toc',
+  full_name='m_1003_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='m_1003_toc.time', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='account_id', full_name='m_1003_toc.account_id', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='verify_key', full_name='m_1003_toc.verify_key', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=390,
+  serialized_end=456,
+)
+
+
 _M_2001_TOS = _descriptor.Descriptor(
   name='m_2001_tos',
   full_name='m_2001_tos',
@@ -219,8 +335,8 @@ _M_2001_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=256,
-  serialized_end=308,
+  serialized_start=458,
+  serialized_end=510,
 )
 
 
@@ -256,8 +372,8 @@ _M_2001_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=310,
-  serialized_end=388,
+  serialized_start=512,
+  serialized_end=590,
 )
 
 
@@ -349,8 +465,8 @@ _P_USER_INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=391,
-  serialized_end=569,
+  serialized_start=593,
+  serialized_end=771,
 )
 
 
@@ -393,8 +509,8 @@ _P_ROOM_INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=571,
-  serialized_end=655,
+  serialized_start=773,
+  serialized_end=857,
 )
 
 
@@ -430,8 +546,8 @@ _P_ROOM_PRICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=657,
-  serialized_end=707,
+  serialized_start=859,
+  serialized_end=909,
 )
 
 _M_2001_TOC.fields_by_name['user_info'].message_type = _P_USER_INFO
@@ -441,6 +557,8 @@ DESCRIPTOR.message_types_by_name['m_1001_tos'] = _M_1001_TOS
 DESCRIPTOR.message_types_by_name['m_1001_toc'] = _M_1001_TOC
 DESCRIPTOR.message_types_by_name['m_1002_tos'] = _M_1002_TOS
 DESCRIPTOR.message_types_by_name['m_1002_toc'] = _M_1002_TOC
+DESCRIPTOR.message_types_by_name['m_1003_tos'] = _M_1003_TOS
+DESCRIPTOR.message_types_by_name['m_1003_toc'] = _M_1003_TOC
 DESCRIPTOR.message_types_by_name['m_2001_tos'] = _M_2001_TOS
 DESCRIPTOR.message_types_by_name['m_2001_toc'] = _M_2001_TOC
 DESCRIPTOR.message_types_by_name['p_user_info'] = _P_USER_INFO
@@ -474,6 +592,20 @@ m_1002_toc = _reflection.GeneratedProtocolMessageType('m_1002_toc', (_message.Me
   # @@protoc_insertion_point(class_scope:m_1002_toc)
   ))
 _sym_db.RegisterMessage(m_1002_toc)
+
+m_1003_tos = _reflection.GeneratedProtocolMessageType('m_1003_tos', (_message.Message,), dict(
+  DESCRIPTOR = _M_1003_TOS,
+  __module__ = 'login_pb2'
+  # @@protoc_insertion_point(class_scope:m_1003_tos)
+  ))
+_sym_db.RegisterMessage(m_1003_tos)
+
+m_1003_toc = _reflection.GeneratedProtocolMessageType('m_1003_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_1003_TOC,
+  __module__ = 'login_pb2'
+  # @@protoc_insertion_point(class_scope:m_1003_toc)
+  ))
+_sym_db.RegisterMessage(m_1003_toc)
 
 m_2001_tos = _reflection.GeneratedProtocolMessageType('m_2001_tos', (_message.Message,), dict(
   DESCRIPTOR = _M_2001_TOS,

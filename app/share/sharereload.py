@@ -1,6 +1,5 @@
 # coding:utf8
 
+import app.util.utilreload
 
-def reloads():
-    pass
-
+reload(app.util.utilreload)

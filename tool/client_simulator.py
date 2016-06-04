@@ -20,7 +20,7 @@ sys.path.append(path)
 from app.util.common import protocol as client_protocol
 from app.util.common import func
 from app.util.defines import operators
-from app.util.defines import rule
+from app.util.defines import channel
 from app.util.proto import login_pb2, system_pb2, room_pb2, play_pb2, game_poker_pb2, game_mahjong_pb2
 
 reactor = reactor
@@ -34,7 +34,7 @@ if os.name != 'nt' and os.name != 'posix':
 client_config = {
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 8531,
-    'user_name': 'map',
+    'user_name': 'AlexWeChat',
     'password': '1'
 }
 
@@ -154,8 +154,12 @@ class ClientFactory(protocol.ClientFactory):
         self._client.conn = conn
         # 成功连接账号服务器
         if self._client.auth_node:
+            # 裸包注册账号
             # register_account(self._client, self._client.user_name, self._client.password)
-            account_verify(self._client, self._client.user_name, self._client.password)
+            # 裸包登陆
+            # account_verify_official(self._client, self._client.user_name, self._client.password)
+            # 渠道登陆
+            account_verify_channel(self._client, self._client.user_name)
         # 成功连接游戏服务器
         else:
             user_login(self._client)
@@ -346,8 +350,8 @@ def register_account_1001(request):
     return None
 
 
-# 1002 账号登陆
-def account_verify(client, user_name, password):
+# 1002 裸包账号登陆
+def account_verify_official(client, user_name, password):
     func.log_info('[account_verify] user_name: {}, password: {}'.format(user_name, password))
     response = login_pb2.m_1002_tos()
     response.user_name = user_name
@@ -365,6 +369,35 @@ def account_verify_1002(request):
     client.verify_key = argument.verify_key
     func.log_info('[account_verify_1002] account_id: {}, verify_key: {}, server_t: {}'.format(
         client.account_id, client.verify_key, client.server_t
+    ))
+    user_login(client)
+    return None
+
+
+# 1003 渠道账号登陆
+def account_verify_channel(client, user_name):
+    func.log_info('[account_verify] user_name: {}'.format(user_name))
+    response = login_pb2.m_1003_tos()
+    response.user_name = user_name
+    response.channel_id = channel.CHANNEL_WE_CHAT
+    response.uuid = user_name
+    response.name = user_name
+    response.head_frame = 1
+    response.head_icon = 1
+    response.sex = 1
+    client.push_object(1003, response.SerializeToString())
+
+
+@client_service_handle
+def account_verify_1003(request):
+    argument = login_pb2.m_1002_toc()
+    argument.ParseFromString(request)
+    client = Client()
+    client.server_t = argument.time
+    client.account_id = argument.account_id
+    client.verify_key = argument.verify_key
+    func.log_info('[account_verify_1003] account_id: {}, verify_key: {}, server_t: {}'.format(
+            client.account_id, client.verify_key, client.server_t
     ))
     user_login(client)
     return None
@@ -407,7 +440,7 @@ def user_login_2001(request):
     # ================ test create room
     # create_room(client, rule.GAME_TYPE_PDK, 2)
     # ================ test enter room
-    enter_room(client, 601739)
+    # enter_room(client, 601739)
     return None
 
 

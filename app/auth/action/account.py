@@ -25,22 +25,12 @@ def account_register(dynamic_id, user_name, password):
     if dbexecute.query_one(sql):
         send.system_notice(dynamic_id, content.ACCOUNT_EXIST)
         return
-    token_key = _create_token_key(user_name, password)
-    encrypt_password = func.encrypt_password(user_name, password, token_key)
-    t = func.time_get()
-    account_data = {
-        'uuid': user_name,      # 裸包使用账户名做为uuid
-        'cid': channel.CHANNEL_ZERO,
-        'user_name': user_name,
-        'password': encrypt_password,
-        'token_key': token_key,
-        'create_time': t,
-        'last_login': t,
-        'last_logout': t,
-        'name': user_name,
-        'sex': func.random_get(1, 2)
-    }
-    account_id = dbexecute.insert_auto_increment_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data})
+    uuid = user_name
+    sex = func.random_get(1, 2)
+    name = user_name
+    head_frame = 1
+    head_icon = 1
+    account_id = _register_process(user_name, password, name, uuid, channel.CHANNEL_ZERO, sex, head_frame, head_icon)
     if account_id:
         func.log_info('[Auth] user_name: {}, account_id: {} register success'.format(user_name, account_id))
         send.account_register(dynamic_id, user_name, password, account_id)
@@ -54,9 +44,9 @@ def _create_token_key(user_name, password):
     return m.hexdigest()
 
 
-def account_verify(dynamic_id, user_name, password):
+def account_verify_official(dynamic_id, user_name, password):
     """
-    账号密码登陆验证
+    官方登陆
     :param dynamic_id:
     :param user_name:
     :param password:
@@ -81,7 +71,49 @@ def account_verify(dynamic_id, user_name, password):
     verify_key = _create_verify_key(account_id, result['token_key'])
     notice_gate_user_login(account_id, verify_key)
     t = func.time_get()
-    send.account_verify(dynamic_id, t, account_id, verify_key)
+    send.account_verify_official(dynamic_id, t, account_id, verify_key)
+
+
+def account_verify_channel(dynamic_id, user_name, channel_id, uuid, name, head_frame, head_icon, sex):
+    """
+    渠道登陆
+    :param dynamic_id:
+    :param user_name:
+    :param channel_id:
+    :param uuid:
+    :param name:
+    :param head_frame:
+    :param head_icon:
+    :param sex:
+    :return:
+    """
+    func.log_info('[auth] account_verify_channel dynamic_id: {}, user_name: {}, channel_id: {}, uuid: {}, head_frame: {}, head_icon: {}, sex: {}'.format(
+            dynamic_id, user_name, channel_id, uuid, head_frame, head_icon, sex
+    ))
+    if not user_name or not uuid or channel_id <= 0:
+        send.system_notice(dynamic_id, content.ACCOUNT_LOGIN_ARGUMENT)
+        return
+    password = uuid
+    sql = 'select * from {} where user_name="{}"'.format(dbname.DB_ACCOUNT, user_name)
+    result = dbexecute.query_one(sql)
+    if not result:
+        account_id = _register_process(user_name, password, name, uuid, channel_id, sex, head_frame, head_icon)
+        if not account_id:
+            send.system_notice(dynamic_id, content.LOGIN_USER_CREATE_FAILED_51)
+            return
+        result = dbexecute.query_one(sql)
+        if not result:
+            send.system_notice(dynamic_id, content.LOGIN_USER_CREATE_FAILED_52)
+            return
+    encrypt_password = func.encrypt_password(user_name, password, result['token_key'])
+    if encrypt_password != result['password']:
+        send.system_notice(dynamic_id, content.LOGIN_USER_CREATE_FAILED_53)
+        return
+    account_id = result['account_id']
+    verify_key = _create_verify_key(account_id, result['token_key'])
+    notice_gate_user_login(account_id, verify_key)
+    t = func.time_get()
+    send.account_verify_channel(dynamic_id, t, account_id, verify_key)
 
 
 def _create_verify_key(account_id, token_key):
@@ -92,3 +124,26 @@ def _create_verify_key(account_id, token_key):
 
 def notice_gate_user_login(account_id, verify_key):
     request_gate_node('notice_user_login_verify', account_id, verify_key)
+
+
+def _register_process(user_name, password, name, uuid, channel_id, sex, head_frame, head_icon):
+    token_key = _create_token_key(user_name, password)
+    encrypt_password = func.encrypt_password(user_name, password, token_key)
+    t = func.time_get()
+    account_data = {
+        'uuid': uuid,
+        'cid': channel_id,
+        'user_name': user_name,
+        'password': encrypt_password,
+        'token_key': token_key,
+        'create_time': t,
+        'last_login': t,
+        'last_logout': t,
+        'name': name,
+        'sex': sex,
+        'head_frame': head_frame,
+        'head_icon': head_icon
+    }
+    account_id = dbexecute.insert_auto_increment_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data})
+    return account_id
+
