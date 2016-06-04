@@ -42,5 +42,46 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- proxy
+
+DROP TABLE IF EXISTS `proxy`;
+CREATE TABLE `proxy` (
+  `proxy_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '代理人ID',
+  `level` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '代理人级别',
+  `name` varchar(32) NOT NULL DEFAULT '' COMMENT '代理人名字',
+  PRIMARY KEY (`proxy_id`,`proxy_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8;
+
+
+-- recharge
+
+DROP TABLE IF EXISTS `recharge`;
+CREATE TABLE `recharge` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理ID',
+  `account_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '帐号ID',
+  `proxy_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '代理人ID',
+  `op_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '订单号',
+  `money` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '充值金额',
+  `ingot` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '转化的代币',
+  `origin` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '充值来源',
+  `time` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '充值时间',
+  PRIMARY KEY (`id`,`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- log: gold
+
+DROP TABLE IF EXISTS `log_gold`;
+CREATE TABLE `log_gold` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理ID',
+  `account_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '帐号ID',
+  `count` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '消费数量',
+  `origin_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '消费处ID',
+  `origin_name` varchar(32) NOT NULL DEFAULT '' COMMENT '消费处名称',
+  `time` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '使用时间',
+  PRIMARY KEY (`id`,`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 
