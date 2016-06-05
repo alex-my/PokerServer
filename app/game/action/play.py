@@ -37,6 +37,9 @@ def user_ready(dynamic_id, operator):
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
     room.player_ready(account_id)
+    func.log_info('[game] user ready room_id: {}, account_id: {}, flag: {}'.format(
+        room_id, account_id, room.is_all_ready()
+    ))
     if room.is_all_ready():
         func.log_info('[game] all ready room_id: {}'.format(room.room_id))
         # 创建者必须在房间中

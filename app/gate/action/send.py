@@ -66,6 +66,7 @@ def create_room(dynamic_id, room_id, room_type, rounds):
     response.room_id = room_id
     response.room_type = room_type
     response.rounds = rounds
+    func.log_info('[gate] 3001 create_room response: {}'.format(response))
     forward.push_object_gate(3001, response.SerializeToString(), [dynamic_id])
 
 
