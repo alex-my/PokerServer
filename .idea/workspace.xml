@@ -57,8 +57,8 @@
           <file leaf-file-name="User.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4248234">
-                  <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.5015136">
+                  <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -86,8 +86,8 @@
           <file leaf-file-name="server.sql" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3547718">
-                  <caret line="18" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.23651452">
+                  <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
                   <folding />
                 </state>
               </provider>
@@ -96,8 +96,8 @@
           <file leaf-file-name="initconfig.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/gate/initconfig.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-20.407408">
-                  <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+                <state vertical-scroll-proportion="-14.074074">
+                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -1014,7 +1014,7 @@
       <workItem from="1464928635811" duration="140000" />
       <workItem from="1464933847593" duration="250000" />
       <workItem from="1465023014937" duration="13002000" />
-      <workItem from="1465212829659" duration="7075000" />
+      <workItem from="1465212829659" duration="7427000" />
     </task>
     <task id="LOCAL-00001" summary="fix voice_url bugs.">
       <created>1464665621623</created>
@@ -1130,11 +1130,17 @@
       <option name="project" value="LOCAL" />
       <updated>1465221109296</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="store">
+      <created>1465221305553</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1465221305553</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78700000" />
+    <option name="totallyTimeSpent" value="79052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="2419" height="1417" extended-state="0" />
@@ -1150,7 +1156,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3154717" sideWeight="0.74242425" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24" sideWeight="0.5290698" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12578881" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12578881" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21584906" sideWeight="0.49169436" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1539,14 +1545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/initconfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.407408">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/action/room.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1581,18 +1579,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
+    <entry file="file://$PROJECT_DIR$/app/gate/initconfig.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3547718">
-          <caret line="18" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state vertical-scroll-proportion="-14.074074">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4248234">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5015136">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23651452">
+          <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
           <folding />
         </state>
       </provider>
