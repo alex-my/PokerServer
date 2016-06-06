@@ -2,7 +2,7 @@
 from app.gate.service import forward
 from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.util.common import func
-from app.util.proto import system_pb2, login_pb2, room_pb2, play_pb2
+from app.util.proto import system_pb2, login_pb2, room_pb2
 
 
 def system_notice(dynamic_id, content):
@@ -15,6 +15,21 @@ def system_notice(dynamic_id, content):
     response = system_pb2.m_9001_toc()
     response.content = content
     forward.push_object_gate(9001, response.SerializeToString(), [dynamic_id])
+
+
+def user_change(dynamic_id, changes):
+    """
+    玩家变化
+    :param dynamic_id:
+    :param changes:
+    :return:
+    """
+    response = system_pb2.m_9003_toc()
+    for change_type, change_value in changes.items():
+        role_change = response.role_change.add()
+        role_change.change_type = change_type
+        role_change.change_value = change_value
+    forward.push_object_gate(9003, response.SerializeToString(), [dynamic_id])
 
 
 def login_success(dynamic_id, user):

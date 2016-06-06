@@ -1,12 +1,14 @@
 # coding:utf8
-from app.gate.action import log_record
+from app.gate.action import log_record, send
 from app.util.common import func
+from app.util.defines import changes
 
 
 def award_gold(user, count, origin):
     if count < 0:
         return
-    user.gold = count
+    user.award_gold(count)
+    send.user_change(user.dynamic_id, {changes.CHANGE_USER_GOLD: user.gold})
     log_record.log_gold(user.account_id, count, origin)
     func.log_info('[gate] award_gold account_id: {}, count: {}, now: {}, origin: {}'.format(
         user.account_id, count, user.gold, origin
@@ -17,6 +19,7 @@ def spend_gold(user, count, origin):
     if count < 0:
         return
     user.spend_gold(count)
+    send.user_change(user.dynamic_id, {changes.CHANGE_USER_GOLD: user.gold})
     log_record.log_gold(user.account_id, count, origin)
     func.log_info('[gate] spend_gold account_id: {}, count: {}, now: {}, origin: {}'.format(
         user.account_id, count, user.gold, origin
