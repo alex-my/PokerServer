@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `account_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Identifier',
-  `uuid` varchar(128) NOT NULL DEFAULT '',
+  `uuid` varchar(256) NOT NULL DEFAULT '',
   `cid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'channel id',
   `user_name` varchar(128) NOT NULL DEFAULT '',
   `password` varchar(128) NOT NULL DEFAULT '',

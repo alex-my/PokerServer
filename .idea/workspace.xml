@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PokerServer.iml" afterPath="$PROJECT_DIR$/PokerServer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/auth/action/account.py" afterPath="$PROJECT_DIR$/app/auth/action/account.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/auth/initconfig.py" afterPath="$PROJECT_DIR$/app/auth/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/initconfig.py" afterPath="$PROJECT_DIR$/app/game/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/change.py" afterPath="$PROJECT_DIR$/app/gate/action/change.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/room.py" afterPath="$PROJECT_DIR$/app/gate/action/room.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/core/RoomProxyManager.py" afterPath="$PROJECT_DIR$/app/gate/core/RoomProxyManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/core/User.py" afterPath="$PROJECT_DIR$/app/gate/core/User.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/core/UserManager.py" afterPath="$PROJECT_DIR$/app/gate/core/UserManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/initconfig.py" afterPath="$PROJECT_DIR$/app/gate/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/net/initconfig.py" afterPath="$PROJECT_DIR$/app/net/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/share/initconfig.py" afterPath="$PROJECT_DIR$/app/share/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/rule.py" afterPath="$PROJECT_DIR$/app/util/defines/rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/driver/dbexecute.py" afterPath="$PROJECT_DIR$/app/util/driver/dbexecute.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appmain.py" afterPath="$PROJECT_DIR$/appmain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/startmaster.py" afterPath="$PROJECT_DIR$/startmaster.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/sql/base/server.sql" afterPath="$PROJECT_DIR$/app/util/sql/base/server.sql" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +57,8 @@
           <file leaf-file-name="User.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.09889001">
-                  <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.4248234">
+                  <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -99,6 +83,16 @@
       </split-first>
       <split-second>
         <leaf>
+          <file leaf-file-name="server.sql" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.3547718">
+                  <caret line="18" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="initconfig.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/gate/initconfig.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -123,16 +117,16 @@
             <entry file="file://$PROJECT_DIR$/app/auth/action/account.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="135" column="23" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
+                  <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.proto" pinned="false" current-in-tab="true">
+          <file leaf-file-name="login.proto" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/util/proto/source/login.proto">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.30676085">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
                   <folding />
                 </state>
@@ -188,16 +182,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="18" column="19" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="account.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/gate/service/account.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="36" column="30" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -259,7 +243,6 @@
         <option value="$PROJECT_DIR$/app/net/netforwarding.py" />
         <option value="$PROJECT_DIR$/app/gate/action/send.py" />
         <option value="$PROJECT_DIR$/app/game/action/play.py" />
-        <option value="$PROJECT_DIR$/app/util/sql/base/server.sql" />
         <option value="$PROJECT_DIR$/app/gate/gateservice.py" />
         <option value="$PROJECT_DIR$/app/gateserver.py" />
         <option value="$PROJECT_DIR$/startmaster.py" />
@@ -276,6 +259,7 @@
         <option value="$PROJECT_DIR$/app/gate/core/UserManager.py" />
         <option value="$PROJECT_DIR$/app/gate/core/User.py" />
         <option value="$PROJECT_DIR$/app/gate/initconfig.py" />
+        <option value="$PROJECT_DIR$/app/util/sql/base/server.sql" />
       </list>
     </option>
   </component>
@@ -1030,7 +1014,7 @@
       <workItem from="1464928635811" duration="140000" />
       <workItem from="1464933847593" duration="250000" />
       <workItem from="1465023014937" duration="13002000" />
-      <workItem from="1465212829659" duration="6866000" />
+      <workItem from="1465212829659" duration="7075000" />
     </task>
     <task id="LOCAL-00001" summary="fix voice_url bugs.">
       <created>1464665621623</created>
@@ -1140,11 +1124,17 @@
       <option name="project" value="LOCAL" />
       <updated>1465034665288</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="store">
+      <created>1465221109296</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1465221109296</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78491000" />
+    <option name="totallyTimeSpent" value="78700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="2419" height="1417" extended-state="0" />
@@ -1152,6 +1142,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45679012" sideWeight="0.25757575" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1172,7 +1163,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1206,7 +1196,8 @@
     <MESSAGE value="add rule." />
     <MESSAGE value="add channel login proto.&#10;reload function." />
     <MESSAGE value="mahjong." />
-    <option name="LAST_COMMIT_MESSAGE" value="mahjong." />
+    <MESSAGE value="store" />
+    <option name="LAST_COMMIT_MESSAGE" value="store" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1300,6 +1291,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1336,14 +1328,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.160893">
           <caret line="47" column="30" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1581,10 +1565,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
+    <entry file="file://$PROJECT_DIR$/app/util/proto/source/login.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09889001">
-          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1592,15 +1576,23 @@
     <entry file="file://$PROJECT_DIR$/app/auth/action/account.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="23" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
+          <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/proto/source/login.proto">
+    <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30676085">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.3547718">
+          <caret line="18" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4248234">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding />
         </state>
       </provider>
