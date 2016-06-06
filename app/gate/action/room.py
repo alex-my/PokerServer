@@ -4,10 +4,22 @@ from app.gate.core.NodeManager import NodeManager
 from app.gate.core.UserManager import UserManager
 from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.gate.core.RoomProxy import RoomProxy
-from app.gate.action import send
+from app.gate.action import send, change
 from app.util.common import func
-from app.util.defines import content, dbname, rule
+from app.util.defines import content, dbname, rule, origins
 from app.util.driver import dbexecute
+
+
+def _get_open_room_origin(room_type):
+    if room_type == rule.GAME_TYPE_PDK:
+        origin = origins.ORIGIN_OPEN_ROOM_PDK
+    elif room_type == rule.GAME_TYPE_ZZMJ:
+        origin = origins.ORIGIN_OPEN_ROOM_ZZMJ
+    elif room_type == rule.GAME_TYPE_PDK2:
+        origin = origins.ORIGIN_OPEN_ROOM_PDK2
+    else:
+        origin = origins.ORIGIN_UNKNOWN
+    return origin
 
 
 def create_room(dynamic_id, room_type, rounds):
@@ -37,6 +49,8 @@ def create_room(dynamic_id, room_type, rounds):
     if room_price < 0:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND_ROUNDS.format(rounds))
         return
+    open_origin = _get_open_room_origin(room_type)
+    change.spend_gold(user, room_price, open_origin)
     if not user.check_gold(room_price):
         send.system_notice(dynamic_id, content.GOLD_LACK)
         return

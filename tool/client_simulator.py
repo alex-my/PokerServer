@@ -5,7 +5,6 @@
 """
 import os
 import sys
-import time
 from twisted.internet import reactor, protocol
 from firefly.utils.singleton import Singleton
 from firefly.utils.services import CommandService
@@ -33,7 +32,7 @@ if os.name != 'nt' and os.name != 'posix':
 client_config = {
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 8531,
-    'user_name': 'AlexWeChat',
+    'user_name': 'test1',
     'password': '1'
 }
 
@@ -156,9 +155,9 @@ class ClientFactory(protocol.ClientFactory):
             # 裸包注册账号
             # register_account(self._client, self._client.user_name, self._client.password)
             # 裸包登陆
-            # account_verify_official(self._client, self._client.user_name, self._client.password)
+            account_verify_official(self._client, self._client.user_name, self._client.password)
             # 渠道登陆
-            account_verify_channel(self._client, self._client.user_name)
+            # account_verify_channel(self._client, self._client.user_name)
         # 成功连接游戏服务器
         else:
             user_login(self._client)
@@ -437,9 +436,9 @@ def user_login_2001(request):
     func.log_info('[user_enter_2002]')
     client.display_user()
     # ================ test create room
-    # create_room(client, rule.GAME_TYPE_ZZMJ, 10)
+    create_room(client, rule.GAME_TYPE_ZZMJ, 10)
     # ================ test enter room
-    enter_room(client, 111505)
+    # enter_room(client, 111505)
     return None
 
 

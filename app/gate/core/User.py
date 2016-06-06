@@ -96,6 +96,10 @@ class User(object):
     def gold(self):
         return self._gold
 
+    @gold.setter
+    def gold(self, count):
+        self._gold += count
+
     @property
     def point(self):
         return self._point

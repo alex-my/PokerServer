@@ -67,8 +67,8 @@ message p_user_info {
     required uint32 account_id = 1;     // 账号ID, 客户端用于显示的ID
     required string uuid = 2;           // 渠道唯一标识符, 比如微信的openid
     optional string name = 3;           // 玩家名
-    optional uint32 head_frame = 4;     // 头像框
-    optional uint32 head_icon = 5;      // 头像
+    optional string head_frame = 4;     // 头像框
+    optional string head_icon = 5;      // 头像
     optional uint32 sex = 6;            // 性别
     optional uint32 gold = 7;           // 金币
     optional uint32 point = 8;          // 总积分
