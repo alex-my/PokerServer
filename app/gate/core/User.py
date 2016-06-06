@@ -1,5 +1,7 @@
 # coding:utf8
 from app.util.common import func
+from app.util.defines import dbname
+from app.util.driver import dbexecute
 
 
 class User(object):
@@ -96,10 +98,6 @@ class User(object):
     def gold(self):
         return self._gold
 
-    @gold.setter
-    def gold(self, count):
-        self._gold += count
-
     @property
     def point(self):
         return self._point
@@ -136,6 +134,11 @@ class User(object):
     def check_gold(self, count):
         return self._gold >= count
 
+    def award_gold(self, count):
+        self._gold += count
+        if self._gold >= 999999999:
+            self._gold = 999999999
+
     def spend_gold(self, count):
         self._gold -= count
         if self._gold < 0:
@@ -148,4 +151,19 @@ class User(object):
         self._point -= count
         if self._point < 0:
             self._point = 0
+
+    def user_save(self):
+        dbexecute.update_record(
+                table=dbname.DB_ACCOUNT,
+                where={'account_id': self._account_id},
+                data=self.get_save_data())
+
+    def get_save_data(self):
+        return {
+            'name': self._name,
+            'head_frame': self._head_frame,
+            'head_icon': self._head_icon,
+            'gold': self._gold,
+            'point': self._point
+        }
 

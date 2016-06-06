@@ -43,6 +43,7 @@ class UserManager:
 
     def drop_user(self, user):
         if user:
+            user.user_save()
             user.disconnect()
             try:
                 del self._users[user.account_id]

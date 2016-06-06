@@ -58,6 +58,23 @@ def insert_auto_increment_record(**kwargs):
     return execute_auto_increment(sql)
 
 
+def update_record(**kwargs):
+    """
+    更新, 如果不存在, 则失败
+    :param kwargs:
+            {
+                'table': table_name
+                'where': {field_name: field_value}
+                'data': {field_name: field_value, ...}
+            }
+    :return:
+    """
+    where = _format_condition(kwargs.get('where'))
+    update = _format_update_sql(kwargs.get('data'))
+    sql = "update {} set {} {}".format(safestr(kwargs.get('table')), safestr(update), safestr(where))
+    return execute(sql)
+
+
 def execute(sql):
     if not isinstance(sql, list):
         flag = db_pool.execute_sql(sql)
@@ -156,6 +173,41 @@ def _format_update_sql(props):
             sql = "`{}`='{}'".format(field, _convert_str(value))
         l.append(sql)
     return ','.join(l)
+
+
+def _format_condition(props):
+    """
+    生成查询条件字符串
+    :param props:
+    :return:
+    """
+    if not props:
+        return ""
+    if isinstance(props, dict):
+        props_list = []
+        for _item in props.items():
+            if isinstance(_item[1], Number):
+                sql = "`%s`=%s" % _item
+            elif isinstance(_item[1], list):
+                symbol = str(_item[1][0]).lower()
+                val = _item[1][1]
+                if symbol == "in" or symbol == "not in":
+                    if isinstance(val, list) or isinstance(val, tuple):
+                        sql = "`%s` %s ('%s')" % (_item[0], symbol, "','".join(map(str, val)))
+                    else:
+                        sql = "`%s` %s (%s)" % (_item[0], symbol, _convert_str(val))
+                else:
+                    if isinstance(val, Number):
+                        sql = "`%s` %s %s" % (_item[0], symbol, val)
+                    else:
+                        sql = "`%s` %s '%s'" % (_item[0], symbol, _convert_str(val))
+            else:
+                sql = "`%s`='%s'" % (_item[0], _convert_str(_item[1]))
+            props_list.append(sql)
+        where = ' AND '.join(props_list)
+    else:
+        where = safestr(props)
+    return " WHERE %s" % where
 
 
 if __name__ == '__main__':

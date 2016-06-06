@@ -15,6 +15,10 @@ class RoomProxyManager:
         self._user_rooms = dict()       # {account_id: {room_type: room_id, ...}, ...}
         self._rules = dict()            # {}
 
+    @property
+    def rooms(self):
+        return self._rooms
+
     def load_all_room(self):
         sql = 'select * from {}'.format(dbname.DB_ROOM)
         results = dbexecute.query_all(sql)

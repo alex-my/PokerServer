@@ -146,7 +146,8 @@ def _register_process(user_name, password, name, uuid, channel_id, sex, head_fra
         'name': name,
         'sex': sex,
         'head_frame': head_frame,
-        'head_icon': head_icon
+        'head_icon': head_icon,
+        'gold': 1000
     }
     account_id = dbexecute.insert_auto_increment_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data})
     return account_id

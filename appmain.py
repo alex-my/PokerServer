@@ -4,6 +4,7 @@ import json
 import os
 import sys
 import affinity
+import signal
 from twisted.python import log
 from twisted.internet import reactor
 from twisted.web import vhost
@@ -16,6 +17,7 @@ from firefly.server.logobj import loogoo
 from firefly.server.globalobject import GlobalObject
 from firefly.utils import services
 from firefly.web.delayrequest import DelaySite
+from app.util.common import func
 from app.util.driver.dbexecute import db_pool
 
 
@@ -94,6 +96,21 @@ class FFGServer(FFServer):
             GlobalObject().reloadmodule = __import__(mreload, fromlist=_path_list[:1])
         GlobalObject().remote_connect = self.remote_connect
         import firefly.server.admin
+
+    def start_after(self):
+        func.log_info('{} has started, the pid is {}.'.format(self.servername, os.getpid()))
+
+    def stop_before(self):
+        func.log_info('{} is stoped.'.format(self.servername))
+        if GlobalObject().stophandler:
+            GlobalObject().stophandler()
+        signal.alarm(1)
+
+    def start(self):
+        reactor.addSystemEventTrigger('after', 'startup', self.start_after)
+        reactor.addSystemEventTrigger('before', 'shutdown', self.stop_before)
+        GlobalObject().server = self
+        FFServer.start(self)
 
 
 if __name__ == "__main__":

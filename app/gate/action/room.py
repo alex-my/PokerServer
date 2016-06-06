@@ -50,10 +50,10 @@ def create_room(dynamic_id, room_type, rounds):
         send.system_notice(dynamic_id, content.ROOM_UN_FIND_ROUNDS.format(rounds))
         return
     open_origin = _get_open_room_origin(room_type)
-    change.spend_gold(user, room_price, open_origin)
     if not user.check_gold(room_price):
         send.system_notice(dynamic_id, content.GOLD_LACK)
         return
+    change.spend_gold(user, room_price, open_origin)
     node = _get_best_game_node(dynamic_id)
     if not node:
         return

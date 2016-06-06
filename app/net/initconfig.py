@@ -2,6 +2,14 @@
 
 from firefly.server.globalobject import GlobalObject
 from app.util.common import protocol
+from app.util.common import func
+
+
+def do_when_stop():
+    func.log_info('[net] ---------------------------> node do_when_stop <-----------------------')
+
+
+GlobalObject().stophandler = do_when_stop
 
 
 def call_when_connect_lost(conn):
