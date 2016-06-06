@@ -29,8 +29,8 @@ def account_register(dynamic_id, address, user_name, password):
     uuid = user_name
     sex = func.random_get(1, 2)
     name = user_name
-    head_frame = 1
-    head_icon = 1
+    head_frame = ''
+    head_icon = ''
     account_id = _register_process(user_name, password, name, uuid, channel.CHANNEL_ZERO, sex, head_frame, head_icon)
     if account_id:
         func.log_info('[Auth] user_name: {}, account_id: {}, address: {} register success'.format(

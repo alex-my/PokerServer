@@ -40,8 +40,8 @@ message m_1003_tos {
     required uint32 channel_id = 2; // 渠道编号 1 微信
     required string uuid = 3;       // 渠道唯一标识符, 比如微信的openid
     optional string name = 4;       // 玩家名
-    optional uint32 head_frame = 5; // 头像框
-    optional uint32 head_icon = 6;  // 头像
+    optional string head_frame = 5; // 头像框
+    optional string head_icon = 6;  // 头像
     optional uint32 sex = 7;        // 性别
 }
 
