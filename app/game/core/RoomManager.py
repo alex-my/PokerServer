@@ -15,6 +15,10 @@ class RoomManager:
         self._rooms = dict()            # {room_id: Room, ...}
         self._player_room = dict()      # {account_id: room_id, ...}
 
+    @property
+    def rooms(self):
+        return self._rooms
+
     def add_room(self, room):
         self._rooms[room.room_id] = room
 
@@ -50,7 +54,8 @@ class RoomManager:
         else:
             return None
 
-    def _create_room(self, room_type):
+    @staticmethod
+    def _create_room(room_type):
         if room_type in [rule.GAME_TYPE_PDK]:
             room = RoomPoker()
         elif room_type in [rule.GAME_TYPE_ZZMJ]:
@@ -68,4 +73,6 @@ class RoomManager:
 
     def query_player_room_id(self, account_id):
         return self._player_room.get(account_id)
+
+
 

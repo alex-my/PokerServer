@@ -1,6 +1,8 @@
 # coding:utf8
 from app.game.core.Room import Room
-from app.util.defines import status
+from app.util.common import func
+from app.util.defines import dbname, status
+from app.util.driver import dbexecute
 
 
 class RoomPoker(Room):
@@ -63,4 +65,24 @@ class RoomPoker(Room):
         if win_player and win_point > 0:
             win_player.point_change(win_point)
         return all_player_info
+
+    def room_save(self):
+        dbexecute.update_record(
+                table=dbname.DB_ROOM,
+                where={'room_id': self._room_id},
+                data=self.get_save_data())
+
+    def get_save_data(self):
+        data = {
+            'base_data': self._get_base_save_data().items(),
+        }
+        return {
+            'data': func.pack_data(data)
+        }
+
+    def _parse_data(self, data):
+        if not data:
+            return
+        data = func.unpack_data(data)
+        super(RoomPoker, self)._parse_data(dict(data.get('base_data', [])))
 

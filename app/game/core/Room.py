@@ -18,7 +18,6 @@ class Room(object):
         self._max_rounds = 10           # 房间允许回合数
         self._create_time = 0           # 创建时间
         self._account_id = 0            # 创建者
-        self._data = dict()
         self._config = None
         self._player_list = []          # [account_id, ...]         # 进入房间的玩家
         self._ready_list = []           # [account_id, ...]
@@ -42,8 +41,45 @@ class Room(object):
             data = func.unpack_data(data)
         else:
             data = []
-        self._data = dict(data)
+        # Alex
+        # self._parse_data(dict(data))
         self._config = rule.rule_configs[self.room_type]
+
+    def _parse_data(self, base_data):
+        if not base_data:
+            return
+        self._player_list = base_data['player_list']
+        self._ready_list = base_data['ready_list']
+        self._execute_account_id = base_data['execute_account_id']
+        self._last_account_id = base_data['last_account_id']
+        self._last_cards = base_data['last_cards']
+        self._pre_win_account_id = base_data['pre_win_account_id']
+        self._rounds = base_data['rounds']
+        self._cards = base_data['cards']
+        self._switch_account_id = base_data['switch_account_id']
+        _players = dict(base_data['players'])
+        self._players = dict()
+        for str_account_id, info in _players.items():
+            _player = self._create_player()
+            _player.parse_player_data(info)
+            self._players[int(str_account_id)] = _player
+
+    def _get_base_save_data(self):
+        _players = dict()
+        for account_id, _player in self._players.items():
+            _players[account_id] = _player.get_player_save_data()
+        return {
+            'player_list': self._player_list,
+            'ready_list': self._ready_list,
+            'players': _players.items(),
+            'execute_account_id': self._execute_account_id,
+            'last_account_id': self._last_account_id,
+            'last_cards': self._last_cards,
+            'pre_win_account_id': self._pre_win_account_id,
+            'rounds': self._rounds,
+            'cards': self._cards,
+            'switch_account_id': self._switch_account_id
+        }
 
     @property
     def room_id(self):

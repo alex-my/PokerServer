@@ -436,9 +436,9 @@ def user_login_2001(request):
     func.log_info('[user_enter_2002]')
     client.display_user()
     # ================ test create room
-    create_room(client, rule.GAME_TYPE_ZZMJ, 10)
+    # create_room(client, rule.GAME_TYPE_ZZMJ, 10)
     # ================ test enter room
-    # enter_room(client, 111505)
+    enter_room(client, 348688)
     return None
 
 

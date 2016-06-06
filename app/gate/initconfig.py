@@ -18,8 +18,8 @@ def do_when_stop():
             ))
     func.log_info('[gate] node do_when_stop end <-----------------------')
 
-
-GlobalObject().stophandler = do_when_stop
+# Alex
+# GlobalObject().stophandler = do_when_stop
 
 
 def load_module():

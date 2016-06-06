@@ -147,6 +147,11 @@ class User(object):
     def check_point(self, count):
         return self._point >= count
 
+    def award_point(self, count):
+        self._point += count
+        if self._point >= 999999999:
+            self._point = 999999999
+
     def spend_point(self, count):
         self._point -= count
         if self._point < 0:

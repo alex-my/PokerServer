@@ -1,6 +1,8 @@
 # coding:utf8
 from app.game.core.Room import Room
-from app.util.defines import games, status
+from app.util.common import func
+from app.util.defines import dbname, games, status
+from app.util.driver import dbexecute
 
 
 class RoomMahjong(Room):
@@ -147,5 +149,53 @@ class RoomMahjong(Room):
             win_player.point_change(win_point)
         return all_player_info
 
+    def room_save(self):
+        dbexecute.update_record(
+                table=dbname.DB_ROOM,
+                where={'room_id': self._room_id},
+                data=self.get_save_data())
 
+    def get_save_data(self):
+        data = {
+            'base_data': self._get_base_save_data().items(),
+            'local_data': self._get_local_data().items()
+        }
+        return {
+            'data': func.pack_data(data)
+        }
 
+    def _get_local_data(self):
+        return {
+            'player_operators': self._player_operators.items(),
+            'operators': self._operators.items(),
+            'craps_list': self._craps_list,
+            'start_num': self._start_num,
+            'end_num': self._end_num,
+            'make_account_id': self._maker_account_id
+        }
+
+    def _parse_data(self, data):
+        if not data:
+            return
+        data = func.unpack_data(data)
+        super(RoomMahjong, self)._parse_data(dict(data.get('base_data', [])))
+        self._parse_local_data(dict(data.get('local_data', [])))
+
+    def _parse_local_data(self, local_data):
+        if not local_data:
+            return
+
+        player_operators = dict(local_data['player_operators'])
+        self._player_operators = dict()
+        for str_account_id, o_list in player_operators.items():
+            self._player_operators[int(str_account_id)] = o_list
+
+        operators = dict(local_data['operators'])
+        self._operators = dict()
+        for str_operator, info in operators.items():
+            self._operators[int(str_operator)] = info
+
+        self._craps_list = local_data['craps_list']
+        self._start_num = int(local_data['start_num'])
+        self._end_num = int(local_data['end_num'])
+        self._maker_account_id = int(local_data['make_account_id'])
