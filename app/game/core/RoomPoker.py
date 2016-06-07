@@ -83,6 +83,5 @@ class RoomPoker(Room):
     def _parse_data(self, data):
         if not data:
             return
-        data = func.unpack_data(data)
         super(RoomPoker, self)._parse_data(dict(data.get('base_data', [])))
 

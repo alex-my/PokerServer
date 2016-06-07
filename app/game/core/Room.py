@@ -41,8 +41,7 @@ class Room(object):
             data = func.unpack_data(data)
         else:
             data = []
-        # Alex
-        # self._parse_data(dict(data))
+        self._parse_data(dict(data))
         self._config = rule.rule_configs[self.room_type]
 
     def _parse_data(self, base_data):

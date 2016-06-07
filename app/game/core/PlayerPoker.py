@@ -24,7 +24,6 @@ class PlayerPoker(Player):
     def parse_player_data(self, data):
         if not data:
             return
-        data = func.unpack_data(data)
         super(PlayerPoker, self)._parse_player_base_data(dict(data.get('base_data', [])))
         self._parse_player_local_data(dict(data.get('local_data', [])))
 

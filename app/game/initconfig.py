@@ -18,8 +18,7 @@ def do_when_stop():
     func.log_info('[game] node do_when_stop end <-----------------------')
 
 
-# Alex
-# GlobalObject().stophandler = do_when_stop
+GlobalObject().stophandler = do_when_stop
 
 
 def load_module():

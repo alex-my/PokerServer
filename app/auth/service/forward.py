@@ -14,7 +14,6 @@ def forwarding(target_key, dynamic_id, address, data):
     :param data: 数据
     :return:
     """
-    print 'Alex auth forwarding: ', target_key, dynamic_id, address
     if auth_service.is_target_local(target_key):
         return auth_service.callTarget(target_key, dynamic_id, address, data)
     else:

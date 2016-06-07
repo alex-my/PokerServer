@@ -7,16 +7,16 @@
 class Player(object):
 
     def __init__(self, **kwargs):
-        self._account_id = kwargs['account_id']
-        self._room_id = kwargs['room_id']
-        self._position = kwargs['position']
+        self._account_id = kwargs.get('account_id', 0)
+        self._room_id = kwargs.get('room_id', 0)
+        self._position = kwargs.get('position', 0)
         self._dynamic_id = 0
-        self._name = kwargs['name']
-        self._head_frame = kwargs['head_frame']
-        self._head_icon = kwargs['head_icon']
-        self._sex = kwargs['sex']
-        self._ip = kwargs['ip']
-        self._point = kwargs['point']       # 总分
+        self._name = kwargs.get('name', 0)
+        self._head_frame = kwargs.get('head_frame', '')
+        self._head_icon = kwargs.get('head_icon', '')
+        self._sex = kwargs.get('sex', 0)
+        self._ip = kwargs.get('ip', '')
+        self._point = kwargs.get('point', 0)      # 总分
         self._status = 0
         self._cards = dict()                # {card: flag, ...}, flag: True 已经打出, False: 未打出
 

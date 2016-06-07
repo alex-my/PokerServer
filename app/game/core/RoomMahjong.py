@@ -177,7 +177,6 @@ class RoomMahjong(Room):
     def _parse_data(self, data):
         if not data:
             return
-        data = func.unpack_data(data)
         super(RoomMahjong, self)._parse_data(dict(data.get('base_data', [])))
         self._parse_local_data(dict(data.get('local_data', [])))
 
