@@ -6,6 +6,7 @@ import sys
 import affinity
 import signal
 from twisted.python import log
+from twisted.python.logfile import DailyLogFile
 from twisted.internet import reactor
 from twisted.web import vhost
 from firefly.distributed.root import PBRoot, BilateralFactory
@@ -13,7 +14,6 @@ from firefly.distributed.node import RemoteObject
 from firefly.dbentrust.memclient import mclient
 from firefly.netconnect.protoc import LiberateFactory
 from firefly.server.server import FFServer
-from firefly.server.logobj import loogoo
 from firefly.server.globalobject import GlobalObject
 from firefly.utils import services
 from firefly.web.delayrequest import DelaySite
@@ -80,9 +80,8 @@ class FFGServer(FFServer):
             urls = memconfig.get('urls')
             hostname = str(memconfig.get('hostname'))
             mclient.connect(urls, hostname)
-
-        if logpath:
-            log.addObserver(loogoo(logpath))#日志处理
+        log_obj = DailyLogFile('master.log', 'logs/')
+        log.FileLogObserver(log_obj)
         log.startLogging(sys.stdout)
 
         if cpuid:

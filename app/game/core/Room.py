@@ -2,6 +2,7 @@
 """
 房间
 """
+import operator
 import random
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.PlayerMahjong import PlayerMahjong
@@ -264,7 +265,7 @@ class Room(object):
         statistic_list = []
         for player in self._players.values():
             statistic_list.append(player.get_statistic_data())
-        # TODO: sorted
-        for info in statistic_list:
-            info['rank'] = 1
+        statistic_list.sort(key=operator.itemgetter('point_change', 'win_count', 'max_point', 'account_id'))
+        for index, info in enumerate(statistic_list):
+            info['rank'] = index + 1
         return statistic_list
