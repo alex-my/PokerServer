@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PokerServer.iml" afterPath="$PROJECT_DIR$/PokerServer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/auth/service/forward.py" afterPath="$PROJECT_DIR$/app/auth/service/forward.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/Player.py" afterPath="$PROJECT_DIR$/app/game/core/Player.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" afterPath="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/PlayerPoker.py" afterPath="$PROJECT_DIR$/app/game/core/PlayerPoker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/Room.py" afterPath="$PROJECT_DIR$/app/game/core/Room.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/RoomMahjong.py" afterPath="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/RoomPoker.py" afterPath="$PROJECT_DIR$/app/game/core/RoomPoker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/initconfig.py" afterPath="$PROJECT_DIR$/app/game/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/initconfig.py" afterPath="$PROJECT_DIR$/app/gate/initconfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/games.py" afterPath="$PROJECT_DIR$/app/util/defines/games.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,11 +76,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Room.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6468214">
-                  <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="165" column="13" selection-start-line="165" selection-start-column="13" selection-end-line="165" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.05912863">
+                  <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -183,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/util/proto/source/room.proto" />
         <option value="$PROJECT_DIR$/app/game/action/send.py" />
         <option value="$PROJECT_DIR$/app/util/proto/source/login.proto" />
         <option value="$PROJECT_DIR$/app/auth/action/send.py" />
@@ -234,6 +232,7 @@
         <option value="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
         <option value="$PROJECT_DIR$/app/game/core/Room.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -934,7 +933,7 @@
       <workItem from="1464933847593" duration="250000" />
       <workItem from="1465023014937" duration="13002000" />
       <workItem from="1465212829659" duration="12735000" />
-      <workItem from="1465288749247" duration="2535000" />
+      <workItem from="1465288749247" duration="2595000" />
     </task>
     <task id="LOCAL-00001" summary="fix voice_url bugs.">
       <created>1464665621623</created>
@@ -1068,11 +1067,17 @@
       <option name="project" value="LOCAL" />
       <updated>1465222251446</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="store.">
+      <created>1465291342706</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1465291342706</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86895000" />
+    <option name="totallyTimeSpent" value="86955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2480" height="1417" extended-state="6" />
@@ -1080,6 +1085,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45679012" sideWeight="0.25757575" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1100,7 +1106,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1137,7 +1142,8 @@
     <MESSAGE value="store" />
     <MESSAGE value="fix sql." />
     <MESSAGE value="user point change." />
-    <option name="LAST_COMMIT_MESSAGE" value="user point change." />
+    <MESSAGE value="store." />
+    <option name="LAST_COMMIT_MESSAGE" value="store." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1148,13 +1154,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/util/proto/source/room.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gameserver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1507,8 +1506,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6468214">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="165" column="13" selection-start-line="165" selection-start-column="13" selection-end-line="165" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05912863">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
