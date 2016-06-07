@@ -30,6 +30,8 @@ class Room(object):
         self._rounds = 1                # 房间回合数
         self._cards = []                # 所有牌
         self._switch_account_id = 0     # 切牌
+        self._close_room_player = []    # 关闭房间的玩家
+        self._close_t = 0               # 关闭房间申请时间
 
     def init(self, result):
         self._room_id = result.get('room_id')
@@ -144,6 +146,42 @@ class Room(object):
     @property
     def max_rounds(self):
         return self._max_rounds
+
+    @property
+    def close_t(self):
+        return self._close_t
+
+    def is_close_t_valid(self):
+        return func.time_get() - self._close_t < 30
+
+    def clear_close(self):
+        self._close_t = 0
+        self._close_room_player = []
+
+    def add_close_agree(self, account_id):
+        if account_id not in self._close_room_player:
+            self._close_room_player.append(account_id)
+        if self._close_t == 0:
+            self._close_t = func.time_get()
+
+    def is_room_close_able(self):
+        return self.is_close_t_valid() and len(self._close_room_player) > int(self.player_count / 2)
+
+    def is_creater_agree_close(self):
+        return self._account_id in self._close_room_player
+
+    def is_room_start(self):
+        return self._rounds > 1 or len(self._cards) > 0
+
+    def get_room_brief(self):
+        return {
+            'room_id': self._room_id,
+            'room_type': self._room_type,
+            'rounds': self._rounds,
+            'max_rounds': self._max_rounds,
+            'account_id': self._account_id,
+            'create_t': self._create_time
+        }
 
     def is_room_full(self, account_id):
         if len(self._player_list) >= self._config['player_count']:

@@ -2,9 +2,9 @@
 from app.game.gameservice import request_gate_node
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, mahjong
+from app.game.action import send, mahjong, change
 from app.util.common import func
-from app.util.defines import content, operators, rule, status
+from app.util.defines import content, operators, origins, rule, status
 
 
 def user_operator(dynamic_id, operator):
@@ -85,11 +85,23 @@ def user_close(dynamic_id, operate):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
-    if account_id != room.owner_account_id:
-        send.system_notice(dynamic_id, content.ROOM_CLOSE_OWNER)
-        return
-    notice_all_room_user_operator(room, account_id, operate)
-    remove_room(room)
+    if not room.is_close_t_valid():
+        room.clear_close()
+    room.add_close_agree(account_id)
+    if room.is_room_close_able():
+        if room.is_creater_agree_close():
+            notice_all_room_user_operator(room, account_id, operate)
+            if not room.is_room_start():
+                room_price = get_room_price(room)
+                back_origin = get_room_close_origin(room)
+                change.award_gold(room.owner_account_id, room_price, back_origin)
+                func.log_info('[game] user_close account_id: {}, room_price: {}, back_origin: {}, room: {}'.format(
+                    account_id, room_price, back_origin, room.get_room_brief()
+                ))
+            send.system_notice_room(room, content.ROOM_CLOSE_NOW)
+            remove_room(room)
+        else:
+            send.system_notice_room(room, content.ROOM_CLOSE_OWNER)
     return True
 
 
@@ -205,3 +217,25 @@ def dispatch_mahjong_to_room(room):
         send.player_dispatch_cards(execute_account_id, player)
         if player.account_id == execute_account_id:
             mahjong.dispatch_mahjong_card(player.dynamic_id, True)
+
+
+def get_room_price(room):
+    room_type = room.room_type
+    max_rounds = room.max_rounds
+    return rule.rule_configs.get(room_type, {}).get('room_price', {}).get(max_rounds, 0)
+
+
+def get_room_close_origin(room):
+    room_type = room.room_type
+    if room_type == rule.GAME_TYPE_PDK:
+        origin = origins.ORIGIN_BACK_ROOM_PDK
+    elif room_type == rule.GAME_TYPE_ZZMJ:
+        origin = origins.ORIGIN_BACK_ROOM_ZZMJ
+    elif room_type == rule.GAME_TYPE_PDK2:
+        origin = origins.ORIGIN_BACK_ROOM_PDK2
+    else:
+        raise KeyError('[game] get_room_close_origin room_id: {}, room_type: {}, max_rounds: {}'.format(
+            room.room_id, room_type, room.max_rounds
+        ))
+    return origin
+

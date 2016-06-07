@@ -17,6 +17,20 @@ def system_notice(dynamic_id, content):
     forward.push_object_game(9001, response.SerializeToString(), [dynamic_id])
 
 
+def system_notice_room(room, content):
+    """
+    通知全房间
+    :param room:
+    :param content:
+    :return:
+    """
+    dynamic_id_list = room.get_room_dynamic_id_list()
+    response = system_pb2.m_9001_toc()
+    response.content = content
+    func.log_warn('[game] system_notice_room dynamic_id: {}'.format(dynamic_id_list))
+    forward.push_object_game(9001, response.SerializeToString(), dynamic_id_list)
+
+
 def broad_player_enter(dynamic_id_list, user_info):
     response = room_pb2.m_3005_toc()
     response.user_room.position = user_info['position']
