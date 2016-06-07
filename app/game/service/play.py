@@ -16,3 +16,15 @@ def user_ready_4001(dynamic_id, proto):
     argument.ParseFromString(proto)
     play.user_operator(dynamic_id, argument.operate)
     return None
+
+
+@game_service_handle
+def user_switch_over_4005(dynamic_id, proto):
+    """
+    switch over, ready dispatch all cards
+    :param dynamic_id:
+    :param proto:
+    :return:
+    """
+    play.user_switch_over(dynamic_id)
+    return None

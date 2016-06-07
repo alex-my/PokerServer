@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='play.proto',
   package='',
-  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r')
+  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"\x0c\n\nm_4005_tos')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -232,6 +232,29 @@ _P_CLOSE_INFO = _descriptor.Descriptor(
   serialized_end=311,
 )
 
+
+_M_4005_TOS = _descriptor.Descriptor(
+  name='m_4005_tos',
+  full_name='m_4005_tos',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=313,
+  serialized_end=325,
+)
+
 _M_4004_TOC.fields_by_name['close_info'].message_type = _P_CLOSE_INFO
 DESCRIPTOR.message_types_by_name['m_4001_tos'] = _M_4001_TOS
 DESCRIPTOR.message_types_by_name['m_4001_toc'] = _M_4001_TOC
@@ -239,6 +262,7 @@ DESCRIPTOR.message_types_by_name['m_4002_toc'] = _M_4002_TOC
 DESCRIPTOR.message_types_by_name['m_4003_toc'] = _M_4003_TOC
 DESCRIPTOR.message_types_by_name['m_4004_toc'] = _M_4004_TOC
 DESCRIPTOR.message_types_by_name['p_close_info'] = _P_CLOSE_INFO
+DESCRIPTOR.message_types_by_name['m_4005_tos'] = _M_4005_TOS
 
 m_4001_tos = _reflection.GeneratedProtocolMessageType('m_4001_tos', (_message.Message,), dict(
   DESCRIPTOR = _M_4001_TOS,
@@ -281,6 +305,13 @@ p_close_info = _reflection.GeneratedProtocolMessageType('p_close_info', (_messag
   # @@protoc_insertion_point(class_scope:p_close_info)
   ))
 _sym_db.RegisterMessage(p_close_info)
+
+m_4005_tos = _reflection.GeneratedProtocolMessageType('m_4005_tos', (_message.Message,), dict(
+  DESCRIPTOR = _M_4005_TOS,
+  __module__ = 'play_pb2'
+  # @@protoc_insertion_point(class_scope:m_4005_tos)
+  ))
+_sym_db.RegisterMessage(m_4005_tos)
 
 
 # @@protoc_insertion_point(module_scope)

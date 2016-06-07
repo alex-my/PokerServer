@@ -111,6 +111,23 @@ def user_switch(dynamic_id):
     return True
 
 
+def user_switch_over(dynamic_id):
+    account_id = PlayerManager().query_account_id(dynamic_id)
+    if not account_id:
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        return False
+    room_manager = RoomManager()
+    room_id = room_manager.query_player_room_id(account_id)
+    if not room_id:
+        send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
+        return False
+    room = room_manager.get_room(room_id)
+    if not room:
+        send.system_notice(dynamic_id, content.ROOM_UN_FIND)
+        return False
+    dispatch_poker_to_room(room)
+
+
 def notice_all_room_user_operator(room, account_id, operator):
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.dispatch_user_operator(account_id, operator, dynamic_id_list)
@@ -148,7 +165,8 @@ def remove_room(room):
 
 def dispatch_cards_to_room(room):
     if room.room_type == rule.GAME_TYPE_PDK:
-        dispatch_poker_to_room(room)
+        if not check_switch(room):
+            dispatch_poker_to_room(room)
     elif room.room_type == rule.GAME_TYPE_ZZMJ:
         dispatch_mahjong_to_room(room)
 
