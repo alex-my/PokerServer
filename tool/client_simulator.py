@@ -167,7 +167,7 @@ class ClientFactory(protocol.ClientFactory):
             result = client_service.callTarget(target_key, request)
             return target_key, result
         else:
-            func.log_error('[ClientFactory] target_key: {} can not find in client_service')
+            func.log_error('[ClientFactory] target_key: {} can not find in client_service'.format(target_key))
             return None, None
 
     def clientConnectionLost(self, connector, reason):
@@ -436,9 +436,9 @@ def user_login_2001(request):
     func.log_info('[user_enter_2002]')
     client.display_user()
     # ================ test create room
-    # create_room(client, rule.GAME_TYPE_ZZMJ, 10)
+    create_room(client, rule.GAME_TYPE_PDK2, 10)
     # ================ test enter room
-    enter_room(client, 348688)
+    # enter_room(client, 348688)
     return None
 
 
@@ -606,6 +606,16 @@ def system_notice_9001(request):
     argument = system_pb2.m_9001_toc()
     argument.ParseFromString(request)
     func.log_error('[SYSTEM] {}'.format(argument.content))
+    return None
+
+
+@client_service_handle
+def user_change_9003(request):
+    argument = system_pb2.m_9003_toc()
+    argument.ParseFromString(request)
+    change_list = [c for c in argument.role_change]
+    role_change_list = [{'change_type': info.change_type, 'change_value': info.change_value} for info in change_list]
+    func.log_info('[user_change_9003] role_change_list: {}'.format(role_change_list))
     return None
 
 

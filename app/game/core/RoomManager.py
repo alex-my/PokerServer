@@ -56,12 +56,12 @@ class RoomManager:
 
     @staticmethod
     def _create_room(room_type):
-        if room_type in [rule.GAME_TYPE_PDK]:
+        if room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
             room = RoomPoker()
         elif room_type in [rule.GAME_TYPE_ZZMJ]:
             room = RoomMahjong()
         else:
-            room = None
+            raise KeyError('[gate] RoomManager _create_room room_type: {} un exist'.format(room_type))
         return room
 
     def add_player_room(self, account_id, room_id):
