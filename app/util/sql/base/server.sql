@@ -83,6 +83,7 @@ CREATE TABLE `log_gold` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理ID',
   `account_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '帐号ID',
   `count` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '消费数量',
+  `remain` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '剩余数量',
   `origin_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '消费处ID',
   `time` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '使用时间',
   PRIMARY KEY (`id`)

@@ -10,7 +10,7 @@ def award_gold(user, count, origin):
         return
     user.award_gold(count)
     send.user_change(user.dynamic_id, {changes.CHANGE_USER_GOLD: user.gold})
-    log_record.log_gold(user.account_id, count, origin)
+    log_record.log_gold(user.account_id, count, user.gold, origin)
     func.log_info('[gate] award_gold account_id: {}, count: {}, now: {}, origin: {}'.format(
         user.account_id, count, user.gold, origin
     ))
@@ -21,7 +21,7 @@ def spend_gold(user, count, origin):
         return
     user.spend_gold(count)
     send.user_change(user.dynamic_id, {changes.CHANGE_USER_GOLD: user.gold})
-    log_record.log_gold(user.account_id, count, origin)
+    log_record.log_gold(user.account_id, count, user.gold, origin)
     func.log_info('[gate] spend_gold account_id: {}, count: {}, now: {}, origin: {}'.format(
         user.account_id, count, user.gold, origin
     ))
