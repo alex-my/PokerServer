@@ -133,7 +133,7 @@ def enter_room(dynamic_id, room_id):
                        head_icon=user.head_icon, point=user.point, sex=user.sex, ip=user.ip)
 
 
-def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data):
+def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, operator_account_id, player_operators):
     user = UserManager().get_user(account_id)
     if not user:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
@@ -150,7 +150,7 @@ def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data):
     if room.room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
         send.enter_poker_room(user.dynamic_id, room_id, room.room_type, room_data)
     elif room.room_type == rule.GAME_TYPE_ZZMJ:
-        send.enter_mahjong_room(user.dynamic_id, room_id, room_data)
+        send.enter_mahjong_room(user.dynamic_id, room_id, room_data, operator_account_id, player_operators)
 
 
 def remove_room(room_id):

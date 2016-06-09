@@ -123,12 +123,14 @@ def enter_poker_room(dynamic_id, room_id, room_type, room_data):
     forward.push_object_gate(3002, response.SerializeToString(), [dynamic_id])
 
 
-def enter_mahjong_room(dynamic_id, room_id, room_data):
+def enter_mahjong_room(dynamic_id, room_id, room_data, operator_account_id, player_operators):
     """
     enter/resume room
     :param dynamic_id:
     :param room_id:
     :param room_data:
+    :param operator_account_id:
+    :param player_operators:
     :return:
     """
     response = room_pb2.m_3003_toc()
@@ -152,6 +154,11 @@ def enter_mahjong_room(dynamic_id, room_id, room_data):
                 for card_id in card_list:
                     award_cards.append(card_id)
             user_room.card_count = user_info['card_count']
+            user_room.operator_able = user_info['account_id'] == operator_account_id
+            _operator_list = player_operators.get(user_info['account_id'])
+            if _operator_list:
+                for operator_id in _operator_list:
+                    user_room.operators.append(operator_id)
 
         for card_id in room_data['user_cards']:
             response.user_cards.append(card_id)
@@ -168,6 +175,7 @@ def enter_mahjong_room(dynamic_id, room_id, room_data):
         response.maker_account_id = room_data.get('maker_account_id', 0)
         response.mahjong_start_num = room_data.get('mahjong_start_num', 0)
         response.mahjong_end_num = room_data.get('mahjong_end_num', 0)
+        response.operator_account_id = operator_account_id
 
     func.log_info('[gate] 3003 dynamic_id: {}, response: {}'.format(dynamic_id, response))
     forward.push_object_gate(3003, response.SerializeToString(), [dynamic_id])

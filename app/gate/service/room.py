@@ -34,7 +34,7 @@ def enter_room_3002(dynamic_id, proto):
 
 
 @rootserviceHandle
-def enter_room_gate(account_id, dynamic_id, node_name, room_id, room_data):
+def enter_room_gate(account_id, dynamic_id, node_name, room_id, room_data, operator_account_id, player_operators):
     """
     game返回room信息
     :param account_id:
@@ -42,9 +42,12 @@ def enter_room_gate(account_id, dynamic_id, node_name, room_id, room_data):
     :param node_name:
     :param room_id:
     :param room_data:
+    :param operator_account_id:
+    :param player_operators:
     :return:
     """
-    room.enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data)
+    room.enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data,
+                            operator_account_id, player_operators)
     return None
 
 

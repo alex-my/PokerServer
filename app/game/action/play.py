@@ -8,14 +8,12 @@ from app.util.defines import content, operators, origins, rule, status
 
 
 def user_operator(dynamic_id, operator):
-    if operator == operators.USER_OPERATOR_READY:
+    if operator in [operators.USER_OPERATOR_READY, operators.USER_OPERATOR_SWITCH]:
         result = user_ready(dynamic_id, operator)
     elif operator == operators.USER_OPERATOR_OFFLINE:
         result = user_leave(dynamic_id, operator)
     elif operator == operators.USER_OPERATOR_CLOSE:
         result = user_close(dynamic_id, operator)
-    elif operator == operators.USER_OPERATOR_SWITCH:
-        result = user_switch(dynamic_id)
     else:
         result = False
     if result:
@@ -40,6 +38,10 @@ def user_ready(dynamic_id, operator):
     func.log_info('[game] user ready room_id: {}, account_id: {}, flag: {}'.format(
         room_id, account_id, room.is_all_ready()
     ))
+
+    if operator == operators.USER_OPERATOR_SWITCH:
+        room.switch_account_id = account_id
+    notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_READY)
     if room.is_all_ready():
         func.log_info('[game] all ready room_id: {}'.format(room.room_id))
         # 创建者必须在房间中
@@ -50,8 +52,6 @@ def user_ready(dynamic_id, operator):
         if check_switch(room):
             switch_cards(room)
         dispatch_cards_to_room(room)
-    else:
-        notice_all_room_user_operator(room, account_id, operator)
     return True
 
 
@@ -105,25 +105,6 @@ def user_close(dynamic_id, operate):
             send.system_notice_room(room, content.ROOM_CLOSE_OWNER)
     elif room.is_room_close_first():
         notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_CLOSE)
-    return True
-
-
-def user_switch(dynamic_id):
-    account_id = PlayerManager().query_account_id(dynamic_id)
-    if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
-        return False
-    room_manager = RoomManager()
-    room_id = room_manager.query_player_room_id(account_id)
-    if not room_id:
-        send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
-        return False
-    room = room_manager.get_room(room_id)
-    if not room:
-        send.system_notice(dynamic_id, content.ROOM_UN_FIND)
-        return False
-    room.switch_account_id = account_id
-    room.player_ready(account_id)
     return True
 
 

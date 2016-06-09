@@ -2,7 +2,7 @@
 from app.game.gameservice import request_gate_node
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, play
+from app.game.action import send, play, mahjong
 from app.util.common import func
 from app.util.defines import content, operators, rule
 
@@ -26,10 +26,17 @@ def enter_room(**kwargs):
     room.player_enter(**kwargs)
     PlayerManager().record_player(dynamic_id, account_id)
     room_manager.add_player_room(account_id, room_id)
-    func.log_info('[game] enter_room dynamic_id: {}, account_id: {}, room_id: {}'.format(
-            dynamic_id, account_id, room_id))
+    player_operators, all_operators = room.operators
+    operator_account_id = 0
+    if all_operators:
+        _execute_player = room.get_player(room.execute_account_id)
+        if _execute_player:
+            operator_account_id = mahjong.select_mahjong_operator_account_id(
+                all_operators, _execute_player.account_id, _execute_player.position)
+    func.log_info('[game] enter_room dynamic_id: {}, account_id: {}, room_id: {}, operator_account_id: {}, player_operators: {}'.format(
+            dynamic_id, account_id, room_id, operator_account_id, player_operators))
     request_gate_node('enter_room_gate', account_id, dynamic_id, kwargs['_node_name'], room_id,
-                      room.get_room_data(account_id))
+                      room.get_room_data(account_id), operator_account_id, player_operators)
     dynamic_id_list = room.get_room_dynamic_id_list(account_id)
     if dynamic_id_list:
         player = room.get_player(account_id)
@@ -39,7 +46,8 @@ def enter_room(**kwargs):
         if room.room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
             send.broad_player_enter_poker(dynamic_id_list, player.get_data())
         elif room.room_type in [rule.GAME_TYPE_ZZMJ]:
-            send.broad_player_enter_mahjong(dynamic_id_list, player.get_data())
+            send.broad_player_enter_mahjong(dynamic_id_list, player.get_data(),
+                                            operator_account_id, player_operators.get(account_id))
         else:
             raise KeyError('[game] enter_room, account_id: {}, room_id: {}, room_type: {} un exist'.format(
                 account_id, room_id, room.room_type

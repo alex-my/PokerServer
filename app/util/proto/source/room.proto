@@ -57,6 +57,7 @@ message m_3003_toc {
     repeated uint32 craps = 11;                      // 多枚色子点数
     optional uint32 mahjong_start_num = 12;          // 拿牌第几张
     optional uint32 mahjong_end_num = 13;            // 补牌第几章
+    optional uint32 operator_account_id = 14;        // 当前操作的玩家帐号
 }
 
 message p_user_mah_room {
@@ -72,6 +73,8 @@ message p_user_mah_room {
     repeated uint32 pre_cards = 10;     // 玩家已经出的牌
     repeated p_cards award_cards = 11;  // 玩家已经获得的牌（比如麻将中已经吃，碰，杠的牌）
     optional uint32 card_count = 12;    // 玩家拥有牌的数量
+    optional bool operator_able = 13;   // 如果为true才可以操作operator, 否则只是显示而已,等待优先级更高的人操作
+    repeated uint32 operators = 14;      // 0 不操作, 1 吃, 2 碰, 3 明杠, 4 暗杠, 5 胡, 6 自摸
 }
 
 // 之前每次出的牌
