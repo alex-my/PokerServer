@@ -64,6 +64,7 @@ def broad_player_enter_mahjong(dynamic_id_list, user_info):
         award_cards = response.user_room.award_cards.add()
         for card_id in card_list:
             award_cards.append(card_id)
+    response.user_room.card_count = user_info['card_count']
     func.log_info('[game] 3007 broad_player_enter_mahjong dynamic_id_list: {}, response: {}'.format(
         dynamic_id_list, response))
     forward.push_object_game(3007, response.SerializeToString(), dynamic_id_list)
@@ -297,10 +298,10 @@ def send_mahjong_operator_select(dynamic_id, operator_able, operators):
 
 
 def broad_mahjong_dispatch_card(dynamic_id_list, account_id):
-    response = game_mahjong_pb2.m_5207_toc()
+    response = game_mahjong_pb2.m_5208_toc()
     response.account_id = account_id
-    func.log_info('[game] 5207 broad_mahjong_dispatch_card dynamic_id_list: {}, account_id: {}'.format(
+    func.log_info('[game] 5208 broad_mahjong_dispatch_card dynamic_id_list: {}, account_id: {}'.format(
         dynamic_id_list, account_id
     ))
-    forward.push_object_game(5207, response.SerializeToString(), dynamic_id_list)
+    forward.push_object_game(5208, response.SerializeToString(), dynamic_id_list)
 

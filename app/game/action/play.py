@@ -123,7 +123,6 @@ def user_switch(dynamic_id):
         return False
     room.switch_account_id = account_id
     room.player_ready(account_id)
-    notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_SWITCH)
     return True
 
 

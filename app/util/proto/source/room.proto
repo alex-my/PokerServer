@@ -71,6 +71,7 @@ message p_user_mah_room {
     optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备
     repeated uint32 pre_cards = 10;     // 玩家已经出的牌
     repeated p_cards award_cards = 11;  // 玩家已经获得的牌（比如麻将中已经吃，碰，杠的牌）
+    optional uint32 card_count = 12;    // 玩家拥有牌的数量
 }
 
 // 之前每次出的牌

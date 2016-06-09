@@ -89,28 +89,29 @@ def mahjong_publish(dynamic_id, card_id):
     player_operators = dict()   # {account_id: [operator, ...], ...}
     operators = dict()          # {operator: [[account_id, position], ...], ...}
 
-    def _add_operator_log(_account_id, _position, _operator, ops):
-        _l = ops.setdefault(_operator, [])
-        _l.append([_account_id, _position])
-
-    for _player in room.players:
-        if _player.account_id == account_id:
-            continue
-        _player_card_list = _player.card_list
-        operator_list = []
-        if check_mahjong_win(card_id, _player_card_list):
-            operator_list.append(games.MAH_OPERATOR_WIN)
-            _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_WIN, operators)
-        # if check_mahjong_chow(card_id, _player_card_list):
-        #     operator_list.append(games.MAH_OPERATOR_CHOW)
-        #     _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_CHOW, operators)
-        if check_mahjong_pong(card_id, _player_card_list):
-            operator_list.append(games.MAH_OPERATOR_PONG)
-            _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_PONG, operators)
-        if check_mahjong_light_kong(card_id, _player_card_list) or check_mahjong_pong_kong(card_id, _player):
-            operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
-            _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
-        player_operators[_player.account_id] = operator_list
+    # Alex ignore operate check
+    # def _add_operator_log(_account_id, _position, _operator, ops):
+    #     _l = ops.setdefault(_operator, [])
+    #     _l.append([_account_id, _position])
+    #
+    # for _player in room.players:
+    #     if _player.account_id == account_id:
+    #         continue
+    #     _player_card_list = _player.card_list
+    #     operator_list = []
+    #     if check_mahjong_win(card_id, _player_card_list):
+    #         operator_list.append(games.MAH_OPERATOR_WIN)
+    #         _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_WIN, operators)
+    #     # if check_mahjong_chow(card_id, _player_card_list):
+    #     #     operator_list.append(games.MAH_OPERATOR_CHOW)
+    #     #     _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_CHOW, operators)
+    #     if check_mahjong_pong(card_id, _player_card_list):
+    #         operator_list.append(games.MAH_OPERATOR_PONG)
+    #         _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_PONG, operators)
+    #     if check_mahjong_light_kong(card_id, _player_card_list) or check_mahjong_pong_kong(card_id, _player.pong_list):
+    #         operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
+    #         _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
+    #     player_operators[_player.account_id] = operator_list
 
     room.record_last(account_id, [card_id])
     room.operators = (player_operators, operators)
@@ -252,7 +253,7 @@ def check_mahjong_win(card_id, cards):
                 break
         func.log_info('[game] check_mahjong_win all_gather now: {}'.format(all_gather))
         if win_flag:
-            print '[game] check_mahjong_win +++++++++++++++++ door_id: {}, door_count: {} WIN +++++++++++++++'.format(
+            print '[game] check_mahjong_win +++++++++++++++++ door_id: {} WIN +++++++++++++++'.format(
                     door_id)
             return True
     return False
@@ -349,6 +350,7 @@ def mahjong_operator_win(room, player):
 
 def mahjong_operator_pong(room, player, card_list):
     dynamic_id_list = room.get_room_dynamic_id_list()
+    player.pong_list = card_list
     send.send_mahjong_operator(dynamic_id_list, player.account_id, games.MAH_OPERATOR_PONG, card_list)
     room.execute_account_id = player.account_id     # 需要出一张牌
     del room.operators

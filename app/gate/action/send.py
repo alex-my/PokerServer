@@ -151,6 +151,7 @@ def enter_mahjong_room(dynamic_id, room_id, room_data):
                 award_cards = user_room.award_cards.add()
                 for card_id in card_list:
                     award_cards.append(card_id)
+            user_room.card_count = user_info['card_count']
 
         for card_id in room_data['user_cards']:
             response.user_cards.append(card_id)

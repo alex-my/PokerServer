@@ -13,6 +13,30 @@ class PlayerMahjong(Player):
         self._chow_list = []    # 吃 [[card_id, card_id, card_id], ...]
         self._pre_cards = []    # 打出的 [card_id, ...]
 
+    @property
+    def pong_list(self):
+        return self._pong_list
+
+    @pong_list.setter
+    def pong_list(self, _list):
+        if _list:
+            func.log_info('[game] add pong_list account_id: {}, _list: {}'.format(
+                self._account_id, _list
+            ))
+            self._pong_list.append(_list)
+
+    @property
+    def kong_list(self):
+        return self._kong_list
+
+    @kong_list.setter
+    def kong_list(self, _list):
+        if _list:
+            func.log_info('[game] add kong_list account_id: {}, _list: {}'.format(
+                self._account_id, _list
+            ))
+            self._kong_list.append(_list)
+
     def get_player_save_data(self):
         return {
             'base_data': super(PlayerMahjong, self)._get_player_save_base_data().items(),
@@ -53,7 +77,8 @@ class PlayerMahjong(Player):
             'point': self.point,
             'status': self.status,
             'pre_cards': self._pre_cards,
-            'award_cards': self.get_award_cards()
+            'award_cards': self.get_award_cards(),
+            'card_count': self.get_card_count()
         }
 
     def get_award_cards(self):
