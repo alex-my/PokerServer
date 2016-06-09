@@ -44,6 +44,8 @@ def enter_room(**kwargs):
             raise KeyError('[game] enter_room, account_id: {}, room_id: {}, room_type: {} un exist'.format(
                 account_id, room_id, room.room_type
             ))
+        if room.is_all_in():
+            send.broad_room_all_in(room.get_room_dynamic_id_list(), room.room_type)
 
 
 def leave_room(dynamic_id):

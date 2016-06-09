@@ -85,7 +85,7 @@ def create_room(dynamic_id, room_id, room_type, rounds):
     forward.push_object_gate(3001, response.SerializeToString(), [dynamic_id])
 
 
-def enter_poker_room(dynamic_id, room_id, room_data):
+def enter_poker_room(dynamic_id, room_id, room_type, room_data):
     """
     enter/resume room
     :param dynamic_id:
@@ -95,6 +95,7 @@ def enter_poker_room(dynamic_id, room_id, room_data):
     """
     response = room_pb2.m_3002_toc()
     response.room_id = room_id
+    response.room_type = room_type
     if room_data:
         for user_info in room_data['user_room']:
             user_room = response.user_room.add()

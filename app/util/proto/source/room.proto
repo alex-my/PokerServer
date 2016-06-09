@@ -19,14 +19,15 @@ message m_3002_tos {
 // 扑克牌
 message m_3002_toc {
     required uint32 room_id = 1;            // room id
-    repeated p_user_room user_room = 2;     // 房间中的玩家信息
-    repeated uint32 user_cards = 3;         // 自己手中拥有的牌
-    optional uint32 execute_account_id = 4; // 当前出牌玩家
-    optional uint32 last_account_id = 5;    // 最后一次出牌的玩家
-    repeated uint32 last_cards = 6;         // 最后一次出的牌
-    required uint32 user_id = 7;            // 房主ID
-    optional uint32 rounds = 8;             // 房间当前回合数
-    optional uint32 max_rounds = 9;         // 房间允许回合数
+    required uint32 room_type = 2;          // room type
+    repeated p_user_room user_room = 3;     // 房间中的玩家信息
+    repeated uint32 user_cards = 4;         // 自己手中拥有的牌
+    optional uint32 execute_account_id = 5; // 当前出牌玩家
+    optional uint32 last_account_id = 6;    // 最后一次出牌的玩家
+    repeated uint32 last_cards = 7;         // 最后一次出的牌
+    required uint32 user_id = 8;            // 房主ID
+    optional uint32 rounds = 9;             // 房间当前回合数
+    optional uint32 max_rounds = 10;         // 房间允许回合数
 }
 
 message p_user_room {
@@ -90,6 +91,11 @@ message m_3006_toc {
 // 广播玩家进入麻将房间
 message m_3007_toc {
     required p_user_mah_room user_room = 1;
+}
+
+// 房间人满通知
+message m_3008_toc {
+    required uint32 room_type = 1;
 }
 
 // 短消息ID

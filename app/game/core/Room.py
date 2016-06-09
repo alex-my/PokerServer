@@ -168,6 +168,9 @@ class Room(object):
     def is_room_close_able(self):
         return self.is_close_t_valid() and len(self._close_room_player) > int(self.player_count / 2)
 
+    def is_room_close_first(self):
+        return self.is_close_t_valid() and len(self._close_room_player) <= 1
+
     def is_creater_agree_close(self):
         return self._account_id in self._close_room_player
 
@@ -241,7 +244,7 @@ class Room(object):
         return len(self._ready_list) >= self._config['player_count'] and not self._cards
 
     def is_all_in(self):
-        return len(self._ready_list) >= self._config['player_count']
+        return len([_player for _player in self._players.values() if _player.status != status.PLAYER_STATUS_OFFLINE]) >= self._config['player_count']
 
     def is_owner_in(self):
         return self._account_id in self._player_list and self._account_id in self._ready_list

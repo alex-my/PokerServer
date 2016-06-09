@@ -102,6 +102,8 @@ def user_close(dynamic_id, operate):
             remove_room(room)
         else:
             send.system_notice_room(room, content.ROOM_CLOSE_OWNER)
+    elif room.is_room_close_first():
+        notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_CLOSE)
     return True
 
 
@@ -121,9 +123,7 @@ def user_switch(dynamic_id):
         return False
     room.switch_account_id = account_id
     room.player_ready(account_id)
-    dynamic_id_list = room.get_room_dynamic_id_list()
-    for _dynamic_id in dynamic_id_list:
-        send.user_operator(_dynamic_id, operators.USER_OPERATOR_SWITCH)
+    notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_SWITCH)
     return True
 
 

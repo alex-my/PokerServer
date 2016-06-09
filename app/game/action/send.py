@@ -77,6 +77,15 @@ def broad_player_leave(dynamic_id_list, account_id):
     forward.push_object_game(3006, response.SerializeToString(), dynamic_id_list)
 
 
+def broad_room_all_in(dynamic_id_list, room_type):
+    response = room_pb2.m_3008_toc()
+    response.room_type = room_type
+    func.log_info('[game] 3008 broad_room_all_in dynamic_id_list: {}, response: {}'.format(
+        dynamic_id_list, response
+    ))
+    forward.push_object_game(3008, response.SerializeToString(), dynamic_id_list)
+
+
 def short_message_to_self(dynamic_id, message):
     response = room_pb2.m_3101_toc()
     response.message = message
