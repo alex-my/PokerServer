@@ -122,6 +122,8 @@ def mahjong_publish(dynamic_id, card_id):
     for _player in room.players:
         send.publish_mahjong_to_room(_player, account_id, _player.card_list, card_id,
                                      operator_account_id, player_operators.get(_player.account_id, []))
+    if not player_operators and not operators:
+        dispatch_next_card(room)
 
 
 def mahjong_operator(dynamic_id, player_operator, cards):
@@ -338,10 +340,15 @@ def mahjong_operator_none(room, player):
             operator_able = _account_id == operator_account_id
             send.send_mahjong_operator_select(_player.dynamic_id, operator_able, operator_list)
     else:
-        room.calc_next_execute_account_id()
-        _player = PlayerManager().query_dynamic_id(room.execute_account_id)
-        dispatch_mahjong_card_account(_player.account_id, _player.dynamic_id, True)
+        dispatch_next_card(room)
         send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
+
+
+def dispatch_next_card(room):
+    room.calc_next_execute_account_id()
+    # _player = PlayerManager().query_dynamic_id(room.execute_account_id)
+    _player = room.get_player(room.execute_account_id)
+    dispatch_mahjong_card_account(_player.account_id, _player.dynamic_id, True)
 
 
 def mahjong_operator_win(room, player):

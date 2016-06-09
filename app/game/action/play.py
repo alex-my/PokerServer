@@ -50,7 +50,8 @@ def user_ready(dynamic_id, operator):
         if check_switch(room):
             switch_cards(room)
         dispatch_cards_to_room(room)
-    notice_all_room_user_operator(room, account_id, operator)
+    else:
+        notice_all_room_user_operator(room, account_id, operator)
     return True
 
 
