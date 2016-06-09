@@ -240,6 +240,9 @@ class Room(object):
     def is_all_ready(self):
         return len(self._ready_list) >= self._config['player_count'] and not self._cards
 
+    def is_all_in(self):
+        return len(self._ready_list) >= self._config['player_count']
+
     def is_owner_in(self):
         return self._account_id in self._player_list and self._account_id in self._ready_list
 

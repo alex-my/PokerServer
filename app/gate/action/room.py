@@ -147,7 +147,7 @@ def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data):
     user.room_id = room.room_id
     user.room_type = room.room_type
     room.account_id_list = user.account_id
-    if room.room_type == rule.GAME_TYPE_PDK:
+    if room.room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
         send.enter_poker_room(user.dynamic_id, room_id, room_data)
     elif room.room_type == rule.GAME_TYPE_ZZMJ:
         send.enter_mahjong_room(user.dynamic_id, room_id, room_data)

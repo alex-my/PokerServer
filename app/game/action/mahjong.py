@@ -46,6 +46,8 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
         operator_list.append(games.MAH_OPERATOR_KONG_DARK)
     player.add_card(card_id)
     send.dispatch_mahjong_card(dynamic_id, card_id, operator_list)
+    dynamic_id_list = room.get_room_dynamic_id_list()
+    send.broad_mahjong_dispatch_card(dynamic_id_list, account_id)
 
 
 def mahjong_publish(dynamic_id, card_id):
@@ -69,6 +71,9 @@ def mahjong_publish(dynamic_id, card_id):
         func.log_info('[mahjong_publish] account_id: {}, execute_account_id: {} un turn'.format(
                 account_id, room.execute_account_id))
         send.system_notice(dynamic_id, content.PLAY_UN_TURN)
+        return
+    if not room.is_all_in():
+        send.system_notice(dynamic_id, content.PLAY_ALL_IN)
         return
     player = room.get_player(account_id)
     if not player:

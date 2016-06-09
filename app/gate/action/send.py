@@ -167,5 +167,5 @@ def enter_mahjong_room(dynamic_id, room_id, room_data):
         response.mahjong_start_num = room_data.get('mahjong_start_num', 0)
         response.mahjong_end_num = room_data.get('mahjong_end_num', 0)
 
-    func.log_info('[gate] 3003 response: {}'.format(response))
+    func.log_info('[gate] 3003 dynamic_id: {}, response: {}'.format(dynamic_id, response))
     forward.push_object_gate(3003, response.SerializeToString(), [dynamic_id])

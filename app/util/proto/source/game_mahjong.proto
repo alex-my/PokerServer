@@ -69,6 +69,11 @@ message m_5207_toc {
     optional uint32 server_t = 2;
 }
 
+// 广播拿牌的玩家
+message m_5208_toc {
+    required uint32 account_id = 1;
+}
+
 message p_room_full {
     required uint32 account_id = 1;             // 玩家帐号ID
     required uint32 rank = 2;                   // 排名

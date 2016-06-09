@@ -77,7 +77,7 @@ message p_cards {
     repeated uint32 cards = 1;
 }
 
-// 广播玩家进入房间消息
+// 广播玩家进入poker房间消息
 message m_3005_toc {
     required p_user_room user_room = 1;
 }
@@ -85,6 +85,11 @@ message m_3005_toc {
 // 广播玩家离开房间消息
 message m_3006_toc {
     required uint32 account_id = 1;
+}
+
+// 广播玩家进入麻将房间
+message m_3007_toc {
+    required p_user_mah_room user_room = 1;
 }
 
 // 短消息ID

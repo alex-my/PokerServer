@@ -31,6 +31,9 @@ def poker_publish(dynamic_id, cards):
                 account_id, room.execute_account_id))
         send.system_notice(dynamic_id, content.PLAY_UN_TURN)
         return
+    if not room.is_all_in():
+        send.system_notice(dynamic_id, content.PLAY_ALL_IN)
+        return
     player = room.get_player(account_id)
     if not player:
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)

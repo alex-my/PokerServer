@@ -4,7 +4,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, play
 from app.util.common import func
-from app.util.defines import content, operators
+from app.util.defines import content, operators, rule
 
 
 def enter_room(**kwargs):
@@ -36,7 +36,14 @@ def enter_room(**kwargs):
         func.log_info('[game] enter_room, account_id: {}, dynamic_i_list: {}'.format(
             account_id, dynamic_id_list
         ))
-        send.broad_player_enter(dynamic_id_list, player.get_data())
+        if room.room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
+            send.broad_player_enter_poker(dynamic_id_list, player.get_data())
+        elif room.room_type in [rule.GAME_TYPE_ZZMJ]:
+            send.broad_player_enter_mahjong(dynamic_id_list, player.get_data())
+        else:
+            raise KeyError('[game] enter_room, account_id: {}, room_id: {}, room_type: {} un exist'.format(
+                account_id, room_id, room.room_type
+            ))
 
 
 def leave_room(dynamic_id):

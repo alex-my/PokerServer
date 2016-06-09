@@ -19,6 +19,7 @@ class RoomMahjong(Room):
     def get_original_execute(self):
         if self._maker_account_id == 0:
             self._maker_account_id = self._ready_list[0]
+        # next maker_account_id which position next to current maker_account_id
         self._execute_account_id = self._maker_account_id
         self.calc_next_execute_account_id()
         return self._execute_account_id

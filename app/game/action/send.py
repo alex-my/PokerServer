@@ -31,7 +31,7 @@ def system_notice_room(room, content):
     forward.push_object_game(9001, response.SerializeToString(), dynamic_id_list)
 
 
-def broad_player_enter(dynamic_id_list, user_info):
+def broad_player_enter_poker(dynamic_id_list, user_info):
     response = room_pb2.m_3005_toc()
     response.user_room.position = user_info['position']
     response.user_room.account_id = user_info['account_id']
@@ -42,9 +42,31 @@ def broad_player_enter(dynamic_id_list, user_info):
     response.user_room.ip = user_info['ip']
     response.user_room.point = user_info['point']
     response.user_room.status = user_info['status']
-    func.log_info('[game] 3005 broad_player_enter dynamic_id_list: {}, response: {}'.format(
+    func.log_info('[game] 3005 broad_player_enter_poker dynamic_id_list: {}, response: {}'.format(
         dynamic_id_list, response))
     forward.push_object_game(3005, response.SerializeToString(), dynamic_id_list)
+
+
+def broad_player_enter_mahjong(dynamic_id_list, user_info):
+    response = room_pb2.m_3007_toc()
+    response.user_room.position = user_info['position']
+    response.user_room.account_id = user_info['account_id']
+    response.user_room.name = user_info['name']
+    response.user_room.head_frame = user_info['head_frame']
+    response.user_room.head_icon = user_info['head_icon']
+    response.user_room.sex = user_info['sex']
+    response.user_room.ip = user_info['ip']
+    response.user_room.point = user_info['point']
+    response.user_room.status = user_info['status']
+    for card_id in user_info.get('pre_cards', []):
+        response.user_room.pre_cards.append(card_id)
+    for card_list in user_info.get('award_cards', []):
+        award_cards = response.user_room.award_cards.add()
+        for card_id in card_list:
+            award_cards.append(card_id)
+    func.log_info('[game] 3007 broad_player_enter_mahjong dynamic_id_list: {}, response: {}'.format(
+        dynamic_id_list, response))
+    forward.push_object_game(3007, response.SerializeToString(), dynamic_id_list)
 
 
 def broad_player_leave(dynamic_id_list, account_id):
@@ -264,4 +286,12 @@ def send_mahjong_operator_select(dynamic_id, operator_able, operators):
     ))
     forward.push_object_game(5206, response.SerializeToString(), [dynamic_id])
 
+
+def broad_mahjong_dispatch_card(dynamic_id_list, account_id):
+    response = game_mahjong_pb2.m_5207_toc()
+    response.account_id = account_id
+    func.log_info('[game] 5207 broad_mahjong_dispatch_card dynamic_id_list: {}, account_id: {}'.format(
+        dynamic_id_list, account_id
+    ))
+    forward.push_object_game(5207, response.SerializeToString(), dynamic_id_list)
 
