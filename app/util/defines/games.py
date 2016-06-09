@@ -1,6 +1,7 @@
 # coding:utf8
 from app.util.common import func
 
+
 MAH_OPERATOR_NONE = 0               # 不操作
 MAH_OPERATOR_CHOW = 1               # 吃
 MAH_OPERATOR_PONG = 2               # 碰

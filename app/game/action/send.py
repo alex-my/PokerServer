@@ -63,7 +63,7 @@ def broad_player_enter_mahjong(dynamic_id_list, user_info, operator_account_id, 
     for card_list in user_info.get('award_cards', []):
         award_cards = response.user_room.award_cards.add()
         for card_id in card_list:
-            award_cards.append(card_id)
+            award_cards.cards.append(card_id)
     response.user_room.card_count = user_info['card_count']
     response.user_room.operator_able = user_info['account_id'] == operator_account_id
     if operators_list:

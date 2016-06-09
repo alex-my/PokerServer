@@ -33,8 +33,8 @@ def enter_room(**kwargs):
         if _execute_player:
             operator_account_id = mahjong.select_mahjong_operator_account_id(
                 all_operators, _execute_player.account_id, _execute_player.position)
-    func.log_info('[game] enter_room dynamic_id: {}, account_id: {}, room_id: {}, operator_account_id: {}, player_operators: {}'.format(
-            dynamic_id, account_id, room_id, operator_account_id, player_operators))
+    func.log_info('[game] enter_room dynamic_id: {}, account_id: {}, room_id: {}, operator_account_id: {}, player_operators: {}, all_operators: {}'.format(
+            dynamic_id, account_id, room_id, operator_account_id, player_operators, all_operators))
     request_gate_node('enter_room_gate', account_id, dynamic_id, kwargs['_node_name'], room_id,
                       room.get_room_data(account_id), operator_account_id, player_operators)
     dynamic_id_list = room.get_room_dynamic_id_list(account_id)

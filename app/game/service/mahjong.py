@@ -19,7 +19,7 @@ def mahjong_publish_5203(dynamic_id, proto):
 
 
 @game_service_handle
-def mahjong_operator_5204(dynamic_id, proto):
+def mahjong_operator_5205(dynamic_id, proto):
     """
     user operator
     :param dynamic_id:

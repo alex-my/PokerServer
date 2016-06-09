@@ -152,7 +152,7 @@ def enter_mahjong_room(dynamic_id, room_id, room_data, operator_account_id, play
             for card_list in user_info.get('award_cards', []):
                 award_cards = user_room.award_cards.add()
                 for card_id in card_list:
-                    award_cards.append(card_id)
+                    award_cards.cards.append(card_id)
             user_room.card_count = user_info['card_count']
             user_room.operator_able = user_info['account_id'] == operator_account_id
             _operator_list = player_operators.get(user_info['account_id'])

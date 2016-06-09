@@ -121,11 +121,22 @@ def mahjong_publish(dynamic_id, card_id):
     for _player in room.players:
         send.publish_mahjong_to_room(_player, account_id, _player.card_list, card_id,
                                      operator_account_id, player_operators.get(_player.account_id, []))
-    if not player_operators and not operators:
+    func.log_info('[game] mahjong_publish operator_account_id: {}, player_operators: {}, operators: {}'.format(
+        operator_account_id, player_operators, operators
+    ))
+    if not operators:
         dispatch_next_card(room)
 
 
 def mahjong_operator(dynamic_id, player_operator, cards):
+    card_list = [card_id for card_id in cards]
+    func.log_info('[game] mahjong_operator player_operator: {}, card_list: {}'.format(
+        player_operator, card_list
+    ))
+    # TODO Alex: 验证是否可以进行此类操作，以及牌的正确性。
+    if player_operator not in [games.MAH_OPERATOR_NONE, games.MAH_OPERATOR_WIN] and not card_list:
+        send.system_notice(dynamic_id, content.PLAY_PLEASE_SELECT_CARD)
+        return
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
@@ -143,7 +154,6 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     if not player:
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
         return
-    card_list = [card_id for card_id in cards]
     func.log_info('[game] mahjong_operator account_id: {}, dynamic_id: {}, player_operator: {}, card_list: {}'.format(
         account_id, dynamic_id, player_operator, card_list
     ))
@@ -179,13 +189,18 @@ def select_mahjong_operator_account_id(operators, execute_account_id, execute_po
         else:
             _list.append([execute_account_id, execute_position])
             _list.sort(key=operator.itemgetter(1))
+            print 'Alex select operator  execute_account_id: {}, execute_position: {}, list: {}'.format(
+                execute_account_id, execute_position, _list)
             for index, l in enumerate(_list):
                 _id, _p = l
                 if _id == execute_account_id:
                     if _id == _list[-1][0]:
+                        print 'Alex up here: _id: {}, index: {}'.format(_id, index)
                         _execute_id = _list[0][0]
                     else:
+                        print 'Alex down here: _id: {}, index: {}'.format(_id, index)
                         _execute_id = _list[index + 1][0]
+                    print 'Alex _execute_id: {}'.format(_execute_id)
                     return _execute_id
         return 0
     return _check_operator(operator_account_list)
@@ -361,6 +376,7 @@ def mahjong_operator_pong(room, player, card_list):
     player.pong_list = card_list
     send.send_mahjong_operator(dynamic_id_list, player.account_id, games.MAH_OPERATOR_PONG, card_list)
     room.execute_account_id = player.account_id     # 需要出一张牌
+    send.broad_mahjong_dispatch_card(dynamic_id_list, player.account_id)
     del room.operators
 
 
