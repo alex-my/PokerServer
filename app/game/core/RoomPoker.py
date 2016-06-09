@@ -10,6 +10,10 @@ class RoomPoker(Room):
     def __init__(self):
         super(RoomPoker, self).__init__()
 
+    @property
+    def operators(self):
+        return {}, {}
+
     def get_original_execute(self):
         return self._pre_win_account_id if self._pre_win_account_id > 0 else self._ready_list[0]
 
