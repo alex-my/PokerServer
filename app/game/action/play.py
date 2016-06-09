@@ -120,6 +120,10 @@ def user_switch(dynamic_id):
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
     room.switch_account_id = account_id
+    room.player_ready(account_id)
+    dynamic_id_list = room.get_room_dynamic_id_list()
+    for _dynamic_id in dynamic_id_list:
+        send.user_operator(_dynamic_id, operators.USER_OPERATOR_SWITCH)
     return True
 
 

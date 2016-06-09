@@ -58,6 +58,7 @@ class Room(object):
         self._pre_win_account_id = base_data['pre_win_account_id']
         self._rounds = base_data['rounds']
         self._cards = base_data['cards']
+        print 'Alex Room _parse_data: ', self._cards
         self._switch_account_id = base_data['switch_account_id']
         _players = dict(base_data['players'])
         self._players = dict()

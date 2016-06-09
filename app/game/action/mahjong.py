@@ -30,6 +30,9 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
     if not player:
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
         return
+    func.log_info('[game] dispatch_mahjong_card_account room_id: {}, room_type: {}, account_id: {}'.format(
+        room_id, room.room_type, account_id
+    ))
     card_id = room.pop_card()
     func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}, card_name: {}'.format(
         account_id, card_id, room.get_mahjong_name(card_id)
