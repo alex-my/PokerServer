@@ -94,7 +94,7 @@ def account_verify_channel(dynamic_id, address, user_name, channel_id, uuid, nam
     func.log_info('[auth] account_verify_channel dynamic_id: {}, user_name: {}, channel_id: {}, uuid: {}, head_frame: {}, head_icon: {}, sex: {}'.format(
             dynamic_id, user_name, channel_id, uuid, head_frame, head_icon, sex
     ))
-    if not user_name or not uuid or channel_id <= 0:
+    if not user_name or not uuid or channel_id < 0:
         send.system_notice(dynamic_id, content.ACCOUNT_LOGIN_ARGUMENT)
         return
     password = uuid
