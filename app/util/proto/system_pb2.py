@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='system.proto',
   package='',
-  serialized_pb=_b('\n\x0csystem.proto\"\x1d\n\nm_9001_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t\"\x17\n\nm_9002_toc\x12\t\n\x01t\x18\x01 \x02(\r\"1\n\nm_9003_toc\x12#\n\x0brole_change\x18\x01 \x03(\x0b\x32\x0e.p_role_change\":\n\rp_role_change\x12\x13\n\x0b\x63hange_type\x18\x01 \x02(\r\x12\x14\n\x0c\x63hange_value\x18\x02 \x02(\r')
+  serialized_pb=_b('\n\x0csystem.proto\"\x1d\n\nm_9001_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t\"\x17\n\nm_9002_toc\x12\t\n\x01t\x18\x01 \x02(\r\"1\n\nm_9003_toc\x12#\n\x0brole_change\x18\x01 \x03(\x0b\x32\x0e.p_role_change\":\n\rp_role_change\x12\x13\n\x0b\x63hange_type\x18\x01 \x02(\r\x12\x14\n\x0c\x63hange_value\x18\x02 \x02(\r\"\x1d\n\nm_9004_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -151,11 +151,42 @@ _P_ROLE_CHANGE = _descriptor.Descriptor(
   serialized_end=181,
 )
 
+
+_M_9004_TOC = _descriptor.Descriptor(
+  name='m_9004_toc',
+  full_name='m_9004_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='content', full_name='m_9004_toc.content', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=183,
+  serialized_end=212,
+)
+
 _M_9003_TOC.fields_by_name['role_change'].message_type = _P_ROLE_CHANGE
 DESCRIPTOR.message_types_by_name['m_9001_toc'] = _M_9001_TOC
 DESCRIPTOR.message_types_by_name['m_9002_toc'] = _M_9002_TOC
 DESCRIPTOR.message_types_by_name['m_9003_toc'] = _M_9003_TOC
 DESCRIPTOR.message_types_by_name['p_role_change'] = _P_ROLE_CHANGE
+DESCRIPTOR.message_types_by_name['m_9004_toc'] = _M_9004_TOC
 
 m_9001_toc = _reflection.GeneratedProtocolMessageType('m_9001_toc', (_message.Message,), dict(
   DESCRIPTOR = _M_9001_TOC,
@@ -184,6 +215,13 @@ p_role_change = _reflection.GeneratedProtocolMessageType('p_role_change', (_mess
   # @@protoc_insertion_point(class_scope:p_role_change)
   ))
 _sym_db.RegisterMessage(p_role_change)
+
+m_9004_toc = _reflection.GeneratedProtocolMessageType('m_9004_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_9004_TOC,
+  __module__ = 'system_pb2'
+  # @@protoc_insertion_point(class_scope:m_9004_toc)
+  ))
+_sym_db.RegisterMessage(m_9004_toc)
 
 
 # @@protoc_insertion_point(module_scope)

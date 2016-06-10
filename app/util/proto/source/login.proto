@@ -61,6 +61,7 @@ message m_2001_tos {
 message m_2001_toc {
     required p_user_info user_info = 1; // 玩家信息
     repeated p_room_info room_info = 2; // 房间信息
+    optional p_game_info game_info = 3; // 游戏信息
 }
 
 message p_user_info {
@@ -86,3 +87,9 @@ message p_room_price {
     required uint32 rounds = 1;             // 回合数
     required uint32 gold_price = 2;         // 需要的金币数量
 }
+
+message p_game_info {
+    optional string contact = 1;            // 联系我们
+}
+
+

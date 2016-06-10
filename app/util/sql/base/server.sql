@@ -90,5 +90,12 @@ CREATE TABLE `log_gold` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- game infomation
+DROP TABLE IF EXISTS `infomation`;
+CREATE TABLE `infomation` (
+    `id` int(10) unsigned NOT NULL,
+    `content` LONGTEXT NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

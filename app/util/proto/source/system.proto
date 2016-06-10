@@ -19,3 +19,9 @@ message p_role_change {
     required uint32 change_value = 2;
 }
 
+// 走马灯
+message m_9004_toc {
+    required string content = 1;
+}
+
+
