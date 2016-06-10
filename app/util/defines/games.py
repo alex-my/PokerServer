@@ -41,9 +41,19 @@ def _initialize_mahjong():
                 'card_index': card_index,
                 'card_type': card_type
             }
-            # func.log_info('[game] card: {} \t {}'.format(c, MAH_CONFIG[c]))
+            func.log_info('[game] card: {} \t {}'.format(c, MAH_CONFIG[c]))
 
 _initialize_mahjong()
+
+
+test_cards_list = [
+    [1, 5, 9, 13, 17, 21, 25, 26, 37, 41, 45, 53, 57],
+    [2, 6, 10, 14, 18, 22, 27, 28, 38, 42, 46, 54, 58],
+    [3, 7, 11, 15, 19, 23, 29, 30, 39, 43, 47, 55, 101],
+    [4, 8, 12, 16, 20, 24, 31, 32, 102, 103, 104, 92, 93]
+]
+
+test_cards_flag = True
 
 
 

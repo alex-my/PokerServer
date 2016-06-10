@@ -8,7 +8,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.PlayerMahjong import PlayerMahjong
 from app.game.core.PlayerPoker import PlayerPoker
 from app.util.common import func
-from app.util.defines import rule, status
+from app.util.defines import rule, status, games
 
 
 class Room(object):
@@ -256,12 +256,20 @@ class Room(object):
         # dispatch to all player
         original_count = self._config['original_count']
         dispatch_list = []
-        for index in xrange(player_count):
-            card_list = self._cards[index * original_count: (index + 1) * original_count]
-            account_id = self._ready_list[index]
-            player = self.get_player(account_id)
-            player.cards = card_list
-            dispatch_list.extend(card_list)
+        if self._room_type == rule.GAME_TYPE_ZZMJ and games.test_cards_flag:
+            for index in xrange(player_count):
+                card_list = games.test_cards_list[index]
+                account_id = self._ready_list[index]
+                player = self.get_player(account_id)
+                player.cards = card_list
+                dispatch_list.extend(card_list)
+        else:
+            for index in xrange(player_count):
+                card_list = self._cards[index * original_count: (index + 1) * original_count]
+                account_id = self._ready_list[index]
+                player = self.get_player(account_id)
+                player.cards = card_list
+                dispatch_list.extend(card_list)
         cards = [card_id for card_id in self._cards if card_id not in dispatch_list]
         self._cards = cards
 
