@@ -47,3 +47,6 @@ PLAY_CARD_UN_VALID = u'不符合出牌规则'
 PLAY_OWNER_MUST_IN = u'房主必须在房间中才能开始'
 PLAY_ALL_IN = u'还有玩家不在房间内'
 PLAY_PLEASE_SELECT_CARD = u'请选择牌'
+PLAY_LAST_CARD_NOT_IN = u'上一位玩家出的牌不在其中'
+
+
