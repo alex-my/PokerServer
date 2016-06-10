@@ -11,7 +11,6 @@ class PlayerMahjong(Player):
         self._pong_list = []    # 碰 [[card_id, card_id, card_id], ...]
         self._kong_list = []    # 杠 [[card_id, card_id, card_id, card_id], ...]
         self._chow_list = []    # 吃 [[card_id, card_id, card_id], ...]
-        self._pre_cards = []    # 打出的 [card_id, ...]
 
     @property
     def pong_list(self):
@@ -37,6 +36,10 @@ class PlayerMahjong(Player):
             ))
             self._kong_list.append(_list)
 
+    @property
+    def pre_list(self):
+        return [card_id for card_id, flag in self._cards.items() if not flag]
+
     def get_player_save_data(self):
         return {
             'base_data': super(PlayerMahjong, self)._get_player_save_base_data().items(),
@@ -47,8 +50,7 @@ class PlayerMahjong(Player):
         return {
             'pong_list': self._pong_list,
             'kong_list': self._kong_list,
-            'chow_list': self._chow_list,
-            'pre_cards': self._pre_cards
+            'chow_list': self._chow_list
         }
 
     def parse_player_data(self, data):
@@ -63,7 +65,6 @@ class PlayerMahjong(Player):
         self._pong_list = local_data['pong_list']
         self._kong_list = local_data['kong_list']
         self._chow_list = local_data['chow_list']
-        self._pre_cards = local_data['pre_cards']
 
     def get_data(self):
         return {
@@ -76,7 +77,7 @@ class PlayerMahjong(Player):
             'ip': self.ip,
             'point': self.point,
             'status': self.status,
-            'pre_cards': self._pre_cards,
+            'pre_cards': self.pre_list,
             'award_cards': self.get_award_cards(),
             'card_count': self.get_card_count()
         }
