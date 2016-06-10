@@ -384,6 +384,7 @@ def mahjong_operator_win(room, player, last_card_id):
 def mahjong_operator_pong(room, player, card_list, last_card_id):
     dynamic_id_list = room.get_room_dynamic_id_list()
     player.pong_list = card_list
+    player.card_publish_list(card_list)
     send.send_mahjong_operator(dynamic_id_list, player.account_id, games.MAH_OPERATOR_PONG, card_list)
     room.execute_account_id = player.account_id     # 需要出一张牌
     send.broad_mahjong_dispatch_card(dynamic_id_list, player.account_id)
@@ -392,6 +393,8 @@ def mahjong_operator_pong(room, player, card_list, last_card_id):
 
 def mahjong_operator_kong(room, player, card_list, last_card_id):
     dynamic_id_list = room.get_room_dynamic_id_list()
+    player.kong_list = card_list
+    player.card_publish_list(card_list)
     send.send_mahjong_operator(dynamic_id_list, player.account_id, games.MAH_OPERATOR_PONG, card_list)
     room.execute_account_id = player.account_id     # 需要补一张牌
     dispatch_mahjong_card_account(player.account_id, player.dynamic_id, False)

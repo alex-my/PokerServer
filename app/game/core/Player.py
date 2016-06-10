@@ -161,10 +161,11 @@ class Player(object):
     def card_publish(self, card_id):
         if card_id in self._cards:
             self._cards[card_id] = True
-        else:
-            raise Exception('[game] Player card_publish card_id: {} not in cards: {}'.format(
-                card_id, self._cards
-            ))
+
+    def card_publish_list(self, card_id_list):
+        for card_id in card_id_list:
+            if card_id in self._cards:
+                self._cards[card_id] = True
 
     def is_card_clear(self):
         return len(self.card_list) == 0
