@@ -193,7 +193,7 @@ def game_over_mahjong(win_account_id, lose_account_id, win_card_id, win_status, 
         func.log_info('[game] 4006 game_over_mahjong dynamic_id_list: {}, response: {}'.format(
              dynamic_id_list, response
         ))
-        forward.push_object_game(4006, response.SerializeToString(), dynamic_id_list)
+    forward.push_object_game(4006, response.SerializeToString(), dynamic_id_list)
 
 
 def publish_poker_to_self(dynamic_id):
