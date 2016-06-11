@@ -275,7 +275,7 @@ def check_mahjong_win(card_id, cards):
             _pre_treatment(_card_gather)
             func.log_info('[game] check_mahjong_win _pre_treatment now _gather: {}\n'.format(_card_gather))
             for _c in _card_gather.values():
-                if _c > 0:
+                if _c > 0 and _c != 3:
                     win_flag = False
                     break
             if not win_flag:
