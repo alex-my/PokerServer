@@ -173,6 +173,28 @@ def game_over(win_account_id, all_player_info, dynamic_id_list):
     forward.push_object_game(4004, response.SerializeToString(), dynamic_id_list)
 
 
+def game_over_mahjong(win_account_id, win_card_id, win_status, all_player_info, dynamic_id_list):
+    response = play_pb2.m_4006_toc()
+    response.win_account_id = win_account_id
+    response.win_card_id = win_card_id
+    response.win_status = win_status
+    for account_id, info in all_player_info.items():
+        close_info = response.close_info.add()
+        close_info.account_id = account_id
+        for _award_card_list in info.get('award_cards', []):
+            award_card_list = close_info.award_card.add()
+            for _award_card_id in _award_card_list:
+                award_card_list.append(_award_card_id)
+        for _card_id in info.get('cards', []):
+            close_info.card_id.append(_card_id)
+        close_info.point_change = info.get('point_change', 0)
+        close_info.current_point = info.get('current_point', 0)
+        func.log_info('[game] 4006 game_over_mahjong dynamic_id_list: {}, response: {}'.format(
+             dynamic_id_list, response
+        ))
+        forward.push_object_game(4006, response.SerializeToString(), dynamic_id_list)
+
+
 def publish_poker_to_self(dynamic_id):
     response = game_poker_pb2.m_5101_toc()
     func.log_info('[game] 5101 publish_poker_to_self dynamic_id: {}, response: {}'.format(

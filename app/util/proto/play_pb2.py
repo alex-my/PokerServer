@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='play.proto',
   package='',
-  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"\x0c\n\nm_4005_tos')
+  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"\x0c\n\nm_4005_tos\"\x91\x01\n\nm_4006_toc\x12\x16\n\x0ewin_account_id\x18\x01 \x02(\r\x12\x13\n\x0bwin_card_id\x18\x02 \x02(\r\x12\x12\n\nwin_status\x18\x03 \x02(\r\x12\x17\n\x0flose_account_id\x18\x04 \x02(\r\x12)\n\nclose_info\x18\x05 \x02(\x0b\x32\x15.p_close_mahjong_info\"\x93\x01\n\x14p_close_mahjong_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12)\n\naward_card\x18\x02 \x03(\x0b\x32\x15.p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x03 \x03(\r\x12\x14\n\x0cpoint_change\x18\x04 \x02(\x05\x12\x15\n\rcurrent_point\x18\x05 \x02(\x05\"\'\n\x14p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x03(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -255,7 +255,155 @@ _M_4005_TOS = _descriptor.Descriptor(
   serialized_end=325,
 )
 
+
+_M_4006_TOC = _descriptor.Descriptor(
+  name='m_4006_toc',
+  full_name='m_4006_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='win_account_id', full_name='m_4006_toc.win_account_id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='win_card_id', full_name='m_4006_toc.win_card_id', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='win_status', full_name='m_4006_toc.win_status', index=2,
+      number=3, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lose_account_id', full_name='m_4006_toc.lose_account_id', index=3,
+      number=4, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='close_info', full_name='m_4006_toc.close_info', index=4,
+      number=5, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=328,
+  serialized_end=473,
+)
+
+
+_P_CLOSE_MAHJONG_INFO = _descriptor.Descriptor(
+  name='p_close_mahjong_info',
+  full_name='p_close_mahjong_info',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='account_id', full_name='p_close_mahjong_info.account_id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='award_card', full_name='p_close_mahjong_info.award_card', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='card_id', full_name='p_close_mahjong_info.card_id', index=2,
+      number=3, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='point_change', full_name='p_close_mahjong_info.point_change', index=3,
+      number=4, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='current_point', full_name='p_close_mahjong_info.current_point', index=4,
+      number=5, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=476,
+  serialized_end=623,
+)
+
+
+_P_MAHJONG_AWARD_CARD = _descriptor.Descriptor(
+  name='p_mahjong_award_card',
+  full_name='p_mahjong_award_card',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='card_id', full_name='p_mahjong_award_card.card_id', index=0,
+      number=1, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=625,
+  serialized_end=664,
+)
+
 _M_4004_TOC.fields_by_name['close_info'].message_type = _P_CLOSE_INFO
+_M_4006_TOC.fields_by_name['close_info'].message_type = _P_CLOSE_MAHJONG_INFO
+_P_CLOSE_MAHJONG_INFO.fields_by_name['award_card'].message_type = _P_MAHJONG_AWARD_CARD
 DESCRIPTOR.message_types_by_name['m_4001_tos'] = _M_4001_TOS
 DESCRIPTOR.message_types_by_name['m_4001_toc'] = _M_4001_TOC
 DESCRIPTOR.message_types_by_name['m_4002_toc'] = _M_4002_TOC
@@ -263,6 +411,9 @@ DESCRIPTOR.message_types_by_name['m_4003_toc'] = _M_4003_TOC
 DESCRIPTOR.message_types_by_name['m_4004_toc'] = _M_4004_TOC
 DESCRIPTOR.message_types_by_name['p_close_info'] = _P_CLOSE_INFO
 DESCRIPTOR.message_types_by_name['m_4005_tos'] = _M_4005_TOS
+DESCRIPTOR.message_types_by_name['m_4006_toc'] = _M_4006_TOC
+DESCRIPTOR.message_types_by_name['p_close_mahjong_info'] = _P_CLOSE_MAHJONG_INFO
+DESCRIPTOR.message_types_by_name['p_mahjong_award_card'] = _P_MAHJONG_AWARD_CARD
 
 m_4001_tos = _reflection.GeneratedProtocolMessageType('m_4001_tos', (_message.Message,), dict(
   DESCRIPTOR = _M_4001_TOS,
@@ -312,6 +463,27 @@ m_4005_tos = _reflection.GeneratedProtocolMessageType('m_4005_tos', (_message.Me
   # @@protoc_insertion_point(class_scope:m_4005_tos)
   ))
 _sym_db.RegisterMessage(m_4005_tos)
+
+m_4006_toc = _reflection.GeneratedProtocolMessageType('m_4006_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_4006_TOC,
+  __module__ = 'play_pb2'
+  # @@protoc_insertion_point(class_scope:m_4006_toc)
+  ))
+_sym_db.RegisterMessage(m_4006_toc)
+
+p_close_mahjong_info = _reflection.GeneratedProtocolMessageType('p_close_mahjong_info', (_message.Message,), dict(
+  DESCRIPTOR = _P_CLOSE_MAHJONG_INFO,
+  __module__ = 'play_pb2'
+  # @@protoc_insertion_point(class_scope:p_close_mahjong_info)
+  ))
+_sym_db.RegisterMessage(p_close_mahjong_info)
+
+p_mahjong_award_card = _reflection.GeneratedProtocolMessageType('p_mahjong_award_card', (_message.Message,), dict(
+  DESCRIPTOR = _P_MAHJONG_AWARD_CARD,
+  __module__ = 'play_pb2'
+  # @@protoc_insertion_point(class_scope:p_mahjong_award_card)
+  ))
+_sym_db.RegisterMessage(p_mahjong_award_card)
 
 
 # @@protoc_insertion_point(module_scope)

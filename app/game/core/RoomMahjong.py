@@ -14,15 +14,24 @@ class RoomMahjong(Room):
         self._craps_list = []
         self._start_num = 0
         self._end_num = 0
-        self._maker_account_id = 0
+        self._maker_account_id = 0        # 庄家帐号ID
+        self._lose_account_id = 0         # 放炮的玩家帐号ID
 
     def get_original_execute(self):
         if self._maker_account_id == 0:
-            self._maker_account_id = self._ready_list[0]
+            self._maker_account_id = self._player_list[0]
         # next maker_account_id which position next to current maker_account_id
         self._execute_account_id = self._maker_account_id
         self.calc_next_execute_account_id()
         return self._execute_account_id
+
+    @property
+    def lose_account_id(self):
+        return self._lose_account_id
+
+    @lose_account_id.setter
+    def lose_account_id(self, _id):
+        self._lose_account_id = _id
 
     @property
     def operators(self):
@@ -123,31 +132,21 @@ class RoomMahjong(Room):
         self._last_cards = []
         self._rounds += 1
 
-    def room_point_change(self):
-        # TODO: change poker to mahjong
-        unit_count, player_count = self._config['unit_count'], self._config['player_count']
-        card_full_count = unit_count / player_count
-
+    def room_mahjong_close(self):
         all_player_info = dict()
-        win_player = None
-        win_point = 0
-        for _account_id in self._player_list:
-            _player = self.get_player(_account_id)
-            left_card_count = _player.get_card_count()
-            all_player_info[_player.account_id] = left_card_count
-            if _account_id != self._pre_win_account_id:
-                if left_card_count >= card_full_count:
-                    _player.point_change(-card_full_count * 2)
-                    win_point += card_full_count * 2
-                elif left_card_count > 1:
-                    _player.point_change(-left_card_count)
-                    win_point += left_card_count
-                _player.lose_count = 1
-            else:
-                win_player = _player
-                _player.win_count = 1
-        if win_player and win_point > 0:
-            win_player.point_change(win_point)
+        for account_id, player in self._players.items():
+            old_point = player.point
+            if account_id == self.win_account_id:
+                player.point_change(10)
+            elif account_id == self.lose_account_id:
+                player.point_change(-10)
+            change_point = player.point - old_point
+            all_player_info[account_id] = {
+                'award_cards': player.get_award_cards(),
+                'cards': player.card_list,
+                'point_change': change_point,
+                'current_point': player.point
+            }
         return all_player_info
 
     def room_save(self):

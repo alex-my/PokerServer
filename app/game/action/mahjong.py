@@ -3,7 +3,7 @@ import copy
 import operator
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send
+from app.game.action import send, change
 from app.util.common import func
 from app.util.defines import content, games
 
@@ -174,8 +174,8 @@ def mahjong_operator(dynamic_id, player_operator, cards):
         return
     if player_operator == games.MAH_OPERATOR_NONE:
         mahjong_operator_none(room, player)
-    elif player_operator == games.MAH_OPERATOR_WIN:
-        mahjong_operator_win(room, player, last_card_id)
+    elif player_operator in [games.MAH_OPERATOR_WIN, games.MAH_OPERATOR_DRAWN]:
+        mahjong_operator_win(room, player, last_card_id, player_operator)
     elif player_operator == games.MAH_OPERATOR_CHOW:
         raise
     elif player_operator == games.MAH_OPERATOR_PONG:
@@ -377,8 +377,17 @@ def dispatch_next_card(room):
     dispatch_mahjong_card_account(_player.account_id, _player.dynamic_id, True)
 
 
-def mahjong_operator_win(room, player, last_card_id):
-    mahjong_close(room, player.account_id)
+def mahjong_operator_win(room, player, last_card_id, player_operator):
+    room.win_account_id = player.account_id
+    if player_operator == games.MAH_OPERATOR_WIN:
+        room.lose_account_id = room.last_account_id
+    elif player_operator == games.MAH_OPERATOR_DRAWN:
+        room.lose_account_id = player.account_id
+    else:
+        raise Exception('[game] mahjong_operator_win player_operator: {} un exist'.format(
+            player_operator
+        ))
+    mahjong_close(room, player.account_id, last_card_id, player_operator)
 
 
 def mahjong_operator_pong(room, player, card_list, last_card_id):
@@ -408,12 +417,12 @@ def calc_mahjong_next_position(room, from_start):
         room.mahjong_end = 1
 
 
-def mahjong_close(room, win_account_id):
+def mahjong_close(room, win_account_id, win_card_id, win_status):
     room.win_account_id = win_account_id
-    all_player_info = room.room_point_change()
+    all_player_info = room.room_mahjong_close()
     room.room_reset()
     dynamic_id_list = room.get_room_dynamic_id_list()
-    send.game_over(win_account_id, all_player_info, dynamic_id_list)
+    send.game_over_mahjong(win_account_id, win_card_id, win_status, all_player_info, dynamic_id_list)
     if room.is_full_rounds():
         # TODO: mahjong_close room is full rounds
         pass

@@ -295,6 +295,10 @@ class Room(object):
             self._last_account_id, self._last_cards = account_id, cards
 
     @property
+    def last_account_id(self):
+        return self._last_account_id
+
+    @property
     def last_cards(self):
         return self._last_cards
 
