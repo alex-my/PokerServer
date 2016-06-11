@@ -233,8 +233,8 @@ def check_mahjong_win(card_id, cards):
         card_gather[conf['card_index']] = card_gather.get(conf['card_index'], 0) + 1
 
     door_list = []
-    for info in all_card_gather.values():
-        l = [[_id, _count] for _id, _count in info.items() if _count >= 2]
+    for card_type, info in all_card_gather.values():
+        l = [[_id, _count, card_type] for _id, _count in info.items() if _count >= 2]
         if l:
             door_list.extend(l)
     func.log_info('[game] check_mahjong_win all_card_gather: {}'.format(all_card_gather))
@@ -254,7 +254,7 @@ def check_mahjong_win(card_id, cards):
                 _g[match_index + 1] -= min_count
                 _g[match_index + 2] -= min_count
 
-        for _card_index, _card_count in _gather.items():
+        for _card_index, _card_count in _gather.iteritems():
             if _card_count == 0:
                 continue
             if _card_count <= 3:
@@ -263,16 +263,16 @@ def check_mahjong_win(card_id, cards):
                 _gather[_card_index] = 1
                 _match(_card_index, 1, _gather)
 
-    for door_id, _ in door_list:
-        func.log_info('\n[game] check_mahjong_win \ndoor_id: {}'.format(door_id))
+    for door_id, _, door_card_type in door_list:
+        func.log_info('\n[game] check_mahjong_win door_id: {}'.format(door_id))
         all_gather = copy.deepcopy(all_card_gather)
         win_flag = True
         for _type, _card_gather in all_gather.items():
-            if door_id in _card_gather:
+            if _type == door_card_type and door_id in _card_gather:
                 _card_gather[door_id] -= 2
-            func.log_info('[game] check_mahjong_win _pre_treatment pre _gather: {}'.format(_card_gather))
+            func.log_info('================\n[game] check_mahjong_win _pre_treatment pre _gather: {}'.format(_card_gather))
             _pre_treatment(_card_gather)
-            func.log_info('[game] check_mahjong_win _pre_treatment now _gather: {}'.format(_card_gather))
+            func.log_info('[game] check_mahjong_win _pre_treatment now _gather: {}\n'.format(_card_gather))
             for _c in _card_gather.values():
                 if _c > 0:
                     win_flag = False
@@ -281,8 +281,8 @@ def check_mahjong_win(card_id, cards):
                 break
         func.log_info('[game] check_mahjong_win all_gather now: {}'.format(all_gather))
         if win_flag:
-            print '[game] check_mahjong_win +++++++++++++++++ door_id: {} WIN +++++++++++++++'.format(
-                    door_id)
+            func.log_info('[game] check_mahjong_win +++++++++++++++++ door_id: {} WIN +++++++++++++++'.format(
+                    door_id))
             return True
     return False
 
