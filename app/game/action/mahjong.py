@@ -3,7 +3,7 @@ import copy
 import operator
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, change
+from app.game.action import send
 from app.util.common import func
 from app.util.defines import content, games
 
@@ -155,16 +155,16 @@ def mahjong_operator(dynamic_id, player_operator, cards):
         account_id, dynamic_id, player_operator, card_list
     ))
     last_card_id = 0
+    last_cards = room.last_cards
+    if last_cards:
+        last_card_id = last_cards[0]
     if player_operator not in [games.MAH_OPERATOR_NONE, games.MAH_OPERATOR_WIN]:
         if not card_list:
             send.system_notice(dynamic_id, content.PLAY_PLEASE_SELECT_CARD)
             return
-        last_cards = room.last_cards
-        if last_cards:
-            last_card_id = last_cards[0]
-            if last_card_id not in card_list:
-                send.system_notice(dynamic_id, content.PLAY_LAST_CARD_NOT_IN)
-                return
+        if last_card_id not in card_list:
+            send.system_notice(dynamic_id, content.PLAY_LAST_CARD_NOT_IN)
+            return
     player_operators, all_operators = room.operators
     if account_id not in player_operators:
         send.system_notice(dynamic_id, content.PLAY_OPERATOR_UN_ABLE)
