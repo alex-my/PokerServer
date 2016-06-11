@@ -98,6 +98,7 @@ def mahjong_publish(dynamic_id, card_id):
             continue
         _player_card_list = _player.card_list
         operator_list = []
+        func.log_info('[game] mahjong_publish account_id: {} check card_list: {}'.format(_player.account_id, _player_card_list))
         if check_mahjong_win(card_id, _player_card_list):
             operator_list.append(games.MAH_OPERATOR_WIN)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_WIN, operators)
