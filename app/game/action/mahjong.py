@@ -158,7 +158,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     last_cards = room.last_cards
     if last_cards:
         last_card_id = last_cards[0]
-    if player_operator not in [games.MAH_OPERATOR_NONE, games.MAH_OPERATOR_WIN]:
+    if player_operator not in [games.MAH_OPERATOR_NONE, games.MAH_OPERATOR_WIN, games.MAH_OPERATOR_DRAWN]:
         if not card_list:
             send.system_notice(dynamic_id, content.PLAY_PLEASE_SELECT_CARD)
             return
