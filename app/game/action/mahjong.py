@@ -45,6 +45,14 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
     if check_mahjong_dark_kong(card_id, card_list):
         operator_list.append(games.MAH_OPERATOR_KONG_DARK)
     player.add_card(card_id)
+    # record operator to room
+    if operator_list:
+        player_operators = dict()
+        all_operators = dict()
+        player_operators[account_id] = operator_list
+        for _operator in operator_list:
+            all_operators[_operator] = [[player.account_id, player.position]]
+        room.operators = (player_operators, all_operators)
     send.dispatch_mahjong_card(dynamic_id, card_id, operator_list)
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.broad_mahjong_dispatch_card(dynamic_id_list, account_id)
