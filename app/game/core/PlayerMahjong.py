@@ -38,7 +38,7 @@ class PlayerMahjong(Player):
 
     @property
     def pre_list(self):
-        return [card_id for card_id, flag in self._cards.items() if not flag]
+        return [card_id for card_id, flag in self._cards.items() if flag]
 
     def get_player_save_data(self):
         return {
