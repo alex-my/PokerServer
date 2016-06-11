@@ -235,7 +235,7 @@ def send_few_card_count(dynamic_id_list, account_id, card_count):
     forward.push_object_game(5104, response.SerializeToString(), dynamic_id_list)
 
 
-def send_room_full(dynamic_id_list, statistic_list):
+def send_poker_room_full(dynamic_id_list, statistic_list):
     response = game_poker_pb2.m_5105_toc()
     response.server_t = func.time_get()
     for info in statistic_list:
@@ -247,7 +247,7 @@ def send_room_full(dynamic_id_list, statistic_list):
         room_fulls.lose_count = info['lose_count']
         room_fulls.bomb_count = info['bomb_count']
         room_fulls.max_point = info['max_point']
-    func.log_info('[game] 5105 send_room_full dynamic_id_list: {}, response: {}'.format(
+    func.log_info('[game] 5105 send_poker_room_full dynamic_id_list: {}, response: {}'.format(
         dynamic_id_list, response
     ))
     forward.push_object_game(5105, response.SerializeToString(), dynamic_id_list)
@@ -321,6 +321,22 @@ def send_mahjong_operator_select(dynamic_id, operator_able, operators):
         dynamic_id, response
     ))
     forward.push_object_game(5206, response.SerializeToString(), [dynamic_id])
+
+
+def send_mahjong_room_full(dynamic_id_list, statistic_list):
+    response = game_mahjong_pb2.m_5207_toc()
+    response.server_t = func.time_get()
+    for info in statistic_list:
+        room_fulls = response.room_fulls.add()
+        room_fulls.account_id = info['account_id']
+        room_fulls.rank = info['rank']
+        room_fulls.point_change = info['point_change']
+        room_fulls.win_count = info['win_count']
+        room_fulls.lose_count = info['lose_count']
+        room_fulls.max_point = info['max_point']
+        func.log_info('[game] 5207 send_mahjong_room_full dynamic_id_list: {}, response: {}'.format(
+             dynamic_id_list, response
+        ))
 
 
 def broad_mahjong_dispatch_card(dynamic_id_list, account_id):

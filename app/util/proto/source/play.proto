@@ -42,7 +42,7 @@ message m_4006_toc {
     required uint32 win_card_id = 2;        // 胡的那张牌
     required uint32 win_status = 3;         // 胡牌的形式：5 平胡; 6 自摸
     required uint32 lose_account_id = 4;    // 点炮的玩家(自摸的时候为胡牌玩家自己)
-    required p_close_mahjong_info close_info = 5;      // 玩家结算信息
+    repeated p_close_mahjong_info close_info = 5;      // 玩家结算信息
 }
 
 message p_close_mahjong_info {

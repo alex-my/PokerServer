@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='play.proto',
   package='',
-  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"\x0c\n\nm_4005_tos\"\x91\x01\n\nm_4006_toc\x12\x16\n\x0ewin_account_id\x18\x01 \x02(\r\x12\x13\n\x0bwin_card_id\x18\x02 \x02(\r\x12\x12\n\nwin_status\x18\x03 \x02(\r\x12\x17\n\x0flose_account_id\x18\x04 \x02(\r\x12)\n\nclose_info\x18\x05 \x02(\x0b\x32\x15.p_close_mahjong_info\"\x93\x01\n\x14p_close_mahjong_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12)\n\naward_card\x18\x02 \x03(\x0b\x32\x15.p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x03 \x03(\r\x12\x14\n\x0cpoint_change\x18\x04 \x02(\x05\x12\x15\n\rcurrent_point\x18\x05 \x02(\x05\"\'\n\x14p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x03(\r')
+  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"\x0c\n\nm_4005_tos\"\x91\x01\n\nm_4006_toc\x12\x16\n\x0ewin_account_id\x18\x01 \x02(\r\x12\x13\n\x0bwin_card_id\x18\x02 \x02(\r\x12\x12\n\nwin_status\x18\x03 \x02(\r\x12\x17\n\x0flose_account_id\x18\x04 \x02(\r\x12)\n\nclose_info\x18\x05 \x03(\x0b\x32\x15.p_close_mahjong_info\"\x93\x01\n\x14p_close_mahjong_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12)\n\naward_card\x18\x02 \x03(\x0b\x32\x15.p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x03 \x03(\r\x12\x14\n\x0cpoint_change\x18\x04 \x02(\x05\x12\x15\n\rcurrent_point\x18\x05 \x02(\x05\"\'\n\x14p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x03(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -293,8 +293,8 @@ _M_4006_TOC = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='close_info', full_name='m_4006_toc.close_info', index=4,
-      number=5, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),

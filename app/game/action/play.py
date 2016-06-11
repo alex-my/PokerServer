@@ -4,7 +4,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, mahjong, change
 from app.util.common import func
-from app.util.defines import content, operators, origins, rule, status
+from app.util.defines import content, operators, origins, rule, status, games
 
 
 def user_operator(dynamic_id, operator):
@@ -155,7 +155,10 @@ def remove_room(room):
     statistic_list = room.get_room_statistic()
     # 将统计信息下发玩家
     dynamic_id_list = room.get_room_dynamic_id_list()
-    send.send_room_full(dynamic_id_list, statistic_list)
+    if room.room_type in [games.GAME_TYPE_PDK, games.GAME_TYPE_PDK2]:
+        send.send_poker_room_full(dynamic_id_list, statistic_list)
+    elif room.room_type == games.GAME_TYPE_ZZMJ:
+        send.send_mahjong_room_full(dynamic_id_list, statistic_list)
     # 从RoomManager移除房间信息
     RoomManager().drop_room(room)
 
