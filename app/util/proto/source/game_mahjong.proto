@@ -60,7 +60,7 @@ message m_5205_toc {
 // 通知玩家进行操作
 message m_5206_toc {
     required bool operator_able = 1;            // 如果为true才可以操作operator, 否则只是显示而已,等待优先级更高的人操作
-    required uint32 operator = 2;               // 0 不操作, 1 吃, 2 碰, 3 明杠, 4 暗杠, 5 胡, 6 自摸
+    repeated uint32 operator = 2;               // 0 不操作, 1 吃, 2 碰, 3 明杠, 4 暗杠, 5 胡, 6 自摸
 }
 
 // 房间达到游戏次数上限，房间失效
