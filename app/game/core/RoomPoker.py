@@ -37,6 +37,7 @@ class RoomPoker(Room):
         for player in self._players.values():
             player.status = status.PLAYER_STATUS_NORMAL
             player.player_reset()
+        self._cards = []
         self._ready_list = []
         self._execute_account_id = 0
         self._last_account_id = 0

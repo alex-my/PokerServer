@@ -126,6 +126,7 @@ class RoomMahjong(Room):
         self._start_num = 0
         self._end_num = 0
 
+        self._cards = []
         self._ready_list = []
         self._execute_account_id = 0
         self._last_account_id = 0
