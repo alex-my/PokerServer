@@ -45,14 +45,14 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
     if check_mahjong_dark_kong(card_id, card_list):
         operator_list.append(games.MAH_OPERATOR_KONG_DARK)
     player.add_card(card_id)
+    player_operators = dict()
+    all_operators = dict()
     # record operator to room
     if operator_list:
-        player_operators = dict()
-        all_operators = dict()
         player_operators[account_id] = operator_list
         for _operator in operator_list:
             all_operators[_operator] = [[player.account_id, player.position]]
-        room.operators = (player_operators, all_operators)
+    room.operators = (player_operators, all_operators)
     send.dispatch_mahjong_card(dynamic_id, card_id, operator_list)
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.broad_mahjong_dispatch_card(dynamic_id_list, account_id)
@@ -365,6 +365,7 @@ def check_mahjong_drawn(card_id, card_list):
 def mahjong_operator_none(room, player):
     room.del_operators(player.account_id)
     player_operators, all_operators = room.operators
+    next_flag = True
     if all_operators:
         func.log_info('[game] mahjong_operator_none player_operators: {}'.format(player_operators))
         func.log_info('[game] mahjong_operator_none all_operators: {}'.format(all_operators))
@@ -374,12 +375,13 @@ def mahjong_operator_none(room, player):
         ))
         for _account_id, operator_list in player_operators.items():
             if not operator_list:
-                func.log_error('[game] mahjong_operator_none unable to come here.')
                 continue
             _player = room.get_player(_account_id)
             operator_able = _account_id == operator_account_id
+            if operator_able:
+                next_flag = False
             send.send_mahjong_operator_select(_player.dynamic_id, operator_able, operator_list)
-    else:
+    if next_flag:
         dispatch_next_card(room)
         send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
 
