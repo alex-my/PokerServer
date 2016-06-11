@@ -233,7 +233,7 @@ def check_mahjong_win(card_id, cards):
         card_gather[conf['card_index']] = card_gather.get(conf['card_index'], 0) + 1
 
     door_list = []
-    for card_type, info in all_card_gather.values():
+    for card_type, info in all_card_gather.items():
         l = [[_id, _count, card_type] for _id, _count in info.items() if _count >= 2]
         if l:
             door_list.extend(l)
