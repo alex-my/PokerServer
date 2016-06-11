@@ -358,7 +358,12 @@ def mahjong_operator_none(room, player):
     room.del_operators(player.account_id)
     player_operators, all_operators = room.operators
     if all_operators:
+        func.log_info('[game] mahjong_operator_none player_operators: {}'.format(player_operators))
+        func.log_info('[game] mahjong_operator_none all_operators: {}'.format(all_operators))
         operator_account_id = select_mahjong_operator_account_id(all_operators, player.account_id, player.position)
+        func.log_info('[game] mahjong_operator_none account_id: {}, position: {}, operator_account_id: {}'.format(
+            player.account_id, player.position, operator_account_id
+        ))
         for _account_id, operator_list in player_operators.items():
             if not operator_list:
                 func.log_error('[game] mahjong_operator_none unable to come here.')
