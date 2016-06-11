@@ -170,7 +170,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
         send.system_notice(dynamic_id, content.PLAY_OPERATOR_UN_ABLE)
         return
     operator_list = player_operators[account_id]
-    if player_operator not in operator_list:
+    if player_operator != games.MAH_OPERATOR_NONE and player_operator not in operator_list:
         send.system_notice(dynamic_id, content.PLAY_OPERATOR_NO_RIGHT)
         return
     if player_operator == games.MAH_OPERATOR_NONE:
