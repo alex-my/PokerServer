@@ -214,9 +214,9 @@ class Room(object):
                 player.status = status.PLAYER_STATUS_NORMAL
 
     def _create_player(self, **kwargs):
-        if self._room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
+        if self._room_type in rule.GAME_LIST_POKER_PDK:
             return PlayerPoker(**kwargs)
-        elif self._room_type == rule.GAME_TYPE_ZZMJ:
+        elif self._room_type in rule.GAME_LIST_MAHJONG:
             return PlayerMahjong(**kwargs)
         raise Exception('[game] Room _create_player unvalid room_type: {}'.format(self._room_type))
 

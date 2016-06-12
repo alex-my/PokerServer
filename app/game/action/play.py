@@ -155,19 +155,19 @@ def remove_room(room):
     statistic_list = room.get_room_statistic()
     # 将统计信息下发玩家
     dynamic_id_list = room.get_room_dynamic_id_list()
-    if room.room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
+    if room.room_type in rule.GAME_LIST_POKER_PDK:
         send.send_poker_room_full(dynamic_id_list, statistic_list)
-    elif room.room_type == rule.GAME_TYPE_ZZMJ:
+    elif room.room_type in rule.GAME_LIST_MAHJONG:
         send.send_mahjong_room_full(dynamic_id_list, statistic_list)
     # 从RoomManager移除房间信息
     RoomManager().drop_room(room)
 
 
 def dispatch_cards_to_room(room):
-    if room.room_type == rule.GAME_TYPE_PDK:
+    if room.room_type in rule.GAME_LIST_POKER_PDK:
         if not check_switch(room):
             dispatch_poker_to_room(room)
-    elif room.room_type == rule.GAME_TYPE_ZZMJ:
+    elif room.room_type in rule.GAME_LIST_MAHJONG:
         dispatch_mahjong_to_room(room)
 
 

@@ -43,9 +43,9 @@ def enter_room(**kwargs):
         func.log_info('[game] enter_room, account_id: {}, dynamic_i_list: {}'.format(
             account_id, dynamic_id_list
         ))
-        if room.room_type in [rule.GAME_TYPE_PDK, rule.GAME_TYPE_PDK2]:
+        if room.room_type in rule.GAME_LIST_POKER_PDK:
             send.broad_player_enter_poker(dynamic_id_list, player.get_data())
-        elif room.room_type in [rule.GAME_TYPE_ZZMJ]:
+        elif room.room_type in rule.GAME_LIST_MAHJONG:
             send.broad_player_enter_mahjong(dynamic_id_list, player.get_data(),
                                             operator_account_id, player_operators.get(account_id))
         else:

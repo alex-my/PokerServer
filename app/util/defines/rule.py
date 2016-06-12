@@ -6,6 +6,10 @@ GAME_TYPE_ZZMJ = 2              # 转转麻将
 GAME_TYPE_PDK2 = 3              # 跑得快 每人15张版
 
 
+GAME_LIST_POKER_PDK = [GAME_TYPE_PDK, GAME_TYPE_PDK2]
+GAME_LIST_MAHJONG = [GAME_TYPE_ZZMJ]
+
+
 rule_configs = {
     GAME_TYPE_PDK: {
         'room_price': {
