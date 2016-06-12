@@ -16,5 +16,3 @@ class MarqueeTimer(ITimer):
         if not content:
             return
         send.marquee_to_all(content)
-
-
