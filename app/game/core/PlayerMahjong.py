@@ -36,6 +36,11 @@ class PlayerMahjong(Player):
                 self._account_id, _list
             ))
             self._kong_list.append(_list)
+            for index, _l in enumerate(self._pong_list):
+                for _card_id in _l:
+                    if _card_id in _list:
+                        del self._pong_list[index]
+                        break
 
     @property
     def pre_list(self):
