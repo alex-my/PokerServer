@@ -39,7 +39,7 @@ message p_user_room {
     optional uint32 sex = 6;            // 性别
     optional string ip = 7;             // IP地址 "120.1.1.2"
     optional int32 point = 8;           // 积分
-    optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备
+    optional uint32 status = 9;         // 玩家状态: 1 正常, 2 暂离, 3 准备, 5 报警
 }
 
 // 麻将

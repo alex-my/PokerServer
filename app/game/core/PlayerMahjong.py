@@ -1,6 +1,7 @@
 # coding:utf8
 from app.game.core.Player import Player
 from app.util.common import func
+from app.util.defines import status
 
 
 class PlayerMahjong(Player):
@@ -73,6 +74,10 @@ class PlayerMahjong(Player):
         self._chow_list = local_data['chow_list']
 
     def get_data(self):
+        card_count = self.get_card_count()
+        _status = self.status
+        if card_count <= 1:
+            _status = status.PLAYER_STATUS_WARN
         return {
             'position': self.position,
             'account_id': self.account_id,
@@ -82,7 +87,7 @@ class PlayerMahjong(Player):
             'sex': self.sex,
             'ip': self.ip,
             'point': self.point,
-            'status': self.status,
+            'status': _status,
             'pre_cards': self.pre_list,
             'award_cards': self.get_award_cards(),
             'card_count': self.get_card_count()
