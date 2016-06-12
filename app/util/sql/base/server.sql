@@ -95,6 +95,7 @@ DROP TABLE IF EXISTS `infomation`;
 CREATE TABLE `infomation` (
     `id` int(10) unsigned NOT NULL,
     `content` LONGTEXT NOT NULL,
+    `desc` varchar(128) NOT NULL DEFAULT '' COMMENT '描述',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
