@@ -34,6 +34,12 @@ def user_change(dynamic_id, changes):
     forward.push_object_gate(9003, response.SerializeToString(), [dynamic_id])
 
 
+def marquee_to_all(content):
+    response = system_pb2.m_9004_toc()
+    response.content = content
+    forward.push_object_gate_all(9004, response.SerializeToString())
+
+
 def login_success(dynamic_id, user):
     """
     推送玩家账号登陆成功信息

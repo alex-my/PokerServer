@@ -18,5 +18,5 @@ class Information(resource.Resource):
     def render(self, request):
         info_id = request.args
         func.log_info('[gate] Infomation info_id: {}'.format(info_id))
-        infomation.infomation_execute(info_id)
+        infomation.information_execute(info_id)
 

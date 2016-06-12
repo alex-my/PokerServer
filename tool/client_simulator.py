@@ -619,6 +619,12 @@ def user_change_9003(request):
     return None
 
 
+# 9004 走马灯
+@client_service_handle
+def system_notice_9004(request):
+    pass
+
+
 if __name__ == '__main__':
     Client().connect_to_auth()
     reactor.run()

@@ -60,3 +60,6 @@ class UserManager:
 
     def get_user_address(self, account_id):
         return self._address.get(account_id, ('', 0))
+
+    def get_all_dynamic_id(self):
+        return self._users_dynamic.keys()

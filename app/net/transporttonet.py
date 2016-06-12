@@ -1,5 +1,4 @@
 # coding:utf8
-
 from firefly.server.globalobject import GlobalObject, remoteserviceHandle
 
 

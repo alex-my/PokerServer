@@ -1,5 +1,4 @@
 # coding:utf8
-from twisted.internet import defer
 from firefly.server.globalobject import GlobalObject
 from firefly.utils.services import CommandService
 

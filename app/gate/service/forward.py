@@ -44,3 +44,8 @@ def push_object(target_key, msg, send_list):
 def push_object_gate(target_key, msg, send_list):
     GlobalObject().root.callChild('net', 'push_object_gate', target_key, msg, send_list)
 
+
+def push_object_gate_all(target_key, msg):
+    send_list = UserManager().get_all_dynamic_id()
+    push_object_gate(target_key, msg, send_list)
+

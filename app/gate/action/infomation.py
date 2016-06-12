@@ -1,16 +1,29 @@
 # coding:utf8
-from app.util.common.config import Config
+from app.gate.action import send
+from app.util.common.config import Config, i
 from app.util.defines import informations
 
 
-def infomation_execute(info_id):
+def information_execute(info_id):
     # 重新载入信息配置
     Config().load_special_infomation(info_id)
 
     if info_id == informations.INFOMATION_TYPE_CONTACT:
-        pass
+        _information_contact()
     elif info_id == informations.INFOMATION_TYPE_MARQUEE:
-        pass
+        _information_marquee()
     else:
-        raise KeyError('[gate] infomation_execute info_id: {} un exist'.format(info_id))
+        raise KeyError('[gate] information_execute info_id: {} un exist'.format(info_id))
+
+
+def _information_contact():
+    pass
+
+
+def _information_marquee():
+    content = i(informations.INFOMATION_TYPE_MARQUEE)
+    if not content:
+        return
+    send.marquee_to_all(content)
+    # TODO: timer
 
