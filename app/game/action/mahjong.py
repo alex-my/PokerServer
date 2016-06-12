@@ -101,6 +101,7 @@ def mahjong_publish(dynamic_id, card_id):
         _l = ops.setdefault(_operator, [])
         _l.append([_account_id, _position])
 
+    win_flag = False
     for _player in room.players:
         if _player.account_id == account_id:
             continue
@@ -108,6 +109,7 @@ def mahjong_publish(dynamic_id, card_id):
         operator_list = []
         func.log_info('[game] mahjong_publish account_id: {} check card_list: {}'.format(_player.account_id, _player_card_list))
         if check_mahjong_win(card_id, _player_card_list):
+            win_flag = True
             operator_list.append(games.MAH_OPERATOR_WIN)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_WIN, operators)
         # if check_mahjong_chow(card_id, _player_card_list):
@@ -134,7 +136,10 @@ def mahjong_publish(dynamic_id, card_id):
         operator_account_id, player_operators, operators
     ))
     if not operators:
-        dispatch_next_card(room)
+        if room.is_card_clear() and not win_flag:
+            mahjong_operator_win(room, player, 0, games.MAH_OPERATOR_NO)
+        else:
+            dispatch_next_card(room)
 
 
 def mahjong_operator(dynamic_id, player_operator, cards):
@@ -399,11 +404,14 @@ def mahjong_operator_win(room, player, last_card_id, player_operator):
         room.lose_account_id = room.last_account_id
     elif player_operator == games.MAH_OPERATOR_DRAWN:
         room.lose_account_id = player.account_id
+    elif player_operator == games.MAH_OPERATOR_NO:
+        room.win_account_id = 0
+        room.lose_account_id = 0
     else:
         raise Exception('[game] mahjong_operator_win player_operator: {} un exist'.format(
             player_operator
         ))
-    mahjong_close(room, player.account_id, last_card_id, player_operator)
+    mahjong_close(room, room.win_account_id, last_card_id, player_operator)
 
 
 def mahjong_operator_pong(room, player, card_list, last_card_id):

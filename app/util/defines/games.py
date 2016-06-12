@@ -9,6 +9,7 @@ MAH_OPERATOR_KONG_LIGHT = 3         # 明杠
 MAH_OPERATOR_KONG_DARK = 4          # 暗杠
 MAH_OPERATOR_WIN = 5                # 胡
 MAH_OPERATOR_DRAWN = 6              # 自摸
+MAH_OPERATOR_NO = 7                 # 平局
 
 
 MAH_CONFIG = dict()     # {card: {pre_list: [], cur_list: [], next_list: []}, ...}

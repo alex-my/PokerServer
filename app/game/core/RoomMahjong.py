@@ -140,7 +140,7 @@ class RoomMahjong(Room):
         elif win_status == games.MAH_OPERATOR_DRAWN:
             _point = 30
         else:
-            _point = 10
+            _point = 0
         for account_id, player in self._players.items():
             old_point = player.point
             if account_id == self.win_account_id:
