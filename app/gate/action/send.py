@@ -49,9 +49,9 @@ def change_string(dynamic_id, changes):
     """
     response = system_pb2.m_9005_toc()
     for change_type, change_value in changes.items():
-        role_change = response.role_change.add()
-        role_change.change_type = change_type
-        role_change.change_value = change_value
+        _changes = response.changes.add()
+        _changes.change_type = change_type
+        _changes.change_value = change_value
     forward.push_object_gate(9005, response.SerializeToString(), [dynamic_id])
 
 
@@ -63,9 +63,9 @@ def system_changes_string(changes):
     """
     response = system_pb2.m_9005_toc()
     for change_type, change_value in changes.items():
-        role_change = response.role_change.add()
-        role_change.change_type = change_type
-        role_change.change_value = change_value
+        _changes = response.changes.add()
+        _changes.change_type = change_type
+        _changes.change_value = change_value
     forward.push_object_gate_all(9005, response.SerializeToString())
 
 

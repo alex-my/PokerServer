@@ -16,7 +16,10 @@ def webapp_handle(cls):
 class Information(resource.Resource):
 
     def render(self, request):
-        info_id = request.args
+        # info_id = request.args
+        # TODO: Information
+        print 'Alex args: ', request.args
+        info_id = int(request.args.get('id')[0])
         func.log_info('[gate] Infomation info_id: {}'.format(info_id))
         infomation.information_execute(info_id)
-
+        return "success"

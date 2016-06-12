@@ -19,7 +19,8 @@ def information_execute(info_id):
 
 def _information_contact():
     contact = i(informations.INFOMATION_TYPE_CONTACT)
-    send.system_changes_string({changes.CHANGE_GAME_CONTACT: contact})
+    if contact:
+        send.system_changes_string({changes.CHANGE_GAME_CONTACT: contact})
 
 
 def _information_marquee():
