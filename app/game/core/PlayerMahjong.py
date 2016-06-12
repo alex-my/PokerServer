@@ -40,6 +40,12 @@ class PlayerMahjong(Player):
     def pre_list(self):
         return [card_id for card_id, flag in self._cards.items() if flag]
 
+    def player_reset(self):
+        self._cards = dict()
+        self._pong_list = []
+        self._kong_list = []
+        self._chow_list = []
+
     def get_player_save_data(self):
         return {
             'base_data': super(PlayerMahjong, self)._get_player_save_base_data().items(),
