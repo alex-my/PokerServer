@@ -41,7 +41,7 @@ def _initialize_mahjong():
                 'card_index': card_index,
                 'card_type': card_type
             }
-            func.log_info('[game] card: {} \t {}'.format(c, MAH_CONFIG[c]))
+            # func.log_info('[game] card: {} \t {}'.format(c, MAH_CONFIG[c]))
 
 _initialize_mahjong()
 

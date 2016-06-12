@@ -29,6 +29,7 @@
     },
     "gate": {
       "rootport": 9002,
+      "webport": 8621,
       "name": "gate",
       "remoteport":[
         {

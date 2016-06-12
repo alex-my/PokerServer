@@ -14,9 +14,9 @@ class Config:
         self._infomations = dict()
 
     def load_configs(self):
-        self._load_from_infomation()
+        self.load_from_infomation()
 
-    def _load_from_infomation(self):
+    def load_from_infomation(self):
         self._infomations = dict()
         sql = 'select * from {}'.format(dbname.DB_INFOMATION)
         results = dbexecute.query_all(sql)
@@ -24,14 +24,23 @@ class Config:
             return
 
         for result in results:
-            try:
-                if result['content']:
-                    result['content'] = func.unpack_data(result['content'])
-                self._infomations[result['id']] = result['content']
-            except Exception as e:
-                func.log_info('[config] _load_from_infomation failed, error: {}, result: {}'.format(
+            self._parse_infomation(result)
+
+    def load_special_infomation(self, info_id):
+        sql = 'select * from {} where id={}'.format(dbname.DB_INFOMATION, info_id)
+        result = dbexecute.query_one(sql)
+        if result:
+            self._parse_infomation(result)
+
+    def _parse_infomation(self, result):
+        try:
+            if result['content']:
+                result['content'] = func.unpack_data(result['content'])
+            self._infomations[result['id']] = result['content']
+        except Exception as e:
+            func.log_info('[config] _load_from_infomation failed, error: {}, result: {}'.format(
                     e.message, result
-                ))
+            ))
 
     def get_infomation(self, info_id, default):
         return self._infomations.get(info_id, default)

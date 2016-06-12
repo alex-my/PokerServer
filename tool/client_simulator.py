@@ -438,7 +438,7 @@ def user_login_2001(request):
     # ================ test create room
     # create_room(client, rule.GAME_TYPE_PDK2, 10)
     # ================ test enter room
-    # enter_room(client, 348688)
+    enter_room(client, 503327)
     return None
 
 
@@ -480,7 +480,7 @@ def enter_room_3002(request):
     func.log_info('[enter_room_3002] room_id: {}, user_id: {}, rounds: {}, max_rounds: {}'.format(
             argument.room_id, argument.user_id, argument.rounds, argument.max_rounds))
     # 准备
-    # user_ready(client)
+    user_ready(client)
 
 
 @client_service_handle
@@ -532,7 +532,7 @@ def user_publish_card_4003(request):
         argument.execute_account_id, card_list
     ))
     # poker_publish(client, card_list)
-    mahjong_publish(client, card_list[0])
+    # mahjong_publish(client, card_list[0])
 
 
 def poker_publish(client, card_list):
