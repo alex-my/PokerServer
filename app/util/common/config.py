@@ -34,8 +34,8 @@ class Config:
 
     def _parse_infomation(self, result):
         try:
-            if result['content']:
-                result['content'] = func.unpack_data(result['content'])
+#            if result['content']:
+#                result['content'] = func.unpack_data(result['content'])
             self._infomations[result['id']] = result['content']
         except Exception as e:
             func.log_info('[config] _load_from_infomation failed, error: {}, result: {}'.format(
