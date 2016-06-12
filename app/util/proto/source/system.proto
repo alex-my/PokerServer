@@ -9,7 +9,7 @@ message m_9002_toc {
     required uint32 t = 1;          // t=0: 立即下线; t=时间戳: 到这个点下线
 }
 
-// 变化(整形版本)
+// 变化(整型版本)
 message m_9003_toc {
     repeated p_role_change role_change = 1;
 }

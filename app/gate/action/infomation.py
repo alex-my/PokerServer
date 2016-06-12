@@ -1,7 +1,7 @@
 # coding:utf8
 from app.gate.action import send
 from app.util.common.config import Config, i
-from app.util.defines import informations
+from app.util.defines import informations, changes
 
 
 def information_execute(info_id):
@@ -17,7 +17,8 @@ def information_execute(info_id):
 
 
 def _information_contact():
-    pass
+    contact = i(informations.INFOMATION_TYPE_CONTACT)
+    send.system_changes_string({changes.CHANGE_GAME_CONTACT: contact})
 
 
 def _information_marquee():
@@ -25,5 +26,3 @@ def _information_marquee():
     if not content:
         return
     send.marquee_to_all(content)
-    # TODO: timer
-

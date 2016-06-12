@@ -21,7 +21,7 @@ def system_notice(dynamic_id, content):
 
 def user_change(dynamic_id, changes):
     """
-    玩家变化
+    变化(整型版本)
     :param dynamic_id:
     :param changes:
     :return:
@@ -38,6 +38,35 @@ def marquee_to_all(content):
     response = system_pb2.m_9004_toc()
     response.content = content
     forward.push_object_gate_all(9004, response.SerializeToString())
+
+
+def change_string(dynamic_id, changes):
+    """
+    变化(字符串版本)
+    :param dynamic_id:
+    :param changes:
+    :return:
+    """
+    response = system_pb2.m_9005_toc()
+    for change_type, change_value in changes.items():
+        role_change = response.role_change.add()
+        role_change.change_type = change_type
+        role_change.change_value = change_value
+    forward.push_object_gate(9005, response.SerializeToString(), [dynamic_id])
+
+
+def system_changes_string(changes):
+    """
+    系统变化
+    :param changes:
+    :return:
+    """
+    response = system_pb2.m_9005_toc()
+    for change_type, change_value in changes.items():
+        role_change = response.role_change.add()
+        role_change.change_type = change_type
+        role_change.change_value = change_value
+    forward.push_object_gate_all(9005, response.SerializeToString())
 
 
 def login_success(dynamic_id, user):
