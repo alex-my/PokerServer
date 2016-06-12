@@ -133,15 +133,21 @@ class RoomMahjong(Room):
         self._last_cards = []
         self._rounds += 1
 
-    def room_mahjong_close(self):
+    def room_mahjong_close(self, win_status):
         all_player_info = dict()
+        if win_status == games.MAH_OPERATOR_WIN:
+            _point = 10
+        elif win_status == games.MAH_OPERATOR_DRAWN:
+            _point = 20
+        else:
+            _point = 10
         for account_id, player in self._players.items():
             old_point = player.point
             if account_id == self.win_account_id:
-                player.point_change(10)
+                player.point_change(_point)
                 player.win_count = 1
             elif account_id == self.lose_account_id:
-                player.point_change(-10)
+                player.point_change(-_point)
                 player.lose_count = 1
             change_point = player.point - old_point
             all_player_info[account_id] = {
