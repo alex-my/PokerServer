@@ -139,8 +139,10 @@ class RoomMahjong(Room):
             old_point = player.point
             if account_id == self.win_account_id:
                 player.point_change(10)
+                player.win_count = 1
             elif account_id == self.lose_account_id:
                 player.point_change(-10)
+                player.lose_count = 1
             change_point = player.point - old_point
             all_player_info[account_id] = {
                 'award_cards': player.get_award_cards(),

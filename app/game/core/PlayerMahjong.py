@@ -85,4 +85,11 @@ class PlayerMahjong(Player):
     def get_award_cards(self):
         return self._pong_list + self._kong_list + self._chow_list
 
-
+    def get_statistic_data(self):
+        return {
+            'account_id': self.account_id,
+            'point_change': self._statistic_point,
+            'win_count': self._statistic_win_count,
+            'lose_count': self._statistic_lose_count,
+            'max_point': self._statistic_max_point
+        }

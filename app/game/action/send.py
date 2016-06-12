@@ -335,10 +335,10 @@ def send_mahjong_room_full(dynamic_id_list, statistic_list):
         room_fulls.win_count = info['win_count']
         room_fulls.lose_count = info['lose_count']
         room_fulls.max_point = info['max_point']
-        func.log_info('[game] 5207 send_mahjong_room_full dynamic_id_list: {}, response: {}'.format(
-             dynamic_id_list, response
-        ))
-        forward.push_object_game(5207, response.SerializeToString(), dynamic_id_list)
+    func.log_info('[game] 5207 send_mahjong_room_full dynamic_id_list: {}, response: {}'.format(
+         dynamic_id_list, response
+    ))
+    forward.push_object_game(5207, response.SerializeToString(), dynamic_id_list)
 
 
 def broad_mahjong_dispatch_card(dynamic_id_list, account_id):

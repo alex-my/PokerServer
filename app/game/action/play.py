@@ -1,8 +1,7 @@
 # coding:utf8
-from app.game.gameservice import request_gate_node
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, mahjong, change
+from app.game.action import send, mahjong, change, roomfull
 from app.util.common import func
 from app.util.defines import content, operators, origins, rule, status, games
 
@@ -100,7 +99,7 @@ def user_close(dynamic_id, operate):
                     account_id, room_price, back_origin, room.get_room_brief()
                 ))
             send.system_notice_room(room, content.ROOM_CLOSE_NOW)
-            remove_room(room)
+            roomfull.remove_room(room)
         else:
             send.system_notice_room(room, content.ROOM_CLOSE_OWNER)
     elif room.is_room_close_first():
@@ -146,21 +145,6 @@ def check_switch(room):
 
 def switch_cards(room):
     notice_all_room_user_operator(room, room.switch_account_id, operators.USER_OPERATOR_SWITCH)
-
-
-def remove_room(room):
-    # 从gate节点移除该房间
-    request_gate_node('remove_room', room.room_id)
-    # 计算本论统计信息
-    statistic_list = room.get_room_statistic()
-    # 将统计信息下发玩家
-    dynamic_id_list = room.get_room_dynamic_id_list()
-    if room.room_type in rule.GAME_LIST_POKER_PDK:
-        send.send_poker_room_full(dynamic_id_list, statistic_list)
-    elif room.room_type in rule.GAME_LIST_MAHJONG:
-        send.send_mahjong_room_full(dynamic_id_list, statistic_list)
-    # 从RoomManager移除房间信息
-    RoomManager().drop_room(room)
 
 
 def dispatch_cards_to_room(room):

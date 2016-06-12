@@ -1,7 +1,7 @@
 # coding:utf8
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, play
+from app.game.action import send, play, roomfull
 from app.util.common import func
 from app.util.defines import content
 
@@ -72,7 +72,7 @@ def poker_publish(dynamic_id, cards):
         send.game_over(account_id, all_player_info, dynamic_id_list)
         # 判断该房间是否失效(达到可玩的局数上限)
         if room.is_full_rounds():
-            play.remove_room(room)
+            roomfull.remove_room(room)
 
 
 def check_poker_publish_valid(player, cards):

@@ -3,7 +3,7 @@ import copy
 import operator
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send
+from app.game.action import send, roomfull
 from app.util.common import func
 from app.util.defines import content, games
 
@@ -440,6 +440,5 @@ def mahjong_close(room, win_account_id, win_card_id, win_status):
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.game_over_mahjong(win_account_id, room.lose_account_id, win_card_id, win_status, all_player_info, dynamic_id_list)
     if room.is_full_rounds():
-        # TODO: mahjong_close room is full rounds
-        pass
+        roomfull.remove_room(room)
 
