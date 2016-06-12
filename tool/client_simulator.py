@@ -155,9 +155,9 @@ class ClientFactory(protocol.ClientFactory):
             # 裸包注册账号
             # register_account(self._client, self._client.user_name, self._client.password)
             # 裸包登陆
-            account_verify_official(self._client, self._client.user_name, self._client.password)
+            # account_verify_official(self._client, self._client.user_name, self._client.password)
             # 渠道登陆
-            # account_verify_channel(self._client, self._client.user_name)
+            account_verify_channel(self._client, self._client.user_name)
         # 成功连接游戏服务器
         else:
             user_login(self._client)
@@ -380,8 +380,8 @@ def account_verify_channel(client, user_name):
     response.channel_id = channel.CHANNEL_WE_CHAT
     response.uuid = user_name
     response.name = user_name
-    response.head_frame = 1
-    response.head_icon = 1
+    response.head_frame = '123'
+    response.head_icon = '345'
     response.sex = 1
     client.push_object(1003, response.SerializeToString())
 
@@ -436,7 +436,7 @@ def user_login_2001(request):
     func.log_info('[user_enter_2002]')
     client.display_user()
     # ================ test create room
-    create_room(client, rule.GAME_TYPE_PDK2, 10)
+    # create_room(client, rule.GAME_TYPE_PDK2, 10)
     # ================ test enter room
     # enter_room(client, 348688)
     return None

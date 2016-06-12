@@ -1,7 +1,9 @@
 # coding:utf8
 from app.gate.service import forward
 from app.gate.core.RoomProxyManager import RoomProxyManager
+from app.util.common.config import i
 from app.util.common import func
+from app.util.defines import informations
 from app.util.proto import system_pb2, login_pb2, room_pb2
 
 
@@ -64,6 +66,8 @@ def login_success(dynamic_id, user):
             room_price = room_info.room_price.add()
             room_price.rounds = rounds
             room_price.gold_price = price
+    # 游戏信息
+    response.game_info.contact = i(informations.INFOMATION_TYPE_CONTACT, '')
     func.log_info('[game] 2001 account_id: {}, response: {}'.format(user.account_id, response))
     forward.push_object_gate(2001, response.SerializeToString(), [dynamic_id])
 

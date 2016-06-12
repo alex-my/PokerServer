@@ -1,6 +1,7 @@
 # coding:utf8
 from firefly.server.globalobject import GlobalObject
 from app.game.core.RoomManager import RoomManager
+from app.util.common.config import Config
 from app.util.common import func
 
 
@@ -25,3 +26,5 @@ def load_module():
     import gameservice
     import service
     import app.util.defines.games
+
+    Config().load_configs()

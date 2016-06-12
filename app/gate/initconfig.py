@@ -2,6 +2,7 @@
 from firefly.server.globalobject import GlobalObject
 from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.gate.core.UserManager import UserManager
+from app.util.common.config import Config
 from app.util.common import func
 
 
@@ -26,5 +27,6 @@ def load_module():
     import gateservice
     import service
 
+    Config().load_configs()
     RoomProxyManager().load_all_room()
     RoomProxyManager().load_configs()
