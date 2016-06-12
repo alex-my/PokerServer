@@ -1,4 +1,5 @@
 # coding:utf8
+from twisted.internet import reactor
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, mahjong, change, roomfull
@@ -121,7 +122,8 @@ def user_switch_over(dynamic_id):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
-    dispatch_poker_to_room(room)
+    if room.is_room_dispatch_able():
+        dispatch_poker_to_room(room)
 
 
 def notice_all_room_user_operator(room, account_id, operator):
@@ -144,7 +146,20 @@ def check_switch(room):
 
 
 def switch_cards(room):
+    reactor.callLater(15, do_check_switch, room.room_id)
     notice_all_room_user_operator(room, room.switch_account_id, operators.USER_OPERATOR_SWITCH)
+
+
+def do_check_switch(room_id):
+    func.log_info('[game] do_check_switch room_id: {}'.format(room_id))
+    room = RoomManager().get_room(room_id)
+    if room:
+        if room.room_type not in rule.GAME_LIST_POKER_PDK:
+            raise KeyError('[game] do_check_switch room_id: {}, room_type: {} un do_check_switch'.format(
+                room_id, room.room_type
+            ))
+        if room.is_room_dispatch_able():
+            dispatch_poker_to_room(room)
 
 
 def dispatch_cards_to_room(room):

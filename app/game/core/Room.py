@@ -176,6 +176,9 @@ class Room(object):
     def is_room_start(self):
         return self._rounds > 1 or len(self._cards) > 0
 
+    def is_room_dispatch_able(self):
+        return self._execute_account_id == 0
+
     def get_room_brief(self):
         return {
             'room_id': self._room_id,
