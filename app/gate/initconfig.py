@@ -26,6 +26,7 @@ GlobalObject().stophandler = do_when_stop
 def load_module():
     import gateservice
     import service
+    import timer
 
     Config().load_configs()
     RoomProxyManager().load_all_room()

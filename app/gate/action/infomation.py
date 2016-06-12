@@ -1,6 +1,7 @@
 # coding:utf8
 from app.gate.action import send
 from app.util.common.config import Config, i
+from app.util.common import func
 from app.util.defines import informations, changes
 
 
@@ -22,6 +23,7 @@ def _information_contact():
 
 
 def _information_marquee():
+    func.log_info('[gate] _information_marquee')
     content = i(informations.INFOMATION_TYPE_MARQUEE)
     if not content:
         return

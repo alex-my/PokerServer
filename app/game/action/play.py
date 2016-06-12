@@ -4,7 +4,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, mahjong, change, roomfull
 from app.util.common import func
-from app.util.defines import content, operators, origins, rule, status, games
+from app.util.defines import content, operators, origins, rule, status
 
 
 def user_operator(dynamic_id, operator):
