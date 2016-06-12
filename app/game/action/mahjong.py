@@ -195,7 +195,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     elif player_operator == games.MAH_OPERATOR_PONG:
         mahjong_operator_pong(room, player, card_list, last_card_id)
     elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
-        mahjong_operator_kong(room, player, card_list, last_card_id)
+        mahjong_operator_kong(room, player, card_list, last_card_id, player_operator, player_operator)
 
 
 def select_mahjong_operator_account_id(operators, execute_account_id, execute_position):
@@ -424,11 +424,11 @@ def mahjong_operator_pong(room, player, card_list, last_card_id):
     del room.operators
 
 
-def mahjong_operator_kong(room, player, card_list, last_card_id):
+def mahjong_operator_kong(room, player, card_list, last_card_id, player_operator):
     dynamic_id_list = room.get_room_dynamic_id_list()
     player.kong_list = card_list
     player.card_publish_list(card_list)
-    send.send_mahjong_operator(dynamic_id_list, player.account_id, games.MAH_OPERATOR_PONG, card_list)
+    send.send_mahjong_operator(dynamic_id_list, player.account_id, player_operator, card_list)
     room.execute_account_id = player.account_id     # 需要补一张牌
     dispatch_mahjong_card_account(player.account_id, player.dynamic_id, False)
     del room.operators
