@@ -195,7 +195,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     elif player_operator == games.MAH_OPERATOR_PONG:
         mahjong_operator_pong(room, player, card_list, last_card_id)
     elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
-        mahjong_operator_kong(room, player, card_list, last_card_id, player_operator, player_operator)
+        mahjong_operator_kong(room, player, card_list, last_card_id, player_operator)
 
 
 def select_mahjong_operator_account_id(operators, execute_account_id, execute_position):
