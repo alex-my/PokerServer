@@ -38,7 +38,7 @@ rule_configs = {
             20: 18,
             30: 36
         },
-        'player_count': 3,
+        'player_count': 1,
         'unit_count': 48,        # 48张扑克牌
         'original_count': 15,    # 每个玩家初始牌数
         'un_except': [48, 47, 46, 44, 43, 42, 40]          # 去除的牌

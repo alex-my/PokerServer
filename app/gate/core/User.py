@@ -38,6 +38,8 @@ class User(object):
         self._head_frame = data.get('head_frame')
         self._head_icon = data.get('head_icon')
         self._sex = data.get('sex')
+        self._room_id = data.get('room_id', 0)
+        self._room_type = data.get('room_type', 0)
         self._gold = data.get('gold')
         self._point = data.get('point')
         return True
@@ -168,6 +170,8 @@ class User(object):
             'name': self._name,
             'head_frame': self._head_frame,
             'head_icon': self._head_icon,
+            'room_id': self._room_id,
+            'room_type': self._room_type,
             'gold': self._gold,
             'point': self._point
         }
