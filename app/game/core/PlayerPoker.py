@@ -1,6 +1,6 @@
 # coding:utf8
 from app.game.core.Player import Player
-from app.util.common import func
+from app.util.defines import status
 
 
 class PlayerPoker(Player):
@@ -41,6 +41,10 @@ class PlayerPoker(Player):
         self._statistic_bomb_count += _count
 
     def get_data(self):
+        card_count = self.get_card_count()
+        _status = self.status
+        if card_count <= 1:
+            _status = status.PLAYER_STATUS_WARN
         return {
             'position': self.position,
             'account_id': self.account_id,
@@ -50,7 +54,7 @@ class PlayerPoker(Player):
             'sex': self.sex,
             'ip': self.ip,
             'point': self.point,
-            'status': self.status
+            'status': _status
         }
 
     def is_card_few(self):
