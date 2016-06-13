@@ -165,7 +165,7 @@ class Room(object):
             self._close_t = func.time_get()
 
     def is_room_close_able(self):
-        return self.is_close_t_valid() and len(self._close_room_player) > int(self.player_count / 2)
+        return self.is_close_t_valid() and len(self._close_room_player) > int(len(self._player_list) / 2.0)
 
     def is_room_close_first(self):
         return self.is_close_t_valid() and len(self._close_room_player) <= 1
