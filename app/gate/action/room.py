@@ -165,9 +165,11 @@ def remove_room(room_id):
     account_id_list = room.account_id_list
     for account_id in account_id_list:
         user = user_manager.get_user(account_id)
-        if user and user.room_id == room_id and user.room_type == room.room_type:
+        if user and (user.room_type == room.room_type or user.record_room_type == room.room_type):
             user.room_id = 0
             user.room_type = 0
+            user.record_room_id = 0
+            user.record_room_type = 0
             user.node_name = None
     RoomProxyManager().remove_room(room_id, room.room_type, room.account_id)
     sql = 'delete from {} where room_id={}'.format(dbname.DB_ROOM, room_id)
