@@ -32,6 +32,7 @@ def net_connect_lost(dynamic_id):
         func.log_info('[gate] net_connect_lost dynamic_id: {}, account_id: {}, node_name: {}'.format(
             dynamic_id, user.account_id, user.node_name
         ))
+        user.user_lost()
         if user.node_name:
             GlobalObject().root.callChild(user.node_name, 'user_connect_lost', dynamic_id)
         UserManager().drop_user_dynamic(dynamic_id)

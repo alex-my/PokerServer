@@ -43,7 +43,7 @@ class PlayerPoker(Player):
     def get_data(self):
         card_count = self.get_card_count()
         _status = self.status
-        if card_count <= 1:
+        if card_count == 1:
             _status = status.PLAYER_STATUS_WARN
         return {
             'position': self.position,

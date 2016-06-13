@@ -26,6 +26,9 @@ class User(object):
         self._is_gm = False     # 是否是GM账号
         self._node_name = None  # game节点名称
 
+        self._record_room_id = 0
+        self._record_room_type = 0
+
     def init_user(self, data):
         if not data:
             return False
@@ -97,6 +100,22 @@ class User(object):
         self._room_type = _type
 
     @property
+    def record_room_id(self):
+        return self._record_room_id
+
+    @record_room_id.setter
+    def record_room_id(self, _id):
+        self._record_room_id = _id
+
+    @property
+    def record_room_type(self):
+        return self._record_room_type
+
+    @record_room_type.setter
+    def record_room_type(self, _type):
+        self._record_room_type = _type
+
+    @property
     def gold(self):
         return self._gold
 
@@ -158,6 +177,10 @@ class User(object):
         self._point -= count
         if self._point < 0:
             self._point = 0
+
+    def user_lost(self):
+        self._room_id = self._record_room_id
+        self._room_type = self._record_room_type
 
     def user_save(self):
         dbexecute.update_record(

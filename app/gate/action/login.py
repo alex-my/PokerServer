@@ -39,6 +39,8 @@ def user_login(dynamic_id, account_id, verify_key):
     user.dynamic_id = dynamic_id
     UserManager().add_user(user)
     send.login_success(dynamic_id, user)
+    # 清理最后的房间
+    user.room_id, user.room_type = 0, 0
 
 
 def _user_lock_tips(user):

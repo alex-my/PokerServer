@@ -144,8 +144,8 @@ def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, op
         return
     # bind user to special node
     user.node_name = node_name
-    user.room_id = room.room_id
-    user.room_type = room.room_type
+    user.record_room_id = room.room_id
+    user.record_room_type = room.room_type
     room.account_id_list = user.account_id
     if room.room_type in rule.GAME_LIST_POKER_PDK:
         send.enter_poker_room(user.dynamic_id, room_id, room.room_type, room_data)
