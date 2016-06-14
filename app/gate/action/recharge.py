@@ -55,10 +55,8 @@ class WechatPay(object):
     def get_sign(self, params):
         kvurl = self.key_value_url(params)
         s = kvurl + '&key=' + constant.WECHAT_APIKEY
-        func.log_info('[game] WechatPay get_sign s: {}'.format(s))
         sign = (hashlib.md5(s).hexdigest()).upper()
         params['sign'] = sign
-        func.log_info('[game] WechatPay get_sign sign: {}'.format(sign))
 
     def get_req_xml(self):
         """拼接XML
@@ -70,7 +68,6 @@ class WechatPay(object):
             k = k.encode('utf8')
             xml += '<' + k + '>' + v + '</' + k + '>'
         xml += "</xml>"
-        func.log_info('[game] WechatPay get_req_xml xml: {}'.format(xml))
         return xml
 
     def calc_prepay_id(self):
