@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="2220">
+    <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/recharge.py" afterPath="$PROJECT_DIR$/app/gate/action/recharge.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/service/web.py" afterPath="$PROJECT_DIR$/app/gate/service/web.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/common/func.py" afterPath="$PROJECT_DIR$/app/util/common/func.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/constant.py" afterPath="$PROJECT_DIR$/app/util/defines/constant.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/content.py" afterPath="$PROJECT_DIR$/app/util/defines/content.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/games.py" afterPath="$PROJECT_DIR$/app/util/defines/games.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/recharge_pb2.py" afterPath="$PROJECT_DIR$/app/util/proto/recharge_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/source/recharge.proto" afterPath="$PROJECT_DIR$/app/util/proto/source/recharge.proto" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/sql/base/server.sql" afterPath="$PROJECT_DIR$/app/util/sql/base/server.sql" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,14 +29,24 @@
     <favorites_list name="PokerServer" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37776867">
+    <splitter split-orientation="horizontal" split-proportion="0.4790812">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="weixin_pay.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="weixin_pay.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../some_save/weixin_pay/weixin_pay.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.88014525">
-                  <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="wzhifuSDK.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../some_save/wzhifuSDK/wzhifuSDK.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.33291614">
+                  <caret line="332" column="17" selection-start-line="332" selection-start-column="8" selection-end-line="332" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -54,20 +56,20 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="recharge.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="recharge.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+                <state vertical-scroll-proportion="0.2639225">
+                  <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="games.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="games.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7929782">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
                   <folding />
                 </state>
@@ -145,8 +147,8 @@
         <option value="$PROJECT_DIR$/app/gate/service/web.py" />
         <option value="$PROJECT_DIR$/app/util/common/func.py" />
         <option value="$PROJECT_DIR$/app/util/defines/constant.py" />
-        <option value="$PROJECT_DIR$/app/gate/action/recharge.py" />
         <option value="$PROJECT_DIR$/app/util/defines/games.py" />
+        <option value="$PROJECT_DIR$/app/gate/action/recharge.py" />
       </list>
     </option>
   </component>
@@ -972,13 +974,7 @@
       <workItem from="1465715385375" duration="17799000" />
       <workItem from="1465823537416" duration="796000" />
       <workItem from="1465825711958" duration="3151000" />
-      <workItem from="1465899294314" duration="12104000" />
-    </task>
-    <task id="LOCAL-00010" summary="modify remove room tips.">
-      <created>1464856009016</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1464856009016</updated>
+      <workItem from="1465899294314" duration="12305000" />
     </task>
     <task id="LOCAL-00011" summary="mahjong position, num.">
       <created>1464859695101</created>
@@ -1268,11 +1264,17 @@
       <option name="project" value="LOCAL" />
       <updated>1465906899250</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="2220">
+      <created>1465914045320</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1465914045320</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135738000" />
+    <option name="totallyTimeSpent" value="135939000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1297,7 +1299,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3554717" sideWeight="0.7378788" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28452832" sideWeight="0.5290698" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14602134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14602134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30415094" sideWeight="0.49169436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1330,7 +1332,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sort poker rank.&#10;log file." />
     <MESSAGE value="close room and gold." />
     <MESSAGE value="PDK2" />
     <MESSAGE value="change gold log." />
@@ -1355,7 +1356,8 @@
     <MESSAGE value="2212" />
     <MESSAGE value="1935" />
     <MESSAGE value="2021" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021" />
+    <MESSAGE value="2220" />
+    <option name="LAST_COMMIT_MESSAGE" value="2220" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1676,14 +1678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../some_save/wzhifuSDK/wzhifuSDK.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.481482">
-          <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/site-packages/xml2json/xml2json.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1732,14 +1726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../some_save/weixin_pay/weixin_pay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88014525">
-          <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/site-packages/firefly/web/delayrequest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1748,18 +1734,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
+    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
+    <entry file="file://$PROJECT_DIR$/../some_save/weixin_pay/weixin_pay.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7929782">
-          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../some_save/wzhifuSDK/wzhifuSDK.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33291614">
+          <caret line="332" column="17" selection-start-line="332" selection-start-column="8" selection-end-line="332" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2639225">
+          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
           <folding />
         </state>
       </provider>

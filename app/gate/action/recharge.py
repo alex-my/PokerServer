@@ -47,7 +47,6 @@ class WechatPay(object):
             v = value.get(k, '').strip()
             v = v.encode('utf8')
             k = k.encode('utf8')
-            func.log_info('[game] WechatPay key_value_url: \t {} => {}'.format(k, v))
             pair_array.append('%s=%s' % (k, v))
 
         tmp = '&'.join(pair_array)
