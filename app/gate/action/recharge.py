@@ -50,7 +50,6 @@ class WechatPay(object):
             pair_array.append('%s=%s' % (k, v))
 
         tmp = '&'.join(pair_array)
-        func.log_info('[game] WechatPay key_value_url: \t key_value_url: {}'.format(tmp))
         return tmp
 
     def get_sign(self, params):
