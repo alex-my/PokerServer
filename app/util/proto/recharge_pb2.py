@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='recharge.proto',
   package='',
-  serialized_pb=_b('\n\x0erecharge.proto\"\x1b\n\nm_9101_tos\x12\r\n\x05money\x18\x01 \x02(\r\"\x1f\n\nm_9101_toc\x12\x11\n\tprepay_id\x18\x01 \x02(\t')
+  serialized_pb=_b('\n\x0erecharge.proto\"-\n\nm_9101_tos\x12\r\n\x05money\x18\x01 \x02(\r\x12\x10\n\x08proxy_id\x18\x02 \x02(\t\"@\n\nm_9101_toc\x12\r\n\x05money\x18\x01 \x02(\r\x12\x10\n\x08proxy_id\x18\x02 \x02(\t\x12\x11\n\tprepay_id\x18\x03 \x02(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -39,32 +39,9 @@ _M_9101_TOS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=18,
-  serialized_end=45,
-)
-
-
-_M_9101_TOC = _descriptor.Descriptor(
-  name='m_9101_toc',
-  full_name='m_9101_toc',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
     _descriptor.FieldDescriptor(
-      name='prepay_id', full_name='m_9101_toc.prepay_id', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      name='proxy_id', full_name='m_9101_tos.proxy_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -80,8 +57,52 @@ _M_9101_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=47,
-  serialized_end=78,
+  serialized_start=18,
+  serialized_end=63,
+)
+
+
+_M_9101_TOC = _descriptor.Descriptor(
+  name='m_9101_toc',
+  full_name='m_9101_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='money', full_name='m_9101_toc.money', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='proxy_id', full_name='m_9101_toc.proxy_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='prepay_id', full_name='m_9101_toc.prepay_id', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=65,
+  serialized_end=129,
 )
 
 DESCRIPTOR.message_types_by_name['m_9101_tos'] = _M_9101_TOS

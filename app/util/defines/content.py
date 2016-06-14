@@ -51,3 +51,6 @@ PLAY_LAST_CARD_NOT_IN = u'上一位玩家出的牌不在其中'
 PLAY_OPERATOR_NO_RIGHT = u'不可进行此操作 51'
 PLAY_OPERATOR_UN_ABLE = u'不可进行此操作 52'
 
+RECHARGE_WECHAT_CONNECT_FAILED = u'连接微信出错'
+
+

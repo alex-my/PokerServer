@@ -1,9 +1,12 @@
 
 // 请求微信prepay_id
 message m_9101_tos {
-    required uint32 money = 1; // 人民币数量
+    required uint32 money = 1;      // 人民币数量
+    required string proxy_id = 2;   // 代理人信息
 }
 
 message m_9101_toc {
-    required string prepay_id = 1;
+    required uint32 money = 1;      // 人民币数量
+    required string proxy_id = 2;   // 代理人信息
+    required string prepay_id = 3;
 }

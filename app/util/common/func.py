@@ -88,6 +88,19 @@ def random_result(prob, limit=1000):
     return random_get(0, limit) < prob
 
 
+def random_string(length):
+    seed = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    sa = []
+    for _ in xrange(length):
+        sa.append(random.choice(seed))
+    return ''.join(sa)
+
+
+def random_string_r(min_length, max_length):
+    length = random_get(min_length, max_length)
+    return random_string(length)
+
+
 TIME_TYPE_YMDHMS = 1
 TIME_TYPE_YMDHM = 2
 TIME_TYPE_YMD = 3

@@ -100,3 +100,31 @@ CREATE TABLE `infomation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- user
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
+  `account_id` varchar(256) NOT NULL,
+  `user_name` varchar(256) NOT NULL COMMENT '用户名',
+  `password` varchar(128) NOT NULL,
+  `locked` tinyint(3) NOT NULL COMMENT '代理开启状态',
+  `create_time` int(10) NOT NULL,
+  `last_login` int(10) NOT NULL,
+  `name` varchar(128) NOT NULL COMMENT '昵称',
+  `sex` tinyint(3) NOT NULL,
+  `monthRecharge` int(32) NOT NULL COMMENT '当月充值',
+  `totalRecharge` int(32) NOT NULL COMMENT '总充值',
+  `level` tinyint(3) NOT NULL COMMENT '代理等级(0-N) 0位管理员',
+  `superiorId` varchar(32) NOT NULL COMMENT '上级ID',
+  `insertingCoil` int(10) NOT NULL COMMENT '下线数量',
+  `address` varchar(256) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `card` int(32) NOT NULL,
+  `city` varchar(128) NOT NULL,
+  `remark` varchar(256) NOT NULL,
+  UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
