@@ -259,9 +259,16 @@ class Room(object):
         # dispatch to all player
         original_count = self._config['original_count']
         dispatch_list = []
-        if self._room_type == rule.GAME_TYPE_ZZMJ and games.test_cards_flag:
+        if self._room_type in rule.GAME_LIST_MAHJONG and games.test_mahjong_cards_flag:
             for index in xrange(player_count):
-                card_list = games.test_cards_list[index]
+                card_list = games.test_mahjong_cards_list[index]
+                account_id = self._ready_list[index]
+                player = self.get_player(account_id)
+                player.cards = card_list
+                dispatch_list.extend(card_list)
+        if self._room_type == rule.GAME_TYPE_PDK and games.test_poker_16_cards_flag:
+            for index in xrange(player_count):
+                card_list = games.test_poker_16_cards_list[index]
                 account_id = self._ready_list[index]
                 player = self.get_player(account_id)
                 player.cards = card_list

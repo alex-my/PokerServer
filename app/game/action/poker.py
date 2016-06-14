@@ -1,7 +1,7 @@
 # coding:utf8
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send, play, roomfull
+from app.game.action import send, roomfull
 from app.util.common import func
 from app.util.defines import content
 
@@ -58,7 +58,7 @@ def poker_publish(dynamic_id, cards):
         send.publish_poker_to_room(_player.dynamic_id, account_id, next_execute_id, card_list, _player.card_list)
     # 判断是否有炸弹
     if check_card_bomb(card_list):
-        bomb(account_id, room)
+        bomb(account_id, card_list, room)
         player.bomb_count = 1
     dynamic_id_list = room.get_room_dynamic_id_list()
     # 判断牌是否少量(需要提醒其他玩家)
@@ -90,7 +90,13 @@ def check_card_bomb(cards):
     return False
 
 
-def bomb(account_id, room):
+def bomb(account_id, card_list, room):
+    # 需要判断房间中其它玩家是否有更大的, 如果没有,则可以得分
+    for _player in room.players:
+        if _player.account_id == account_id:
+            continue
+        if _player.more_bigger_bomb(card_list):
+            return
     change_point = 10
     for _account_id in room.room_ready_list:
         _player = room.get_player(_account_id)

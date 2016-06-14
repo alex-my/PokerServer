@@ -1,6 +1,6 @@
 # coding:utf8
 from app.game.core.Player import Player
-from app.util.defines import status
+from app.util.defines import status, games
 
 
 class PlayerPoker(Player):
@@ -39,6 +39,27 @@ class PlayerPoker(Player):
     @bomb_count.setter
     def bomb_count(self, _count):
         self._statistic_bomb_count += _count
+
+    def more_bigger_bomb(self, bomb_list):
+        if not bomb_list:
+            return False
+        bomb_index = games.POKER_CONFIG[bomb_list[0]]['card_index']
+        card_list = self.card_list
+        for card_id in card_list:
+            conf = games.POKER_CONFIG[card_id]
+            card_index = conf['card_index']
+            if card_index > bomb_index:
+                cur_list = conf['cur_list']
+                if self.is_all_card_in(cur_list, card_list):
+                    return True
+        return False
+
+    @staticmethod
+    def is_all_card_in(card_id_list, card_list):
+        for card_id in card_id_list:
+            if card_id not in card_list:
+                return False
+        return True
 
     def get_data(self):
         card_count = self.get_card_count()
