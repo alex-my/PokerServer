@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='play.proto',
   package='',
-  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"6\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"\x0c\n\nm_4005_tos\"\x91\x01\n\nm_4006_toc\x12\x16\n\x0ewin_account_id\x18\x01 \x02(\r\x12\x13\n\x0bwin_card_id\x18\x02 \x02(\r\x12\x12\n\nwin_status\x18\x03 \x02(\r\x12\x17\n\x0flose_account_id\x18\x04 \x02(\r\x12)\n\nclose_info\x18\x05 \x03(\x0b\x32\x15.p_close_mahjong_info\"\x93\x01\n\x14p_close_mahjong_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12)\n\naward_card\x18\x02 \x03(\x0b\x32\x15.p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x03 \x03(\r\x12\x14\n\x0cpoint_change\x18\x04 \x02(\x05\x12\x15\n\rcurrent_point\x18\x05 \x02(\x05\"\'\n\x14p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x03(\r')
+  serialized_pb=_b('\n\nplay.proto\"\x1d\n\nm_4001_tos\x12\x0f\n\x07operate\x18\x01 \x02(\r\"\x1d\n\nm_4001_toc\x12\x0f\n\x07operate\x18\x01 \x02(\r\"1\n\nm_4002_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07operate\x18\x02 \x02(\r\"7\n\nm_4003_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"G\n\nm_4004_toc\x12!\n\nclose_info\x18\x01 \x03(\x0b\x32\r.p_close_info\x12\x16\n\x0ewin_account_id\x18\x02 \x02(\r\"f\n\x0cp_close_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\x12.\n\x0e\x64ispatch_cards\x18\x03 \x03(\x0b\x32\x16.p_poker_dispatch_card\"(\n\x15p_poker_dispatch_card\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x03(\r\"\x0c\n\nm_4005_tos\"\x91\x01\n\nm_4006_toc\x12\x16\n\x0ewin_account_id\x18\x01 \x02(\r\x12\x13\n\x0bwin_card_id\x18\x02 \x02(\r\x12\x12\n\nwin_status\x18\x03 \x02(\r\x12\x17\n\x0flose_account_id\x18\x04 \x02(\r\x12)\n\nclose_info\x18\x05 \x03(\x0b\x32\x15.p_close_mahjong_info\"\x93\x01\n\x14p_close_mahjong_info\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12)\n\naward_card\x18\x02 \x03(\x0b\x32\x15.p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x03 \x03(\r\x12\x14\n\x0cpoint_change\x18\x04 \x02(\x05\x12\x15\n\rcurrent_point\x18\x05 \x02(\x05\"\'\n\x14p_mahjong_award_card\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x03(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -217,6 +217,13 @@ _P_CLOSE_INFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='dispatch_cards', full_name='p_close_info.dispatch_cards', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -229,7 +236,37 @@ _P_CLOSE_INFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=257,
-  serialized_end=311,
+  serialized_end=359,
+)
+
+
+_P_POKER_DISPATCH_CARD = _descriptor.Descriptor(
+  name='p_poker_dispatch_card',
+  full_name='p_poker_dispatch_card',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='card_id', full_name='p_poker_dispatch_card.card_id', index=0,
+      number=1, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=361,
+  serialized_end=401,
 )
 
 
@@ -251,8 +288,8 @@ _M_4005_TOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=313,
-  serialized_end=325,
+  serialized_start=403,
+  serialized_end=415,
 )
 
 
@@ -309,8 +346,8 @@ _M_4006_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=328,
-  serialized_end=473,
+  serialized_start=418,
+  serialized_end=563,
 )
 
 
@@ -367,8 +404,8 @@ _P_CLOSE_MAHJONG_INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=476,
-  serialized_end=623,
+  serialized_start=566,
+  serialized_end=713,
 )
 
 
@@ -397,11 +434,12 @@ _P_MAHJONG_AWARD_CARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=625,
-  serialized_end=664,
+  serialized_start=715,
+  serialized_end=754,
 )
 
 _M_4004_TOC.fields_by_name['close_info'].message_type = _P_CLOSE_INFO
+_P_CLOSE_INFO.fields_by_name['dispatch_cards'].message_type = _P_POKER_DISPATCH_CARD
 _M_4006_TOC.fields_by_name['close_info'].message_type = _P_CLOSE_MAHJONG_INFO
 _P_CLOSE_MAHJONG_INFO.fields_by_name['award_card'].message_type = _P_MAHJONG_AWARD_CARD
 DESCRIPTOR.message_types_by_name['m_4001_tos'] = _M_4001_TOS
@@ -410,6 +448,7 @@ DESCRIPTOR.message_types_by_name['m_4002_toc'] = _M_4002_TOC
 DESCRIPTOR.message_types_by_name['m_4003_toc'] = _M_4003_TOC
 DESCRIPTOR.message_types_by_name['m_4004_toc'] = _M_4004_TOC
 DESCRIPTOR.message_types_by_name['p_close_info'] = _P_CLOSE_INFO
+DESCRIPTOR.message_types_by_name['p_poker_dispatch_card'] = _P_POKER_DISPATCH_CARD
 DESCRIPTOR.message_types_by_name['m_4005_tos'] = _M_4005_TOS
 DESCRIPTOR.message_types_by_name['m_4006_toc'] = _M_4006_TOC
 DESCRIPTOR.message_types_by_name['p_close_mahjong_info'] = _P_CLOSE_MAHJONG_INFO
@@ -456,6 +495,13 @@ p_close_info = _reflection.GeneratedProtocolMessageType('p_close_info', (_messag
   # @@protoc_insertion_point(class_scope:p_close_info)
   ))
 _sym_db.RegisterMessage(p_close_info)
+
+p_poker_dispatch_card = _reflection.GeneratedProtocolMessageType('p_poker_dispatch_card', (_message.Message,), dict(
+  DESCRIPTOR = _P_POKER_DISPATCH_CARD,
+  __module__ = 'play_pb2'
+  # @@protoc_insertion_point(class_scope:p_poker_dispatch_card)
+  ))
+_sym_db.RegisterMessage(p_poker_dispatch_card)
 
 m_4005_tos = _reflection.GeneratedProtocolMessageType('m_4005_tos', (_message.Message,), dict(
   DESCRIPTOR = _M_4005_TOS,

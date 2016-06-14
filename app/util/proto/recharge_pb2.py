@@ -18,12 +18,88 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='recharge.proto',
   package='',
-  serialized_pb=_b('\n\x0erecharge.proto')
+  serialized_pb=_b('\n\x0erecharge.proto\"\x1b\n\nm_9101_tos\x12\r\n\x05money\x18\x01 \x02(\r\"\x1f\n\nm_9101_toc\x12\x11\n\tprepay_id\x18\x01 \x02(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
+
+_M_9101_TOS = _descriptor.Descriptor(
+  name='m_9101_tos',
+  full_name='m_9101_tos',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='money', full_name='m_9101_tos.money', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18,
+  serialized_end=45,
+)
+
+
+_M_9101_TOC = _descriptor.Descriptor(
+  name='m_9101_toc',
+  full_name='m_9101_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='prepay_id', full_name='m_9101_toc.prepay_id', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=47,
+  serialized_end=78,
+)
+
+DESCRIPTOR.message_types_by_name['m_9101_tos'] = _M_9101_TOS
+DESCRIPTOR.message_types_by_name['m_9101_toc'] = _M_9101_TOC
+
+m_9101_tos = _reflection.GeneratedProtocolMessageType('m_9101_tos', (_message.Message,), dict(
+  DESCRIPTOR = _M_9101_TOS,
+  __module__ = 'recharge_pb2'
+  # @@protoc_insertion_point(class_scope:m_9101_tos)
+  ))
+_sym_db.RegisterMessage(m_9101_tos)
+
+m_9101_toc = _reflection.GeneratedProtocolMessageType('m_9101_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_9101_TOC,
+  __module__ = 'recharge_pb2'
+  # @@protoc_insertion_point(class_scope:m_9101_toc)
+  ))
+_sym_db.RegisterMessage(m_9101_toc)
 
 
 # @@protoc_insertion_point(module_scope)

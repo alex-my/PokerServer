@@ -5,6 +5,7 @@ import app.gate.action.change
 import app.gate.action.infomation
 import app.gate.action.log_record
 import app.gate.action.login
+import app.gate.action.recharge
 import app.gate.action.room
 import app.gate.action.send
 
@@ -13,6 +14,7 @@ reload(app.gate.action.change)
 reload(app.gate.action.infomation)
 reload(app.gate.action.log_record)
 reload(app.gate.action.login)
+reload(app.gate.action.recharge)
 reload(app.gate.action.room)
 reload(app.gate.action.send)
 

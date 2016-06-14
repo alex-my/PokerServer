@@ -9,6 +9,7 @@ class PlayerPoker(Player):
         super(PlayerPoker, self).__init__(**kwargs)
 
         self._statistic_bomb_count = 0      # 本轮炸弹场数
+        self._dispatch_cards = []           # 玩家出的牌 [[card_id, ...], ...]
 
     def get_player_save_data(self):
         return {
@@ -54,6 +55,15 @@ class PlayerPoker(Player):
                     return True
         return False
 
+    @property
+    def disptach_cards(self):
+        return self._dispatch_cards
+
+    @disptach_cards.setter
+    def disptach_cards(self, card_list):
+        if card_list:
+            self._dispatch_cards.append(card_list)
+
     @staticmethod
     def is_all_card_in(card_id_list, card_list):
         for card_id in card_id_list:
@@ -90,3 +100,7 @@ class PlayerPoker(Player):
             'bomb_count': self._statistic_bomb_count,
             'max_point': self._statistic_max_point
         }
+
+    def player_reset(self):
+        self._cards = dict()
+        self._dispatch_cards = []

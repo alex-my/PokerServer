@@ -29,7 +29,13 @@ message m_4004_toc {
 message p_close_info {
     required uint32 account_id = 1;         // 玩家账号ID
     required uint32 card_count = 2;         // 剩余的牌数
+    repeated p_poker_dispatch_card dispatch_cards = 3;  // 玩家出牌
 }
+
+message p_poker_dispatch_card {
+    repeated uint32 card_id = 1;
+}
+
 
 // 切牌结束
 message m_4005_tos {

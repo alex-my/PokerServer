@@ -64,6 +64,7 @@ def poker_publish(dynamic_id, cards):
     # 判断牌是否少量(需要提醒其他玩家)
     if card_list and check_card_few(player):
         card_few(account_id, player.get_card_count(), dynamic_id_list)
+    player.disptach_cards = card_list
     # 牌局结束处理
     if player.is_card_clear():
         room.win_account_id = account_id

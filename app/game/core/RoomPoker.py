@@ -55,7 +55,10 @@ class RoomPoker(Room):
         for _account_id in self._player_list:
             _player = self.get_player(_account_id)
             left_card_count = _player.get_card_count()
-            all_player_info[_player.account_id] = left_card_count
+            all_player_info[_player.account_id] = {
+                'left_card_count': left_card_count,
+                'disptach_cards': _player.disptach_cards
+            }
             if _account_id != self._pre_win_account_id:
                 if left_card_count >= card_full_count:
                     _player.point_change(-card_full_count * 2)
