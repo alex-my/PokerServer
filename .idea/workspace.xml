@@ -59,8 +59,8 @@
           <file leaf-file-name="recharge.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5859564">
-                  <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+                <state vertical-scroll-proportion="0.7469734">
+                  <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -169,8 +169,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-39" />
-    <option name="y" value="23" />
+    <option name="x" value="53" />
+    <option name="y" value="26" />
     <option name="width" value="2480" />
     <option name="height" value="1417" />
   </component>
@@ -974,13 +974,7 @@
       <workItem from="1465715385375" duration="17799000" />
       <workItem from="1465823537416" duration="796000" />
       <workItem from="1465825711958" duration="3151000" />
-      <workItem from="1465899294314" duration="12505000" />
-    </task>
-    <task id="LOCAL-00013" summary="add rule.">
-      <created>1464928772162</created>
-      <option name="number" value="00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1464928772162</updated>
+      <workItem from="1465899294314" duration="12574000" />
     </task>
     <task id="LOCAL-00014" summary="add rule.">
       <created>1464934045959</created>
@@ -1270,11 +1264,17 @@
       <option name="project" value="LOCAL" />
       <updated>1465914324111</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="2227">
+      <created>1465914445060</created>
+      <option name="number" value="00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1465914445060</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136139000" />
+    <option name="totallyTimeSpent" value="136208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1286,7 +1286,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-39" y="23" width="2480" height="1417" extended-state="0" />
+    <frame x="53" y="26" width="2480" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1332,7 +1332,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="close room and gold." />
     <MESSAGE value="PDK2" />
     <MESSAGE value="change gold log." />
     <MESSAGE value="some changes." />
@@ -1357,7 +1356,8 @@
     <MESSAGE value="1935" />
     <MESSAGE value="2021" />
     <MESSAGE value="2220" />
-    <option name="LAST_COMMIT_MESSAGE" value="2220" />
+    <MESSAGE value="2227" />
+    <option name="LAST_COMMIT_MESSAGE" value="2227" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1760,8 +1760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5859564">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.7469734">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
           <folding />
         </state>
       </provider>

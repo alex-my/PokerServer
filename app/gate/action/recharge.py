@@ -74,7 +74,7 @@ class WechatPay(object):
         xml = self.get_req_xml()
         headers = {'Content-Type': 'application/xml'}
         r = requests.post(self._url, data=xml, headers=headers)
-        print u'Alex r: {}'.format(r.text)
+        print 'Alex r: ', r.text
         re_xml = ElementTree.fromstring(r.text.encode('utf8'))
         print 'Alex re_xml: ', re_xml.getiterator('result_code')
         xml_status = re_xml.getiterator('result_code')[0].text
