@@ -41,9 +41,7 @@ class WechatPay(object):
         """
         key_az = sorted(value.keys())
         pair_array = []
-        print 'Alex value: ', value
         for k in key_az:
-            print 'Alex k: ', k
             v = value.get(k, '').strip()
             v = v.encode('utf8')
             k = k.encode('utf8')
@@ -74,16 +72,14 @@ class WechatPay(object):
         xml = self.get_req_xml()
         headers = {'Content-Type': 'application/xml'}
         r = requests.post(self._url, data=xml, headers=headers)
-        print 'Alex r: ', r.text
         re_xml = ElementTree.fromstring(r.text.encode('utf8'))
-        print 'Alex re_xml: ', re_xml.getiterator('result_code')
         xml_status = re_xml.getiterator('result_code')[0].text
         func.log_info('[game] WechatPay query_prepay_id xml_status: {}'.format(xml_status))
         if xml_status != 'SUCCESS':
             self._error = content.RECHARGE_WECHAT_CONNECT_FAILED
             return
         prepay_id = re_xml.getiterator('prepay_id')[0].text
-
+        print 'Alex prepay_id: ', prepay_id
         self._params['prepay_id'] = prepay_id
         self._params['package'] = 'Sign=WXPay'
         self._params['timestamp'] = str(func.time_get())
@@ -146,14 +142,14 @@ class WechatResponse(WechatPay):
 
 def generator_unique_order_id(money):
     t = func.time_get()
-    return str(money * 3 - func.random_get(30000, t))
+    return str(money * 3 + func.random_get(30000, t))
 
 
-def query_prepay_id(money, proxy_id, ip=''):
+def query_prepay_id(money, proxy_id, ip='127.0.0.1'):
     pay = WechatPay()
     pay.init(
         nonce_str=func.random_string_r(16, 30),
-        attach=str(proxy_id),
+        attach=str('12345'),
         order_id=generator_unique_order_id(money),
         total_fee=money * 100,
         spbill_create_ip=ip
