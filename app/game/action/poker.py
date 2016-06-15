@@ -15,7 +15,7 @@ def poker_publish(dynamic_id, cards):
     """
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)

@@ -23,7 +23,7 @@ def user_operator(dynamic_id, operator):
 def user_ready(dynamic_id, operator):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return False
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)
@@ -75,7 +75,7 @@ def user_leave(dynamic_id, operate):
 def user_close(dynamic_id, operate):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return False
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)
@@ -111,7 +111,7 @@ def user_close(dynamic_id, operate):
 def user_switch_over(dynamic_id):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return False
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)

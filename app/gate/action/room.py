@@ -36,7 +36,7 @@ def create_room(dynamic_id, room_type, rounds):
         return
     user = UserManager().get_user_by_dynamic(dynamic_id)
     if not user:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     room_manager = RoomProxyManager()
     # check repeated create
@@ -116,7 +116,7 @@ def enter_room(dynamic_id, room_id):
         return
     user = UserManager().get_user_by_dynamic(dynamic_id)
     if not user:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     room = RoomProxyManager().get_room(room_id)
     if not room:
@@ -136,7 +136,7 @@ def enter_room(dynamic_id, room_id):
 def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, operator_account_id, player_operators):
     user = UserManager().get_user(account_id)
     if not user:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     room = RoomProxyManager().get_room(room_id)
     if not room:

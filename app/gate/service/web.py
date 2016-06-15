@@ -14,7 +14,9 @@ def webapp_handle(cls):
 
 @webapp_handle
 class Information(resource.Resource):
-
+    """
+    管理后台对infomation表的操作
+    """
     def render(self, request):
         info_id = int(request.args.get('id')[0])
         func.log_info('[gate] Infomation info_id: {}'.format(info_id))
@@ -23,21 +25,23 @@ class Information(resource.Resource):
 
 
 @webapp_handle
-class RechargeNotify(resource.Resource):
-
+class RechargeWechatNotify(resource.Resource):
+    """
+    微信充值成功的异步通知
+    """
     def render(self, request):
-        # TODO: RechargeNotify
+        # TODO: RechargeWechatNotify
         print 'RechargeNotify request: ', request.args
         return "success"
 
 
 @webapp_handle
-class RechargeTest(resource.Resource):
+class RechargeWechatTest(resource.Resource):
     """
-    测试充值
+    测试充值 http://127.0.0.1:8621/RechargeWechatTest
     """
     def render(self, request):
-        recharge.query_prepay_id(10, '12345')
+        recharge.test_wechat_prepay_id(1, '12345')
         return "success"
 
 

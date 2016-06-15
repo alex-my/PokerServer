@@ -8,5 +8,10 @@ message m_9101_tos {
 message m_9101_toc {
     required uint32 money = 1;      // 人民币数量
     required string proxy_id = 2;   // 代理人信息
-    required string prepay_id = 3;
+    required string appid = 3;      // 微信开放平台审核通过的应用APPID
+    required string mch_id = 4;     // 微信支付分配的商户号
+    required string prepay_id = 5;  // 微信返回的支付交易会话ID
+    required string _package = 6;   // 扩展字段
+    required string noncestr = 7;   // 随机字符串，不长于32位
+    required string timestamp = 8;  // 服务器时间戳
 }

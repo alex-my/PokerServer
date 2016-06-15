@@ -4,7 +4,7 @@ from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.util.common.config import i
 from app.util.common import func
 from app.util.defines import informations
-from app.util.proto import system_pb2, login_pb2, room_pb2
+from app.util.proto import system_pb2, recharge_pb2, login_pb2, room_pb2
 
 
 def system_notice(dynamic_id, content):
@@ -67,6 +67,19 @@ def system_changes_string(changes):
         _changes.change_type = change_type
         _changes.change_value = change_value
     forward.push_object_gate_all(9005, response.SerializeToString())
+
+
+def recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info):
+    response = recharge_pb2.m_9101_toc()
+    response.money = money
+    response.proxy_id = proxy_id
+    response.appid = prepay_info['appid']
+    response.mch_id = prepay_info['mch_id']
+    response.prepay_id = prepay_info['prepay_id']
+    response._package = prepay_info['package']
+    response.noncestr = prepay_info['nonce_str']
+    response.timestamp = prepay_info['timestamp']
+    forward.push_object_gate_all(9101, response.SerializeToString())
 
 
 def login_success(dynamic_id, user):

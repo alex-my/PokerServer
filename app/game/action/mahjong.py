@@ -11,7 +11,7 @@ from app.util.defines import content, games
 def dispatch_mahjong_card(dynamic_id, from_start):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     dispatch_mahjong_card_account(account_id, dynamic_id, from_start)
 
@@ -64,7 +64,7 @@ def mahjong_publish(dynamic_id, card_id):
         return
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)
@@ -149,7 +149,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     ))
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
-        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_ID_UN_EQUAL)
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)

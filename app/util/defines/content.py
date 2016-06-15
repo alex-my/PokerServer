@@ -28,9 +28,10 @@ LOGIN_USER_CREATE_FAILED_53 = u'登陆失败 53'
 
 
 ENTER_USER_DO_NOT_EXIST = u'请重新登录'
-ENTER_DYNAMIC_ID_UN_EQUAL = u'信息超时,请重新登录'
+ENTER_DYNAMIC_LOGIN_EXPIRE = u'信息超时,请重新登录'
 
 GOLD_LACK = u'金币不足,请充值'
+GOLD_FULL = u'金币充足,无需充值'
 
 ROOM_CREATE_FAILED = u'房间创建失败'
 ROOM_UN_EXIST = u'房间不存在'
@@ -52,5 +53,5 @@ PLAY_OPERATOR_NO_RIGHT = u'不可进行此操作 51'
 PLAY_OPERATOR_UN_ABLE = u'不可进行此操作 52'
 
 RECHARGE_WECHAT_CONNECT_FAILED = u'连接微信出错'
-
+RECHARGE_MONEY_TO_LARGE = u'充值金额过大'
 
