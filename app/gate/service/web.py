@@ -31,14 +31,11 @@ class RechargeWechatNotify(resource.Resource):
     """
     isLeaf = True
 
-    def render(self, request):
-        # TODO: RechargeWechatNotify GET
-        print 'RechargeNotify render request: ', request.args
-        return "SUCCESS"
-
     def render_POST(self, request):
         # TODO: RechargeWechatNotify POST
-        print 'RechargeNotify render_POST request: ', request.args
+        print 'RechargeNotify render_POST request.args: ', request.args
+        print 'RechargeNotify render_POST request.content: ', request.content
+        print 'RechargeNotify render_POST request.path: ', request.path
         return "SUCCESS"
 
 
