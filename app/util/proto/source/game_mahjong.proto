@@ -23,7 +23,7 @@ message m_5201_toc {
 // 拿牌
 message m_5202_toc {
     required uint32 card = 1;       // 单张牌
-    repeated uint32 operator = 2;   // 4 暗杠, 6 自摸
+    repeated uint32 operator = 2;   // 4 暗杠, 5 明杠, 6 自摸
 }
 
 

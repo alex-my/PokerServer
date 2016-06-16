@@ -44,6 +44,8 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
         operator_list.append(games.MAH_OPERATOR_DRAWN)
     if check_mahjong_dark_kong(card_id, card_list):
         operator_list.append(games.MAH_OPERATOR_KONG_DARK)
+    if check_mahjong_pong_kong(card_id, player.pong_list):
+        operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
     player.add_card(card_id)
     player_operators = dict()
     all_operators = dict()
