@@ -31,8 +31,13 @@ class RechargeWechatNotify(resource.Resource):
     """
     def render(self, request):
         # TODO: RechargeWechatNotify
-        print 'RechargeNotify request: ', request.args
+        print 'RechargeNotify render request: ', request.args
         return "success"
+
+    def render_POST(self, request):
+        # TODO: RechargeWechatNotify
+        print 'RechargeNotify render_POST request: ', request.args
+        return "SUCCESS"
 
 
 @webapp_handle
