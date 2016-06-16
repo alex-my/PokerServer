@@ -34,7 +34,7 @@ class RechargeWechatNotify(resource.Resource):
     def render_POST(self, request):
         # TODO: RechargeWechatNotify POST
         print 'RechargeNotify render_POST request.args: ', request.args
-        print 'RechargeNotify render_POST request.content: ', request.content
+        print 'RechargeNotify render_POST request.content: ', request.content.read()
         print 'RechargeNotify render_POST request.path: ', request.path
         return "SUCCESS"
 
