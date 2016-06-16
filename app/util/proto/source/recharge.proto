@@ -14,4 +14,5 @@ message m_9101_toc {
     required string _package = 6;   // 扩展字段
     required string noncestr = 7;   // 随机字符串，不长于32位
     required string timestamp = 8;  // 服务器时间戳
+    required string sign = 9;       // 包含prepay_id的签名
 }

@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='recharge.proto',
   package='',
-  serialized_pb=_b('\n\x0erecharge.proto\"-\n\nm_9101_tos\x12\r\n\x05money\x18\x01 \x02(\r\x12\x10\n\x08proxy_id\x18\x02 \x02(\t\"\x96\x01\n\nm_9101_toc\x12\r\n\x05money\x18\x01 \x02(\r\x12\x10\n\x08proxy_id\x18\x02 \x02(\t\x12\r\n\x05\x61ppid\x18\x03 \x02(\t\x12\x0e\n\x06mch_id\x18\x04 \x02(\t\x12\x11\n\tprepay_id\x18\x05 \x02(\t\x12\x10\n\x08_package\x18\x06 \x02(\t\x12\x10\n\x08noncestr\x18\x07 \x02(\t\x12\x11\n\ttimestamp\x18\x08 \x02(\t')
+  serialized_pb=_b('\n\x0erecharge.proto\"-\n\nm_9101_tos\x12\r\n\x05money\x18\x01 \x02(\r\x12\x10\n\x08proxy_id\x18\x02 \x02(\t\"\xa4\x01\n\nm_9101_toc\x12\r\n\x05money\x18\x01 \x02(\r\x12\x10\n\x08proxy_id\x18\x02 \x02(\t\x12\r\n\x05\x61ppid\x18\x03 \x02(\t\x12\x0e\n\x06mch_id\x18\x04 \x02(\t\x12\x11\n\tprepay_id\x18\x05 \x02(\t\x12\x10\n\x08_package\x18\x06 \x02(\t\x12\x10\n\x08noncestr\x18\x07 \x02(\t\x12\x11\n\ttimestamp\x18\x08 \x02(\t\x12\x0c\n\x04sign\x18\t \x02(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -125,6 +125,13 @@ _M_9101_TOC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='sign', full_name='m_9101_toc.sign', index=8,
+      number=9, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -137,7 +144,7 @@ _M_9101_TOC = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=66,
-  serialized_end=216,
+  serialized_end=230,
 )
 
 DESCRIPTOR.message_types_by_name['m_9101_tos'] = _M_9101_TOS

@@ -79,6 +79,7 @@ def recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info):
     response._package = prepay_info['package']
     response.noncestr = prepay_info['nonce_str']
     response.timestamp = prepay_info['timestamp']
+    response.sign = prepay_info['sign']
     forward.push_object_gate_all(9101, response.SerializeToString())
 
 
