@@ -21,7 +21,7 @@ class Information(resource.Resource):
         info_id = int(request.args.get('id')[0])
         func.log_info('[gate] Infomation info_id: {}'.format(info_id))
         infomation.information_execute(info_id)
-        return "success"
+        return "SUCCESS"
 
 
 @webapp_handle
@@ -30,12 +30,12 @@ class RechargeWechatNotify(resource.Resource):
     微信充值成功的异步通知
     """
     def render(self, request):
-        # TODO: RechargeWechatNotify
+        # TODO: RechargeWechatNotify GET
         print 'RechargeNotify render request: ', request.args
-        return "success"
+        return "SUCCESS"
 
     def render_POST(self, request):
-        # TODO: RechargeWechatNotify
+        # TODO: RechargeWechatNotify POST
         print 'RechargeNotify render_POST request: ', request.args
         return "SUCCESS"
 
@@ -47,6 +47,6 @@ class RechargeWechatTest(resource.Resource):
     """
     def render(self, request):
         recharge.test_wechat_prepay_id(1, '12345')
-        return "success"
+        return "SUCCESS"
 
 
