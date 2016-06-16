@@ -29,6 +29,8 @@ class RechargeWechatNotify(resource.Resource):
     """
     微信充值成功的异步通知
     """
+    isLeaf=True
+
     def render(self, request):
         # TODO: RechargeWechatNotify GET
         print 'RechargeNotify render request: ', request.args
