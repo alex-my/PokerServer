@@ -57,7 +57,7 @@ class RoomPoker(Room):
             left_card_count = _player.get_card_count()
             all_player_info[_player.account_id] = {
                 'left_card_count': left_card_count,
-                'disptach_cards': _player.close_cards()
+                'disptach_cards': _player.close_cards
             }
             if _account_id != self._pre_win_account_id:
                 if left_card_count >= card_full_count:
