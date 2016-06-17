@@ -64,6 +64,12 @@ class PlayerPoker(Player):
         if card_list:
             self._dispatch_cards.append(card_list)
 
+    @property
+    def close_cards(self):
+        card_list = self._dispatch_cards
+        card_list.append(self.card_list)
+        return card_list
+
     @staticmethod
     def is_all_card_in(card_id_list, card_list):
         for card_id in card_id_list:
