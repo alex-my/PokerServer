@@ -7,6 +7,7 @@ import subprocess
 
 
 SERVICE_NAME = "bbg"
+SERVICE_PORT = str(11831)
 
 
 def args_help():
@@ -19,7 +20,7 @@ def args_help():
 def install(service_name):
     path = os.path.split(os.path.realpath(__file__))[0]
     output = codecs.open("/etc/init.d/%s" % service_name, "w", 'utf-8')
-    output.write(build_service_script(service_name, path, str(8521)))
+    output.write(build_service_script(service_name, path, SERVICE_PORT))
     output.close()
     subprocess.call(["chmod +x /etc/init.d/%s" % service_name], shell=True, stdout=subprocess.PIPE)
     print "%s service installed!" % service_name
