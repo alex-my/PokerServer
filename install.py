@@ -7,7 +7,7 @@ import subprocess
 
 
 SERVICE_NAME = "bbg"
-SERVICE_PORT = str(11831)
+SERVICE_PORT = "11821"
 
 
 def args_help():
