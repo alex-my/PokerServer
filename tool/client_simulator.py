@@ -30,8 +30,9 @@ if os.name != 'nt' and os.name != 'posix':
 
 
 client_config = {
-    'auth_server_ip': '127.0.0.1',
-    'auth_server_port': 8531,
+    'auth_server_ip': '120.76.153.160',
+    # 'auth_server_ip': '127.0.0.1',
+    'auth_server_port': 12831,
     'user_name': 'test1',
     'password': '1'
 }
@@ -153,11 +154,11 @@ class ClientFactory(protocol.ClientFactory):
         # 成功连接账号服务器
         if self._client.auth_node:
             # 裸包注册账号
-            # register_account(self._client, self._client.user_name, self._client.password)
+            register_account(self._client, self._client.user_name, self._client.password)
             # 裸包登陆
             # account_verify_official(self._client, self._client.user_name, self._client.password)
             # 渠道登陆
-            account_verify_channel(self._client, self._client.user_name)
+            # account_verify_channel(self._client, self._client.user_name)
         # 成功连接游戏服务器
         else:
             user_login(self._client)
