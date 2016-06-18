@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/constant.py" afterPath="$PROJECT_DIR$/app/util/defines/constant.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -459,13 +458,6 @@
       <workItem from="1466133177669" duration="2337000" />
       <workItem from="1466139243115" duration="2581000" />
     </task>
-    <task id="LOCAL-00047" summary="2059">
-      <created>1465736351086</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1465736351086</updated>
-    </task>
     <task id="LOCAL-00048" summary="2100">
       <created>1465736437938</created>
       <option name="number" value="00048" />
@@ -802,7 +794,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466242948721</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="1747">
+      <created>1466243268441</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1466243268441</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -864,7 +863,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="store user last room_id and last room_type if exist." />
     <MESSAGE value="user login catch few poker card warn." />
     <MESSAGE value="2155" />
     <MESSAGE value="2212" />
@@ -889,7 +887,8 @@
     <MESSAGE value="1708" />
     <MESSAGE value="1722" />
     <MESSAGE value="1742" />
-    <option name="LAST_COMMIT_MESSAGE" value="1742" />
+    <MESSAGE value="1747" />
+    <option name="LAST_COMMIT_MESSAGE" value="1747" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
