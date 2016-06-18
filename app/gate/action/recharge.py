@@ -2,7 +2,8 @@
 from app.gate.core.UserManager import UserManager
 from app.gate.action import send, change
 from app.util.common import func, recharge_wechat
-from app.util.defines import content, origins
+from app.util.defines import content, dbname, origins
+from app.util.driver import dbexecute
 
 
 def test_wechat_prepay_id(money, proxy_id, ip='127.0.0.1'):
@@ -55,13 +56,12 @@ def wechat_recharge_success(notice_content):
     func.log_info('[gate] wechat_recharge_success content:\n {}'.format(notice_content))
     pay = recharge_wechat.WechatResponse(notice_content)
     func.log_info('[gate] wechat_recharge_success pay.xml_json:\n {}'.format(pay.xml_json))
-    # TODO: check repeat notice from db
     xml_json = pay.xml_json
-    attch = pay.attach
-    if len(attch) != 2:
-        func.log_error('[gate] wechat_recharge_success attach is unvalid: {}'.format(attch))
+
+    proxy_id, account_id = pay.attach
+    if not proxy_id or not account_id:
         return
-    proxy_id, account_id = int(attch[0]), int(attch[1])
+
     user = UserManager().get_user(account_id)
     if not user:
         func.log_error('[gate] wechat_recharge_success account_id: {} un exist'.format(account_id))
@@ -75,11 +75,17 @@ def wechat_recharge_success(notice_content):
         spbill_create_ip=''     # IP不参与签名
     )
 
+    if check_repeated_order_from_db(pay):
+        func.log_error('[gate] wechat_recharge_success repeated order notice account_id: {}, proxy_id: {}'.format(
+            account_id, proxy_id
+        ))
+        return
+
     money = pay.money
     if pay.verify():
         recharge_gold = calc_money_to_gold(money)
+        save_order_to_db(pay, recharge_gold, origins.ORIGIN_RECHARGE_WECHAT)
         change.award_gold(user, recharge_gold, origins.ORIGIN_RECHARGE_MONEY)
-        # TODO: save information to db
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} SUCCESS'.format(
             account_id, money
         ))
@@ -91,4 +97,34 @@ def wechat_recharge_success(notice_content):
 
 def calc_money_to_gold(money):
     return int(money * 10)
+
+
+def save_order_to_db(pay, ingot, recharge_origin):
+    proxy_id, account_id = pay.attach
+    insert_data = {
+        'account_id': account_id,
+        'proxy_id': proxy_id,
+        'op_id': pay.order_id,
+        'money': pay.money,
+        'ingot': ingot,
+        'origin': recharge_origin,
+        'time': func.time_get()
+    }
+    _id = dbexecute.insert_auto_increment_record(**{
+        'table': dbname.DB_RECHARGE,
+        'data': insert_data
+    })
+    func.log_info('[gate] save_order_to_db _id: {}, account_id: {}, proxy_id: {}, money: {}, op_id: {}'.format(
+        _id, account_id, proxy_id, pay.money, pay.order_id
+    ))
+
+
+def check_repeated_order_from_db(pay):
+    order_id = pay.order_id
+    sql = 'select id from {} where op_id={}'.format(dbname.DB_RECHARGE, order_id)
+    if dbexecute.query_one(sql):
+        func.log_error('[gate] check_repeated_order_from_db order_id: {} repeated'.format(order_id))
+        return True
+    else:
+        return False
 

@@ -12,3 +12,9 @@ ORIGIN_BACK_ROOM_PDK2 = 10003     # 跑的快15张房间关闭费用返还
 
 ORIGIN_RECHARGE_MONEY = 20001    # 充值
 
+
+ORIGIN_RECHARGE_WECHAT = 1       # 充值来源: 微信
+
+
+
+

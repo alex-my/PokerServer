@@ -141,7 +141,11 @@ class WechatResponse(WechatPay):
     @property
     def attach(self):
         _attach = self._xml_json['attach'].split('/')
-        return _attach
+        if len(_attach) != 2:
+            func.log_error('[gate] wechat_recharge_success attach is unvalid: {}'.format(attch))
+            return None, None
+        proxy_id, account_id = int(_attach[0]), int(_attach[1])
+        return proxy_id, account_id
 
     @property
     def money(self):
