@@ -49,6 +49,19 @@ def wechat_recharge_success(notice_content):
     func.log_info('[gate] wechat_recharge_success content:\n {}'.format(notice_content))
     pay = recharge_wechat.WechatResponse(notice_content)
     func.log_info('[gate] wechat_recharge_success pay.xml_json:\n {}'.format(pay.xml_json))
-    
+    # TODO: check repeat notice from db
+    xml_json = pay.xml_json
+    pay.init(
+        nonce_str=xml_json['nonce_str'],
+        attach=xml_json['attach'],
+        order_id=xml_json['out_trade_no'],
+        total_fee=xml_json['total_fee'],
+        spbill_create_ip=''
+    )
+    if pay.verify():
+        print 'Alex verify SUCCESS'
+    else:
+        print 'Alex verify FAILED'
+    # TODO: save information to db
 
 
