@@ -53,17 +53,12 @@ def wechat_recharge_success(notice_content):
     s = xmltodict.parse(notice_content)
     print 'Alex s: ', type(s)
     try:
+        print 'Alex s: ', s
         j0 = json.loads(s)
         print 'Alex j0: ', type(j0)
         print 'Alex j0: ', j0
     except Exception as e0:
         print 'Alex j0 error: ', e0.message
-    try:
-        j1 = json.dumps(s)
-        print 'Alex j1: ', type(j1)
-        print 'Alex j1: ', j1
-    except Exception as e1:
-        print 'Alex j1 error: ', e1.message
 
     # pay = recharge_wechat.WechatResponse(notice_content)
     # func.log_info('[gate] wechat_recharge_success pay.xml_json:\n {}'.format(pay.xml_json))
