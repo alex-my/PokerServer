@@ -46,8 +46,8 @@ def get_wechat_prepay_info(dynamic_id, money, proxy_id):
 def wechat_recharge_success(notice_content):
     if not notice_content:
         return
-    print 'Alex wechat_recharge_success content: ', notice_content
-    func.log_info('[gate] wechat_recharge_success content: {}'.format(content))
-
+    func.log_info('[gate] wechat_recharge_success content: {}'.format(notice_content))
+    pay = recharge_wechat.WechatResponse(notice_content)
+    func.log_info('[gate] wechat_recharge_success pay.xml_json: {}'.format(pay.xml_json))
 
 

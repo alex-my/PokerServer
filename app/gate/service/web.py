@@ -47,11 +47,6 @@ class RechargeWechatNotify(resource.Resource):
         recharge.wechat_recharge_success(request.content.read())
         return "SUCCESS"
 
-    def render_POST(self, request):
-        print 'Alex render_POST'
-        recharge.wechat_recharge_success(request.content.read())
-        return "SUCCESS"
-
 
 @webapp_handle
 class RechargeWechatTest(resource.Resource):

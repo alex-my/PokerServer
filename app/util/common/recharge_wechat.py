@@ -134,13 +134,17 @@ class WechatResponse(WechatPay):
         self._xml_json = json.loads(xml2json.xml2json(self._xml))['xml']
         self._sign = self._xml_json.get('sign', '')
 
+    @property
+    def xml_json(self):
+        return self._xml_json
+
     def verify(self):
         """验证签名"""
 
         self._xml_json.pop('sign')
         self.get_sign(self._xml_json)
         if self._sign != self._xml_json['sign']:
-            func.log_error('[game] WechatResponse xml_sign: {} != sgin: {}'.format(
+            func.log_error('[gate] WechatResponse xml_sign: {} != sgin: {}'.format(
                     self._xml_json['sign'], self._sign))
             return False
         return True
