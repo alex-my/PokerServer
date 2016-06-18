@@ -9,6 +9,7 @@ class RoomPoker(Room):
 
     def __init__(self):
         super(RoomPoker, self).__init__()
+        self._dispatch_turn = []            # 玩家出牌顺序 [account_id, ...]
 
     @property
     def operators(self):
@@ -44,6 +45,11 @@ class RoomPoker(Room):
         self._last_cards = []
         self._switch_account_id = 0
         self._rounds += 1
+        self._dispatch_turn = []
+
+    def add_dispatch_turn(self, account_id):
+        if account_id not in self._dispatch_turn:
+            self._dispatch_turn.append(account_id)
 
     def room_point_change(self):
         unit_count, player_count = self._config['unit_count'], self._config['player_count']
@@ -52,7 +58,10 @@ class RoomPoker(Room):
         all_player_info = dict()
         win_player = None
         win_point = 0
+        turn_list = self._dispatch_turn
         for _account_id in self._player_list:
+            if _account_id not in _account_id:
+                turn_list.append(_account_id)
             _player = self.get_player(_account_id)
             left_card_count = _player.get_card_count()
             all_player_info[_player.account_id] = {
@@ -72,7 +81,13 @@ class RoomPoker(Room):
                 _player.win_count = 1
         if win_player and win_point > 0:
             win_player.point_change(win_point)
-        return all_player_info
+
+        _info = []
+        for _account_id in turn_list:
+            _info.append(
+                [_account_id, all_player_info[_account_id]]
+            )
+        return _info
 
     def room_save(self):
         dbexecute.update_record(

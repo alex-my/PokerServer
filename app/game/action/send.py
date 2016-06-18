@@ -164,7 +164,7 @@ def player_dispatch_cards(execute_account_id, player):
 def game_over(win_account_id, all_player_info, dynamic_id_list):
     response = play_pb2.m_4004_toc()
     response.win_account_id = win_account_id
-    for account_id, info in all_player_info.items():
+    for account_id, info in all_player_info:
         close_info = response.close_info.add()
         close_info.account_id = account_id
         close_info.card_count = info['left_card_count']

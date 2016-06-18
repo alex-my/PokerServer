@@ -46,6 +46,7 @@ def poker_publish(dynamic_id, cards):
         send.system_notice(dynamic_id, content.PLAY_CARD_UN_VALID)
         return
     player.cards_publish(card_list)
+    room.add_dispatch_turn(account_id)
     room.calc_next_execute_account_id()
     room.record_last(account_id, card_list)
     # 判断牌局是否结束

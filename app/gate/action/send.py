@@ -150,6 +150,7 @@ def enter_poker_room(dynamic_id, room_id, room_type, room_data):
     enter/resume room
     :param dynamic_id:
     :param room_id:
+    :param room_type:
     :param room_data:
     :return:
     """
