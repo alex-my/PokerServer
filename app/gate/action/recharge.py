@@ -43,10 +43,10 @@ def get_wechat_prepay_info(dynamic_id, money, proxy_id):
     send.recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info)
 
 
-def wechat_recharge_success(content):
-    if not content:
+def wechat_recharge_success(notice_content):
+    if not notice_content:
         return
-    print 'Alex wechat_recharge_success content: ', content
+    print 'Alex wechat_recharge_success content: ', notice_content
     func.log_info('[gate] wechat_recharge_success content: {}'.format(content))
 
 
