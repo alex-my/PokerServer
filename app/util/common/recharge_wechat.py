@@ -138,11 +138,22 @@ class WechatResponse(WechatPay):
     def xml_json(self):
         return self._xml_json
 
+    @property
+    def attach(self):
+        _attach = self._xml_json['attach'].split('/')
+        return _attach
+
+    @property
+    def money(self):
+        return int(self._xml_json['total_fee'])
+
     def verify(self):
         """验证签名"""
 
         self._xml_json.pop('sign')
         self.get_sign(self._xml_json)
+        func.log_info('[gate] pre_sign: {}'.format(self._sign))
+        func.log_info('[gate] cur_sign: {}'.format(self._xml_json['sign']))
         if self._sign != self._xml_json['sign']:
             func.log_error('[gate] WechatResponse xml_sign: {} != sgin: {}'.format(
                     self._xml_json['sign'], self._sign))

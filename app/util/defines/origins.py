@@ -10,3 +10,5 @@ ORIGIN_BACK_ROOM_ZZMJ = 10002     # 转转麻将关闭费用返还
 ORIGIN_BACK_ROOM_PDK2 = 10003     # 跑的快15张房间关闭费用返还
 
 
+ORIGIN_RECHARGE_MONEY = 20001    # 充值
+
