@@ -43,7 +43,10 @@ class RechargeWechatNotify(resource.Resource):
     isLeaf = True
 
     def render(self, request):
-        recharge.wechat_recharge_success(request.content.read())
+        try:
+            recharge.wechat_recharge_success(request.content.read())
+        except Exception as e:
+            func.log_error('[gate] RechargeWechatNotify error: {}'.format(e.message))
         return "SUCCESS"
 
 

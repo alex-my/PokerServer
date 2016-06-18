@@ -131,9 +131,7 @@ class WechatResponse(WechatPay):
         """
         super(WechatResponse, self).__init__()
         self._xml = xml
-        # options = optparse.Values({"pretty": False})
-        # self._xml_json = json.loads(xml2json.xml2json(self._xml))['xml']
-        self._xml_json = xmltodict.parse(self._xml_json)
+        self._xml_json = json.loads(xmltodict.parse(self._xml_json))['xml']
         self._sign = self._xml_json.get('sign', '')
 
     @property

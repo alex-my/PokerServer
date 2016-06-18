@@ -44,21 +44,15 @@ def get_wechat_prepay_info(dynamic_id, money, proxy_id):
 
 
 def wechat_recharge_success(notice_content):
-    import xmltodict
-    import json
     if not notice_content:
         return
     func.log_info('[gate] wechat_recharge_success content:\n {}'.format(notice_content))
 
-    s = xmltodict.parse(notice_content)
-    print 'Alex s: ', type(s)
-    try:
-        print 'Alex s: ', s
-        j0 = json.loads(s)
-        print 'Alex j0: ', type(j0)
-        print 'Alex j0: ', j0
-    except Exception as e0:
-        print 'Alex j0 error: ', e0.message
+    import json
+    import xmltodict
+
+    s = json.loads(xmltodict.parse(notice_content))['xml']
+    print 'Alex s: ', type(s), s
 
     # pay = recharge_wechat.WechatResponse(notice_content)
     # func.log_info('[gate] wechat_recharge_success pay.xml_json:\n {}'.format(pay.xml_json))
