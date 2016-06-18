@@ -4,7 +4,6 @@
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/recharge.py" afterPath="$PROJECT_DIR$/app/gate/action/recharge.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/service/web.py" afterPath="$PROJECT_DIR$/app/gate/service/web.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/common/recharge_wechat.py" afterPath="$PROJECT_DIR$/app/util/common/recharge_wechat.py" />
     </list>
     <ignored path="PokerServer.iws" />
@@ -35,8 +34,8 @@
       <file leaf-file-name="recharge.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+            <state relative-caret-position="527">
+              <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -45,8 +44,8 @@
       <file leaf-file-name="recharge_wechat.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/util/common/recharge_wechat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="133" column="75" selection-start-line="133" selection-start-column="75" selection-end-line="133" selection-end-column="75" />
+            <state relative-caret-position="397">
+              <caret line="133" column="67" selection-start-line="133" selection-start-column="67" selection-end-line="133" selection-end-column="67" />
               <folding>
                 <element signature="e#15#29#0" expanded="true" />
               </folding>
@@ -134,8 +133,8 @@
         <option value="$PROJECT_DIR$/app/gate/action/infomation.py" />
         <option value="$PROJECT_DIR$/app/gate/gatereload.py" />
         <option value="$PROJECT_DIR$/app/util/defines/constant.py" />
-        <option value="$PROJECT_DIR$/app/util/common/recharge_wechat.py" />
         <option value="$PROJECT_DIR$/app/gate/service/web.py" />
+        <option value="$PROJECT_DIR$/app/util/common/recharge_wechat.py" />
         <option value="$PROJECT_DIR$/app/gate/action/recharge.py" />
       </list>
     </option>
@@ -158,8 +157,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="678" />
-    <option name="y" value="29" />
+    <option name="x" value="650" />
+    <option name="y" value="28" />
     <option name="width" value="1717" />
     <option name="height" value="1017" />
   </component>
@@ -484,13 +483,6 @@
       <workItem from="1466083200364" duration="7600000" />
       <workItem from="1466133177669" duration="2337000" />
       <workItem from="1466139243115" duration="2581000" />
-    </task>
-    <task id="LOCAL-00040" summary="1637">
-      <created>1465720660659</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1465720660659</updated>
     </task>
     <task id="LOCAL-00041" summary="remove mahjong room when room is unvalid.">
       <created>1465721550071</created>
@@ -828,7 +820,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466238595268</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="1645">
+      <created>1466239543164</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1466239543164</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -844,7 +843,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="678" y="29" width="1717" height="1017" extended-state="0" />
+    <frame x="650" y="28" width="1717" height="1017" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15614973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -890,7 +889,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2011" />
     <MESSAGE value="2058" />
     <MESSAGE value="2059" />
     <MESSAGE value="2100" />
@@ -915,7 +913,8 @@
     <MESSAGE value="2326" />
     <MESSAGE value="1559" />
     <MESSAGE value="1617" />
-    <option name="LAST_COMMIT_MESSAGE" value="1617" />
+    <MESSAGE value="1645" />
+    <option name="LAST_COMMIT_MESSAGE" value="1645" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1229,8 +1228,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/common/recharge_wechat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="133" column="75" selection-start-line="133" selection-start-column="75" selection-end-line="133" selection-end-column="75" />
+        <state relative-caret-position="397">
+          <caret line="133" column="67" selection-start-line="133" selection-start-column="67" selection-end-line="133" selection-end-column="67" />
           <folding>
             <element signature="e#15#29#0" expanded="true" />
           </folding>
@@ -1239,8 +1238,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        <state relative-caret-position="527">
+          <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
           <folding />
         </state>
       </provider>

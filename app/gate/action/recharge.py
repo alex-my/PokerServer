@@ -47,14 +47,8 @@ def wechat_recharge_success(notice_content):
     if not notice_content:
         return
     func.log_info('[gate] wechat_recharge_success content:\n {}'.format(notice_content))
-
-    import json
-    import xmltodict
-
-    s = json.loads(xmltodict.parse(notice_content))['xml']
-    print 'Alex s: ', type(s), s
-
-    # pay = recharge_wechat.WechatResponse(notice_content)
-    # func.log_info('[gate] wechat_recharge_success pay.xml_json:\n {}'.format(pay.xml_json))
+    pay = recharge_wechat.WechatResponse(notice_content)
+    func.log_info('[gate] wechat_recharge_success pay.xml_json:\n {}'.format(pay.xml_json))
+    
 
 
