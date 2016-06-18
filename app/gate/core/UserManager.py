@@ -22,6 +22,9 @@ class UserManager:
         self._users[account_id] = user
         self._users_dynamic[user.dynamic_id] = user
 
+    def get_user_count(self):
+        return len(self._users)
+
     def get_all_users(self):
         return self._users
 

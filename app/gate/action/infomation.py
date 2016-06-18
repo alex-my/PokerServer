@@ -1,4 +1,5 @@
 # coding:utf8
+from app.gate.core.UserManager import UserManager
 from app.gate.action import send
 from app.util.common.config import Config, i
 from app.util.common import func
@@ -29,3 +30,12 @@ def _information_marquee():
     if not content:
         return
     send.marquee_to_all(content)
+
+
+def output_server_information():
+    info = dict()
+    user_count = UserManager().get_user_count()
+    info['user_count'] = user_count
+    func.log_info('[gate] online user_count: {}'.format(user_count))
+
+    return str(info)

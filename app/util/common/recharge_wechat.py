@@ -34,6 +34,10 @@ class WechatPay(object):
             'limit_pay': 'no_credit'                            # 不能使用信用卡支付
         }
 
+    @property
+    def order_id(self):
+        return self._params.get('out_trade_no')
+
     @staticmethod
     def key_value_url(value):
         """

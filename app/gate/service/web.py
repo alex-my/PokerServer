@@ -25,6 +25,17 @@ class Information(resource.Resource):
 
 
 @webapp_handle
+class ServerInfomation(resource.Resource):
+    """
+    输出服务器信息  http://127.0.0.1:11861/ServerInfomation
+    """
+    def render(self, request):
+        func.log_info('[gate] ServerInfomation')
+        info = infomation.output_server_information()
+        return info
+
+
+@webapp_handle
 class RechargeWechatNotify(resource.Resource):
     """
     微信充值成功的异步通知
@@ -32,17 +43,14 @@ class RechargeWechatNotify(resource.Resource):
     isLeaf = True
 
     def render_POST(self, request):
-        # TODO: RechargeWechatNotify POST
-        print 'RechargeNotify render_POST request.args: ', request.args
-        print 'RechargeNotify render_POST request.content: ', request.content.read()
-        print 'RechargeNotify render_POST request.path: ', request.path
+        recharge.wechat_recharge_success(request.content.read())
         return "SUCCESS"
 
 
 @webapp_handle
 class RechargeWechatTest(resource.Resource):
     """
-    测试充值 http://127.0.0.1:8621/RechargeWechatTest
+    测试充值 http://127.0.0.1:11861/RechargeWechatTest
     """
     def render(self, request):
         recharge.test_wechat_prepay_id(1, '12345')

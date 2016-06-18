@@ -18,7 +18,7 @@ def test_wechat_prepay_id(money, proxy_id, ip='127.0.0.1'):
 
 
 def get_wechat_prepay_info(dynamic_id, money, proxy_id):
-    func.log_info('[game] get_wechat_prepay_info money: {}, proxy_id: {}'.format(money, proxy_id))
+    func.log_info('[gate] get_wechat_prepay_info money: {}, proxy_id: {}'.format(money, proxy_id))
     if money >= 10000000:     # 10W元
         send.system_notice(dynamic_id, content.RECHARGE_MONEY_TO_LARGE)
         return
@@ -31,13 +31,23 @@ def get_wechat_prepay_info(dynamic_id, money, proxy_id):
     pay = recharge_wechat.WechatPay()
     pay.init(
             nonce_str=func.random_string_r(16, 30),
-            attach=str(proxy_id),
+            attach='{}/{}'.format(proxy_id, user.account_id),
             order_id=recharge_wechat.generator_unique_order_id(money),
             total_fee=money,
             spbill_create_ip=user.ip
     )
     prepay_info = pay.re_finall()
-    func.log_info('[game] get_wechat_prepay_info account_id: {}, prepay_info: {}'.format(
-        user.account_id, prepay_info
+    func.log_info('[gate] get_wechat_prepay_info account_id: {}, order_id: {}, prepay_info: {}'.format(
+        user.account_id, pay.order_id, prepay_info
     ))
     send.recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info)
+
+
+def wechat_recharge_success(content):
+    if not content:
+        return
+    print 'Alex wechat_recharge_success content: ', content
+    func.log_info('[gate] wechat_recharge_success content: {}'.format(content))
+
+
+
