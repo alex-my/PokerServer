@@ -3,7 +3,8 @@
 import hashlib
 import json
 import requests
-import xml2json
+# import xml2json
+import xmltodict
 from xml.etree import ElementTree
 from app.util.common import func
 from app.util.defines import constant, content
@@ -131,7 +132,8 @@ class WechatResponse(WechatPay):
         super(WechatResponse, self).__init__()
         self._xml = xml
         # options = optparse.Values({"pretty": False})
-        self._xml_json = json.loads(xml2json.xml2json(self._xml))['xml']
+        # self._xml_json = json.loads(xml2json.xml2json(self._xml))['xml']
+        self._xml_json = xmltodict.parse(self._xml_json)
         self._sign = self._xml_json.get('sign', '')
 
     @property

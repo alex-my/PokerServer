@@ -43,7 +43,6 @@ class RechargeWechatNotify(resource.Resource):
     isLeaf = True
 
     def render(self, request):
-        print 'Alex render'
         recharge.wechat_recharge_success(request.content.read())
         return "SUCCESS"
 
