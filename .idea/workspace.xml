@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/util/defines/recharges.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/recharge.py" afterPath="$PROJECT_DIR$/app/gate/action/recharge.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/send.py" afterPath="$PROJECT_DIR$/app/gate/action/send.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/login_pb2.py" afterPath="$PROJECT_DIR$/app/util/proto/login_pb2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/source/login.proto" afterPath="$PROJECT_DIR$/app/util/proto/source/login.proto" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tool/reloadmodule.py" afterPath="$PROJECT_DIR$/tool/reloadmodule.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +24,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/PokerServer$send.coverage" NAME="send Coverage Results" MODIFIED="1465737444569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PokerServer$start.coverage" NAME="start Coverage Results" MODIFIED="1466236529431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerServer$start.coverage" NAME="start Coverage Results" MODIFIED="1466244763779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -28,18 +34,129 @@
     <favorites_list name="PokerServer" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="constant.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/util/defines/constant.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.49893048">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="constant.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/util/defines/constant.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="266">
+                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="account.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/auth/action/account.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="398">
+                  <caret line="123" column="21" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#14#28#0" expanded="true" />
+                    <marker date="1465562629057" expanded="true" signature="674:711" placeholder="select * fro... missing_value" />
+                    <marker date="1465562629057" expanded="true" signature="2087:2124" placeholder="select * fro... missing_value" />
+                    <marker date="1465562629057" expanded="true" signature="3555:3592" placeholder="select * fro... missing_value" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="418">
+                  <caret line="40" column="19" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#14#63#0" expanded="true" />
+                    <marker date="1465833366440" expanded="true" signature="793:829" placeholder="select * fro... missing_value" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="send.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/gate/action/send.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="205">
+                  <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+                  <folding>
+                    <element signature="e#14#50#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="recharge.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="76">
+                  <caret line="4" column="64" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="64" />
+                  <folding>
+                    <marker date="1466244381872" expanded="true" signature="4367:4397" placeholder="select id fr... missing_value" />
+                    <marker date="1466244381872" expanded="true" signature="4367:4399" placeholder="select id fr... " />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="client_simulator.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tool/client_simulator.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="76">
+                  <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="76">
+                  <caret line="4" column="20" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="20" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="recharges.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/util/defines/recharges.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="57">
+                  <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="reloadmodule.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tool/reloadmodule.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="95">
+                  <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.proto" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/util/proto/source/login.proto">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -59,9 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/gate/gateservice.py" />
-        <option value="$PROJECT_DIR$/app/net/transporttonet.py" />
-        <option value="$PROJECT_DIR$/app/gate/service/forward.py" />
         <option value="$PROJECT_DIR$/app/util/proto/source/system.proto" />
         <option value="$PROJECT_DIR$/app/gate/timer/TimeBase.py" />
         <option value="$PROJECT_DIR$/app/game/action/play.py" />
@@ -88,7 +202,6 @@
         <option value="$PROJECT_DIR$/app/util/defines/games.py" />
         <option value="$PROJECT_DIR$/app/gate/service/recharge.py" />
         <option value="$PROJECT_DIR$/app/util/proto/source/recharge.proto" />
-        <option value="$PROJECT_DIR$/app/gate/action/send.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
         <option value="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" />
         <option value="$PROJECT_DIR$/config.default.json" />
@@ -108,8 +221,12 @@
         <option value="$PROJECT_DIR$/app/util/defines/origins.py" />
         <option value="$PROJECT_DIR$/app/util/common/recharge_wechat.py" />
         <option value="$PROJECT_DIR$/app/util/defines/dbname.py" />
+        <option value="$PROJECT_DIR$/app/util/proto/source/login.proto" />
         <option value="$PROJECT_DIR$/app/gate/action/recharge.py" />
         <option value="$PROJECT_DIR$/app/util/defines/constant.py" />
+        <option value="$PROJECT_DIR$/app/gate/action/send.py" />
+        <option value="$PROJECT_DIR$/tool/reloadmodule.py" />
+        <option value="$PROJECT_DIR$/app/util/defines/recharges.py" />
       </list>
     </option>
   </component>
@@ -162,7 +279,14 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scratches" />
       <pane id="Scope" />
@@ -179,7 +303,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="consta&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/constant.py&#10;accou&#9;null&#9;null&#10;login&#9;null&#9;null&#10;server&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;content&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/content.py&#10;origins&#9;null&#9;null&#10;change&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/changes.py&#10;web&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/service/web.py&#10;recharge&#9;FILE&#9;file:///home/alex/Work/poker/app/util/common/recharge_wechat.py&#10;config&#9;FILE&#9;file:///home/alex/Work/poker/config.json&#10;ser&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;insta&#9;FILE&#9;file:///home/alex/Work/poker/install.py&#10;poker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/action/poker.py&#10;send&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/send.py&#10;room.proto&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;game_ma&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;games&#9;FILE&#9;file:///home/lily/Work/server/app/util/defines/games.py&#10;mahjong&#9;null&#9;null&#10;room.py&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/room.py&#10;mahj&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/mahjong.py&#10;game&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;login.proto&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/login.proto&#10;acc&#9;null&#9;null&#10;account&#9;FILE&#9;file:///home/lily/Work/server/app/auth/action/account.py&#10;RoomPoker&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/RoomPoker.py&#10;RoomMah&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/RoomMahjong.py&#10;room.p&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/room.py&#10;play.py&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/play.py&#10;play.proto&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/play.proto&#10;play&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/play.py&#10;mahjong.py&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/mahjong.py&#10;PlayerMahjong&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/PlayerMahjong.py&#10;oper&#9;null&#9;null&#10;pla&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/play.py&#10;room.&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/room.py&#10;RoomMahjong&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/RoomMahjong.py&#10;Player&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/Player.py&#10;Room&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/Room.py&#10;room&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;roo&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;s&#9;FILE&#9;file:///home/lily/Work/server/app/gate/action/send.py&#10;ma&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;PlayerMa&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/PlayerMahjong.py&#10;game_m&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;conten&#9;FILE&#9;file:///home/lily/Work/server/app/util/defines/content.py&#10;ROOM.PROTO&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;mah&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/mahjong.py&#10;client&#9;FILE&#9;file:///home/lily/Work/PokerServer/tool/client_simulator.py&#10;rule&#9;FILE&#9;file:///home/lily/Work/PokerServer/app/util/defines/rule.py&#10;conf&#9;FILE&#9;file:///home/alex/Work/PokerServer/config.json" />
+    <property name="SearchEverywhereHistoryKey" value="config&#9;FILE&#9;file:///home/alex/Work/poker/config.json&#10;reload&#9;FILE&#9;file:///home/alex/Work/poker/tool/reloadmodule.py&#10;client&#9;FILE&#9;file:///home/alex/Work/poker/tool/client_simulator.py&#10;login&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/login.py&#10;account&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;recharge&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/recharge.py&#10;consta&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/constant.py&#10;accou&#9;null&#9;null&#10;server&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;content&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/content.py&#10;origins&#9;null&#9;null&#10;change&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/changes.py&#10;web&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/service/web.py&#10;ser&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;insta&#9;FILE&#9;file:///home/alex/Work/poker/install.py&#10;poker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/action/poker.py&#10;send&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/send.py&#10;room.proto&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;game_ma&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;games&#9;FILE&#9;file:///home/lily/Work/server/app/util/defines/games.py&#10;mahjong&#9;null&#9;null&#10;room.py&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/room.py&#10;mahj&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/mahjong.py&#10;game&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;login.proto&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/login.proto&#10;acc&#9;null&#9;null&#10;RoomPoker&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/RoomPoker.py&#10;RoomMah&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/RoomMahjong.py&#10;room.p&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/room.py&#10;play.py&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/play.py&#10;play.proto&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/play.proto&#10;play&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/play.py&#10;mahjong.py&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/mahjong.py&#10;PlayerMahjong&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/PlayerMahjong.py&#10;oper&#9;null&#9;null&#10;pla&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/play.py&#10;room.&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/room.py&#10;RoomMahjong&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/RoomMahjong.py&#10;Player&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/Player.py&#10;Room&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/Room.py&#10;room&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;roo&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;s&#9;FILE&#9;file:///home/lily/Work/server/app/gate/action/send.py&#10;ma&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;PlayerMa&#9;FILE&#9;file:///home/lily/Work/server/app/game/core/PlayerMahjong.py&#10;game_m&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/game_mahjong.proto&#10;conten&#9;FILE&#9;file:///home/lily/Work/server/app/util/defines/content.py&#10;ROOM.PROTO&#9;FILE&#9;file:///home/lily/Work/server/app/util/proto/source/room.proto&#10;mah&#9;FILE&#9;file:///home/lily/Work/server/app/game/action/mahjong.py&#10;rule&#9;FILE&#9;file:///home/lily/Work/PokerServer/app/util/defines/rule.py" />
   </component>
   <component name="RunManager" selected="Python.start">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -457,13 +581,6 @@
       <workItem from="1466083200364" duration="7600000" />
       <workItem from="1466133177669" duration="2337000" />
       <workItem from="1466139243115" duration="2581000" />
-    </task>
-    <task id="LOCAL-00048" summary="2100">
-      <created>1465736437938</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1465736437938</updated>
     </task>
     <task id="LOCAL-00049" summary="2121">
       <created>1465737668275</created>
@@ -801,7 +918,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466243268441</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="1747">
+      <created>1466243272332</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1466243272332</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -820,15 +944,15 @@
     <frame x="-1" y="28" width="1922" height="1019" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15614973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15614973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22264151" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4058642" sideWeight="0.2621212" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18721461" sideWeight="0.475" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21689498" sideWeight="0.7378788" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18721461" sideWeight="0.475" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45319635" sideWeight="0.7378788" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22716895" sideWeight="0.5290698" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29680365" sideWeight="0.5290698" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297342" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981133" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -901,35 +1025,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/util/driver/dbexecute.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/defines/operators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="345" column="33" selection-start-line="345" selection-start-column="29" selection-end-line="345" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/roomfull.py" />
     <entry file="file://$PROJECT_DIR$/app/gate/service/room.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -952,24 +1047,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/proto/source/recharge.proto" />
-    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/send.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1055,14 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/client_simulator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/core/RechargeManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1096,14 +1169,6 @@
           <folding>
             <element signature="e#15#41#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,21 +1250,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
+    <entry file="file://$PROJECT_DIR$/app/gate/action/change.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="e#14#63#0" expanded="true" />
-            <marker date="1465833366440" expanded="true" signature="793:829" placeholder="select * fro... missing_value" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-589">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/utilreload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/defines/constant.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/auth/action/account.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        <state relative-caret-position="398">
+          <caret line="123" column="21" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
           <folding>
             <element signature="e#14#28#0" expanded="true" />
             <marker date="1465562629057" expanded="true" signature="674:711" placeholder="select * fro... missing_value" />
@@ -1209,31 +1295,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
+    <entry file="file://$PROJECT_DIR$/app/util/defines/informations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="22" />
           <folding>
             <element signature="e#14#63#0" expanded="true" />
-            <marker date="1466242923766" expanded="true" signature="4256:4286" placeholder="select id fr... missing_value" />
-            <marker date="1466242923766" expanded="true" signature="4256:4288" placeholder="select id fr... " />
+            <marker date="1465833366440" expanded="true" signature="793:829" placeholder="select * fro... missing_value" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/change.py">
+    <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <caret line="4" column="64" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="64" />
+          <folding>
+            <marker date="1466244381872" expanded="true" signature="4367:4397" placeholder="select id fr... missing_value" />
+            <marker date="1466244381872" expanded="true" signature="4367:4399" placeholder="select id fr... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/proto/source/login.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/defines/constant.py">
+    <entry file="file://$PROJECT_DIR$/tool/client_simulator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        <state relative-caret-position="76">
+          <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="158" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/reloadmodule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/defines/recharges.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/action/send.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="126" column="51" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+          <folding>
+            <element signature="e#14#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

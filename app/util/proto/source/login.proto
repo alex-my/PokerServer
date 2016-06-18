@@ -90,6 +90,12 @@ message p_room_price {
 
 message p_game_info {
     optional string contact = 1;            // 联系我们
+    repeated p_recharge_info recharges = 2; // 充值信息
+}
+
+message p_recharge_info {
+    required uint32 money = 1;              // 充值的人民币(分)数量
+    required uint32 ingot = 2;              // 获取的代币数量
 }
 
 

@@ -4,6 +4,7 @@ from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.util.common.config import i
 from app.util.common import func
 from app.util.defines import informations
+from app.util.defines import recharges as _recharges
 from app.util.proto import system_pb2, recharge_pb2, login_pb2, room_pb2
 
 
@@ -117,6 +118,12 @@ def login_success(dynamic_id, user):
             room_price.gold_price = price
     # 游戏信息
     response.game_info.contact = i(informations.INFOMATION_TYPE_CONTACT, '')
+    recharges_information = _recharges.recharges_information
+    for _money, _ingot in recharges_information.items():
+        recharges = response.game_info.recharges.add()
+        recharges.money = _money
+        recharges.ingot = _ingot
+
     func.log_info('[game] 2001 account_id: {}, response: {}'.format(user.account_id, response))
     forward.push_object_gate(2001, response.SerializeToString(), [dynamic_id])
 

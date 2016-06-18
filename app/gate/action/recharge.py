@@ -2,7 +2,7 @@
 from app.gate.core.UserManager import UserManager
 from app.gate.action import send, change
 from app.util.common import func, recharge_wechat
-from app.util.defines import content, dbname, origins
+from app.util.defines import content, dbname, origins, recharges
 from app.util.driver import dbexecute
 
 
@@ -96,7 +96,10 @@ def wechat_recharge_success(notice_content):
 
 
 def calc_money_to_gold(money):
-    return int(money * 10)
+    ingot = recharges.recharges_information.get(money)
+    if not ingot:
+        ingot = money       # 1分钱1金币
+    return ingot
 
 
 def save_order_to_db(pay, ingot, recharge_origin):
