@@ -47,7 +47,9 @@ class PlayerPoker(Player):
         bomb_index = games.POKER_CONFIG[bomb_list[0]]['card_index']
         card_list = self.card_list
         for card_id in card_list:
-            conf = games.POKER_CONFIG[card_id]
+            conf = games.POKER_CONFIG.get(card_id)
+            if not conf:
+                continue
             card_index = conf['card_index']
             if card_index > bomb_index:
                 cur_list = conf['cur_list']

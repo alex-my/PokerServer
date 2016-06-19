@@ -3,7 +3,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, roomfull
 from app.util.common import func
-from app.util.defines import content
+from app.util.defines import content, games
 
 
 def poker_publish(dynamic_id, cards):
@@ -90,8 +90,15 @@ def check_poker_publish_valid(player, cards):
 
 
 def check_card_bomb(cards):
-    if cards and len(cards) == 4 and cards.count(cards[0]) == 4:
-        return True
+    if cards and len(cards) == 4:
+        card_id = cards[0]
+        conf = games.POKER_CONFIG.get(card_id)
+        if conf:
+            cur_list = conf['cur_list']
+            for _card_id in cards:
+                if _card_id not in cur_list:
+                    return False
+            return True
     return False
 
 
@@ -101,6 +108,7 @@ def bomb(account_id, card_list, room):
         if _player.account_id == account_id:
             continue
         if _player.more_bigger_bomb(card_list):
+            func.log_info('[game] bomb is return here')
             return
     change_point = 10
     for _account_id in room.room_ready_list:
@@ -110,7 +118,8 @@ def bomb(account_id, card_list, room):
         else:
             _player.point_change(-change_point)
     dynamic_id_list = room.get_room_dynamic_id_list()
-    send.send_poker_bomb(account_id, change_point, dynamic_id_list)
+    _point = change_point * (room.player_count - 1)
+    send.send_poker_bomb(account_id, _point, dynamic_id_list)
 
 
 def check_card_few(player):
