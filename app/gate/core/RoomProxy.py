@@ -6,6 +6,7 @@ class RoomProxy(object):
     def __init__(self):
         self._room_id = 0
         self._room_type = 0
+        self._room_help = 0
         self._rounds = 0
         self._create_time = 0
         self._account_id = 0
@@ -33,6 +34,14 @@ class RoomProxy(object):
     @property
     def room_type(self):
         return self._room_type
+
+    @property
+    def room_help(self):
+        return self._room_help
+
+    @room_help.setter
+    def room_help(self, _help_value):
+        self._room_help = _help_value
 
     @property
     def create_time(self):

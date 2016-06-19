@@ -22,15 +22,18 @@ def _get_open_room_origin(room_type):
     return origin
 
 
-def create_room(dynamic_id, room_type, rounds):
+def create_room(dynamic_id, room_type, rounds, help_value):
     """
     create room
     :param dynamic_id:
     :param room_type:
     :param rounds:
+    :param help_value:
     :return:
     """
-    func.log_info('[game] create_room room_type: {}, rounds: {}'.format(room_type, rounds))
+    if not help_value:
+        help_value = 0
+    func.log_info('[game] create_room room_type: {}, rounds: {}, help_value: {}'.format(room_type, rounds, help_value))
     if not room_type or not rounds:
         send.system_notice(dynamic_id, content.SYSTEM_ARGUMENT_LACK)
         return
@@ -61,10 +64,11 @@ def create_room(dynamic_id, room_type, rounds):
     if not node:
         return
     room_id = room_manager.generator_room_id()
-    room = _create_room(user, room_id, room_type, rounds)
+    room = _create_room(user, room_id, room_type, help_value, rounds)
     if not room:
         send.system_notice(dynamic_id, content.ROOM_CREATE_FAILED)
         return
+    room.room_help = help_value
     room.node_name = node.node_name
     room_manager.add_room(room)
     send.create_room(dynamic_id, room.room_id, room.room_type, rounds)
@@ -89,12 +93,13 @@ def _get_best_game_node(dynamic_id, repeated=True):
     return None
 
 
-def _create_room(user, room_id, room_type, rounds):
+def _create_room(user, room_id, room_type, room_help, rounds):
     room = RoomProxy()
     t = func.time_get()
     insert_data = {
         'room_id': room_id,
         'room_type': room_type,
+        'room_help': room_help,
         'rounds': rounds,
         'create_time': t,
         'account_id': user.account_id,

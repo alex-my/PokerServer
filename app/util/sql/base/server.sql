@@ -34,7 +34,8 @@ DROP TABLE IF EXISTS `room`;
 
 CREATE TABLE `room` (
   `room_id` int(10) unsigned NOT NULL COMMENT 'Identifier',
-  `room_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `room_type` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `room_help` int(10) unsigned NOT NULL DEFAULT 0,
   `rounds` int(10) unsigned NOT NULL DEFAULT 0,
   `create_time` int(10) unsigned NOT NULL DEFAULT 0,
   `account_id` int(10) unsigned NOT NULL DEFAULT 0,

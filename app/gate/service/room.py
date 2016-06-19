@@ -15,7 +15,7 @@ def create_room_3001(dynamic_id, proto):
     """
     argument = room_pb2.m_3001_tos()
     argument.ParseFromString(proto)
-    room.create_room(dynamic_id, argument.room_type, argument.rounds)
+    room.create_room(dynamic_id, argument.room_type, argument.rounds, argument.help)
     return None
 
 

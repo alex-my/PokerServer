@@ -16,6 +16,7 @@ class Room(object):
     def __init__(self):
         self._room_id = 0
         self._room_type = 0
+        self._room_help = 0
         self._max_rounds = 10           # 房间允许回合数
         self._create_time = 0           # 创建时间
         self._account_id = 0            # 创建者
@@ -36,6 +37,7 @@ class Room(object):
     def init(self, result):
         self._room_id = result.get('room_id')
         self._room_type = result.get('room_type')
+        self._room_help = result.get('room_help', 0)
         self._max_rounds = result.get('rounds')
         self._create_time = result.get('create_time')
         self._account_id = result.get('account_id')
@@ -90,6 +92,10 @@ class Room(object):
     @property
     def room_type(self):
         return self._room_type
+
+    @property
+    def room_help(self):
+        return self._room_help
 
     @property
     def owner_account_id(self):
