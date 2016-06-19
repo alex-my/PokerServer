@@ -71,11 +71,13 @@ message m_5207_toc {
 
 message p_room_full {
     required uint32 account_id = 1;             // 玩家帐号ID
-    required uint32 rank = 2;                   // 排名
+    required uint32 rank = 2;                   // 排名(根据积分变化)
     required int32  point_change = 3;           // 积分变化
-    required uint32 win_count = 4;              // 赢的场数
-    required uint32 lose_count = 5;             // 输的场数
-    required uint32 max_point = 6;              // 单场最高分
+    required uint32 max_point = 4;              // 单场最高分
+    required uint32 drawn_count = 5;            // 自摸场数
+    required uint32 win_count = 6;              // 赢的场数
+    required uint32 lose_count = 7;             // 失败的场数
+    required uint32 help_count = 8;             // 放炮的场数
 }
 
 // 广播拿牌的玩家

@@ -236,7 +236,7 @@ def spend_room_per_price(room):
         price = rule.MAHJONG_PER_PRICE
         origin = origins.ORIGIN_OPEN_ROOM_ZZMJ
     else:
-        raise Exception('[game] spend_room_per_price unknown room_type: {}'.format(
+        raise KeyError('[game] spend_room_per_price unknown room_type: {}'.format(
             room.room_type
         ))
     for account_id in room.room_ready_list:

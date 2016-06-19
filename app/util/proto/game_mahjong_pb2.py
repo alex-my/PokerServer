@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='game_mahjong.proto',
   package='',
-  serialized_pb=_b('\n\x12game_mahjong.proto\"i\n\nm_5201_toc\x12\x18\n\x10maker_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63raps\x18\x02 \x03(\r\x12\x19\n\x11mahjong_start_num\x18\x03 \x01(\r\x12\x17\n\x0fmahjong_end_num\x18\x04 \x01(\r\",\n\nm_5202_toc\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x03(\r\"\x1a\n\nm_5203_tos\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\"\x0c\n\nm_5203_toc\"r\n\nm_5204_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x0c\n\x04\x63\x61rd\x18\x02 \x02(\r\x12\x11\n\tcard_list\x18\x03 \x03(\r\x12\x15\n\roperator_able\x18\x04 \x02(\x08\x12\x10\n\x08operator\x18\x05 \x03(\r\"-\n\nm_5205_tos\x12\x10\n\x08operator\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"I\n\nm_5205_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\"5\n\nm_5206_toc\x12\x15\n\roperator_able\x18\x01 \x02(\x08\x12\x10\n\x08operator\x18\x02 \x03(\r\"@\n\nm_5207_toc\x12 \n\nroom_fulls\x18\x01 \x03(\x0b\x32\x0c.p_room_full\x12\x10\n\x08server_t\x18\x02 \x01(\r\"\x7f\n\x0bp_room_full\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04rank\x18\x02 \x02(\r\x12\x14\n\x0cpoint_change\x18\x03 \x02(\x05\x12\x11\n\twin_count\x18\x04 \x02(\r\x12\x12\n\nlose_count\x18\x05 \x02(\r\x12\x11\n\tmax_point\x18\x06 \x02(\r\" \n\nm_5208_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r')
+  serialized_pb=_b('\n\x12game_mahjong.proto\"i\n\nm_5201_toc\x12\x18\n\x10maker_account_id\x18\x01 \x02(\r\x12\r\n\x05\x63raps\x18\x02 \x03(\r\x12\x19\n\x11mahjong_start_num\x18\x03 \x01(\r\x12\x17\n\x0fmahjong_end_num\x18\x04 \x01(\r\",\n\nm_5202_toc\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x03(\r\"\x1a\n\nm_5203_tos\x12\x0c\n\x04\x63\x61rd\x18\x01 \x02(\r\"\x0c\n\nm_5203_toc\"r\n\nm_5204_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x0c\n\x04\x63\x61rd\x18\x02 \x02(\r\x12\x11\n\tcard_list\x18\x03 \x03(\r\x12\x15\n\roperator_able\x18\x04 \x02(\x08\x12\x10\n\x08operator\x18\x05 \x03(\r\"-\n\nm_5205_tos\x12\x10\n\x08operator\x18\x01 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x02 \x03(\r\"I\n\nm_5205_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x10\n\x08operator\x18\x02 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\"5\n\nm_5206_toc\x12\x15\n\roperator_able\x18\x01 \x02(\x08\x12\x10\n\x08operator\x18\x02 \x03(\r\"@\n\nm_5207_toc\x12 \n\nroom_fulls\x18\x01 \x03(\x0b\x32\x0c.p_room_full\x12\x10\n\x08server_t\x18\x02 \x01(\r\"\xa8\x01\n\x0bp_room_full\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04rank\x18\x02 \x02(\r\x12\x14\n\x0cpoint_change\x18\x03 \x02(\x05\x12\x11\n\tmax_point\x18\x04 \x02(\r\x12\x13\n\x0b\x64rawn_count\x18\x05 \x02(\r\x12\x11\n\twin_count\x18\x06 \x02(\r\x12\x12\n\nlose_count\x18\x07 \x02(\r\x12\x12\n\nhelp_count\x18\x08 \x02(\r\" \n\nm_5208_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -408,22 +408,36 @@ _P_ROOM_FULL = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='win_count', full_name='p_room_full.win_count', index=3,
+      name='max_point', full_name='p_room_full.max_point', index=3,
       number=4, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='lose_count', full_name='p_room_full.lose_count', index=4,
+      name='drawn_count', full_name='p_room_full.drawn_count', index=4,
       number=5, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='max_point', full_name='p_room_full.max_point', index=5,
+      name='win_count', full_name='p_room_full.win_count', index=5,
       number=6, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lose_count', full_name='p_room_full.lose_count', index=6,
+      number=7, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='help_count', full_name='p_room_full.help_count', index=7,
+      number=8, type=13, cpp_type=3, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -439,8 +453,8 @@ _P_ROOM_FULL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=576,
-  serialized_end=703,
+  serialized_start=577,
+  serialized_end=745,
 )
 
 
@@ -469,8 +483,8 @@ _M_5208_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=705,
-  serialized_end=737,
+  serialized_start=747,
+  serialized_end=779,
 )
 
 _M_5207_TOC.fields_by_name['room_fulls'].message_type = _P_ROOM_FULL

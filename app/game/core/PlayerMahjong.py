@@ -8,9 +8,28 @@ class PlayerMahjong(Player):
     def __init__(self, **kwargs):
         super(PlayerMahjong, self).__init__(**kwargs)
 
+        self._statistic_drawn_count = 0     # 自摸的场数
+        self._statistic_help_count = 0      # 放炮的场数
+
         self._pong_list = []    # 碰 [[card_id, card_id, card_id], ...]
         self._kong_list = []    # 杠 [[card_id, card_id, card_id, card_id], ...]
         self._chow_list = []    # 吃 [[card_id, card_id, card_id], ...]
+
+    @property
+    def drawn_count(self):
+        raise KeyError('[game] PlayerMahjong drawn_count unable to call here')
+
+    @drawn_count.setter
+    def drawn_count(self, _count):
+        self._statistic_drawn_count += _count
+
+    @property
+    def help_count(self):
+        raise KeyError('[game] PlayerMahjong help_count unable to call here')
+
+    @help_count.setter
+    def help_count(self, _count):
+        self._statistic_help_count += _count
 
     @property
     def pong_list(self):
@@ -100,7 +119,9 @@ class PlayerMahjong(Player):
         return {
             'account_id': self.account_id,
             'point_change': self._statistic_point,
+            'max_point': self._statistic_max_point,
+            'drawn_count': self._statistic_drawn_count,
             'win_count': self._statistic_win_count,
             'lose_count': self._statistic_lose_count,
-            'max_point': self._statistic_max_point
+            'help_count': self._statistic_help_count
         }
