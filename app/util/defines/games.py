@@ -86,6 +86,6 @@ test_poker_16_cards_list = [
     [33, 34, 20, 36, 21, 38, 39, 10, 41, 42, 15, 44, 45, 46, 47, 48]
 ]
 
-test_poker_16_cards_flag = True
+test_poker_16_cards_flag = False
 
 
