@@ -30,6 +30,7 @@ message p_close_info {
     required uint32 account_id = 1;         // 玩家账号ID
     required uint32 card_count = 2;         // 剩余的牌数
     repeated p_poker_dispatch_card dispatch_cards = 3;  // 玩家出牌
+    required int32 point_change = 4;        // 分数变化
 }
 
 message p_poker_dispatch_card {

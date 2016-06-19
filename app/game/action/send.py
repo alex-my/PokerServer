@@ -169,6 +169,7 @@ def game_over(win_account_id, all_player_info, dynamic_id_list):
         close_info = response.close_info.add()
         close_info.account_id = account_id
         close_info.card_count = info['left_card_count']
+        close_info.point_change = info['change_point']
         _disptach_cards = info['disptach_cards']
         for _dispatch_list in _disptach_cards:
             dispatch_cards = close_info.dispatch_cards.add()

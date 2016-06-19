@@ -87,23 +87,31 @@ class RoomPoker(Room):
                 turn_list.append(_account_id)
             _player = self.get_player(_account_id)
             left_card_count = _player.get_card_count()
-            all_player_info[_player.account_id] = {
-                'left_card_count': left_card_count,
-                'disptach_cards': _player.close_cards
-            }
+            change_point = 0
             if _account_id != self._pre_win_account_id:
                 if left_card_count >= card_full_count:
-                    _player.point_change(-card_full_count * 2 * special_ratio)
-                    win_point += card_full_count * 2
+                    change_point = (-card_full_count * 2 * special_ratio)
+                    win_point += card_full_count * 2 * special_ratio
                 elif left_card_count > 1:
-                    _player.point_change(-left_card_count * special_ratio)
-                    win_point += left_card_count
+                    change_point = -left_card_count * special_ratio
+                    win_point += left_card_count * special_ratio
+                else:
+                    change_point = 0
                 _player.lose_count = 1
+                _player.point_change(change_point)
             else:
                 win_player = _player
                 _player.win_count = 1
+
+            all_player_info[_player.account_id] = {
+                'left_card_count': left_card_count,
+                'disptach_cards': _player.close_cards,
+                'change_point': change_point
+            }
         if win_player and win_point > 0:
-            win_player.point_change(win_point * special_ratio)
+            win_player.point_change(win_point)
+            info = all_player_info[win_player.account_id]
+            info['change_point'] = win_point
 
         _info = []
         for _account_id in turn_list:
