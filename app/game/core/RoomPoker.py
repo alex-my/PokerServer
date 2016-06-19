@@ -60,7 +60,7 @@ class RoomPoker(Room):
         win_point = 0
         turn_list = self._dispatch_turn
         for _account_id in self._player_list:
-            if _account_id not in _account_id:
+            if _account_id not in turn_list:
                 turn_list.append(_account_id)
             _player = self.get_player(_account_id)
             left_card_count = _player.get_card_count()
