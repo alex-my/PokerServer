@@ -69,7 +69,10 @@ def poker_publish(dynamic_id, cards):
     # 牌局结束处理
     if player.is_card_clear():
         room.win_account_id = account_id
+        # 结算本局
         all_player_info = room.room_point_change()
+        # 上传本局记录
+        send.sync_play_history(room)
         room.room_reset()
         send.game_over(account_id, all_player_info, dynamic_id_list)
         # 判断该房间是否失效(达到可玩的局数上限)

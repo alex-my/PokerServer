@@ -27,8 +27,8 @@ LOGIN_USER_CREATE_FAILED_52 = u'登陆失败 52'
 LOGIN_USER_CREATE_FAILED_53 = u'登陆失败 53'
 
 
-ENTER_USER_DO_NOT_EXIST = u'请重新登录'
-ENTER_DYNAMIC_LOGIN_EXPIRE = u'信息超时,请重新登录'
+ENTER_USER_DO_NOT_EXIST = u'请您重新登录'
+ENTER_DYNAMIC_LOGIN_EXPIRE = u'您的登陆信息超时,请重新登录'
 
 GOLD_LACK = u'金币不足,请充值'
 GOLD_FULL = u'金币充足,无需充值'

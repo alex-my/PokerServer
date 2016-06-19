@@ -34,6 +34,10 @@ def user_login(dynamic_id, account_id, verify_key):
     if user.is_lock():
         _user_lock_tips(user)
         return
+    # load play history
+    print 'Alex load_play history'
+    load_play_history(user)
+
     address = UserManager().get_user_address(account_id)
     user.record_address(address)
     user.dynamic_id = dynamic_id
@@ -49,3 +53,19 @@ def _user_lock_tips(user):
         send.system_notice(user.dynamic_id, content.LOGIN_USER_LOCKED_FOREVER)
     else:
         send.system_notice(user.dynamic_id, content.LOGIN_USER_LOCKED_TIME.format(user.lock_expire))
+
+
+def load_play_history(user):
+    sql = 'select * from {} where `account_id`={}'.format(dbname.DB_HISTORY, user.account_id)
+    result = dbexecute.query_one(sql)
+    if result:
+        if result['data']:
+            result['data'] = func.parse_pickle_to_object(result['data'])
+        user.init_history(result['data'])
+    else:
+        insert_data = {
+            'account_id': user.account_id,
+            'data': func.transform_object_to_pickle(dict())
+        }
+        dbexecute.insert_update_record(**{'table': dbname.DB_HISTORY, 'data': insert_data})
+

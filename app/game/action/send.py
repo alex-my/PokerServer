@@ -1,4 +1,5 @@
 # coding:utf8
+from app.game.gameservice import request_gate_node
 from app.game.service import forward
 from app.util.common import func
 from app.util.proto import system_pb2, room_pb2, play_pb2, game_poker_pb2, game_mahjong_pb2
@@ -355,4 +356,11 @@ def broad_mahjong_dispatch_card(dynamic_id_list, account_id):
         dynamic_id_list, account_id
     ))
     forward.push_object_game(5208, response.SerializeToString(), dynamic_id_list)
+
+
+def sync_play_history(room):
+    history_data = room.get_per_play_history()
+    read_list = room.room_ready_list
+    request_gate_node('game_add_play_history', read_list, history_data)
+
 

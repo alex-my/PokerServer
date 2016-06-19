@@ -339,3 +339,18 @@ class Room(object):
         for index, info in enumerate(statistic_list):
             info['rank'] = index + 1
         return statistic_list
+
+    def get_per_play_history(self):
+        history_data = dict()
+        history_data['room_id'] = self._room_id
+        history_data['room_type'] = self._room_type
+        history_data['win_account_id'] = self.win_account_id
+        history_data['server_t'] = func.time_get()
+        history_data['round'] = self._rounds
+        history_data['max_round'] = self._max_rounds
+        history_player = []
+        for player in self._players.values():
+            history_player.append(player.get_per_history())
+        history_data['history_player'] = history_player
+        return history_data
+

@@ -33,7 +33,7 @@ client_config = {
     # 'auth_server_ip': '120.76.153.160',
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': 'test1',
+    'user_name': 'Alex',
     'password': '1'
 }
 
@@ -156,9 +156,9 @@ class ClientFactory(protocol.ClientFactory):
             # 裸包注册账号
             # register_account(self._client, self._client.user_name, self._client.password)
             # 裸包登陆
-            account_verify_official(self._client, self._client.user_name, self._client.password)
+            # account_verify_official(self._client, self._client.user_name, self._client.password)
             # 渠道登陆
-            # account_verify_channel(self._client, self._client.user_name)
+            account_verify_channel(self._client, self._client.user_name)
         # 成功连接游戏服务器
         else:
             user_login(self._client)
@@ -439,7 +439,9 @@ def user_login_2001(request):
     # ================ test create room
     # create_room(client, rule.GAME_TYPE_PDK2, 10)
     # ================ test enter room
-    enter_room(client, 503327)
+    # enter_room(client, 503327)
+    # ================ test query play history
+    query_play_history(client)
     return None
 
 
@@ -482,6 +484,19 @@ def enter_room_3002(request):
             argument.room_id, argument.user_id, argument.rounds, argument.max_rounds))
     # 准备
     user_ready(client)
+
+
+def query_play_history(client):
+    func.log_info('[query_play_history]')
+    response = room_pb2.m_3201_tos()
+    client.push_object(3201, response.SerializeToString())
+
+
+@client_service_handle
+def query_play_history_3201(request):
+    argument = room_pb2.m_3201_toc()
+    argument.ParseFromString(request)
+    func.log_info('[query_play_history_3201]')
 
 
 @client_service_handle

@@ -242,3 +242,30 @@ def enter_mahjong_room(dynamic_id, room_id, room_data, operator_account_id, play
 
     func.log_info('[gate] 3003 dynamic_id: {}, response: {}'.format(dynamic_id, response))
     forward.push_object_gate(3003, response.SerializeToString(), [dynamic_id])
+
+
+def send_play_history(user):
+    response = room_pb2.m_3201_toc()
+    response.poker_point = user.poker_point
+    response.mahjong_point = user.mahjong_point
+    history_list = user.get_play_history_list()
+    # None
+    if history_list:
+        for info in history_list:
+            history_info = response.history_info.add()
+            history_info.room_id = info['room_id']
+            history_info.room_type = info['room_type']
+            history_info.win_account_id = info['win_account_id']
+            history_info.server_t = info['server_t']
+            history_info.round = info['round']
+            history_info.max_round = info['max_round']
+            player_info_list = info['history_player']
+            for player_info in player_info_list:
+                history_player = history_info.history_player.add()
+                history_player.account_id = player_info['account_id']
+                history_player.name = player_info['name']
+                history_player.point_changes = player_info['point_changes']
+                history_player.room_point = player_info['room_point']
+                history_player.all_point = player_info['all_point']
+    func.log_info('[gate] 3201 send_play_history dynamic_id: {}, response: {}'.format(user.dynamic_id, response))
+    forward.push_object_gate(3201, response.SerializeToString(), [user.dynamic_id])

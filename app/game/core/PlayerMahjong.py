@@ -125,3 +125,4 @@ class PlayerMahjong(Player):
             'lose_count': self._statistic_lose_count,
             'help_count': self._statistic_help_count
         }
+

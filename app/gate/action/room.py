@@ -190,3 +190,12 @@ def check_room_price(user, room):
             return False
     return True
 
+
+def query_play_history(dynamic_id):
+    user = UserManager().get_user_by_dynamic(dynamic_id)
+    if not user:
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
+        return
+    send.send_play_history(user)
+
+

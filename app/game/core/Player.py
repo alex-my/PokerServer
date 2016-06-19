@@ -25,6 +25,8 @@ class Player(object):
         self._statistic_lose_count = 0      # 本轮输的场数
         self._statistic_max_point = 0       # 本轮单场最高积分
 
+        self._last_change_point = 0         # 上一次变化积分
+
     def _get_player_save_base_data(self):
         return {
             'account_id': self._account_id,
@@ -177,7 +179,18 @@ class Player(object):
         self._cards = dict()
 
     def point_change(self, _point):
+        self._last_change_point = _point
         self._point += _point
         self._statistic_point += _point
         if _point > self._statistic_max_point:
             self._statistic_max_point = _point
+
+    def get_per_history(self):
+        return {
+            'account_id': self._account_id,
+            'name': self._name,
+            'point_changes': self._last_change_point,
+            'room_point': self._statistic_point,
+            'all_point': self._point
+        }
+

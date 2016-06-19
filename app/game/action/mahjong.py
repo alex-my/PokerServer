@@ -445,7 +445,10 @@ def calc_mahjong_next_position(room, from_start):
 
 def mahjong_close(room, win_account_id, win_card_id, win_status):
     room.win_account_id = win_account_id
+    # 结算本局
     all_player_info = room.room_mahjong_close(win_status)
+    # 上传本局记录
+    send.sync_play_history(room)
     room.room_reset()
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.game_over_mahjong(win_account_id, room.lose_account_id, win_card_id, win_status, all_player_info, dynamic_id_list)

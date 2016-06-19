@@ -99,7 +99,7 @@ class PlayerPoker(Player):
 
     def get_statistic_data(self):
         return {
-            'account_id': self.account_id,
+            'account_id': self._account_id,
             'point_change': self._statistic_point,
             'win_count': self._statistic_win_count,
             'lose_count': self._statistic_lose_count,

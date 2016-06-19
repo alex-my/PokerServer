@@ -62,4 +62,14 @@ def remove_room(room_id):
     return None
 
 
+@gate_service_handle
+def query_play_history_3201(dynamic_id, proto):
+    """
+    query play history
+    :param dynamic_id:
+    :param proto:
+    :return:
+    """
+    room.query_play_history(dynamic_id)
+    return None
 

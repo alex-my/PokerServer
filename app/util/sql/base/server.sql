@@ -20,7 +20,8 @@ CREATE TABLE `account` (
   `room_id` int(3) unsigned NOT NULL DEFAULT '0' COMMENT '当前进入的房间',
   `room_type` int(3) unsigned NOT NULL DEFAULT '0' COMMENT '当前进入的游戏类型',
   `gold` int(10) DEFAULT '0' COMMENT '元宝',
-  `point` int(10) DEFAULT '0' COMMENT '总积分',
+  `poker_point` int(10) DEFAULT '0' COMMENT '扑克总积分',
+  `mahjong_point` int(10) DEFAULT '0' COMMENT '麻将总积分',
   PRIMARY KEY (`account_id`),
   UNIQUE KEY `idx_username` (`user_name`),
   KEY `uuid` (`uuid`)
@@ -128,4 +129,13 @@ CREATE TABLE `user` (
   UNIQUE KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+-- play history
+
+DROP TABLE IF EXISTS `history`;
+CREATE TABLE `history` (
+    `account_id` int(10) unsigned NOT NULL,
+    `data` LONGTEXT NOT NULL,
+    PRIMARY KEY (`account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

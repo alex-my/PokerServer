@@ -135,3 +135,36 @@ message m_3104_toc {
 }
 
 
+// 打开大厅个人历史记录
+message m_3201_tos {
+
+}
+
+message m_3201_toc {
+    required int32 poker_point = 1;             // 扑克总积分
+    required int32 mahjong_point = 2;           // 麻将总积分
+    repeated p_history_info history_info = 3;   // 每局历史信息
+}
+
+message p_history_info {
+    required uint32 room_id = 1;                // 房间ID
+    required uint32 room_type = 2;              // 房间类型
+    required uint32 win_account_id = 3;         // 胜利玩家的帐号ID
+    required uint32 server_t = 4;               // 服务器时间戳
+    required uint32 round = 5;                  // 所在房间当前回合数
+    required uint32 max_round = 6;              // 所在房间最大回合数
+    repeated p_history_player history_player = 7;   // 参与的玩家信息
+}
+
+message p_history_player {
+    required uint32 account_id = 1;             // 玩家帐号ID
+    required string name = 2;                   // 玩家名
+    required int32 point_changes = 3;          // 本局积分变化
+    required int32 room_point = 4;             // 在该房间内积分变化
+    required int32 all_point = 5;              // 当前该类型游戏总积分
+}
+
+
+
+
+

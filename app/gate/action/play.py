@@ -1,0 +1,16 @@
+# coding:utf8
+from app.gate.core.UserManager import UserManager
+from app.util.common import func
+
+
+def add_play_history(account_id_list, history_data):
+    user_manager = UserManager()
+    for account_id in account_id_list:
+        user = user_manager.get_user(account_id)
+        if not user:
+            func.log_error('[gate] add_play_history account_id: {} lost history data'.format(account_id))
+            return
+        user.add_play_history(history_data)
+        func.log_info('[gate] account_id: {} get play history'.format(account_id))
+
+

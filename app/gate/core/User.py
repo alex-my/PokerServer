@@ -18,13 +18,17 @@ class User(object):
         self._room_id = 0
         self._room_type = 0
         self._gold = 0
-        self._point = 0
+        self._point = 0         # 废弃
+        self._poker_point = 0   # 扑克积分
+        self._mahjong_point = 0     # 麻将积分
         self._ip = ''
         self._port = 0
         self._is_lock = False   # 是否被锁定
         self._lock_expire = 0   # 锁定结束日期
         self._is_gm = False     # 是否是GM账号
         self._node_name = None  # game节点名称
+
+        self._play_history = dict()     # 游戏记录
 
         self._record_room_id = 0
         self._record_room_type = 0
@@ -44,8 +48,12 @@ class User(object):
         self._room_id = data.get('room_id', 0)
         self._room_type = data.get('room_type', 0)
         self._gold = data.get('gold')
-        self._point = data.get('point')
+        self._poker_point = data.get('poker_point', 0)
+        self._mahjong_point = data.get('mahjong_point', 0)
         return True
+
+    def init_history(self, data):
+        self._play_history = data
 
     @property
     def account_id(self):
@@ -123,6 +131,14 @@ class User(object):
     def point(self):
         return self._point
 
+    @property
+    def poker_point(self):
+        return self._poker_point
+
+    @property
+    def mahjong_point(self):
+        return self._mahjong_point
+
     def disconnect(self):
         pass
 
@@ -178,15 +194,29 @@ class User(object):
         if self._point < 0:
             self._point = 0
 
+    def add_play_history(self, history_data):
+        history_list = self._play_history.setdefault('history_list', [])
+        history_list.append(history_data)
+
+    def get_play_history_list(self):
+        return self._play_history.get('history_list', [])
+
     def user_lost(self):
         self._room_id = self._record_room_id
         self._room_type = self._record_room_type
 
     def user_save(self):
+        # DB_ACCOUNT
         dbexecute.update_record(
-                table=dbname.DB_ACCOUNT,
-                where={'account_id': self._account_id},
-                data=self.get_save_data())
+            table=dbname.DB_ACCOUNT,
+            where={'account_id': self._account_id},
+            data=self.get_save_data())
+        # DB_HISTORY
+        dbexecute.update_record(
+            table=dbname.DB_HISTORY,
+            where={'account_id': self._account_id},
+            data=self.get_history_data()
+        )
 
     def get_save_data(self):
         return {
@@ -196,6 +226,12 @@ class User(object):
             'room_id': self._room_id,
             'room_type': self._room_type,
             'gold': self._gold,
-            'point': self._point
+            'poker_point': self._poker_point,
+            'mahjong_point': self._mahjong_point
+        }
+
+    def get_history_data(self):
+        return {
+            'data': func.transform_object_to_pickle(self._play_history)
         }
 

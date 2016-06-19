@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='room.proto',
   package='',
-  serialized_pb=_b('\n\nroom.proto\"/\n\nm_3001_tos\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0e\n\x06rounds\x18\x02 \x02(\r\"@\n\nm_3001_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x0e\n\x06rounds\x18\x03 \x01(\r\"\x1d\n\nm_3002_tos\x12\x0f\n\x07room_id\x18\x01 \x02(\r\"\xe3\x01\n\nm_3002_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x1f\n\tuser_room\x18\x03 \x03(\x0b\x32\x0c.p_user_room\x12\x12\n\nuser_cards\x18\x04 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x05 \x01(\r\x12\x17\n\x0flast_account_id\x18\x06 \x01(\r\x12\x12\n\nlast_cards\x18\x07 \x03(\r\x12\x0f\n\x07user_id\x18\x08 \x02(\r\x12\x0e\n\x06rounds\x18\t \x01(\r\x12\x12\n\nmax_rounds\x18\n \x01(\r\"\xa0\x01\n\x0bp_user_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\t\x12\x11\n\thead_icon\x18\x05 \x01(\t\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\"\xce\x02\n\nm_3003_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12#\n\tuser_room\x18\x02 \x03(\x0b\x32\x10.p_user_mah_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\x12\x18\n\x10maker_account_id\x18\n \x01(\r\x12\r\n\x05\x63raps\x18\x0b \x03(\r\x12\x19\n\x11mahjong_start_num\x18\x0c \x01(\r\x12\x17\n\x0fmahjong_end_num\x18\r \x01(\r\x12\x1b\n\x13operator_account_id\x18\x0e \x01(\r\"\x94\x02\n\x0fp_user_mah_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\t\x12\x11\n\thead_icon\x18\x05 \x01(\t\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\x12\x11\n\tpre_cards\x18\n \x03(\r\x12\x1d\n\x0b\x61ward_cards\x18\x0b \x03(\x0b\x32\x08.p_cards\x12\x12\n\ncard_count\x18\x0c \x01(\r\x12\x15\n\roperator_able\x18\r \x01(\x08\x12\x11\n\toperators\x18\x0e \x03(\r\"\x18\n\x07p_cards\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"-\n\nm_3005_toc\x12\x1f\n\tuser_room\x18\x01 \x02(\x0b\x32\x0c.p_user_room\" \n\nm_3006_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\"1\n\nm_3007_toc\x12#\n\tuser_room\x18\x01 \x02(\x0b\x32\x10.p_user_mah_room\"\x1f\n\nm_3008_toc\x12\x11\n\troom_type\x18\x01 \x02(\r\"\x1d\n\nm_3101_tos\x12\x0f\n\x07message\x18\x01 \x02(\r\"\x1d\n\nm_3101_toc\x12\x0f\n\x07message\x18\x01 \x02(\r\"1\n\nm_3102_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07message\x18\x02 \x02(\r\"\x1f\n\nm_3103_tos\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"\x1f\n\nm_3103_toc\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"3\n\nm_3104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x11\n\tvoice_url\x18\x02 \x02(\t')
+  serialized_pb=_b('\n\nroom.proto\"/\n\nm_3001_tos\x12\x11\n\troom_type\x18\x01 \x02(\r\x12\x0e\n\x06rounds\x18\x02 \x02(\r\"@\n\nm_3001_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x0e\n\x06rounds\x18\x03 \x01(\r\"\x1d\n\nm_3002_tos\x12\x0f\n\x07room_id\x18\x01 \x02(\r\"\xe3\x01\n\nm_3002_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x1f\n\tuser_room\x18\x03 \x03(\x0b\x32\x0c.p_user_room\x12\x12\n\nuser_cards\x18\x04 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x05 \x01(\r\x12\x17\n\x0flast_account_id\x18\x06 \x01(\r\x12\x12\n\nlast_cards\x18\x07 \x03(\r\x12\x0f\n\x07user_id\x18\x08 \x02(\r\x12\x0e\n\x06rounds\x18\t \x01(\r\x12\x12\n\nmax_rounds\x18\n \x01(\r\"\xa0\x01\n\x0bp_user_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\t\x12\x11\n\thead_icon\x18\x05 \x01(\t\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\"\xce\x02\n\nm_3003_toc\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12#\n\tuser_room\x18\x02 \x03(\x0b\x32\x10.p_user_mah_room\x12\x12\n\nuser_cards\x18\x03 \x03(\r\x12\x1a\n\x12\x65xecute_account_id\x18\x04 \x01(\r\x12\x17\n\x0flast_account_id\x18\x05 \x01(\r\x12\x12\n\nlast_cards\x18\x06 \x03(\r\x12\x0f\n\x07user_id\x18\x07 \x02(\r\x12\x0e\n\x06rounds\x18\x08 \x01(\r\x12\x12\n\nmax_rounds\x18\t \x01(\r\x12\x18\n\x10maker_account_id\x18\n \x01(\r\x12\r\n\x05\x63raps\x18\x0b \x03(\r\x12\x19\n\x11mahjong_start_num\x18\x0c \x01(\r\x12\x17\n\x0fmahjong_end_num\x18\r \x01(\r\x12\x1b\n\x13operator_account_id\x18\x0e \x01(\r\"\x94\x02\n\x0fp_user_mah_room\x12\x10\n\x08position\x18\x01 \x02(\r\x12\x12\n\naccount_id\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x12\n\nhead_frame\x18\x04 \x01(\t\x12\x11\n\thead_icon\x18\x05 \x01(\t\x12\x0b\n\x03sex\x18\x06 \x01(\r\x12\n\n\x02ip\x18\x07 \x01(\t\x12\r\n\x05point\x18\x08 \x01(\x05\x12\x0e\n\x06status\x18\t \x01(\r\x12\x11\n\tpre_cards\x18\n \x03(\r\x12\x1d\n\x0b\x61ward_cards\x18\x0b \x03(\x0b\x32\x08.p_cards\x12\x12\n\ncard_count\x18\x0c \x01(\r\x12\x15\n\roperator_able\x18\r \x01(\x08\x12\x11\n\toperators\x18\x0e \x03(\r\"\x18\n\x07p_cards\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"-\n\nm_3005_toc\x12\x1f\n\tuser_room\x18\x01 \x02(\x0b\x32\x0c.p_user_room\" \n\nm_3006_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\"1\n\nm_3007_toc\x12#\n\tuser_room\x18\x01 \x02(\x0b\x32\x10.p_user_mah_room\"\x1f\n\nm_3008_toc\x12\x11\n\troom_type\x18\x01 \x02(\r\"\x1d\n\nm_3101_tos\x12\x0f\n\x07message\x18\x01 \x02(\r\"\x1d\n\nm_3101_toc\x12\x0f\n\x07message\x18\x01 \x02(\r\"1\n\nm_3102_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0f\n\x07message\x18\x02 \x02(\r\"\x1f\n\nm_3103_tos\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"\x1f\n\nm_3103_toc\x12\x11\n\tvoice_url\x18\x01 \x02(\t\"3\n\nm_3104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x11\n\tvoice_url\x18\x02 \x02(\t\"\x0c\n\nm_3201_tos\"_\n\nm_3201_toc\x12\x13\n\x0bpoker_point\x18\x01 \x02(\x05\x12\x15\n\rmahjong_point\x18\x02 \x02(\x05\x12%\n\x0chistory_info\x18\x03 \x03(\x0b\x32\x0f.p_history_info\"\xab\x01\n\x0ep_history_info\x12\x0f\n\x07room_id\x18\x01 \x02(\r\x12\x11\n\troom_type\x18\x02 \x02(\r\x12\x16\n\x0ewin_account_id\x18\x03 \x02(\r\x12\x10\n\x08server_t\x18\x04 \x02(\r\x12\r\n\x05round\x18\x05 \x02(\r\x12\x11\n\tmax_round\x18\x06 \x02(\r\x12)\n\x0ehistory_player\x18\x07 \x03(\x0b\x32\x11.p_history_player\"r\n\x10p_history_player\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x15\n\rpoint_changes\x18\x03 \x02(\x05\x12\x12\n\nroom_point\x18\x04 \x02(\x05\x12\x11\n\tall_point\x18\x05 \x02(\x05')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -900,11 +900,210 @@ _M_3104_TOC = _descriptor.Descriptor(
   serialized_end=1590,
 )
 
+
+_M_3201_TOS = _descriptor.Descriptor(
+  name='m_3201_tos',
+  full_name='m_3201_tos',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1592,
+  serialized_end=1604,
+)
+
+
+_M_3201_TOC = _descriptor.Descriptor(
+  name='m_3201_toc',
+  full_name='m_3201_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='poker_point', full_name='m_3201_toc.poker_point', index=0,
+      number=1, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mahjong_point', full_name='m_3201_toc.mahjong_point', index=1,
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='history_info', full_name='m_3201_toc.history_info', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1606,
+  serialized_end=1701,
+)
+
+
+_P_HISTORY_INFO = _descriptor.Descriptor(
+  name='p_history_info',
+  full_name='p_history_info',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='room_id', full_name='p_history_info.room_id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='room_type', full_name='p_history_info.room_type', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='win_account_id', full_name='p_history_info.win_account_id', index=2,
+      number=3, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='server_t', full_name='p_history_info.server_t', index=3,
+      number=4, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='round', full_name='p_history_info.round', index=4,
+      number=5, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='max_round', full_name='p_history_info.max_round', index=5,
+      number=6, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='history_player', full_name='p_history_info.history_player', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1704,
+  serialized_end=1875,
+)
+
+
+_P_HISTORY_PLAYER = _descriptor.Descriptor(
+  name='p_history_player',
+  full_name='p_history_player',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='account_id', full_name='p_history_player.account_id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='p_history_player.name', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='point_changes', full_name='p_history_player.point_changes', index=2,
+      number=3, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='room_point', full_name='p_history_player.room_point', index=3,
+      number=4, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='all_point', full_name='p_history_player.all_point', index=4,
+      number=5, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1877,
+  serialized_end=1991,
+)
+
 _M_3002_TOC.fields_by_name['user_room'].message_type = _P_USER_ROOM
 _M_3003_TOC.fields_by_name['user_room'].message_type = _P_USER_MAH_ROOM
 _P_USER_MAH_ROOM.fields_by_name['award_cards'].message_type = _P_CARDS
 _M_3005_TOC.fields_by_name['user_room'].message_type = _P_USER_ROOM
 _M_3007_TOC.fields_by_name['user_room'].message_type = _P_USER_MAH_ROOM
+_M_3201_TOC.fields_by_name['history_info'].message_type = _P_HISTORY_INFO
+_P_HISTORY_INFO.fields_by_name['history_player'].message_type = _P_HISTORY_PLAYER
 DESCRIPTOR.message_types_by_name['m_3001_tos'] = _M_3001_TOS
 DESCRIPTOR.message_types_by_name['m_3001_toc'] = _M_3001_TOC
 DESCRIPTOR.message_types_by_name['m_3002_tos'] = _M_3002_TOS
@@ -923,6 +1122,10 @@ DESCRIPTOR.message_types_by_name['m_3102_toc'] = _M_3102_TOC
 DESCRIPTOR.message_types_by_name['m_3103_tos'] = _M_3103_TOS
 DESCRIPTOR.message_types_by_name['m_3103_toc'] = _M_3103_TOC
 DESCRIPTOR.message_types_by_name['m_3104_toc'] = _M_3104_TOC
+DESCRIPTOR.message_types_by_name['m_3201_tos'] = _M_3201_TOS
+DESCRIPTOR.message_types_by_name['m_3201_toc'] = _M_3201_TOC
+DESCRIPTOR.message_types_by_name['p_history_info'] = _P_HISTORY_INFO
+DESCRIPTOR.message_types_by_name['p_history_player'] = _P_HISTORY_PLAYER
 
 m_3001_tos = _reflection.GeneratedProtocolMessageType('m_3001_tos', (_message.Message,), dict(
   DESCRIPTOR = _M_3001_TOS,
@@ -1049,6 +1252,34 @@ m_3104_toc = _reflection.GeneratedProtocolMessageType('m_3104_toc', (_message.Me
   # @@protoc_insertion_point(class_scope:m_3104_toc)
   ))
 _sym_db.RegisterMessage(m_3104_toc)
+
+m_3201_tos = _reflection.GeneratedProtocolMessageType('m_3201_tos', (_message.Message,), dict(
+  DESCRIPTOR = _M_3201_TOS,
+  __module__ = 'room_pb2'
+  # @@protoc_insertion_point(class_scope:m_3201_tos)
+  ))
+_sym_db.RegisterMessage(m_3201_tos)
+
+m_3201_toc = _reflection.GeneratedProtocolMessageType('m_3201_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_3201_TOC,
+  __module__ = 'room_pb2'
+  # @@protoc_insertion_point(class_scope:m_3201_toc)
+  ))
+_sym_db.RegisterMessage(m_3201_toc)
+
+p_history_info = _reflection.GeneratedProtocolMessageType('p_history_info', (_message.Message,), dict(
+  DESCRIPTOR = _P_HISTORY_INFO,
+  __module__ = 'room_pb2'
+  # @@protoc_insertion_point(class_scope:p_history_info)
+  ))
+_sym_db.RegisterMessage(p_history_info)
+
+p_history_player = _reflection.GeneratedProtocolMessageType('p_history_player', (_message.Message,), dict(
+  DESCRIPTOR = _P_HISTORY_PLAYER,
+  __module__ = 'room_pb2'
+  # @@protoc_insertion_point(class_scope:p_history_player)
+  ))
+_sym_db.RegisterMessage(p_history_player)
 
 
 # @@protoc_insertion_point(module_scope)
