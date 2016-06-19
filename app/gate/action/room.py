@@ -34,6 +34,9 @@ def create_room(dynamic_id, room_type, rounds):
     if not room_type or not rounds:
         send.system_notice(dynamic_id, content.SYSTEM_ARGUMENT_LACK)
         return
+    if room_type not in rule.rule_configs:
+        send.system_notice(dynamic_id, content.ROOM_TYPE_UN_FIND)
+        return
     user = UserManager().get_user_by_dynamic(dynamic_id)
     if not user:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
@@ -131,9 +134,17 @@ def enter_room(dynamic_id, room_id):
             return
         room.node_name = node.node_name
     node_name = room.node_name
+
+    if room.room_type in rule.GAME_LIST_POKER_PDK:
+        game_point = user.poker_point
+    elif room.room_type in rule.GAME_LIST_MAHJONG:
+        game_point = user.mahjong_point
+    else:
+        raise KeyError('[gate] enter_room room_type: {} unexist'.format(room.room_type))
+
     request_child_node(node_name, 'enter_room_game', dynamic_id=dynamic_id, _node_name=node_name,
                        account_id=user.account_id, room_id=room_id, name=user.name, head_frame=user.head_frame,
-                       head_icon=user.head_icon, point=user.point, sex=user.sex, ip=user.ip)
+                       head_icon=user.head_icon, point=game_point, sex=user.sex, ip=user.ip)
 
 
 def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, operator_account_id, player_operators):

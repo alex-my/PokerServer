@@ -36,6 +36,7 @@ GOLD_LACK_PER = u'金币不足{}无法进入房间'
 
 ROOM_CREATE_FAILED = u'房间创建失败'
 ROOM_UN_EXIST = u'房间不存在'
+ROOM_TYPE_UN_FIND = u'不存在该类型的房间'
 ROOM_TYPE_EXIST = u'已创建该类型的房间，房间号: {}'
 ROOM_UN_FIND = u'房间未找到'
 ROOM_UN_ENTER = u'尚未进入房间'
