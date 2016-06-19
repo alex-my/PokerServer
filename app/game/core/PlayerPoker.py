@@ -112,3 +112,7 @@ class PlayerPoker(Player):
     def player_reset(self):
         self._cards = dict()
         self._dispatch_cards = []
+
+    def is_special_card(self):
+        special_card_id = games.POKER_SPECIAL_CARD
+        return special_card_id in self._cards

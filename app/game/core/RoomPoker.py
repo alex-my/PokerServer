@@ -10,6 +10,25 @@ class RoomPoker(Room):
     def __init__(self):
         super(RoomPoker, self).__init__()
         self._dispatch_turn = []            # 玩家出牌顺序 [account_id, ...]
+        self._special_account_id = 0        # 猴子玩法中的拥有着ID
+
+    @property
+    def special_account_id(self):
+        return self._special_account_id
+
+    def choose_special_account_id(self):
+        if self._room_help == 1:
+            for player in self._players.values():
+                if player.is_special_card():
+                    self._special_account_id = player.account_id
+                    break
+        else:
+            self._special_account_id = 0
+
+    def is_special(self, account_id):
+        if self._room_help == 1 and account_id == self._special_account_id:
+            return True
+        return False
 
     @property
     def operators(self):
@@ -58,6 +77,10 @@ class RoomPoker(Room):
         all_player_info = dict()
         win_player = None
         win_point = 0
+        if self.is_special(self._pre_win_account_id):
+            special_ratio = 2
+        else:
+            special_ratio = 1
         turn_list = self._dispatch_turn
         for _account_id in self._player_list:
             if _account_id not in turn_list:
@@ -70,17 +93,17 @@ class RoomPoker(Room):
             }
             if _account_id != self._pre_win_account_id:
                 if left_card_count >= card_full_count:
-                    _player.point_change(-card_full_count * 2)
+                    _player.point_change(-card_full_count * 2 * special_ratio)
                     win_point += card_full_count * 2
                 elif left_card_count > 1:
-                    _player.point_change(-left_card_count)
+                    _player.point_change(-left_card_count * special_ratio)
                     win_point += left_card_count
                 _player.lose_count = 1
             else:
                 win_player = _player
                 _player.win_count = 1
         if win_player and win_point > 0:
-            win_player.point_change(win_point)
+            win_player.point_change(win_point * special_ratio)
 
         _info = []
         for _account_id in turn_list:

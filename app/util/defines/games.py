@@ -12,6 +12,9 @@ MAH_OPERATOR_DRAWN = 6              # 自摸
 MAH_OPERATOR_NO = 7                 # 平局
 
 
+POKER_SPECIAL_CARD = 26             # 猴子玩法, 红桃9
+
+
 MAH_CONFIG = dict()     # {card: {pre_list: [], cur_list: [], next_list: []}, ...}
 POKER_CONFIG = dict()   # {card: {cur_list: []}, ...}
 
@@ -62,7 +65,7 @@ def _initialize_poker():
                 'name': '{}{}'.format(name_config[card_color], card_index),
                 'card_color': card_color
             }
-            # func.log_info('[game] poker: {} \t {}'.format(card_id, POKER_CONFIG[card_id]))
+            func.log_info('[game] poker: {} \t {}'.format(card_id, POKER_CONFIG[card_id]))
         gen_card_id += 4
 
 

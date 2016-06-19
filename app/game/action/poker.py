@@ -110,7 +110,10 @@ def bomb(account_id, card_list, room):
         if _player.more_bigger_bomb(card_list):
             func.log_info('[game] bomb is return here')
             return
-    change_point = 10
+    if room.is_special(account_id):
+        change_point = 20
+    else:
+        change_point = 10
     for _account_id in room.room_ready_list:
         _player = room.get_player(_account_id)
         if _account_id == account_id:

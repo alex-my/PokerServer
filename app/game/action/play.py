@@ -174,6 +174,7 @@ def dispatch_cards_to_room(room):
 def dispatch_poker_to_room(room):
     func.log_info('[game] dispatch_poker_to_room')
     room.random_cards()
+    room.choose_special_account_id()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
     execute_account_id = room.get_original_execute()
     room.execute_account_id = execute_account_id

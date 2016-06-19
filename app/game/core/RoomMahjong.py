@@ -16,7 +16,6 @@ class RoomMahjong(Room):
         self._end_num = 0
         self._maker_account_id = 0        # 庄家帐号ID
         self._lose_account_id = 0         # 放炮的玩家帐号ID
-        self._special_account_id = 0      # 猴子玩法中的拥有者ID
 
     def get_original_execute(self):
         if self._maker_account_id == 0:
@@ -33,13 +32,6 @@ class RoomMahjong(Room):
     @lose_account_id.setter
     def lose_account_id(self, _id):
         self._lose_account_id = _id
-
-    @property
-    def special_account_id(self):
-        return self._special_account_id
-
-    def choose_special_account_id(self):
-        pass
 
     @property
     def operators(self):

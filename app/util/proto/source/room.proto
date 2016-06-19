@@ -3,7 +3,7 @@
 message m_3001_tos{
     required uint32 room_type = 1;      // 房间类型
     required uint32 rounds = 2;		    // 房间允许回合数, 例如打10盘就关闭房间, 20盘关闭房间, 30盘关闭房间, ...
-    optional uint32 help = 3;           // 额外参数 在跑得快中 1 表示猴子玩法
+    optional uint32 help = 3;           // 额外参数 在跑得快中 1 表示猴子玩法. 在麻将中 1 表示只允许自摸
 }
 
 message m_3001_toc{
