@@ -122,6 +122,9 @@ def enter_room(dynamic_id, room_id):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_EXIST)
         return
+    # check price
+    if not check_room_price(user, room):
+        return
     if not room.node_name:
         node = _get_best_game_node(dynamic_id)
         if not node:
@@ -174,4 +177,16 @@ def remove_room(room_id):
     RoomProxyManager().remove_room(room_id, room.room_type, room.account_id)
     sql = 'delete from {} where room_id={}'.format(dbname.DB_ROOM, room_id)
     dbexecute.execute(sql)
+
+
+def check_room_price(user, room):
+    if room.room_type in rule.GAME_LIST_POKER_PDK:
+        if not user.check_gold(rule.POKER_PER_PRICE):
+            send.system_notice(user.dynamic_id, content.GOLD_LACK_PER.format(rule.POKER_PER_PRICE))
+            return False
+    elif room.room_type in rule.GAME_LIST_MAHJONG:
+        if not user.check_gold(rule.MAHJONG_PER_PRICE):
+            send.system_notice(user.dynamic_id, content.GOLD_LACK_PER.format(rule.MAHJONG_PER_PRICE))
+            return False
+    return True
 

@@ -3,7 +3,7 @@ from app.gate.service import forward
 from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.util.common.config import i
 from app.util.common import func
-from app.util.defines import informations
+from app.util.defines import informations, rule
 from app.util.defines import recharges as _recharges
 from app.util.proto import system_pb2, recharge_pb2, login_pb2, room_pb2
 
@@ -107,11 +107,11 @@ def login_success(dynamic_id, user):
     # 房间信息
     user_rooms = RoomProxyManager().get_user_rooms(user.account_id)
     rules = RoomProxyManager().get_all_rules()
-    for game_type, rule in rules.iteritems():
+    for game_type, _rule in rules.iteritems():
         room_info = response.room_info.add()
         room_info.room_type = game_type
         room_info.room_id = user_rooms.get(game_type, 0)
-        prices = rule['price']
+        prices = _rule['price']
         for rounds, price in prices.items():
             room_price = room_info.room_price.add()
             room_price.rounds = rounds
@@ -123,6 +123,8 @@ def login_success(dynamic_id, user):
         recharges = response.game_info.recharges.add()
         recharges.money = _money
         recharges.ingot = _ingot
+    response.game_info.poker_per_price = rule.POKER_PER_PRICE
+    response.game_info.mahjong_per_price = rule.MAHJONG_PER_PRICE
 
     func.log_info('[game] 2001 account_id: {}, response: {}'.format(user.account_id, response))
     forward.push_object_gate(2001, response.SerializeToString(), [dynamic_id])

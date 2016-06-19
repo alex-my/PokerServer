@@ -91,6 +91,8 @@ message p_room_price {
 message p_game_info {
     optional string contact = 1;            // 联系我们
     repeated p_recharge_info recharges = 2; // 充值信息
+    optional uint32 poker_per_price = 3;    // 扑克每局费用
+    optional uint32 mahjong_per_price = 4;  // 麻将每局费用
 }
 
 message p_recharge_info {

@@ -51,6 +51,7 @@ def user_ready(dynamic_id, operator):
         # 判断是否由玩家切牌
         if check_switch(room):
             switch_cards(room)
+        spend_room_per_price(room)
         dispatch_cards_to_room(room)
     return True
 
@@ -225,4 +226,19 @@ def get_room_close_origin(room):
             room.room_id, room_type, room.max_rounds
         ))
     return origin
+
+
+def spend_room_per_price(room):
+    if room.room_type in rule.GAME_LIST_POKER_PDK:
+        price = rule.POKER_PER_PRICE
+        origin = origins.ORIGIN_OPEN_ROOM_PDK
+    elif room.room_type in rule.GAME_LIST_MAHJONG:
+        price = rule.MAHJONG_PER_PRICE
+        origin = origins.ORIGIN_OPEN_ROOM_ZZMJ
+    else:
+        raise Exception('[game] spend_room_per_price unknown room_type: {}'.format(
+            room.room_type
+        ))
+    for account_id in room.room_ready_list:
+        change.spend_gold(account_id, price, origin)
 

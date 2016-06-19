@@ -32,6 +32,7 @@ ENTER_DYNAMIC_LOGIN_EXPIRE = u'信息超时,请重新登录'
 
 GOLD_LACK = u'金币不足,请充值'
 GOLD_FULL = u'金币充足,无需充值'
+GOLD_LACK_PER = u'金币不足{}无法进入房间'
 
 ROOM_CREATE_FAILED = u'房间创建失败'
 ROOM_UN_EXIST = u'房间不存在'
