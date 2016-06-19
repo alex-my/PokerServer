@@ -101,7 +101,7 @@ def login_success(dynamic_id, user):
     user_info.head_icon = user.head_icon
     user_info.sex = user.sex
     user_info.gold = user.gold
-    user_info.point = user.point
+    user_info.point = 0
     user_info.room_id = user.room_id
     user_info.room_type = user.room_type
     # 房间信息
