@@ -349,8 +349,11 @@ class Room(object):
         history_data['round'] = self._rounds
         history_data['max_round'] = self._max_rounds
         history_player = []
+        all_point = dict()
         for player in self._players.values():
             history_player.append(player.get_per_history())
+            all_point[player.account_id] = player.point
         history_data['history_player'] = history_player
+        history_data['all_point'] = all_point
         return history_data
 

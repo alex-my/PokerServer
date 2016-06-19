@@ -135,9 +135,17 @@ class User(object):
     def poker_point(self):
         return self._poker_point
 
+    @poker_point.setter
+    def poker_point(self, _point):
+        self._poker_point = _point
+
     @property
     def mahjong_point(self):
         return self._mahjong_point
+
+    @mahjong_point.setter
+    def mahjong_point(self, _point):
+        self._mahjong_point = _point
 
     def disconnect(self):
         pass
