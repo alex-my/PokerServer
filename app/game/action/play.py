@@ -45,9 +45,11 @@ def user_ready(dynamic_id, operator):
     if room.is_all_ready():
         func.log_info('[game] all ready room_id: {}'.format(room.room_id))
         # 创建者必须在房间中
-        if not check_owner_in(room):
-            notice_owner_must_in(room)
-            return False
+        if not room.is_online_match():
+            if not check_owner_in(room):
+                print 'Alex check owner must in: ', room.room_help
+                notice_owner_must_in(room)
+                return False
         # 在线匹配需要扣除保证金
         reduce_bail_gold(room)
         # 判断是否由玩家切牌

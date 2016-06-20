@@ -186,7 +186,7 @@ class Room(object):
         return self._execute_account_id == 0
 
     def is_online_match(self):
-        self._room_help == games.HELP_ONLINE_MATCH
+        return self._room_help == games.HELP_ONLINE_MATCH
 
     def get_room_brief(self):
         return {

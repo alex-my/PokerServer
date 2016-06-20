@@ -28,8 +28,10 @@ def _information_marquee():
     func.log_info('[gate] _information_marquee')
     content = i(informations.INFOMATION_TYPE_MARQUEE)
     if not content:
+        print 'Alex 123'
         return
-    send.marquee_to_all(content)
+    # send.marquee_to_all(content)
+    send.marquee_to_all('123456')
 
 
 def output_server_information():

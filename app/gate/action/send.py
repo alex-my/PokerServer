@@ -283,7 +283,7 @@ def online_match_success(dynamic_id_list, room_id):
     func.log_info('[gate] 3203 online_match_success dynamic_id_list: {}, room_id: {}'.format(
         dynamic_id_list, room_id
     ))
-    forward.push_object_gate(3203, response.SerializeToString(), [dynamic_id_list])
+    forward.push_object_gate(3203, response.SerializeToString(), dynamic_id_list)
 
 
 def cancel_online_match(dynamic_id):
