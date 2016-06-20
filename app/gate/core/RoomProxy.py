@@ -1,4 +1,5 @@
 # coding:utf8
+from app.util.defines import games
 
 
 class RoomProxy(object):
@@ -16,7 +17,7 @@ class RoomProxy(object):
     def init(self, result):
         self._room_id = result.get('room_id')
         self._room_type = result.get('room_type')
-        self._rounds = result.get('rounds')
+        self._rounds = result.get('rounds', 10)
         self._create_time = result.get('create_time')
         self._account_id = result.get('account_id')
 
@@ -44,6 +45,10 @@ class RoomProxy(object):
         self._room_help = _help_value
 
     @property
+    def room_rounds(self):
+        return self._rounds
+
+    @property
     def create_time(self):
         return self._create_time
 
@@ -67,4 +72,7 @@ class RoomProxy(object):
     def account_id_list(self, _id):
         if _id not in self._account_id_list:
             self._account_id_list.append(_id)
+
+    def is_online_match(self):
+        self._room_help == games.HELP_ONLINE_MATCH
 

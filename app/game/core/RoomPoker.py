@@ -1,7 +1,7 @@
 # coding:utf8
 from app.game.core.Room import Room
 from app.util.common import func
-from app.util.defines import dbname, status
+from app.util.defines import dbname, status, games
 from app.util.driver import dbexecute
 
 
@@ -17,7 +17,7 @@ class RoomPoker(Room):
         return self._special_account_id
 
     def choose_special_account_id(self):
-        if self._room_help == 1:
+        if self._room_help == games.HELP_POKER_SPECIAL:
             for player in self._players.values():
                 if player.is_special_card():
                     self._special_account_id = player.account_id
@@ -26,7 +26,7 @@ class RoomPoker(Room):
             self._special_account_id = 0
 
     def is_special(self, account_id):
-        if self._room_help == 1 and account_id == self._special_account_id:
+        if self._room_help == games.HELP_POKER_SPECIAL and account_id == self._special_account_id:
             return True
         return False
 

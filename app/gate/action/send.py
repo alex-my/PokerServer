@@ -269,3 +269,24 @@ def send_play_history(user):
                 history_player.all_point = player_info['all_point']
     func.log_info('[gate] 3201 send_play_history dynamic_id: {}, response: {}'.format(user.dynamic_id, response))
     forward.push_object_gate(3201, response.SerializeToString(), [user.dynamic_id])
+
+
+def allow_online_match(dynamic_id):
+    response = room_pb2.m_3202_toc()
+    func.log_info('[gate] 3202 allow_online_match dynamic_id: {}'.format(dynamic_id))
+    forward.push_object_gate(3202, response.SerializeToString(), [dynamic_id])
+
+
+def online_match_success(dynamic_id_list, room_id):
+    response = room_pb2.m_3203_toc()
+    response.room_id = room_id
+    func.log_info('[gate] 3203 online_match_success dynamic_id_list: {}, room_id: {}'.format(
+        dynamic_id_list, room_id
+    ))
+    forward.push_object_gate(3203, response.SerializeToString(), [dynamic_id_list])
+
+
+def cancel_online_match(dynamic_id):
+    response = room_pb2.m_3203_toc()
+    func.log_info('[gate] 3203 cancel_online_match dynamic_id: {}'.format(dynamic_id))
+    forward.push_object_gate(3203, response.SerializeToString(), [dynamic_id])

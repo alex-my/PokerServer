@@ -19,6 +19,11 @@ MAH_CONFIG = dict()     # {card: {pre_list: [], cur_list: [], next_list: []}, ..
 POKER_CONFIG = dict()   # {card: {cur_list: []}, ...}
 
 
+HELP_POKER_SPECIAL = 1              # 跑得快:猴子玩法类型
+HELP_MAHJONG_DRAWN = 1              # 麻将: 只允许自摸
+HELP_ONLINE_MATCH = 2               # 在线匹配
+
+
 def _initialize_mahjong():
 
     def _gen_card(base):

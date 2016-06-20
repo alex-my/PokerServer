@@ -25,6 +25,16 @@ def user_connect_lost(dynamic_id):
     room.leave_room(dynamic_id)
 
 
+@remoteserviceHandle('gate')
+def remove_unvalid_room(delete_id_list):
+    """
+    remove unvalid room
+    :param delete_id_list:
+    :return:
+    """
+    room.remove_unvalid_room(delete_id_list)
+
+
 @game_service_handle
 def room_short_message_3101(dynamic_id, proto):
     """

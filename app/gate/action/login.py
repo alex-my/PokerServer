@@ -3,7 +3,7 @@ from app.gate.core.UserManager import UserManager
 from app.gate.core.User import User
 from app.gate.action import send
 from app.util.common import func
-from app.util.defines import channel, content, dbname
+from app.util.defines import content, dbname
 from app.util.driver import dbexecute
 
 
@@ -35,7 +35,6 @@ def user_login(dynamic_id, account_id, verify_key):
         _user_lock_tips(user)
         return
     # load play history
-    print 'Alex load_play history'
     load_play_history(user)
 
     address = UserManager().get_user_address(account_id)
@@ -68,4 +67,3 @@ def load_play_history(user):
             'data': func.transform_object_to_pickle(dict())
         }
         dbexecute.insert_update_record(**{'table': dbname.DB_HISTORY, 'data': insert_data})
-

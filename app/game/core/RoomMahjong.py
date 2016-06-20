@@ -34,7 +34,7 @@ class RoomMahjong(Room):
         self._lose_account_id = _id
 
     def allow_normal_win(self):
-        return self._room_help != 1
+        return self._room_help != games.HELP_MAHJONG_DRAWN
 
     @property
     def operators(self):

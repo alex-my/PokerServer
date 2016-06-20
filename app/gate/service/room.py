@@ -73,3 +73,29 @@ def query_play_history_3201(dynamic_id, proto):
     room.query_play_history(dynamic_id)
     return None
 
+
+@gate_service_handle
+def online_match_3202(dynamic_id, proto):
+    """
+    online match
+    :param dynamic_id:
+    :param proto:
+    :return:
+    """
+    argument = room_pb2.m_3202_tos()
+    argument.ParseFromString(proto)
+    room.online_match(dynamic_id, argument.room_type)
+    return None
+
+
+@gate_service_handle
+def cancel_online_match_3204(dynamic_id, proto):
+    """
+    cancel online match
+    :param dynamic_id:
+    :param proto:
+    :return:
+    """
+    room.cancel_online_match(dynamic_id)
+    return None
+

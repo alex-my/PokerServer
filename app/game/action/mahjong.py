@@ -456,6 +456,8 @@ def mahjong_close(room, win_account_id, win_card_id, win_status):
     all_player_info = room.room_mahjong_close(win_status)
     # 上传本局记录
     send.sync_play_history(room)
+    # 归还在线匹配保证金
+    roomfull.back_bail_gold(room)
     room.room_reset()
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.game_over_mahjong(win_account_id, room.lose_account_id, win_card_id, win_status, all_player_info, dynamic_id_list)

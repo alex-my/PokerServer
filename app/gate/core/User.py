@@ -54,6 +54,7 @@ class User(object):
 
     def init_history(self, data):
         self._play_history = data
+        self.get_play_history_list()
 
     @property
     def account_id(self):
@@ -207,7 +208,11 @@ class User(object):
         history_list.append(history_data)
 
     def get_play_history_list(self):
-        return self._play_history.get('history_list', [])
+        history_list = self._play_history.get('history_list', [])
+        if len(history_list) > 100:
+            history_list = history_list[len(history_list) / 2:]
+            self._play_history['history_list'] = history_list
+        return history_list
 
     def user_lost(self):
         self._room_id = self._record_room_id

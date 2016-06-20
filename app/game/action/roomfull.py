@@ -1,8 +1,8 @@
 # coding:utf8
 from app.game.gameservice import request_gate_node
 from app.game.core.RoomManager import RoomManager
-from app.game.action import send
-from app.util.defines import rule
+from app.game.action import send, change
+from app.util.defines import origins, rule, content
 
 
 def remove_room(room):
@@ -18,3 +18,12 @@ def remove_room(room):
         send.send_mahjong_room_full(dynamic_id_list, statistic_list)
     # 从RoomManager移除房间信息
     RoomManager().drop_room(room)
+
+
+def back_bail_gold(room):
+    if room.is_online_match():
+        for player in room.players:
+            change.award_gold(player.account_id, rule.ONLINE_MATCH_BAIL, origins.ORIGIN_BACK_MATCH_BAIL)
+        _content = content.PLAY_ONLINE_MATCH_BAIL_BACK.format(rule.ONLINE_MATCH_BAIL)
+        send.system_notice_room(room, _content)
+

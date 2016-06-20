@@ -61,6 +61,10 @@ def leave_room(dynamic_id):
     play.user_operator(dynamic_id, operators.USER_OPERATOR_OFFLINE)
 
 
+def remove_unvalid_room(delete_id_list):
+    RoomManager().remove_rooms(delete_id_list)
+
+
 def room_short_message(dynamic_id, message):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:

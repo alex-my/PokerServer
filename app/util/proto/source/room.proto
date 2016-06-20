@@ -166,6 +166,27 @@ message p_history_player {
 }
 
 
+// 在线匹配
+message m_3202_tos {
+    required uint32 room_type = 1;              // 房间类型
+}
+
+message m_3202_toc {
+
+}
+
+// 匹配成功, 客户端收到该房间号后直接拉入房间 m_3002_tos
+message m_3203_toc {
+    required uint32 room_id = 1;
+}
 
 
+// 取消在线匹配
+message m_3204_tos {
+
+}
+
+message m_3204_toc {
+
+}
 

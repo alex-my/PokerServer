@@ -27,8 +27,23 @@ class RoomManager:
         for account_id in room.room_account_id_list:
             if account_id in self._player_room and self._player_room[account_id] == room_id:
                 del self._player_room[account_id]
-        if room_id in self._rooms:
-            del self._rooms[room_id]
+        try:
+            if room_id in self._rooms:
+                del self._rooms[room_id]
+        except Exception as e:
+            func.log_error('[game] drop_room room_id: {}, failed: {}'.format(
+                room_id, e.message
+            ))
+
+    def remove_rooms(self, room_id_list):
+        for room_id in room_id_list:
+            try:
+                if room_id in self._rooms:
+                    del self._rooms[room_id]
+            except Exception as e:
+                func.log_error('[game] remove_rooms room_id: {}, failed: {}'.format(
+                    room_id, e.message
+                ))
 
     def get_room(self, room_id):
         room = self._rooms.get(room_id)

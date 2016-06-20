@@ -47,7 +47,9 @@ def user_ready(dynamic_id, operator):
         # 创建者必须在房间中
         if not check_owner_in(room):
             notice_owner_must_in(room)
-            return
+            return False
+        # 在线匹配需要扣除保证金
+        reduce_bail_gold(room)
         # 判断是否由玩家切牌
         if check_switch(room):
             switch_cards(room)
@@ -87,6 +89,9 @@ def user_close(dynamic_id, operate):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
+    if room.is_online_match():
+        send.system_notice(dynamic_id, content.ROOM_UN_CLOSE_ONLINE_MATCH)
+        return
     if not room.is_close_t_valid():
         room.clear_close()
     room.add_close_agree(account_id)
@@ -125,6 +130,8 @@ def user_switch_over(dynamic_id):
         return False
     if room.is_room_dispatch_able():
         dispatch_poker_to_room(room)
+        return True
+    return False
 
 
 def notice_all_room_user_operator(room, account_id, operator):
@@ -243,3 +250,10 @@ def spend_room_per_price(room):
     for account_id in room.room_ready_list:
         change.spend_gold(account_id, price, origin)
 
+
+def reduce_bail_gold(room):
+    if room.is_online_match():
+        for player in room.players:
+            change.spend_gold(player.account_id, rule.ONLINE_MATCH_BAIL, origins.ORIGIN_ONLINE_MATCH_BAIL)
+        _content = content.PLAY_ONLINE_MATCH_BAIL_REDUCE.format(rule.ONLINE_MATCH_BAIL)
+        send.system_notice_room(room, _content)

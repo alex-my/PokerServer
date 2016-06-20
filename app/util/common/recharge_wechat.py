@@ -142,7 +142,7 @@ class WechatResponse(WechatPay):
     def attach(self):
         _attach = self._xml_json['attach'].split('/')
         if len(_attach) != 2:
-            func.log_error('[gate] wechat_recharge_success attach is unvalid: {}'.format(attch))
+            func.log_error('[gate] wechat_recharge_success attach is unvalid: {}'.format(_attach))
             return None, None
         proxy_id, account_id = int(_attach[0]), int(_attach[1])
         return proxy_id, account_id
@@ -153,7 +153,6 @@ class WechatResponse(WechatPay):
 
     def verify(self):
         """验证签名"""
-
         self._xml_json.pop('sign')
         self.get_sign(self._xml_json)
         func.log_info('[gate] pre_sign: {}'.format(self._sign))
