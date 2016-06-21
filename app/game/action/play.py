@@ -47,7 +47,6 @@ def user_ready(dynamic_id, operator):
         # 创建者必须在房间中
         if not room.is_online_match():
             if not check_owner_in(room):
-                print 'Alex check owner must in: ', room.room_help
                 notice_owner_must_in(room)
                 return False
         # 在线匹配需要扣除保证金

@@ -33,7 +33,7 @@ client_config = {
     # 'auth_server_ip': '120.76.153.160',
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': 'Alex2',
+    'user_name': 'a1',
     'password': '1'
 }
 
