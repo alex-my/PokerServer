@@ -180,5 +180,4 @@ class RoomMahjong(Room):
                 data=self.get_save_data())
 
     def get_save_data(self):
-
         return {'data': func.transform_object_to_pickle(self)}

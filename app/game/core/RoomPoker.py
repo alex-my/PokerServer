@@ -134,5 +134,4 @@ class RoomPoker(Room):
                 data=self.get_save_data())
 
     def get_save_data(self):
-        self._rounds = 3
         return {'data': func.transform_object_to_pickle(self)}
