@@ -296,6 +296,6 @@ def online_match_success(dynamic_id_list, room_id):
 
 
 def cancel_online_match(dynamic_id):
-    response = room_pb2.m_3203_toc()
+    response = room_pb2.m_3204_toc()
     func.log_info('[gate] 3203 cancel_online_match dynamic_id: {}'.format(dynamic_id))
-    forward.push_object_gate(3203, response.SerializeToString(), [dynamic_id])
+    forward.push_object_gate(3204, response.SerializeToString(), [dynamic_id])
