@@ -29,7 +29,7 @@ CREATE TABLE `account` (
   PRIMARY KEY (`account_id`),
   UNIQUE KEY `idx_username` (`user_name`),
   KEY `uuid` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=38000 DEFAULT CHARSET=utf8 COMMENT='Account';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Account';
 
 
 -- room

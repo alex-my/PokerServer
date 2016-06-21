@@ -31,10 +31,10 @@ if os.name != 'nt' and os.name != 'posix':
 
 
 client_config = {
-    # 'auth_server_ip': '120.76.153.160',
-    'auth_server_ip': '127.0.0.1',
+    'auth_server_ip': '120.76.153.160',
+    # 'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': str(4),
+    'user_name': str('Yiun'),
     'password': '1'
 }
 
@@ -160,11 +160,6 @@ class ClientFactory(protocol.ClientFactory):
             # account_verify_official(self._client, self._client.user_name, self._client.password)
             # 渠道登陆
             account_verify_channel(self._client, self._client.user_name)
-
-            # Alex
-            for i in xrange(10000):
-                account_verify_channel(self._client, 's{}'.format(i))
-
         # 成功连接游戏服务器
         else:
             user_login(self._client)
