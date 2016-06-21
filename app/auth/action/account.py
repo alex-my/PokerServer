@@ -100,10 +100,8 @@ def account_verify_channel(dynamic_id, address, user_name, channel_id, uuid, nam
     password = uuid
     sql = 'select * from {} where user_name="{}"'.format(dbname.DB_ACCOUNT, user_name)
     result = dbexecute.query_one(sql)
-    print 'Alex 1: ', sql
     if not result:
         account_id = _register_process(user_name, password, name, uuid, channel_id, sex, head_frame, head_icon)
-        print 'Alex enter account_id: ', account_id
         if not account_id:
             send.system_notice(dynamic_id, content.LOGIN_USER_CREATE_FAILED_51)
             return
@@ -157,7 +155,7 @@ def _register_process(user_name, password, name, uuid, channel_id, sex, head_fra
         'sex': sex,
         'head_frame': head_frame,
         'head_icon': head_icon,
-        'gold': 1000
+        'gold': 2000
     }
     if dbexecute.insert_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data}) > 0:
         return account_id
