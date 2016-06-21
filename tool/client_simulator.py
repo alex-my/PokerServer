@@ -5,6 +5,7 @@
 """
 import os
 import sys
+import time
 from twisted.internet import reactor, protocol
 from firefly.utils.singleton import Singleton
 from firefly.utils.services import CommandService
@@ -33,7 +34,7 @@ client_config = {
     # 'auth_server_ip': '120.76.153.160',
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': 'a2',
+    'user_name': str(4),
     'password': '1'
 }
 

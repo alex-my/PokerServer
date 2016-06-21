@@ -100,8 +100,10 @@ def account_verify_channel(dynamic_id, address, user_name, channel_id, uuid, nam
     password = uuid
     sql = 'select * from {} where user_name="{}"'.format(dbname.DB_ACCOUNT, user_name)
     result = dbexecute.query_one(sql)
+    print 'Alex 1: ', sql
     if not result:
         account_id = _register_process(user_name, password, name, uuid, channel_id, sex, head_frame, head_icon)
+        print 'Alex enter account_id: ', account_id
         if not account_id:
             send.system_notice(dynamic_id, content.LOGIN_USER_CREATE_FAILED_51)
             return
@@ -134,7 +136,15 @@ def _register_process(user_name, password, name, uuid, channel_id, sex, head_fra
     token_key = _create_token_key(user_name, password)
     encrypt_password = func.encrypt_password(user_name, password, token_key)
     t = func.time_get()
+    # 实时搜索最大的account_id
+    sql = 'select `account_id` from {} order by `account_id` desc'.format(dbname.DB_ACCOUNT)
+    result = dbexecute.query_one(sql)
+    if not result:
+        account_id = 380001
+    else:
+        account_id = calc_account_id(result['account_id'])
     account_data = {
+        'account_id': account_id,
         'uuid': uuid,
         'cid': channel_id,
         'user_name': user_name,
@@ -149,6 +159,23 @@ def _register_process(user_name, password, name, uuid, channel_id, sex, head_fra
         'head_icon': head_icon,
         'gold': 1000
     }
-    account_id = dbexecute.insert_auto_increment_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data})
-    return account_id
+    if dbexecute.insert_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data}) > 0:
+        return account_id
+    else:
+        return 0
+
+
+def calc_account_id(cur_account_id):
+    for account_id in xrange(cur_account_id + 1, 99999999):
+        str_account_id = str(account_id)
+        if '4' in str_account_id:
+            continue
+        flag = True
+        for c in str_account_id:
+            if str_account_id.count(c) >= 5:
+                flag = False
+                break
+        if flag:
+            return account_id
+    return cur_account_id + 1
 
