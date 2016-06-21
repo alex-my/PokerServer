@@ -38,7 +38,15 @@ def user_change(dynamic_id, changes):
 def marquee_to_all(content):
     response = system_pb2.m_9004_toc()
     response.content = content
+    func.log_info('[gate] 9004 marquee_to_all response: {}'.format(response))
     forward.push_object_gate_all(9004, response.SerializeToString())
+
+
+def marquee_to_user(dynamic_id, content):
+    response = system_pb2.m_9004_toc()
+    response.content = content
+    func.log_info('[gate] 9004 marquee_to_user response: {}'.format(response))
+    forward.push_object_gate(9004, response.SerializeToString(), [dynamic_id])
 
 
 def change_string(dynamic_id, changes):

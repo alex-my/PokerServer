@@ -1,4 +1,5 @@
 # coding:utf8
+from firefly.dbentrust.dbutils import safestr
 from app.gate.core.UserManager import UserManager
 from app.gate.action import send
 from app.util.common.config import Config, i
@@ -10,10 +11,10 @@ def information_execute(info_id):
     # 重新载入信息配置
     Config().load_special_infomation(info_id)
 
-    if info_id == informations.INFOMATION_TYPE_CONTACT:
-        _information_contact()
-    elif info_id == informations.INFOMATION_TYPE_MARQUEE:
+    if info_id == informations.INFOMATION_TYPE_MARQUEE:
         _information_marquee()
+    elif info_id == informations.INFOMATION_TYPE_CONTACT:
+        _information_contact()
     else:
         raise KeyError('[gate] information_execute info_id: {} un exist'.format(info_id))
 
@@ -25,13 +26,11 @@ def _information_contact():
 
 
 def _information_marquee():
-    func.log_info('[gate] _information_marquee')
     content = i(informations.INFOMATION_TYPE_MARQUEE)
     if not content:
-        print 'Alex 123'
         return
-    # send.marquee_to_all(content)
-    send.marquee_to_all('123456')
+    func.log_info('[gate] _information_marquee: {}'.format(safestr(content)))
+    send.marquee_to_all(content)
 
 
 def output_server_information():

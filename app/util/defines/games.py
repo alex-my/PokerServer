@@ -70,7 +70,7 @@ def _initialize_poker():
                 'name': '{}{}'.format(name_config[card_color], card_index),
                 'card_color': card_color
             }
-            func.log_info('[game] poker: {} \t {}'.format(card_id, POKER_CONFIG[card_id]))
+            # func.log_info('[game] poker: {} \t {}'.format(card_id, POKER_CONFIG[card_id]))
         gen_card_id += 4
 
 

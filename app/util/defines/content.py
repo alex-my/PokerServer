@@ -25,6 +25,7 @@ LOGIN_USER_ARGUMENT = u'角色信息不可为空'
 LOGIN_USER_CREATE_FAILED_51 = u'登陆失败 51'
 LOGIN_USER_CREATE_FAILED_52 = u'登陆失败 52'
 LOGIN_USER_CREATE_FAILED_53 = u'登陆失败 53'
+LOGIN_NOTICE = u'请各位文明游戏，禁止赌博，步步高娱乐祝您步步高升'
 
 
 ENTER_USER_DO_NOT_EXIST = u'请您重新登录'

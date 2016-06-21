@@ -45,6 +45,8 @@ def user_login(dynamic_id, account_id, verify_key):
     # 清理最后的房间
     user.room_id, user.room_type = 0, 0
     user.record_room_id, user.record_room_type = 0, 0
+    # 推送信息
+    send.marquee_to_user(dynamic_id, content.LOGIN_NOTICE)
 
 
 def _user_lock_tips(user):
