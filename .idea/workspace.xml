@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/RoomMahjong.py" afterPath="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/RoomPoker.py" afterPath="$PROJECT_DIR$/app/game/core/RoomPoker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/play.py" afterPath="$PROJECT_DIR$/app/game/action/play.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +37,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="room.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="room.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/gate/action/room.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.020234292">
-                  <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
                   <folding>
                     <marker date="1466485382000" expanded="true" signature="7331:7360" placeholder="delete from " />
                   </folding>
@@ -62,10 +61,20 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="play.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.25239617">
+                  <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="server.sql" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.7037037">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
                   <folding />
                 </state>
@@ -89,7 +98,7 @@
           <file leaf-file-name="RoomPoker.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/game/core/RoomPoker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7369542">
+                <state vertical-scroll-proportion="1.142705">
                   <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
                   <folding />
                 </state>
@@ -177,7 +186,6 @@
         <option value="$PROJECT_DIR$/app/gate/service/web.py" />
         <option value="$PROJECT_DIR$/app/util/defines/origins.py" />
         <option value="$PROJECT_DIR$/app/gate/action/infomation.py" />
-        <option value="$PROJECT_DIR$/app/game/action/play.py" />
         <option value="$PROJECT_DIR$/app/game/initconfig.py" />
         <option value="$PROJECT_DIR$/app/game/core/Player.py" />
         <option value="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
@@ -189,6 +197,7 @@
         <option value="$PROJECT_DIR$/tool/client_simulator.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomPoker.py" />
+        <option value="$PROJECT_DIR$/app/game/action/play.py" />
       </list>
     </option>
   </component>
@@ -238,6 +247,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -350,11 +362,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PokerServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1009,13 +1040,8 @@
       <workItem from="1466412221702" duration="11728000" />
       <workItem from="1466477289039" duration="5275000" />
       <workItem from="1466484631091" duration="2134000" />
-      <workItem from="1466487521632" duration="289000" />
-    </task>
-    <task id="LOCAL-00063" summary="2227">
-      <created>1465914512008</created>
-      <option name="number" value="00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1465914512008</updated>
+      <workItem from="1466487521632" duration="364000" />
+      <workItem from="1466493702960" duration="39000" />
     </task>
     <task id="LOCAL-00064" summary="2227">
       <created>1465918700149</created>
@@ -1305,11 +1331,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466487225368</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="room store">
+      <created>1466487816416</created>
+      <option name="number" value="00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1466487816416</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180804000" />
+    <option name="totallyTimeSpent" value="180918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1334,6 +1366,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12592289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27053505" sideWeight="0.49169436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1348,7 +1381,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3154717" sideWeight="0.7378788" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27053505" sideWeight="0.49169436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1715,14 +1747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3147448">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/action/recharge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3327032">
@@ -1750,7 +1774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21153846">
           <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1782,7 +1805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4050057">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1796,7 +1818,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/sql/base/server.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7037037">
+        <state vertical-scroll-proportion="0.0">
           <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
           <folding />
         </state>
@@ -1808,16 +1830,6 @@
           <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
           <folding>
             <marker date="1466487019000" expanded="true" signature="1959:1990" placeholder="select * fro... missing_value" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/room.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.020234292">
-          <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
-          <folding>
-            <marker date="1466485382000" expanded="true" signature="7331:7360" placeholder="delete from " />
           </folding>
         </state>
       </provider>
@@ -1840,8 +1852,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/RoomPoker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7369542">
+        <state vertical-scroll-proportion="1.142705">
           <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/action/room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+          <folding>
+            <marker date="1466485382000" expanded="true" signature="7331:7360" placeholder="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25239617">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
           <folding />
         </state>
       </provider>

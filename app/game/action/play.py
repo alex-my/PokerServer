@@ -141,7 +141,8 @@ def notice_all_room_user_operator(room, account_id, operator):
 
 
 def check_owner_in(room):
-    return room.is_owner_in()
+    return True
+    # return room.is_owner_in()
 
 
 def notice_owner_must_in(room):
