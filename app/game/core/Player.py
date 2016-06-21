@@ -27,42 +27,6 @@ class Player(object):
 
         self._last_change_point = 0         # 上一次变化积分
 
-    def _get_player_save_base_data(self):
-        return {
-            'account_id': self._account_id,
-            'room_id': self._room_id,
-            'position': self._position,
-            'name': self._name,
-            'head_frame': self._head_frame,
-            'head_icon': self._head_icon,
-            'sex': self._sex,
-            'point': self._point,
-            'status': self._status,
-            'cards': self._cards,
-            'statistic_point': self._statistic_point,
-            'statistic_win_count': self._statistic_win_count,
-            'statistic_lose_count': self._statistic_lose_count,
-            'statistic_max_point': self._statistic_max_point,
-        }
-
-    def _parse_player_base_data(self, base_data):
-        if not base_data:
-            return
-        self._account_id = int(base_data['account_id'])
-        self._room_id = int(base_data['room_id'])
-        self._position = int(base_data['position'])
-        self._name = base_data['name']
-        self._head_frame = base_data['head_frame']
-        self._head_icon = base_data['head_icon']
-        self._sex = int(base_data['sex'])
-        self._point = int(base_data['point'])
-        self._status = int(base_data['status'])
-        self._cards = base_data['cards']
-        self._statistic_point = base_data['statistic_point']
-        self._statistic_win_count = base_data['statistic_win_count']
-        self._statistic_lose_count = base_data['statistic_lose_count']
-        self._statistic_max_point = base_data['statistic_max_point']
-
     @property
     def account_id(self):
         return self._account_id

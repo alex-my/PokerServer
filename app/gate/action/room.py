@@ -106,7 +106,7 @@ def _create_room(account_id, room_type, room_help, rounds):
         'rounds': rounds,
         'create_time': t,
         'account_id': account_id,
-        'data': func.pack_data([])
+        'data': func.transform_object_to_pickle(None)
     }
     result = dbexecute.insert_record(**{'table': dbname.DB_ROOM, 'data': insert_data})
     if result > 0:

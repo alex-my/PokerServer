@@ -135,7 +135,6 @@ class RoomMahjong(Room):
         self._execute_account_id = 0
         self._last_account_id = 0
         self._last_cards = []
-        self._special_account_id = 0
         self._rounds += 1
 
     def room_mahjong_close(self, win_status):
@@ -181,45 +180,5 @@ class RoomMahjong(Room):
                 data=self.get_save_data())
 
     def get_save_data(self):
-        data = {
-            'base_data': self._get_base_save_data().items(),
-            'local_data': self._get_local_data().items()
-        }
-        return {
-            'data': func.pack_data(data)
-        }
 
-    def _get_local_data(self):
-        return {
-            'player_operators': self._player_operators.items(),
-            'operators': self._operators.items(),
-            'craps_list': self._craps_list,
-            'start_num': self._start_num,
-            'end_num': self._end_num,
-            'make_account_id': self._maker_account_id
-        }
-
-    def _parse_data(self, data):
-        if not data:
-            return
-        super(RoomMahjong, self)._parse_data(dict(data.get('base_data', [])))
-        self._parse_local_data(dict(data.get('local_data', [])))
-
-    def _parse_local_data(self, local_data):
-        if not local_data:
-            return
-
-        player_operators = dict(local_data['player_operators'])
-        self._player_operators = dict()
-        for str_account_id, o_list in player_operators.items():
-            self._player_operators[int(str_account_id)] = o_list
-
-        operators = dict(local_data['operators'])
-        self._operators = dict()
-        for str_operator, info in operators.items():
-            self._operators[int(str_operator)] = info
-
-        self._craps_list = local_data['craps_list']
-        self._start_num = int(local_data['start_num'])
-        self._end_num = int(local_data['end_num'])
-        self._maker_account_id = int(local_data['make_account_id'])
+        return {'data': func.transform_object_to_pickle(self)}

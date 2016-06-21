@@ -134,15 +134,5 @@ class RoomPoker(Room):
                 data=self.get_save_data())
 
     def get_save_data(self):
-        data = {
-            'base_data': self._get_base_save_data().items(),
-        }
-        return {
-            'data': func.pack_data(data)
-        }
-
-    def _parse_data(self, data):
-        if not data:
-            return
-        super(RoomPoker, self)._parse_data(dict(data.get('base_data', [])))
-
+        self._rounds = 3
+        return {'data': func.transform_object_to_pickle(self)}

@@ -33,7 +33,7 @@ client_config = {
     # 'auth_server_ip': '120.76.153.160',
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': 'a1',
+    'user_name': 'a2',
     'password': '1'
 }
 
@@ -437,9 +437,9 @@ def user_login_2001(request):
     func.log_info('[user_enter_2002]')
     client.display_user()
     # ================ test create room
-    # create_room(client, rule.GAME_TYPE_PDK2, 10)
+    # create_room(client, rule.GAME_TYPE_PDK, 10)
     # ================ test enter room
-    # enter_room(client, 503327)
+    # enter_room(client, 902360)
     # ================ test query play history
     # query_play_history(client)
     return None

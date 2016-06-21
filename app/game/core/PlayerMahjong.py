@@ -70,24 +70,12 @@ class PlayerMahjong(Player):
         self._kong_list = []
         self._chow_list = []
 
-    def get_player_save_data(self):
-        return {
-            'base_data': super(PlayerMahjong, self)._get_player_save_base_data().items(),
-            'local_data': self._get_player_save_local_data().items()
-        }
-
     def _get_player_save_local_data(self):
         return {
             'pong_list': self._pong_list,
             'kong_list': self._kong_list,
             'chow_list': self._chow_list
         }
-
-    def parse_player_data(self, data):
-        if not data:
-            return
-        super(PlayerMahjong, self)._parse_player_base_data(dict(data.get('base_data', [])))
-        self._parse_player_local_data(dict(data.get('local_data', [])))
 
     def _parse_player_local_data(self, local_data):
         if not local_data:

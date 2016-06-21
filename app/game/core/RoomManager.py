@@ -64,6 +64,9 @@ class RoomManager:
             room = self._create_room(result.get('room_type'))
             if room:
                 room.init(result)
+                room_data = room.room_data
+                if room_data:
+                    room = room_data
                 self.add_room(room)
             return room
         else:
