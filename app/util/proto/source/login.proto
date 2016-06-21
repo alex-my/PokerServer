@@ -75,6 +75,7 @@ message p_user_info {
     optional uint32 point = 8;          // 总积分
     optional uint32 room_id = 9;        // 之前的房间ID, 如果之前是手动退出房间, 则此处为0
     optional uint32 room_type = 10;      // 之前的房间类型, 如果之前是手动退出房间, 则此处为0
+    optional uint32 proxy_id = 11;      // 上级代理ID
 }
 
 message p_room_info {
@@ -100,4 +101,11 @@ message p_recharge_info {
     required uint32 ingot = 2;              // 获取的代币数量
 }
 
+// 绑定代理
+message m_2002_tos {
+    required uint32 proxy_id = 1;    // 代理账号ID
+}
 
+message m_2002_toc {
+    required uint32 proxy_id = 1;   // 代理账号ID
+}

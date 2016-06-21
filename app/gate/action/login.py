@@ -1,9 +1,9 @@
 # coding:utf8
 from app.gate.core.UserManager import UserManager
 from app.gate.core.User import User
-from app.gate.action import send
+from app.gate.action import send, change
 from app.util.common import func
-from app.util.defines import content, dbname
+from app.util.defines import content, dbname, origins
 from app.util.driver import dbexecute
 
 
@@ -69,3 +69,24 @@ def load_play_history(user):
             'data': func.transform_object_to_pickle(dict())
         }
         dbexecute.insert_update_record(**{'table': dbname.DB_HISTORY, 'data': insert_data})
+
+
+def bind_proxy(dynamic_id, proxy_id):
+    if not proxy_id:
+        send.system_notice(dynamic_id, content.PROXY_ID_LACK)
+        return
+    sql = 'select account_id from {} where account_id = {}'.format(dbname.DB_ACCOUNT, proxy_id)
+    if not dbexecute.query_one(sql):
+        send.system_notice(dynamic_id, content.PROXY_ID_ERROR)
+        return
+    user = UserManager().get_user_by_dynamic(dynamic_id)
+    if not user:
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
+        return
+    if user.proxy_id > 0:
+        send.system_notice(dynamic_id, content.PROXY_ID_EXIST)
+        return
+    user.proxy_id = proxy_id
+    change.award_gold(user, 1000, origins.ORIGIN_PROXY_ACTIVE)
+    func.log_info('[gate] bind_proxy account_id: {} bind proxy_id: {}'.format(user.account_id, proxy_id))
+

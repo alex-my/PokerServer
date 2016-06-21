@@ -112,6 +112,7 @@ def login_success(dynamic_id, user):
     user_info.point = 0
     user_info.room_id = user.room_id
     user_info.room_type = user.room_type
+    user_info.proxy_id = user.proxy_id
     # 房间信息
     user_rooms = RoomProxyManager().get_user_rooms(user.account_id)
     rules = RoomProxyManager().get_all_rules()

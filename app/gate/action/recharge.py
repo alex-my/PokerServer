@@ -18,11 +18,11 @@ def test_wechat_prepay_id(money, proxy_id, ip='127.0.0.1'):
     pay.re_finall()
 
 
-def get_wechat_prepay_info(dynamic_id, money, proxy_id):
+def get_wechat_prepay_info(dynamic_id, money):
     func.log_info('[gate] get_wechat_prepay_info money: {}, proxy_id: {}'.format(money, proxy_id))
-    if not proxy_id:
-        send.system_notice(dynamic_id, content.RECHARGE_PROXY_ID_NEED)
-        return
+    # if not proxy_id:
+    #     send.system_notice(dynamic_id, content.RECHARGE_PROXY_ID_NEED)
+    #     return
     if not money or not isinstance(money, int):
         send.system_notice(dynamic_id, content.RECHARGE_MONEY_IS_NEED)
         return
@@ -33,8 +33,10 @@ def get_wechat_prepay_info(dynamic_id, money, proxy_id):
     if not user:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
-    # Alex
-    money = 1
+    if not user.proxy_id:
+        send.system_notice(dynamic_id, content.RECHARGE_PROXY_ID_NEED)
+        return
+    proxy_id = user.proxy_id
     pay = recharge_wechat.WechatPay()
     pay.init(
             nonce_str=func.random_string_r(16, 30),

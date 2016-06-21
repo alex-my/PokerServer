@@ -14,5 +14,5 @@ def get_wechat_prepay_info_9101(dynamic_id, proto):
     """
     argument = recharge_pb2.m_9101_tos()
     argument.ParseFromString(proto)
-    recharge.get_wechat_prepay_info(dynamic_id, argument.money, argument.proxy_id)
+    recharge.get_wechat_prepay_info(dynamic_id, argument.money)
     return None

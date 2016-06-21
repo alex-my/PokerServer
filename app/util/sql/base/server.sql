@@ -22,7 +22,7 @@ CREATE TABLE `account` (
   `gold` int(10) DEFAULT '0' COMMENT '元宝',
   `proxy_id` int(10) DEFAULT '0' COMMENT '上级ID',
   `month` int(10) DEFAULT '0' COMMENT '本月月份',
-  `month_rechange` int(10) DEFAULT '0' COMMENT '当月充值',
+  `month_recharge` int(10) DEFAULT '0' COMMENT '当月充值',
   `all_recharge` int(10) DEFAULT '0' COMMENT '总充值',
   `poker_point` int(10) DEFAULT '0' COMMENT '扑克总积分',
   `mahjong_point` int(10) DEFAULT '0' COMMENT '麻将总积分',

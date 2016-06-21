@@ -31,10 +31,10 @@ if os.name != 'nt' and os.name != 'posix':
 
 
 client_config = {
-    'auth_server_ip': '120.76.153.160',
-    # 'auth_server_ip': '127.0.0.1',
+    # 'auth_server_ip': '120.76.153.160',
+    'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': str('Yiun'),
+    'user_name': str('Y222'),
     'password': '1'
 }
 
@@ -443,7 +443,22 @@ def user_login_2001(request):
     # enter_room(client, 902360)
     # ================ test query play history
     # query_play_history(client)
+    # ================ bind proxy
+    # bind_proxy(client, 380001)
     return None
+
+
+# 邀请码 2002
+def bind_proxy(client, proxy_id):
+    func.log_info('[bind_proxy] user_id: {}'.format(client.account_id))
+    response = login_pb2.m_2002_tos()
+    response.proxy_id = proxy_id
+    client.push_object(2002, response.SerializeToString())
+
+
+@client_service_handle
+def user_login_2002(request):
+    func.log_info('[user_login_2002]')
 
 
 # 创建房间

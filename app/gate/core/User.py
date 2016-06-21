@@ -18,6 +18,10 @@ class User(object):
         self._room_id = 0
         self._room_type = 0
         self._gold = 0
+        self._proxy_id = 0
+        self._month = 0
+        self._month_recharge = 0
+        self._all_recharge = 0
         self._point = 0         # 废弃
         self._poker_point = 0   # 扑克积分
         self._mahjong_point = 0     # 麻将积分
@@ -47,7 +51,11 @@ class User(object):
         self._sex = data.get('sex')
         self._room_id = data.get('room_id', 0)
         self._room_type = data.get('room_type', 0)
-        self._gold = data.get('gold')
+        self._gold = data.get('gold', 0)
+        self._proxy_id = data.get('proxy_id', 0)
+        self._month = data.get('month', 0)
+        self._month_recharge = data.get('month_recharge', 0)
+        self._all_recharge = data.get('all_recharge', 0)
         self._poker_point = data.get('poker_point', 0)
         self._mahjong_point = data.get('mahjong_point', 0)
         return True
@@ -127,6 +135,35 @@ class User(object):
     @property
     def gold(self):
         return self._gold
+
+    @property
+    def proxy_id(self):
+        return self._proxy_id
+
+    @proxy_id.setter
+    def proxy_id(self, _proxy_id):
+        self._proxy_id = _proxy_id
+
+    @property
+    def month(self):
+        return self._month
+
+    @month.setter
+    def month(self, _month):
+        self._month = _month
+
+    @property
+    def month_recharge(self):
+        return self._month_recharge
+
+    @month_recharge.setter
+    def month_recharge(self, _value):
+        self._month_recharge += _value
+        self._all_recharge += _value
+
+    @property
+    def all_recharge(self):
+        return self._all_recharge
 
     @property
     def point(self):
@@ -239,6 +276,10 @@ class User(object):
             'room_id': self._room_id,
             'room_type': self._room_type,
             'gold': self._gold,
+            'proxy_id': self._proxy_id,
+            'month': self._month,
+            'month_recharge': self._month_recharge,
+            'all_recharge': self._all_recharge,
             'poker_point': self._poker_point,
             'mahjong_point': self._mahjong_point
         }
