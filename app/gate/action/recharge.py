@@ -91,7 +91,7 @@ def wechat_recharge_success(notice_content):
         save_order_to_db(pay, recharge_gold, origins.ORIGIN_RECHARGE_WECHAT)
         change.award_gold(user, recharge_gold, origins.ORIGIN_RECHARGE_MONEY)
         # statistic
-        recharge_statistic_online(user, money)
+        # recharge_statistic_online(user, money)
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} SUCCESS'.format(
             account_id, money
         ))

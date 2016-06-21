@@ -24,7 +24,7 @@ rule_configs = {
     },
     GAME_TYPE_ZZMJ: {
         'room_price': {
-            10: 0,
+            2: 0,
             20: 0,
             30: 0
         },
