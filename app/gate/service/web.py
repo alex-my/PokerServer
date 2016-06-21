@@ -15,7 +15,7 @@ def webapp_handle(cls):
 @webapp_handle
 class Information(resource.Resource):
     """
-    管理后台对infomation表的操作
+    管理后台对infomation表的操作 http://127.0.0.1:11861/Information?id=1
     """
     def render(self, request):
         info_id = int(request.args.get('id')[0])
@@ -25,9 +25,9 @@ class Information(resource.Resource):
 
 
 @webapp_handle
-class ServerInfomation(resource.Resource):
+class ServerInformation(resource.Resource):
     """
-    输出服务器信息  http://127.0.0.1:11861/ServerInfomation
+    输出服务器信息  http://127.0.0.1:11861/ServerInformation
     """
     def render(self, request):
         func.log_info('[gate] ServerInfomation')

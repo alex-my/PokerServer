@@ -1,5 +1,4 @@
 # coding:utf8
-from firefly.dbentrust.dbutils import safestr
 from app.gate.core.UserManager import UserManager
 from app.gate.action import send
 from app.util.common.config import Config, i
@@ -29,7 +28,6 @@ def _information_marquee():
     content = i(informations.INFOMATION_TYPE_MARQUEE)
     if not content:
         return
-    func.log_info('[gate] _information_marquee: {}'.format(safestr(content)))
     send.marquee_to_all(content)
 
 
