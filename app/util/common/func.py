@@ -151,6 +151,10 @@ def time_get(flag=TIME_TYPE_SEC):
     return result
 
 
+def month_now():
+    return int(time.strftime('%m', time.localtime(time.time())))
+
+
 def stamp_to_time(s):
     """
     将字符串转为时间格式

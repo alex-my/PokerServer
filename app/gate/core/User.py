@@ -159,11 +159,14 @@ class User(object):
     @month_recharge.setter
     def month_recharge(self, _value):
         self._month_recharge += _value
-        self._all_recharge += _value
 
     @property
     def all_recharge(self):
         return self._all_recharge
+
+    @all_recharge.setter
+    def all_recharge(self, _value):
+        self._all_recharge += _value
 
     @property
     def point(self):

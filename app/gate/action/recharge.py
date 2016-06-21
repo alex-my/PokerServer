@@ -19,7 +19,7 @@ def test_wechat_prepay_id(money, proxy_id, ip='127.0.0.1'):
 
 
 def get_wechat_prepay_info(dynamic_id, money):
-    func.log_info('[gate] get_wechat_prepay_info money: {}, proxy_id: {}'.format(money, proxy_id))
+    func.log_info('[gate] get_wechat_prepay_info money: {}, proxy_id: {}'.format(money))
     # if not proxy_id:
     #     send.system_notice(dynamic_id, content.RECHARGE_PROXY_ID_NEED)
     #     return
@@ -29,6 +29,8 @@ def get_wechat_prepay_info(dynamic_id, money):
     if money >= 10000000:     # 10W元
         send.system_notice(dynamic_id, content.RECHARGE_MONEY_TO_LARGE)
         return
+    # Alex
+    money = 1
     user = UserManager().get_user_by_dynamic(dynamic_id)
     if not user:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
@@ -88,6 +90,8 @@ def wechat_recharge_success(notice_content):
         recharge_gold = calc_money_to_gold(money)
         save_order_to_db(pay, recharge_gold, origins.ORIGIN_RECHARGE_WECHAT)
         change.award_gold(user, recharge_gold, origins.ORIGIN_RECHARGE_MONEY)
+        # statistic
+        recharge_statistic_online(user, money)
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} SUCCESS'.format(
             account_id, money
         ))
@@ -95,6 +99,55 @@ def wechat_recharge_success(notice_content):
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} FAILED'.format(
             account_id, money
         ))
+
+
+def recharge_statistic_online(user, money):
+    _month = func.month_now()
+    if _month != user.month:
+        user.month = _month
+        user.month_recharge = -user.month_recharge
+    user.month_recharge = money
+    user.all_recharge = money
+    if user.proxy_id > 0:
+        proxy_user = UserManager().get_user(user.proxy_id)
+        if proxy_user:
+            recharge_statistic_online(proxy_user, money)
+        else:
+            recharge_statistic_offline(user.proxy_id, money)
+
+
+def recharge_statistic_offline(account_id, money):
+    sql = 'select `proxy_id`, `month`, `month_recharge`, `all_recharge` from {} where account_id={}'.format(
+        dbname.DB_ACCOUNT, account_id
+    )
+    result = dbexecute.query_one(sql)
+    if not result:
+        return
+    proxy_id, month = result['proxy_id'], result['month']
+    month_recharge, all_recharge = result['month_recharge'], result['all_recharge']
+
+    _month = func.month_now()
+    if month != _month:
+        month_recharge = 0
+    month_recharge += money
+    all_recharge += money
+
+    dbexecute.update_record(
+            table=dbname.DB_ACCOUNT,
+            where={'account_id': account_id},
+            data={
+                'month': _month,
+                'month_recharge': month_recharge,
+                'all_recharge': all_recharge
+            })
+
+    if proxy_id > 0:
+        proxy_user = UserManager().get_user(proxy_id)
+        if proxy_user:
+            recharge_statistic_online(proxy_user, money)
+        else:
+            recharge_statistic_offline(proxy_id, money)
+
 
 
 def calc_money_to_gold(money):
