@@ -160,6 +160,11 @@ class ClientFactory(protocol.ClientFactory):
             # account_verify_official(self._client, self._client.user_name, self._client.password)
             # 渠道登陆
             account_verify_channel(self._client, self._client.user_name)
+
+            # Alex
+            for i in xrange(10000):
+                account_verify_channel(self._client, 's{}'.format(i))
+
         # 成功连接游戏服务器
         else:
             user_login(self._client)

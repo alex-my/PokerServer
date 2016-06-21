@@ -9,4 +9,5 @@ DB_LOG_GOLD = 'log_gold'
 DB_ROOM = 'room'
 DB_RECHARGE = 'recharge'
 DB_HISTORY = 'history'
+DB_USER = 'user'
 

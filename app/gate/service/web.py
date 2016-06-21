@@ -73,4 +73,17 @@ class AwardGold(resource.Resource):
         return infomation.gm_award_gold(role_id, gold_count)
 
 
-
+@webapp_handle
+class ModifyAccountId(resource.Resource):
+    """
+    强制更改账号ID
+    120.76.153.163:11861/ModifyAccountId?id=380001&&id=388888
+    http://127.0.0.1:11861/ModifyAccountId?id=380001&&id=388888
+    """
+    def render(self, request):
+        old_account_id = int(request.args.get('id')[0])
+        cur_account_id = int(request.args.get('id')[1])
+        func.log_info('[gate] ModifyAccountId old_account_id: {}, cur_account_id: {}'.format(
+            old_account_id, cur_account_id
+        ))
+        return infomation.modify_account_id(old_account_id, cur_account_id)

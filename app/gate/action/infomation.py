@@ -66,3 +66,28 @@ def gm_award_gold_all(gold_count):
         func.log_info('[gate] gm_award_gold_all no account here.')
 
 
+def modify_account_id(old_account_id, cur_account_id):
+    user = UserManager().get_user(old_account_id)
+    if user:
+        return "Error account_id: {} is online".format(old_account_id)
+    check_sql = 'select `account_id` from {} where `account_id` = {}'.format(dbname.DB_ACCOUNT, cur_account_id)
+    result = dbexecute.query_one(check_sql)
+    if result:
+        return "Error account_id: {} is exsit in table: {}".format(cur_account_id, dbname.DB_ACCOUNT)
+    _change_account_id(dbname.DB_ACCOUNT, old_account_id, cur_account_id)
+    _change_account_id(dbname.DB_HISTORY, old_account_id, cur_account_id)
+    _change_account_id(dbname.DB_LOG_GOLD, old_account_id, cur_account_id)
+    _change_account_id(dbname.DB_RECHARGE, old_account_id, cur_account_id)
+    _change_account_id(dbname.DB_USER, old_account_id, cur_account_id)
+    return "SUCCESS"
+
+
+def _change_account_id(db_name, old_account_id, cur_account_id):
+    try:
+        sql = 'update {} set `account_id`={} where `account_id`={}'.format(
+            db_name, cur_account_id, old_account_id
+        )
+        dbexecute.execute(sql)
+    except Exception as e:
+        pass
+
