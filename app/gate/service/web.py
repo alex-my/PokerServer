@@ -60,3 +60,17 @@ class RechargeWechatTest(resource.Resource):
         return "SUCCESS"
 
 
+@webapp_handle
+class AwardGold(resource.Resource):
+    """
+    直接充值金币
+    120.76.153.163:11861/AwardGold?id=X&&gold=Y
+    127.0.0.1:11861/AwardGold?id=X&&gold=Y
+    """
+    def render(self, request):
+        role_id = int(request.args.get('id')[0])
+        gold_count = int(request.args.get('gold')[0])
+        return infomation.gm_award_gold(role_id, gold_count)
+
+
+

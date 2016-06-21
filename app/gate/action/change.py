@@ -2,7 +2,8 @@
 from app.gate.core.UserManager import UserManager
 from app.gate.action import log_record, send
 from app.util.common import func
-from app.util.defines import changes
+from app.util.defines import changes, dbname
+from app.util.driver import dbexecute
 
 
 def award_gold(user, count, origin):
@@ -33,6 +34,18 @@ def award_gold_by_account(account_id, count, origin):
     user = UserManager().get_user(account_id)
     if user:
         award_gold(user, count, origin)
+    else:
+        try:
+            sql = 'update {} set gold = gold + {} where account_id = {}'.format(
+                    dbname.DB_ACCOUNT, int(count), account_id)
+            dbexecute.execute(sql)
+            func.log_info('[gate] award_gold_by_account account_id: {}, add gold: {}, origin: {} offline'.format(
+                account_id, count, origin
+            ))
+        except Exception as e:
+            func.log_error('[gate] award_gold_by_account account_id: {}, count: {}, origin: {}, failed: {}'.format(
+                account_id, count, origin, e.message
+            ))
 
 
 def spend_gold_by_account(account_id, count, origin):

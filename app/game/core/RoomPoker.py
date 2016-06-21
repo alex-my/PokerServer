@@ -2,7 +2,7 @@
 from app.game.core.Room import Room
 from app.game.action import change
 from app.util.common import func
-from app.util.defines import dbname, status, games
+from app.util.defines import dbname, status, games, origins
 from app.util.driver import dbexecute
 
 
@@ -100,7 +100,7 @@ class RoomPoker(Room):
                     change_point = 0
                 _player.lose_count = 1
                 if self.is_online_match():
-                    change.spend_gold(_account_id, -change_point, 1)
+                    change.spend_gold(_account_id, -change_point, origins.ORIGIN_ONLINE_MATCH)
                 else:
                     _player.point_change(change_point)
             else:
@@ -114,7 +114,7 @@ class RoomPoker(Room):
             }
         if win_player and win_point > 0:
             if self.is_online_match():
-                change.award_gold(_account_id, win_point, 1)
+                change.award_gold(win_player.account_id, win_point, origins.ORIGIN_ONLINE_MATCH)
             else:
                 win_player.point_change(win_point)
             info = all_player_info[win_player.account_id]

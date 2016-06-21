@@ -33,7 +33,7 @@ client_config = {
     # 'auth_server_ip': '120.76.153.160',
     'auth_server_ip': '127.0.0.1',
     'auth_server_port': 11831,
-    'user_name': 'Alex',
+    'user_name': 'Alex2',
     'password': '1'
 }
 
@@ -441,7 +441,7 @@ def user_login_2001(request):
     # ================ test enter room
     # enter_room(client, 503327)
     # ================ test query play history
-    query_play_history(client)
+    # query_play_history(client)
     return None
 
 
