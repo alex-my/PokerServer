@@ -155,7 +155,7 @@ def _register_process(user_name, password, name, uuid, channel_id, sex, head_fra
         'sex': sex,
         'head_frame': head_frame,
         'head_icon': head_icon,
-        'gold': 2000
+        'gold': 20000
     }
     if dbexecute.insert_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data}) > 0:
         return account_id

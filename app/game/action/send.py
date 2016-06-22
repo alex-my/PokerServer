@@ -340,10 +340,10 @@ def send_mahjong_room_full(dynamic_id_list, statistic_list):
         room_fulls.rank = info['rank']
         room_fulls.point_change = info['point_change']
         room_fulls.max_point = info['max_point']
-        room_fulls.max_point = info['drawn_count']
+        room_fulls.drawn_count = info['drawn_count']
         room_fulls.win_count = info['win_count']
         room_fulls.lose_count = info['lose_count']
-        room_fulls.lose_count = info['help_count']
+        room_fulls.help_count = info['help_count']
     func.log_info('[game] 5207 send_mahjong_room_full dynamic_id_list: {}, response: {}'.format(
          dynamic_id_list, response
     ))

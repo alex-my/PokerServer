@@ -64,7 +64,7 @@ class RechargeWechatTest(resource.Resource):
 class AwardGold(resource.Resource):
     """
     直接充值金币
-    120.76.153.163:11861/AwardGold?id=X&&gold=Y
+    120.76.153.160:11861/AwardGold?id=X&&gold=Y
     127.0.0.1:11861/AwardGold?id=X&&gold=Y
     """
     def render(self, request):
@@ -77,7 +77,7 @@ class AwardGold(resource.Resource):
 class ModifyAccountId(resource.Resource):
     """
     强制更改账号ID
-    120.76.153.163:11861/ModifyAccountId?id=380001&&id=388888
+    120.76.153.160:11861/ModifyAccountId?id=380001&&id=388888
     http://127.0.0.1:11861/ModifyAccountId?id=380001&&id=388888
     """
     def render(self, request):
