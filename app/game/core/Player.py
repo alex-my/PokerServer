@@ -27,6 +27,25 @@ class Player(object):
 
         self._last_change_point = 0         # 上一次变化积分
 
+        self._short_message_t = 0
+        self._voice_message_t = 0
+
+    @property
+    def short_message_t(self):
+        return self._short_message_t
+
+    @short_message_t.setter
+    def short_message_t(self, _t):
+        self._short_message_t = _t
+
+    @property
+    def voice_message_t(self):
+        return self._voice_message_t
+
+    @voice_message_t.setter
+    def voice_message_t(self, _t):
+        self._voice_message_t = _t
+
     @property
     def account_id(self):
         return self._account_id

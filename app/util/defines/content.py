@@ -52,6 +52,7 @@ ROOM_CLOSE_OWNER = u'房主必须同意才允许解散房间'
 ROOM_CLOSE_NOW = u'一半以上玩家同意解散房间'
 ROOM_UN_FIND_ROUNDS = u'没有进行{}局的房间'
 ROOM_UN_CLOSE_ONLINE_MATCH = u'在线匹配房间直接退出即可'
+ROOM_CHAT_TO_FREQUENT = u'使用的太频繁了'
 
 PLAY_UN_TURN = u'尚未轮到你'
 PLAY_CARD_UN_VALID = u'不符合出牌规则'

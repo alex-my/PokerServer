@@ -79,6 +79,17 @@ def room_short_message(dynamic_id, message):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return
+    player = room.get_player(account_id)
+    if not player:
+        func.log_error('[game] room_short_message player is unvalid, account_id: {}, room_id: {}'.format(
+                account_id, room_id))
+        send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
+        return
+    t = func.time_get()
+    if t - player.short_message_t < 4:
+        send.system_notice(dynamic_id, content.ROOM_CHAT_TO_FREQUENT)
+        return
+    player.short_message_t = t
     send.short_message_to_self(dynamic_id, message)
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.short_message_to_all(dynamic_id_list, account_id, message)
@@ -98,6 +109,17 @@ def room_voice_message(dynamic_id, voice_url):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return
+    player = room.get_player(account_id)
+    if not player:
+        func.log_error('[game] room_voice_message player is unvalid, account_id: {}, room_id: {}'.format(
+                account_id, room_id))
+        send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
+        return
+    t = func.time_get()
+    if t - player.voice_message_t < 4:
+        send.system_notice(dynamic_id, content.ROOM_CHAT_TO_FREQUENT)
+        return
+    player.voice_message_t = t
     send.voice_message_to_self(dynamic_id, voice_url)
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.voice_message_to_all(dynamic_id_list, account_id, voice_url)
