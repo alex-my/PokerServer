@@ -68,11 +68,11 @@ def user_leave(dynamic_id, operate):
     room = room_manager.get_room(room_id)
     if not room:
         return False
+    notice_all_room_user_operator(room, account_id, operate)
     player = room.get_player(account_id)
     if player:
         player.status = operators.USER_OPERATOR_OFFLINE
     room.drop_player(account_id)
-    notice_all_room_user_operator(room, account_id, operate)
     return True
 
 
@@ -137,6 +137,7 @@ def user_switch_over(dynamic_id):
 
 def notice_all_room_user_operator(room, account_id, operator):
     dynamic_id_list = room.get_room_dynamic_id_list()
+    print 'Alex notice_all_room_user_operator dynamic_id_list: ', dynamic_id_list
     send.dispatch_user_operator(account_id, operator, dynamic_id_list)
 
 

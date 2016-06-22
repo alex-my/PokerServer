@@ -16,7 +16,7 @@ class Player(object):
         self._head_icon = kwargs.get('head_icon', '')
         self._sex = kwargs.get('sex', 0)
         self._ip = kwargs.get('ip', '')
-        self._point = kwargs.get('point', 0)      # 总分
+        self._point = 0   # kwargs.get('point', 0)      # 总分
         self._status = 0
         self._cards = dict()                # {card: flag, ...}, flag: True 已经打出, False: 未打出
 
