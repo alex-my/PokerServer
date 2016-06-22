@@ -81,7 +81,7 @@ def system_changes_string(changes):
 def recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info):
     response = recharge_pb2.m_9101_toc()
     response.money = money
-    response.proxy_id = proxy_id
+    response.proxy_id = str(proxy_id)
     response.appid = prepay_info['appid']
     response.mch_id = prepay_info['mch_id']
     response.prepay_id = prepay_info['prepay_id']
