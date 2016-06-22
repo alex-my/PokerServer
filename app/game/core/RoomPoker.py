@@ -36,7 +36,13 @@ class RoomPoker(Room):
         return {}, {}
 
     def get_original_execute(self):
-        return self._pre_win_account_id if self._pre_win_account_id > 0 else self._ready_list[0]
+        if self._pre_win_account_id == 0:
+            # HeiTao3
+            for player in self._players.values():
+                if 1 in player.card_list:
+                    self._pre_win_account_id = player.account_id
+                    break
+        return self._pre_win_account_id
 
     def get_room_data(self, account_id):
         user_list = []
