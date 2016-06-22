@@ -187,8 +187,11 @@ def dispatch_poker_to_room(room):
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
     execute_account_id = room.get_original_execute()
     room.execute_account_id = execute_account_id
-    for player in room.players:
-        send.player_dispatch_cards(execute_account_id, player)
+    ready_list = room.room_ready_list
+    for account_id in ready_list:
+        player = room.get_player(account_id)
+        if player:
+            send.player_dispatch_cards(execute_account_id, player)
 
 
 def dispatch_mahjong_to_room(room):
@@ -210,7 +213,9 @@ def dispatch_mahjong_to_room(room):
         'mahjong_start_num': room.mahjong_start,
         'mahjong_end_num': room.mahjong_end
     }
-    for player in room.players:
+    ready_list = room.room_ready_list
+    for account_id in ready_list:
+        player = room.get_player(account_id)
         send.send_mahjong_craps(player.dynamic_id, **mahjong_craps)
         send.player_dispatch_cards(execute_account_id, player)
         if player.account_id == execute_account_id:

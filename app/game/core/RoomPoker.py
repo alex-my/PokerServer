@@ -105,10 +105,9 @@ class RoomPoker(Room):
                 else:
                     change_point = 0
                 _player.lose_count = 1
+                _player.point_change(change_point)
                 if self.is_online_match():
                     change.spend_gold(_account_id, -change_point, origins.ORIGIN_ONLINE_MATCH)
-                else:
-                    _player.point_change(change_point)
             else:
                 win_player = _player
                 _player.win_count = 1
@@ -119,10 +118,9 @@ class RoomPoker(Room):
                 'change_point': change_point
             }
         if win_player and win_point > 0:
+            win_player.point_change(win_point)
             if self.is_online_match():
                 change.award_gold(win_player.account_id, win_point, origins.ORIGIN_ONLINE_MATCH)
-            else:
-                win_player.point_change(win_point)
             info = all_player_info[win_player.account_id]
             info['change_point'] = win_point
 
