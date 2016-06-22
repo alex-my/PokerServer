@@ -146,13 +146,13 @@ def mahjong_publish(dynamic_id, card_id):
 
 def mahjong_operator(dynamic_id, player_operator, cards):
     card_list = [card_id for card_id in cards]
-    func.log_info('[game] mahjong_operator player_operator: {}, card_list: {}'.format(
-        player_operator, card_list
-    ))
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
         return
+    func.log_info('[game] mahjong_operator account_id: {}, player_operator: {}, card_list: {}'.format(
+            account_id, player_operator, card_list
+    ))
     room_manager = RoomManager()
     room_id = room_manager.query_player_room_id(account_id)
     if not room_id:
@@ -195,9 +195,15 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     elif player_operator == games.MAH_OPERATOR_CHOW:
         raise
     elif player_operator == games.MAH_OPERATOR_PONG:
-        mahjong_operator_pong(room, player, card_list, last_card_id)
+        if not check_mahjong_pong_valid(card_list):
+            send.system_notice(dynamic_id, content.PLAY_MAHJONG_PONG_UNVALID.format(card_list))
+            return
+        mahjong_operator_pong(room, player, card_list)
     elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
-        mahjong_operator_kong(room, player, card_list, last_card_id, player_operator)
+        if not check_mahjong_kong_valid(card_list):
+            send.system_notice(dynamic_id, content.PLAY_MAHJONG_KONG_UNVALID.format(card_list))
+            return
+        mahjong_operator_kong(room, player, card_list, player_operator)
 
 
 def select_mahjong_operator_account_id(operators, execute_account_id, execute_position):
@@ -296,11 +302,17 @@ def check_mahjong_light_kong(card_id, card_list):
 def check_mahjong_pong_kong(card_id, all_pong_list):
     cur_list = games.MAH_CONFIG[card_id]['cur_list']
     pong_kong_able = False
-    check_cur_list = [_id for _id in cur_list if _id != card_id]
     for pong_list in all_pong_list:
-        if pong_list == check_cur_list:
+        all_in = True
+        for _card_id in pong_list:
+            if _card_id not in cur_list:
+                all_in = False
+                break
+        if all_in:
             pong_kong_able = True
             break
+    func.log_info('[game] check_mahjong_pong_kong card_id: {}, all_pong_list: {}, pong_kong_able: {}'.format(
+            card_id, all_pong_list, pong_kong_able))
     return pong_kong_able
 
 
@@ -423,7 +435,18 @@ def mahjong_operator_win(room, player, last_card_id, player_operator):
     mahjong_close(room, room.win_account_id, last_card_id, player_operator)
 
 
-def mahjong_operator_pong(room, player, card_list, last_card_id):
+def check_mahjong_pong_valid(card_list):
+    if not card_list or len(card_list) != 3:
+        return False
+    card_id = card_list[0]
+    cur_list = games.MAH_CONFIG[card_id]['cur_list']
+    for _card_id in card_list:
+        if _card_id not in cur_list:
+            return False
+    return True
+
+
+def mahjong_operator_pong(room, player, card_list):
     dynamic_id_list = room.get_room_dynamic_id_list()
     player.pong_list = card_list
     player.card_publish_list(card_list)
@@ -433,7 +456,18 @@ def mahjong_operator_pong(room, player, card_list, last_card_id):
     del room.operators
 
 
-def mahjong_operator_kong(room, player, card_list, last_card_id, player_operator):
+def check_mahjong_kong_valid(card_list):
+    if not card_list or len(card_list) != 4:
+        return False
+    card_id = card_list[0]
+    cur_list = games.MAH_CONFIG[card_id]['cur_list']
+    for _card_id in cur_list:
+        if _card_id not in card_list:
+            return False
+    return True
+
+
+def mahjong_operator_kong(room, player, card_list, player_operator):
     dynamic_id_list = room.get_room_dynamic_id_list()
     player.kong_list = card_list
     player.card_publish_list(card_list)
