@@ -9,7 +9,7 @@ from app.util.defines import informations
 class MarqueeTimer(ITimer):
 
     def do(self):
-        self.start(5 * 60)
+        self.start(30 * 60)
 
         func.log_info('[gate] MarqueeTimer do')
         content = i(informations.INFOMATION_TYPE_MARQUEE)
