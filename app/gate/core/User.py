@@ -22,6 +22,8 @@ class User(object):
         self._month = 0
         self._month_recharge = 0
         self._all_recharge = 0
+        self._month_proxy_recharge = 0
+        self._all_proxy_recharge = 0
         self._point = 0         # 废弃
         self._poker_point = 0   # 扑克积分
         self._mahjong_point = 0     # 麻将积分
@@ -56,6 +58,9 @@ class User(object):
         self._month = data.get('month', 0)
         self._month_recharge = data.get('month_recharge', 0)
         self._all_recharge = data.get('all_recharge', 0)
+        self._month_proxy_recharge = data.get('month_proxy_recharge', 0)
+        self._all_proxy_recharge = data.get('all_proxy_recharge', 0)
+
         self._poker_point = data.get('poker_point', 0)
         self._mahjong_point = data.get('mahjong_point', 0)
         return True
@@ -167,6 +172,22 @@ class User(object):
     @all_recharge.setter
     def all_recharge(self, _value):
         self._all_recharge += _value
+
+    @property
+    def month_proxy_recharge(self):
+        return self._month_proxy_recharge
+
+    @month_proxy_recharge.setter
+    def month_proxy_recharge(self, _value):
+        self._month_proxy_recharge += _value
+
+    @property
+    def all_proxy_recharge(self):
+        return self._all_proxy_recharge
+
+    @all_proxy_recharge.setter
+    def all_proxy_recharge(self, _value):
+        self._all_proxy_recharge += _value
 
     @property
     def point(self):
@@ -283,6 +304,8 @@ class User(object):
             'month': self._month,
             'month_recharge': self._month_recharge,
             'all_recharge': self._all_recharge,
+            'month_proxy_recharge': self._month_proxy_recharge,
+            'all_proxy_recharge': self._all_proxy_recharge,
             'poker_point': self._poker_point,
             'mahjong_point': self._mahjong_point
         }

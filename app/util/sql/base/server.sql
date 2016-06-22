@@ -110,7 +110,7 @@ CREATE TABLE `infomation` (
 
 INSERT INTO `infomation` (`id`, `content`, `desc`)
 VALUES
-  (1, '我们现在推出的免费送金币活动到6月21日截止', '跑马灯'),
+  (1, '文明游戏,禁止赌博', '跑马灯'),
   (2, '充值请联系微信账号34192391', '联系方式');
 
 

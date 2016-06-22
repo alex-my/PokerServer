@@ -91,7 +91,8 @@ def wechat_recharge_success(notice_content):
         save_order_to_db(pay, recharge_gold, origins.ORIGIN_RECHARGE_WECHAT)
         change.award_gold(user, recharge_gold, origins.ORIGIN_RECHARGE_MONEY)
         # statistic
-        # recharge_statistic_online(user, money)
+        recharge_statistic_self(user, money)
+        recharge_statistic_proxy(user.proxy_id, money)
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} SUCCESS'.format(
             account_id, money
         ))
@@ -101,23 +102,38 @@ def wechat_recharge_success(notice_content):
         ))
 
 
-def recharge_statistic_online(user, money):
+def recharge_statistic_self(user, money):
     _month = func.month_now()
     if _month != user.month:
         user.month = _month
         user.month_recharge = -user.month_recharge
+        user.month_proxy_recharge -= user.month_proxy_recharge
     user.month_recharge = money
     user.all_recharge = money
-    if user.proxy_id > 0:
-        proxy_user = UserManager().get_user(user.proxy_id)
+
+
+def recharge_statistic_proxy(proxy_id, money):
+    if proxy_id > 0:
+        proxy_user = UserManager().get_user(proxy_id)
         if proxy_user:
-            recharge_statistic_online(proxy_user, money)
+            recharge_statistic_proxy_online(proxy_user, money)
         else:
-            recharge_statistic_offline(user.proxy_id, money)
+            recharge_statistic_proxy_offline(proxy_id, money)
 
 
-def recharge_statistic_offline(account_id, money):
-    sql = 'select `proxy_id`, `month`, `month_recharge`, `all_recharge` from {} where account_id={}'.format(
+def recharge_statistic_proxy_online(user, money):
+    _month = func.month_now()
+    if _month != user.month:
+        user.month = _month
+        user.month_recharge = -user.month_recharge
+        user.month_proxy_recharge -= user.month_proxy_recharge
+    user.month_proxy_recharge += money
+    user.all_proxy_recharge += money
+    recharge_statistic_proxy(user.proxy_id, money)
+
+
+def recharge_statistic_proxy_offline(account_id, money):
+    sql = 'select `proxy_id`, `month`, `month_recharge`, `all_recharge`, `month_proxy_recharge`, `all_proxy_recharge` from {} where account_id={}'.format(
         dbname.DB_ACCOUNT, account_id
     )
     result = dbexecute.query_one(sql)
@@ -125,29 +141,25 @@ def recharge_statistic_offline(account_id, money):
         return
     proxy_id, month = result['proxy_id'], result['month']
     month_recharge, all_recharge = result['month_recharge'], result['all_recharge']
+    month_proxy_recharge, all_proxy_recharge = result['month_proxy_recharge'], result['all_proxy_recharge']
 
     _month = func.month_now()
     if month != _month:
         month_recharge = 0
-    month_recharge += money
-    all_recharge += money
-
+        month_proxy_recharge = 0
+    month_proxy_recharge += money
+    all_proxy_recharge += money
     dbexecute.update_record(
             table=dbname.DB_ACCOUNT,
             where={'account_id': account_id},
             data={
                 'month': _month,
                 'month_recharge': month_recharge,
-                'all_recharge': all_recharge
+                'all_recharge': all_recharge,
+                'month_proxy_recharge': month_proxy_recharge,
+                'all_proxy_recharge': all_proxy_recharge
             })
-
-    if proxy_id > 0:
-        proxy_user = UserManager().get_user(proxy_id)
-        if proxy_user:
-            recharge_statistic_online(proxy_user, money)
-        else:
-            recharge_statistic_offline(proxy_id, money)
-
+    recharge_statistic_proxy(proxy_id, money)
 
 
 def calc_money_to_gold(money):
