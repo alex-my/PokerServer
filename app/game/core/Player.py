@@ -2,6 +2,7 @@
 """
 玩家
 """
+from app.util.defines import status
 
 
 class Player(object):
@@ -18,7 +19,7 @@ class Player(object):
         self._ip = kwargs.get('ip', '')
         self._point = 0                     # 在所属房间内的积分变化, 初始为0分
         self._status = 0                    # 玩家状态
-        self._status_ex = 0                 # 玩家额外状态(前台,后台)
+        self._status_ex = status.PLAYER_STATUS_FRONT                 # 玩家额外状态(前台,后台)
         self._cards = dict()                # {card: flag, ...}, flag: True 已经打出, False: 未打出
 
         self._statistic_point = 0           # 本轮积分变化
@@ -122,7 +123,7 @@ class Player(object):
 
     @property
     def status_ex(self):
-        raise Exception('[game] Player status_ex unable to call')
+        return self._status_ex
 
     @status_ex.setter
     def status_ex(self, _status):

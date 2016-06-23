@@ -222,7 +222,7 @@ class Room(object):
         return len(self._ready_list) >= self._config['player_count'] and not self._cards
 
     def is_all_in(self):
-        return len([_player for _player in self._players.values() if _player.status != status.PLAYER_STATUS_OFFLINE]) >= self._config['player_count']
+        return len([_player for _player in self._players.values() if (_player.status != status.PLAYER_STATUS_OFFLINE and _player.status_ex != status.PLAYER_STATUS_BACK)]) >= self._config['player_count']
 
     def is_owner_in(self):
         return self._account_id in self._player_list and self._account_id in self._ready_list
