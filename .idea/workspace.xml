@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/games.py" afterPath="$PROJECT_DIR$/app/util/defines/games.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/common/func.py" afterPath="$PROJECT_DIR$/app/util/common/func.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +37,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.47292864">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4589372">
-                  <caret line="221" column="14" selection-start-line="221" selection-start-column="14" selection-end-line="221" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="209" column="18" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="func.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/util/common/func.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.49621212">
+                  <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
                   <folding />
                 </state>
               </provider>
@@ -85,8 +94,8 @@
           <file leaf-file-name="games.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6695652">
-                  <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+                <state vertical-scroll-proportion="0.40435606">
+                  <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -147,7 +156,6 @@
         <option value="$PROJECT_DIR$/app/gate/action/login.py" />
         <option value="$PROJECT_DIR$/app/util/defines/constant.py" />
         <option value="$PROJECT_DIR$/app/gate/action/send.py" />
-        <option value="$PROJECT_DIR$/app/util/common/func.py" />
         <option value="$PROJECT_DIR$/app/gate/service/web.py" />
         <option value="$PROJECT_DIR$/app/auth/action/account.py" />
         <option value="$PROJECT_DIR$/app/game/action/send.py" />
@@ -165,6 +173,7 @@
         <option value="$PROJECT_DIR$/app/game/core/Room.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
         <option value="$PROJECT_DIR$/app/util/defines/games.py" />
+        <option value="$PROJECT_DIR$/app/util/common/func.py" />
       </list>
     </option>
   </component>
@@ -898,13 +907,7 @@
       <workItem from="1466563311835" duration="5224000" />
       <workItem from="1466568934296" duration="3177000" />
       <workItem from="1466577298093" duration="5678000" />
-      <workItem from="1466650988823" duration="2150000" />
-    </task>
-    <task id="LOCAL-00082" summary="1559">
-      <created>1466236798687</created>
-      <option name="number" value="00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1466236798687</updated>
+      <workItem from="1466650988823" duration="2226000" />
     </task>
     <task id="LOCAL-00083" summary="1559">
       <created>1466237021840</created>
@@ -1194,11 +1197,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466652716894</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="1139">
+      <created>1466653154033</created>
+      <option name="number" value="00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1466653154033</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207232000" />
+    <option name="totallyTimeSpent" value="207308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1219,10 +1228,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4058642" sideWeight="0.2621212" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19773585" sideWeight="0.475" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18188679" sideWeight="0.475" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22113207" sideWeight="0.5290698" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.121410996" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.121410996" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24603774" sideWeight="0.49169436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1284,7 +1293,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="play history" />
     <MESSAGE value="game point sync from game to gate." />
     <MESSAGE value="support poker monkey style." />
     <MESSAGE value="2118" />
@@ -1309,7 +1317,8 @@
     <MESSAGE value="recharge statistic." />
     <MESSAGE value="clear 1105" />
     <MESSAGE value="1131" />
-    <option name="LAST_COMMIT_MESSAGE" value="1131" />
+    <MESSAGE value="1139" />
+    <option name="LAST_COMMIT_MESSAGE" value="1139" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1431,14 +1440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="160" column="24" selection-start-line="160" selection-start-column="24" selection-end-line="160" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/common/func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.85">
-          <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1694,18 +1695,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="556" column="0" selection-start-line="556" selection-start-column="0" selection-end-line="556" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.40435606">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
+    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6695652">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="209" column="18" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/common/func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49621212">
+          <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
           <folding />
         </state>
       </provider>
