@@ -147,6 +147,8 @@ class Room(object):
         return self._rounds > 1 or len(self._cards) > 0
 
     def is_room_dispatch_able(self):
+        if self.room_type in rule.GAME_LIST_MAHJONG:
+            return True
         return self._execute_account_id == 0
 
     def is_online_match(self):

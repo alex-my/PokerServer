@@ -142,7 +142,7 @@ def mahjong_switch_over(dynamic_id, craps):
         send.system_notice(dynamic_id, content.PLAY_MAHJONG_UNVALID_CRAPS)
         return
     if user_switch_over(dynamic_id, crap_list=crap_list):
-        pass
+        send.mahjong_switch_over(dynamic_id)
 
 
 def user_switch_over(dynamic_id, **kwargs):
@@ -163,6 +163,7 @@ def user_switch_over(dynamic_id, **kwargs):
         if room.room_type in rule.GAME_LIST_POKER_PDK:
             dispatch_poker_to_room(room)
         elif room.room_type in rule.GAME_LIST_MAHJONG:
+            print 'Alex 1'
             dispatch_mahjong_to_room(room, **kwargs)
         else:
             raise KeyError('[game] user_switch_over ')
