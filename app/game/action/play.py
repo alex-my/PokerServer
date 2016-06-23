@@ -186,6 +186,7 @@ def notice_owner_must_in(room):
 
 def check_switch(room):
     if room.room_type in rule.GAME_LIST_MAHJONG:
+        room.switch_account_id = room.get_original_execute()
         return True
     return room.switch_account_id > 0
 
