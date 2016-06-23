@@ -24,15 +24,16 @@ class User(object):
         self._all_recharge = 0
         self._month_proxy_recharge = 0
         self._all_proxy_recharge = 0
-        self._point = 0         # 废弃
-        self._poker_point = 0   # 扑克积分
-        self._mahjong_point = 0     # 麻将积分
+        self._point = 0                 # 废弃
+        self._poker_point = 0           # 扑克总积分
+        self._mahjong_point = 0         # 麻将总积分
+        self._gold_point = 0            # 金币总积分
         self._ip = ''
         self._port = 0
-        self._is_lock = False   # 是否被锁定
-        self._lock_expire = 0   # 锁定结束日期
-        self._is_gm = False     # 是否是GM账号
-        self._node_name = None  # game节点名称
+        self._is_lock = False           # 是否被锁定
+        self._lock_expire = 0           # 锁定结束日期
+        self._is_gm = False             # 是否是GM账号
+        self._node_name = None          # game节点名称
 
         self._play_history = dict()     # 游戏记录
 
@@ -63,6 +64,7 @@ class User(object):
 
         self._poker_point = data.get('poker_point', 0)
         self._mahjong_point = data.get('mahjong_point', 0)
+        self._gold_point = data.get('gold_point', 0)
         return True
 
     def init_history(self, data):
@@ -199,7 +201,7 @@ class User(object):
 
     @poker_point.setter
     def poker_point(self, _point):
-        self._poker_point = _point
+        self._poker_point += _point
 
     @property
     def mahjong_point(self):
@@ -207,7 +209,15 @@ class User(object):
 
     @mahjong_point.setter
     def mahjong_point(self, _point):
-        self._mahjong_point = _point
+        self._mahjong_point += _point
+
+    @property
+    def gold_point(self):
+        return self._gold_point
+
+    @gold_point.setter
+    def gold_point(self, _point):
+        self._gold_point += _point
 
     def disconnect(self):
         pass
@@ -307,6 +317,7 @@ class User(object):
             'month_proxy_recharge': self._month_proxy_recharge,
             'all_proxy_recharge': self._all_proxy_recharge,
             'poker_point': self._poker_point,
+            'gold_point': self._gold_point,
             'mahjong_point': self._mahjong_point
         }
 

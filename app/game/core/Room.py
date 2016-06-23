@@ -327,16 +327,21 @@ class Room(object):
         history_data = dict()
         history_data['room_id'] = self._room_id
         history_data['room_type'] = self._room_type
+        history_data['room_help'] = self._room_help
         history_data['win_account_id'] = self.win_account_id
         history_data['server_t'] = func.time_get()
         history_data['round'] = self._rounds
         history_data['max_round'] = self._max_rounds
         history_player = []
-        all_point = dict()
+        all_change_point = dict()
+        all_change_gold = dict()
         for player in self._players.values():
             history_player.append(player.get_per_history())
-            all_point[player.account_id] = player.point
+            all_change_point[player.account_id] = player.last_change_point
+            if self.is_online_match():
+                all_change_gold[player.account_id] = player.last_change_gold
         history_data['history_player'] = history_player
-        history_data['all_point'] = all_point
+        history_data['all_change_point'] = all_change_point
+        history_data['all_change_gold'] = all_change_gold
         return history_data
 

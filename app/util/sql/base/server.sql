@@ -28,6 +28,7 @@ CREATE TABLE `account` (
   `all_proxy_recharge` int(10) DEFAULT '0' COMMENT '代理总充值',
   `poker_point` int(10) DEFAULT '0' COMMENT '扑克总积分',
   `mahjong_point` int(10) DEFAULT '0' COMMENT '麻将总积分',
+  `gold_point` int(10) DEFAULT '0' COMMENT '金币总积分',
   PRIMARY KEY (`account_id`),
   UNIQUE KEY `idx_username` (`user_name`),
   KEY `uuid` (`uuid`)
@@ -143,6 +144,11 @@ CREATE TABLE `user` (
   `remark` varchar(256) NOT NULL,
   UNIQUE KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `user` (`user_id`, `account_id`, `user_name`, `password`, `locked`, `create_time`, `last_login`, `name`, `sex`, `month`, `month_recharge`, `all_recharge`, `month_proxy_recharge`, `all_proxy_recharge`, `level`, `superiorId`, `insertingCoil`, `address`, `phone`, `card`, `city`, `remark`)
+VALUES
+  (1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1465567986, 1465567986, 'admin123', 1, 0, 0, 0, 0, 0, 0, '0', 0, '0', '0', 0, '', '0'),
+  (2, '38000', '38000', '334930f6237bf19668609cf3673fe3f5', 1, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, '', '');
 
 
 -- play history

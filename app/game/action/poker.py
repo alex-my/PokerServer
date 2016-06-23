@@ -87,7 +87,6 @@ def check_poker_publish_valid(player, cards):
     for card_id in cards:
         if card_id not in card_list:
             return False
-    # TODO: 不能小于上次
     return True
 
 

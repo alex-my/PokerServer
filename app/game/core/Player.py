@@ -16,7 +16,7 @@ class Player(object):
         self._head_icon = kwargs.get('head_icon', '')
         self._sex = kwargs.get('sex', 0)
         self._ip = kwargs.get('ip', '')
-        self._point = 0   # kwargs.get('point', 0)      # 总分
+        self._point = 0                     # 在所属房间内的积分变化, 初始为0分
         self._status = 0
         self._cards = dict()                # {card: flag, ...}, flag: True 已经打出, False: 未打出
 
@@ -26,6 +26,7 @@ class Player(object):
         self._statistic_max_point = 0       # 本轮单场最高积分
 
         self._last_change_point = 0         # 上一次变化积分
+        self._last_change_gold = 0          # 上一次变化的金币
 
         self._short_message_t = 0
         self._voice_message_t = 0
@@ -97,6 +98,18 @@ class Player(object):
     @property
     def point(self):
         return self._point
+
+    @property
+    def last_change_point(self):
+        return self._last_change_point
+
+    @property
+    def last_change_gold(self):
+        return self._last_change_gold
+
+    @last_change_gold.setter
+    def last_change_gold(self, _gold):
+        self._last_change_gold = _gold
 
     @property
     def status(self):

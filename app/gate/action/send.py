@@ -257,6 +257,7 @@ def send_play_history(user):
     response = room_pb2.m_3201_toc()
     response.poker_point = user.poker_point
     response.mahjong_point = user.mahjong_point
+    response.gold_point = user.gold_point
     history_list = user.get_play_history_list()
     # None
     if history_list:

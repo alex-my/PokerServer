@@ -145,6 +145,7 @@ message m_3201_toc {
     required int32 poker_point = 1;             // 扑克总积分
     required int32 mahjong_point = 2;           // 麻将总积分
     repeated p_history_info history_info = 3;   // 每局历史信息
+    optional int32 gold_point = 4;              // 金币总积分
 }
 
 message p_history_info {

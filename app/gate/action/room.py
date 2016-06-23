@@ -148,16 +148,9 @@ def enter_room(dynamic_id, room_id):
         room.node_name = node.node_name
     node_name = room.node_name
 
-    if room.room_type in rule.GAME_LIST_POKER_PDK:
-        game_point = user.poker_point
-    elif room.room_type in rule.GAME_LIST_MAHJONG:
-        game_point = user.mahjong_point
-    else:
-        raise KeyError('[gate] enter_room room_type: {} unexist'.format(room.room_type))
-
     request_child_node(node_name, 'enter_room_game', dynamic_id=dynamic_id, _node_name=node_name,
                        account_id=user.account_id, room_id=room_id, name=user.name, head_frame=user.head_frame,
-                       head_icon=user.head_icon, point=game_point, sex=user.sex, ip=user.ip)
+                       head_icon=user.head_icon, sex=user.sex, ip=user.ip)
 
 
 def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, operator_account_id, player_operators):
