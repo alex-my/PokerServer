@@ -6,4 +6,7 @@ PLAYER_STATUS_OFFLINE = 2
 
 PLAYER_STATUS_WARN = 5
 
+PLAYER_STATUS_BACK = 6          # 处于系统后台
+PLAYER_STATUS_FRONT = 7         # 处于系统前台
+
 

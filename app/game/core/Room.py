@@ -182,14 +182,15 @@ class Room(object):
             player.dynamic_id = dynamic_id
             self.add_player(player)
             self._player_list.append(account_id)
-            player.status = status.PLAYER_STATUS_NORMAL
         else:
             player = self.get_player(account_id)
             if player:
                 player.dynamic_id = dynamic_id
                 player.room_id = self._room_id
                 player.position = position
-                player.status = status.PLAYER_STATUS_NORMAL
+        if player:
+            player.status = status.PLAYER_STATUS_NORMAL
+            player.status_ex = status.PLAYER_STATUS_FRONT
 
     def _create_player(self, **kwargs):
         if self._room_type in rule.GAME_LIST_POKER_PDK:

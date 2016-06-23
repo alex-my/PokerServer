@@ -17,7 +17,8 @@ class Player(object):
         self._sex = kwargs.get('sex', 0)
         self._ip = kwargs.get('ip', '')
         self._point = 0                     # 在所属房间内的积分变化, 初始为0分
-        self._status = 0
+        self._status = 0                    # 玩家状态
+        self._status_ex = 0                 # 玩家额外状态(前台,后台)
         self._cards = dict()                # {card: flag, ...}, flag: True 已经打出, False: 未打出
 
         self._statistic_point = 0           # 本轮积分变化
@@ -118,6 +119,14 @@ class Player(object):
     @status.setter
     def status(self, _status):
         self._status = _status
+
+    @property
+    def status_ex(self):
+        raise Exception('[game] Player status_ex unable to call')
+
+    @status_ex.setter
+    def status_ex(self, _status):
+        self._status_ex = _status
 
     @property
     def card_list(self):

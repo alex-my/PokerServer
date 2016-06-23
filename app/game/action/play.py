@@ -131,6 +131,13 @@ def user_back_front(dynamic_id, operate):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
+    player = room.get_player(account_id)
+    if not player:
+        func.log_error('[game] user_back_front ROOM_UN_ENTER, account_id: {}, room_id: {}'.format(
+            account_id, room_id))
+        send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
+        return
+    player.status_ex = status.PLAYER_STATUS_BACK if operate == operators.USER_OPERATOR_BACK else status.PLAYER_STATUS_FRONT
     notice_all_room_user_operator(room, account_id, operate)
     return True
 
