@@ -78,6 +78,14 @@ _initialize_mahjong()
 _initialize_poker()
 
 
+def get_mahjong_name(card_list):
+    cards_info = dict()
+    for card_id in card_list:
+        name = MAH_CONFIG[card_id]['name']
+        cards_info[card_id] = name
+    return cards_info
+
+
 test_mahjong_cards_list = [
     [1, 5, 9, 13, 17, 21, 25, 26, 37, 41, 45, 53, 57],
     [2, 6, 10, 14, 18, 22, 27, 28, 38, 42, 46, 61, 65],

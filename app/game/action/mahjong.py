@@ -228,16 +228,18 @@ def mahjong_operator(dynamic_id, player_operator, cards):
         raise
     elif player_operator == games.MAH_OPERATOR_PONG:
         if not check_mahjong_pong_valid(player, card_list):
-            func.log_error('[game] mahjong_operator PLAY_MAHJONG_PONG_UNVALID, account_id: {}, room_id: {}'.format(
-                    account_id, room_id))
-            send.system_notice(dynamic_id, content.PLAY_MAHJONG_PONG_UNVALID.format(card_list))
+            cards_info = games.get_mahjong_name(card_list)
+            func.log_error('[game] mahjong_operator PLAY_MAHJONG_PONG_UNVALID, account_id: {}, room_id: {}, cards: {}'.format(
+                    account_id, room_id, cards_info))
+            send.system_notice(dynamic_id, content.PLAY_MAHJONG_PONG_UNVALID.format(cards_info))
             return
         mahjong_operator_pong(room, player, card_list)
     elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
         if not check_mahjong_kong_valid(player, card_list):
-            func.log_error('[game] mahjong_operator PLAY_MAHJONG_KONG_UNVALID, account_id: {}, room_id: {}'.format(
-                    account_id, room_id))
-            send.system_notice(dynamic_id, content.PLAY_MAHJONG_KONG_UNVALID.format(card_list))
+            cards_info = games.get_mahjong_name(card_list)
+            func.log_error('[game] mahjong_operator PLAY_MAHJONG_KONG_UNVALID, account_id: {}, room_id: {}, cards: {}'.format(
+                    account_id, room_id, cards_info))
+            send.system_notice(dynamic_id, content.PLAY_MAHJONG_KONG_UNVALID.format(cards_info))
             return
         mahjong_operator_kong(room, player, card_list, player_operator)
 
