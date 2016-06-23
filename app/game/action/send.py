@@ -331,9 +331,10 @@ def send_mahjong_operator_select(dynamic_id, operator_able, operators):
     forward.push_object_game(5206, response.SerializeToString(), [dynamic_id])
 
 
-def send_mahjong_room_full(dynamic_id_list, statistic_list):
+def send_mahjong_room_full(dynamic_id_list, max_rounds, statistic_list):
     response = game_mahjong_pb2.m_5207_toc()
     response.server_t = func.time_get()
+    response.max_rounds = max_rounds
     for info in statistic_list:
         room_fulls = response.room_fulls.add()
         room_fulls.account_id = info['account_id']

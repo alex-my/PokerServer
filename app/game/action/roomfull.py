@@ -15,7 +15,7 @@ def remove_room(room):
     if room.room_type in rule.GAME_LIST_POKER_PDK:
         send.send_poker_room_full(dynamic_id_list, statistic_list)
     elif room.room_type in rule.GAME_LIST_MAHJONG:
-        send.send_mahjong_room_full(dynamic_id_list, statistic_list)
+        send.send_mahjong_room_full(dynamic_id_list, room.max_rounds, statistic_list)
     # 从RoomManager移除房间信息
     RoomManager().drop_room(room)
 
