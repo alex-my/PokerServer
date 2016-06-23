@@ -367,11 +367,17 @@ def mahjong_point_changes(dynamic_id_list, change_list):
         point_changes.point_change = info['point_change']
         point_changes.current_point = info['current_point']
         point_changes.change_origin = info['change_origin']
+    func.log_info('[game] 5209 mahjong_point_changes dynamic_id_list: {}, response: {}'.format(
+        dynamic_id_list, response
+    ))
     forward.push_object_game(5209, response.SerializeToString(), dynamic_id_list)
 
 
 def mahjong_switch_over(dynamic_id):
     response = game_mahjong_pb2.m_5210_toc()
+    func.log_info('[game] 5210 mahjong_switch_over dynamic_id: {}, response: {}'.format(
+        dynamic_id, response
+    ))
     forward.push_object_game(5210, response.SerializeToString(), [dynamic_id])
 
 
