@@ -139,35 +139,39 @@ def login_success(dynamic_id, user):
     forward.push_object_gate(2001, response.SerializeToString(), [dynamic_id])
 
 
-def create_room(dynamic_id, room_id, room_type, rounds):
+def create_room(dynamic_id, room_id, room_type, room_help, rounds):
     """
     create room success
     :param dynamic_id:
     :param room_id:
     :param room_type:
+    :param room_help:
     :param rounds:
     :return:
     """
     response = room_pb2.m_3001_toc()
     response.room_id = room_id
     response.room_type = room_type
+    response.room_help = room_help
     response.rounds = rounds
     func.log_info('[gate] 3001 create_room response: {}'.format(response))
     forward.push_object_gate(3001, response.SerializeToString(), [dynamic_id])
 
 
-def enter_poker_room(dynamic_id, room_id, room_type, room_data):
+def enter_poker_room(dynamic_id, room_id, room_type, room_help, room_data):
     """
     enter/resume room
     :param dynamic_id:
     :param room_id:
     :param room_type:
+    :param room_help:
     :param room_data:
     :return:
     """
     response = room_pb2.m_3002_toc()
     response.room_id = room_id
     response.room_type = room_type
+    response.room_help = room_help
     if room_data:
         for user_info in room_data['user_room']:
             user_room = response.user_room.add()

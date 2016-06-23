@@ -71,7 +71,7 @@ def create_room(dynamic_id, room_type, rounds, help_value):
     room.room_help = help_value
     room.node_name = node.node_name
     room_manager.add_room(room)
-    send.create_room(dynamic_id, room.room_id, room.room_type, rounds)
+    send.create_room(dynamic_id, room.room_id, room.room_type, room.room_help, rounds)
 
 
 def _get_best_game_node(dynamic_id, repeated=True):
@@ -168,7 +168,7 @@ def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, op
     user.record_room_type = room.room_type
     room.account_id_list = user.account_id
     if room.room_type in rule.GAME_LIST_POKER_PDK:
-        send.enter_poker_room(user.dynamic_id, room_id, room.room_type, room_data)
+        send.enter_poker_room(user.dynamic_id, room_id, room.room_type, room.room_help, room_data)
     elif room.room_type in rule.GAME_LIST_MAHJONG:
         send.enter_mahjong_room(user.dynamic_id, room_id, room_data, operator_account_id, player_operators)
 

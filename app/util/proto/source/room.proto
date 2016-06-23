@@ -10,6 +10,7 @@ message m_3001_toc{
     required uint32 room_id = 1;        // 房间ID
     required uint32 room_type = 2;      // 房间类型
     optional uint32 rounds = 3;         // 房间允许回合数
+    optional uint32 room_help = 4;          // room help
 }
 
 // 加入房间/恢复房间
