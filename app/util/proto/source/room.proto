@@ -29,6 +29,7 @@ message m_3002_toc {
     required uint32 user_id = 8;            // 房主ID
     optional uint32 rounds = 9;             // 房间当前回合数
     optional uint32 max_rounds = 10;         // 房间允许回合数
+    optional uint32 room_help = 11;          // room help
 }
 
 message p_user_room {
