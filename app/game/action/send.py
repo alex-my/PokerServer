@@ -359,9 +359,19 @@ def broad_mahjong_dispatch_card(dynamic_id_list, account_id):
     forward.push_object_game(5208, response.SerializeToString(), dynamic_id_list)
 
 
+def mahjong_point_changes(dynamic_id_list, change_list):
+    response = game_mahjong_pb2.m_5209_toc()
+    for info in change_list:
+        point_changes = response.point_changes.add()
+        point_changes.account_id = info['account_id']
+        point_changes.point_change = info['point_change']
+        point_changes.current_point = info['current_point']
+        point_changes.change_origin = info['change_origin']
+    forward.push_object_game(5209, response.SerializeToString(), dynamic_id_list)
+
+
 def sync_play_history(room):
     history_data = room.get_per_play_history()
     read_list = room.room_ready_list
     request_gate_node('game_add_play_history', read_list, history_data)
-
 

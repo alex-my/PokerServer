@@ -10,6 +10,11 @@ MAH_OPERATOR_KONG_DARK = 4          # 暗杠
 MAH_OPERATOR_WIN = 5                # 胡
 MAH_OPERATOR_DRAWN = 6              # 自摸
 MAH_OPERATOR_NO = 7                 # 平局
+MAH_OPERATOR_KONG_PONG_SELF = 8     # 碰杠(自己)
+MAH_OPERATOR_KONG_PONG_OTHER = 9    # 碰杠(他人)
+
+MAH_OPERATOR_KONG_LIST = [MAH_OPERATOR_KONG_LIGHT, MAH_OPERATOR_KONG_DARK,
+                          MAH_OPERATOR_KONG_PONG_SELF, MAH_OPERATOR_KONG_PONG_OTHER]
 
 
 POKER_SPECIAL_CARD = 26             # 猴子玩法, 红桃9

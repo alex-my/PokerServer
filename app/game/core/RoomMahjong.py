@@ -140,9 +140,9 @@ class RoomMahjong(Room):
     def room_mahjong_close(self, win_status):
         all_player_info = dict()
         if win_status == games.MAH_OPERATOR_WIN:
-            _point = 10
+            _point = 1
         elif win_status == games.MAH_OPERATOR_DRAWN:
-            _point = 30
+            _point = 2
         else:
             _point = 0
         for account_id, player in self._players.items():

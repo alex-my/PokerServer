@@ -53,7 +53,7 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
     if check_mahjong_dark_kong(card_id, card_list):
         operator_list.append(games.MAH_OPERATOR_KONG_DARK)
     if check_mahjong_pong_kong(card_id, player.pong_list):
-        operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
+        operator_list.append(games.MAH_OPERATOR_KONG_PONG_SELF)
     player.add_card(card_id)
     player_operators = dict()
     all_operators = dict()
@@ -140,8 +140,11 @@ def mahjong_publish(dynamic_id, card_id):
         if check_mahjong_pong(card_id, _player_card_list):
             operator_list.append(games.MAH_OPERATOR_PONG)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_PONG, operators)
-        if check_mahjong_light_kong(card_id, _player_card_list) or check_mahjong_pong_kong(card_id, _player.pong_list):
+        if check_mahjong_light_kong(card_id, _player_card_list):
             operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
+            _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
+        elif check_mahjong_pong_kong(card_id, _player.pong_list):
+            operator_list.append(games.MAH_OPERATOR_KONG_PONG_OTHER)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
         player_operators[_player.account_id] = operator_list
 
@@ -235,7 +238,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
             return
         mahjong_operator_pong(room, player, card_list)
         remove_mahjong_from_others(room, card_list)
-    elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
+    elif player_operator in games.MAH_OPERATOR_KONG_LIST:
         if not check_mahjong_kong_valid(player, card_list):
             cards_info = games.get_mahjong_name(card_list)
             func.log_error('[game] mahjong_operator PLAY_MAHJONG_KONG_UNVALID, account_id: {}, room_id: {}, cards: {}'.format(
@@ -533,6 +536,60 @@ def mahjong_operator_kong(room, player, card_list, player_operator):
     room.execute_account_id = player.account_id     # 需要补一张牌
     dispatch_mahjong_card_account(player.account_id, player.dynamic_id, False)
     del room.operators
+    # 扣分
+    mahjong_point_changes(room, player.account_id, player_operator)
+
+
+def mahjong_point_changes(room, account_id, player_operator):
+    change_list = []
+    if player_operator == games.MAH_OPERATOR_KONG_DARK:
+        base_point = 2
+        for _player in room.players:
+            if _player.account_id != account_id:
+                change_point = -base_point
+            else:
+                change_point = base_point * room.player_count
+            _player.point_change(change_point)
+            change_list.append({
+                'account_id': _player.account_id,
+                'point_change': change_point,
+                'current_point': _player.point,
+                'change_origin': player_operator
+            })
+    elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_PONG_SELF]:
+        base_point = 1
+        for _player in room.players:
+            if _player.account_id != account_id:
+                change_point = -base_point
+            else:
+                change_point = base_point * room.player_count
+            _player.point_change(change_point)
+            change_list.append({
+                'account_id': _player.account_id,
+                'point_change': change_point,
+                'current_point': _player.point,
+                'change_origin': player_operator
+            })
+    elif player_operator == games.MAH_OPERATOR_KONG_PONG_OTHER:
+        base_point = 3
+        player_list = [account_id, room.last_account_id]
+        for _account_id in player_list:
+            _player = room.get_player(_account_id)
+            if _player:
+                if _account_id == account_id:
+                    change_point = base_point
+                else:
+                    change_point = -base_point
+                _player.point_change(change_point)
+                change_list.append({
+                    'account_id': _player.account_id,
+                    'point_change': change_point,
+                    'current_point': _player.point,
+                    'change_origin': player_operator
+                })
+    if change_list:
+        dynamic_id_list = room.get_room_dynamic_id_list()
+        send.mahjong_point_changes(dynamic_id_list, change_list)
 
 
 def remove_mahjong_from_others(room, card_list):

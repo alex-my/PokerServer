@@ -96,12 +96,19 @@ class RoomPoker(Room):
             left_card_count = _player.get_card_count()
             change_point = 0
             if _account_id != self._pre_win_account_id:
+                if self.is_special(_account_id):
+                    special_dec_ratio = 2
+                else:
+                    special_dec_ratio = 1
+
                 if left_card_count >= card_full_count:
-                    change_point = (-card_full_count * 2 * special_ratio)
-                    win_point += card_full_count * 2 * special_ratio
+                    full_point = card_full_count * 2 * special_ratio * special_dec_ratio
+                    change_point = (-full_point)
+                    win_point += full_point
                 elif left_card_count > 1:
-                    change_point = -left_card_count * special_ratio
-                    win_point += left_card_count * special_ratio
+                    dec_point = left_card_count * special_ratio * special_dec_ratio
+                    change_point = -dec_point
+                    win_point += dec_point
                 else:
                     change_point = 0
                 _player.lose_count = 1
