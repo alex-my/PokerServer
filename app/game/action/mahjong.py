@@ -548,7 +548,7 @@ def mahjong_point_changes(room, account_id, player_operator):
             if _player.account_id != account_id:
                 change_point = -base_point
             else:
-                change_point = base_point * room.player_count
+                change_point = base_point * (room.player_count - 1)
             _player.point_change(change_point)
             change_list.append({
                 'account_id': _player.account_id,
@@ -562,7 +562,7 @@ def mahjong_point_changes(room, account_id, player_operator):
             if _player.account_id != account_id:
                 change_point = -base_point
             else:
-                change_point = base_point * room.player_count
+                change_point = base_point * (room.player_count - 1)
             _player.point_change(change_point)
             change_list.append({
                 'account_id': _player.account_id,

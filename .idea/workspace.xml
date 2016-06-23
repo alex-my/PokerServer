@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/send.py" afterPath="$PROJECT_DIR$/app/game/action/send.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="591" column="25" selection-start-line="591" selection-start-column="25" selection-end-line="591" selection-end-column="25" />
+            <state relative-caret-position="184">
+              <caret line="550" column="45" selection-start-line="550" selection-start-column="45" selection-end-line="550" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="send.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="send.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="377" column="50" selection-start-line="377" selection-start-column="50" selection-end-line="377" selection-end-column="50" />
+            <state relative-caret-position="2230">
+              <caret line="369" column="77" selection-start-line="369" selection-start-column="77" selection-end-line="369" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -119,7 +119,6 @@
         <option value="$PROJECT_DIR$/app/game/core/Player.py" />
         <option value="$PROJECT_DIR$/app/gate/action/play.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomPoker.py" />
-        <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
         <option value="$PROJECT_DIR$/app/util/defines/games.py" />
         <option value="$PROJECT_DIR$/app/gate/service/web.py" />
         <option value="$PROJECT_DIR$/app/auth/action/account.py" />
@@ -137,6 +136,7 @@
         <option value="$PROJECT_DIR$/app/game/action/play.py" />
         <option value="$PROJECT_DIR$/app/game/core/Room.py" />
         <option value="$PROJECT_DIR$/app/game/action/send.py" />
+        <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
       </list>
     </option>
   </component>
@@ -539,13 +539,6 @@
       <workItem from="1466650988823" duration="14145000" />
       <workItem from="1466674424722" duration="1927000" />
     </task>
-    <task id="LOCAL-00097" summary="1747">
-      <created>1466243272332</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1466243272332</updated>
-    </task>
     <task id="LOCAL-00098" summary="1813">
       <created>1466244801865</created>
       <option name="number" value="00098" />
@@ -882,7 +875,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466696984799</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="0000">
+      <created>1466697634427</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1466697634428</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -973,7 +973,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="2245" />
     <MESSAGE value="recharge statistic" />
     <MESSAGE value="1050" />
     <MESSAGE value="add more check." />
@@ -998,7 +997,8 @@
     <MESSAGE value="2338" />
     <MESSAGE value="5210" />
     <MESSAGE value="2349" />
-    <option name="LAST_COMMIT_MESSAGE" value="2349" />
+    <MESSAGE value="0000" />
+    <option name="LAST_COMMIT_MESSAGE" value="0000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1351,18 +1351,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="591" column="25" selection-start-line="591" selection-start-column="25" selection-end-line="591" selection-end-column="25" />
+        <state relative-caret-position="2230">
+          <caret line="369" column="77" selection-start-line="369" selection-start-column="77" selection-end-line="369" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
+    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="377" column="50" selection-start-line="377" selection-start-column="50" selection-end-line="377" selection-end-column="50" />
+        <state relative-caret-position="184">
+          <caret line="550" column="45" selection-start-line="550" selection-start-column="45" selection-end-line="550" selection-end-column="45" />
           <folding />
         </state>
       </provider>
