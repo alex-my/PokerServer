@@ -227,14 +227,14 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     elif player_operator == games.MAH_OPERATOR_CHOW:
         raise
     elif player_operator == games.MAH_OPERATOR_PONG:
-        if not check_mahjong_pong_valid(card_list):
+        if not check_mahjong_pong_valid(player, card_list):
             func.log_error('[game] mahjong_operator PLAY_MAHJONG_PONG_UNVALID, account_id: {}, room_id: {}'.format(
                     account_id, room_id))
             send.system_notice(dynamic_id, content.PLAY_MAHJONG_PONG_UNVALID.format(card_list))
             return
         mahjong_operator_pong(room, player, card_list)
     elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
-        if not check_mahjong_kong_valid(card_list):
+        if not check_mahjong_kong_valid(player, card_list):
             func.log_error('[game] mahjong_operator PLAY_MAHJONG_KONG_UNVALID, account_id: {}, room_id: {}'.format(
                     account_id, room_id))
             send.system_notice(dynamic_id, content.PLAY_MAHJONG_KONG_UNVALID.format(card_list))
@@ -471,14 +471,22 @@ def mahjong_operator_win(room, player, last_card_id, player_operator):
     mahjong_close(room, room.win_account_id, last_card_id, player_operator)
 
 
-def check_mahjong_pong_valid(card_list):
+def check_mahjong_pong_valid(player, card_list):
     if not card_list or len(card_list) != 3:
         return False
     card_id = card_list[0]
     cur_list = games.MAH_CONFIG[card_id]['cur_list']
+    exist_list = player.card_list
+    exist_count = 0
     for _card_id in card_list:
+        # 都需要一样
         if _card_id not in cur_list:
             return False
+        # 玩家手上至少需要拥有两张
+        if _card_id in exist_list:
+            exist_count += 1
+    if exist_count < 2:
+        return False
     return True
 
 
@@ -492,14 +500,24 @@ def mahjong_operator_pong(room, player, card_list):
     del room.operators
 
 
-def check_mahjong_kong_valid(card_list):
+def check_mahjong_kong_valid(player, card_list):
     if not card_list or len(card_list) != 4:
         return False
     card_id = card_list[0]
     cur_list = games.MAH_CONFIG[card_id]['cur_list']
-    for _card_id in cur_list:
-        if _card_id not in card_list:
+    exist_list = player.card_list
+    pong_list = player.pong_list
+    exist_pong_list = []
+    for _p in pong_list:
+        exist_pong_list.extend(_p)
+    exist_count = 0
+    for _card_id in card_list:
+        if _card_id not in cur_list:
             return False
+        if _card_id in exist_list or _card_id in exist_pong_list:
+            exist_count += 1
+    if exist_list < 3:
+        return False
     return True
 
 
