@@ -156,7 +156,8 @@ def check_switch(room):
 
 
 def switch_cards(room):
-    reactor.callLater(15, do_check_switch, room.room_id)
+    if room.room_type in rule.GAME_LIST_POKER_PDK:
+        reactor.callLater(15, do_check_switch, room.room_id)
     notice_all_room_user_operator(room, room.switch_account_id, operators.USER_OPERATOR_SWITCH)
 
 
@@ -177,7 +178,8 @@ def dispatch_cards_to_room(room):
         if not check_switch(room):
             dispatch_poker_to_room(room)
     elif room.room_type in rule.GAME_LIST_MAHJONG:
-        dispatch_mahjong_to_room(room)
+        if not check_switch(room):
+            dispatch_mahjong_to_room(room)
 
 
 def dispatch_poker_to_room(room):
