@@ -137,7 +137,6 @@ def user_switch_over(dynamic_id):
 
 def notice_all_room_user_operator(room, account_id, operator):
     dynamic_id_list = room.get_room_dynamic_id_list()
-    print 'Alex notice_all_room_user_operator dynamic_id_list: ', dynamic_id_list
     send.dispatch_user_operator(account_id, operator, dynamic_id_list)
 
 

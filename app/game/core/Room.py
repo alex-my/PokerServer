@@ -171,7 +171,6 @@ class Room(object):
         return False
 
     def player_enter(self, **kwargs):
-        print 'Alex player_enter:', kwargs
         dynamic_id, account_id = kwargs['dynamic_id'], kwargs['account_id']
         position = self.get_player_position(account_id)
         if account_id not in self._players:
@@ -288,21 +287,19 @@ class Room(object):
 
     def get_room_dynamic_id_list(self, un_expect_account_id=None):
         return self.get_room_in_dynamic_id_list(un_expect_account_id)
-        player_manager = PlayerManager()
-        dynamic_id_list = []
-        for _account_id in self._player_list:
-            dynamic_id = player_manager.query_dynamic_id(_account_id)
-            if un_expect_account_id and _account_id == un_expect_account_id:
-                continue
-            dynamic_id_list.append(dynamic_id)
-        return dynamic_id_list
+        # player_manager = PlayerManager()
+        # dynamic_id_list = []
+        # for _account_id in self._player_list:
+        #     dynamic_id = player_manager.query_dynamic_id(_account_id)
+        #     if un_expect_account_id and _account_id == un_expect_account_id:
+        #         continue
+        #     dynamic_id_list.append(dynamic_id)
+        # return dynamic_id_list
 
     def get_room_in_dynamic_id_list(self, un_expect_account_id=None):
         player_manager = PlayerManager()
-        print 'Alex room in un_expect_account_id: ', un_expect_account_id
         dynamic_id_list = []
         for player in self._players.values():
-            print 'Alex room in : account_id: {}', player.account_id, player.status, status.PLAYER_STATUS_OFFLINE
             if player.status != status.PLAYER_STATUS_OFFLINE and player.account_id != un_expect_account_id:
                 dynamic_id = player_manager.query_dynamic_id(player.account_id)
                 dynamic_id_list.append(dynamic_id)

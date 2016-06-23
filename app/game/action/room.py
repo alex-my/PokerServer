@@ -38,10 +38,8 @@ def enter_room(**kwargs):
     request_gate_node('enter_room_gate', account_id, dynamic_id, kwargs['_node_name'], room_id,
                       room.get_room_data(account_id), operator_account_id, player_operators)
     dynamic_id_list = room.get_room_dynamic_id_list(account_id)
-    print 'Alex 12345 dynamic_id_list: ', dynamic_id_list, room_id
     if dynamic_id_list:
         player = room.get_player(account_id)
-        print 'Alex enter_room room_id: {}, id_player: {}'.format(room_id, id(player))
         func.log_info('[game] enter_room, account_id: {}, dynamic_i_list: {}'.format(
             account_id, dynamic_id_list
         ))
