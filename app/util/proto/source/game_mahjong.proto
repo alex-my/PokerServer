@@ -99,4 +99,14 @@ message p_point_change {
 }
 
 
+// 客户端上传麻将骰子点数
+message m_5210_tos {
+    repeated uint32 craps = 1;
+}
+
+message m_5210_toc {
+
+}
+
+
 
