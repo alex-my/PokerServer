@@ -66,7 +66,8 @@ message m_5206_toc {
 // 房间达到游戏次数上限，房间失效
 message m_5207_toc {
     repeated p_room_full room_fulls = 1;
-    optional uint32 server_t = 2;
+    optional uint32 server_t = 2;               // 服务器当前实践
+    optional uint32 max_rounds = 3;             // 房间最大回合数
 }
 
 message p_room_full {
