@@ -8,5 +8,9 @@ USER_OPERATOR_OFFLINE = 2           # 暂离
 USER_OPERATOR_CLOSE = 3             # 解散房间
 USER_OPERATOR_SWITCH = 4            # 切牌
 
+USER_OPERATOR_BACK = 6              # 切到后台
+USER_OPERATOR_FRONT = 7             # 回到前台
+
+
 
 

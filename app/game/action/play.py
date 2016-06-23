@@ -14,6 +14,8 @@ def user_operator(dynamic_id, operator):
         result = user_leave(dynamic_id, operator)
     elif operator == operators.USER_OPERATOR_CLOSE:
         result = user_close(dynamic_id, operator)
+    elif operator in [operators.USER_OPERATOR_BACK, operators.USER_OPERATOR_FRONT]:
+        result = user_back_front(dynamic_id, operator)
     else:
         result = False
     if result:
@@ -45,10 +47,10 @@ def user_ready(dynamic_id, operator):
     if room.is_all_ready():
         func.log_info('[game] all ready room_id: {}'.format(room.room_id))
         # 创建者必须在房间中
-        if not room.is_online_match():
-            if not check_owner_in(room):
-                notice_owner_must_in(room)
-                return False
+        # if not room.is_online_match():
+        #     if not check_owner_in(room):
+        #         notice_owner_must_in(room)
+        #         return False
         # 在线匹配需要扣除保证金
         reduce_bail_gold(room)
         # 判断是否由玩家切牌
@@ -115,7 +117,33 @@ def user_close(dynamic_id, operate):
     return True
 
 
-def user_switch_over(dynamic_id):
+def user_back_front(dynamic_id, operate):
+    account_id = PlayerManager().query_account_id(dynamic_id)
+    if not account_id:
+        send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
+        return False
+    room_manager = RoomManager()
+    room_id = room_manager.query_player_room_id(account_id)
+    if not room_id:
+        send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
+        return False
+    room = room_manager.get_room(room_id)
+    if not room:
+        send.system_notice(dynamic_id, content.ROOM_UN_FIND)
+        return False
+    notice_all_room_user_operator(room, account_id, operate)
+    return True
+
+
+def mahjong_switch_over(dynamic_id, craps):
+    crap_list = [crap_id for crap_id in craps]
+    if not crap_list or len(crap_list) != 2:
+        send.system_notice(dynamic_id, content.PLAY_MAHJONG_UNVALID_CRAPS)
+        return
+    user_switch_over(dynamic_id, crap_list=crap_list)
+
+
+def user_switch_over(dynamic_id, **kwargs):
     account_id = PlayerManager().query_account_id(dynamic_id)
     if not account_id:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
@@ -130,7 +158,12 @@ def user_switch_over(dynamic_id):
         send.system_notice(dynamic_id, content.ROOM_UN_FIND)
         return False
     if room.is_room_dispatch_able():
-        dispatch_poker_to_room(room)
+        if room.room_type in rule.GAME_LIST_POKER_PDK:
+            dispatch_poker_to_room(room)
+        elif room.room_type in rule.GAME_LIST_MAHJONG:
+            dispatch_mahjong_to_room(room, **kwargs)
+        else:
+            raise KeyError('[game] user_switch_over ')
         return True
     return False
 
@@ -196,13 +229,16 @@ def dispatch_poker_to_room(room):
             send.player_dispatch_cards(execute_account_id, player)
 
 
-def dispatch_mahjong_to_room(room):
+def dispatch_mahjong_to_room(room, **kwargs):
     func.log_info('[game] dispatch_mahjong_to_room')
     room.random_cards()
     execute_account_id = room.get_original_execute()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
-    craps_1 = func.random_get(1, 6)
-    craps_2 = func.random_get(1, 6)
+    if 'crap_list' in kwargs:
+        craps_1, craps_2 = kwargs['crap_list']
+    else:
+        craps_1 = func.random_get(1, 6)
+        craps_2 = func.random_get(1, 6)
     room.craps = [craps_1, craps_2]
     original_count = room.original_count * room.player_count
     room.mahjong_start = original_count
