@@ -137,10 +137,12 @@ def user_back_front(dynamic_id, operate):
 
 def mahjong_switch_over(dynamic_id, craps):
     crap_list = [crap_id for crap_id in craps]
+    func.log_info('[game] mahjong_switch_over dynamic_id: {}, crap_list: {}'.format(crap_list))
     if not crap_list or len(crap_list) != 2:
         send.system_notice(dynamic_id, content.PLAY_MAHJONG_UNVALID_CRAPS)
         return
-    user_switch_over(dynamic_id, crap_list=crap_list)
+    if user_switch_over(dynamic_id, crap_list=crap_list):
+        pass
 
 
 def user_switch_over(dynamic_id, **kwargs):

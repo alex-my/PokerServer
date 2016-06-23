@@ -370,6 +370,11 @@ def mahjong_point_changes(dynamic_id_list, change_list):
     forward.push_object_game(5209, response.SerializeToString(), dynamic_id_list)
 
 
+def mahjong_switch_over(dynamic_id):
+    response = game_mahjong_pb2.m_5210_toc()
+    forward.push_object_game(5210, response.SerializeToString(), [dynamic_id])
+
+
 def sync_play_history(room):
     history_data = room.get_per_play_history()
     read_list = room.room_ready_list
