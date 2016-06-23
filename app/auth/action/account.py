@@ -115,7 +115,8 @@ def account_verify_channel(dynamic_id, address, user_name, channel_id, uuid, nam
         return
     account_id = result['account_id']
     verify_key = _create_verify_key(account_id, result['token_key'])
-    notice_gate_user_login(account_id, verify_key, address)
+    notice_gate_user_channel_login(account_id, verify_key, address,
+                                   name=name, sex=sex, head_frame=head_frame, head_icon=head_icon)
     t = func.time_get()
     send.account_verify_channel(dynamic_id, t, account_id, verify_key)
 
@@ -128,6 +129,10 @@ def _create_verify_key(account_id, token_key):
 
 def notice_gate_user_login(account_id, verify_key, address):
     request_gate_node('notice_user_login_verify', account_id, verify_key, address)
+
+
+def notice_gate_user_channel_login(account_id, verify_key, address, **kwargs):
+    request_gate_node('notice_user_channel_login_verify', account_id, verify_key, address, **kwargs)
 
 
 def _register_process(user_name, password, name, uuid, channel_id, sex, head_frame, head_icon):

@@ -27,7 +27,7 @@ class Information(resource.Resource):
 @webapp_handle
 class ServerInformation(resource.Resource):
     """
-    输出服务器信息  http://127.0.0.1:11861/ServerInformation
+    输出服务器信息  http://120.76.153.160:11861/ServerInformation
     """
     def render(self, request):
         func.log_info('[gate] ServerInfomation')

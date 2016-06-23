@@ -12,8 +12,8 @@ class User(object):
         self._channel = 0
         self._uuid = uuid
         self._name = ''
-        self._head_frame = 0
-        self._head_icon = 0
+        self._head_frame = ''
+        self._head_icon = ''
         self._sex = 0
         self._room_id = 0
         self._room_type = 0
@@ -244,6 +244,16 @@ class User(object):
     @node_name.setter
     def node_name(self, name):
         self._node_name = name
+
+    def sync_information(self, **kwargs):
+        if kwargs.get('name'):
+            self._name = kwargs.get('name')
+        if kwargs.get('sex'):
+            self._sex = kwargs.get('sex')
+        if kwargs.get('head_frame'):
+            self._head_frame = kwargs.get('head_frame')
+        if kwargs.get('head_icon'):
+            self._head_icon = kwargs.get('head_icon')
 
     def record_address(self, _address):
         self._ip, self._port = _address if _address else ('', 0)

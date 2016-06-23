@@ -383,7 +383,7 @@ def account_verify_channel(client, user_name):
     response.uuid = user_name
     response.name = user_name
     response.head_frame = '123'
-    response.head_icon = '345'
+    response.head_icon = '22222'
     response.sex = 1
     client.push_object(1003, response.SerializeToString())
 
