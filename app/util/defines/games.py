@@ -7,11 +7,11 @@ MAH_OPERATOR_CHOW = 1               # 吃
 MAH_OPERATOR_PONG = 2               # 碰
 MAH_OPERATOR_KONG_LIGHT = 3         # 明杠
 MAH_OPERATOR_KONG_DARK = 4          # 暗杠
-MAH_OPERATOR_WIN = 5                # 胡
-MAH_OPERATOR_DRAWN = 6              # 自摸
-MAH_OPERATOR_NO = 7                 # 平局
-MAH_OPERATOR_KONG_PONG_SELF = 8     # 碰杠(自己)
-MAH_OPERATOR_KONG_PONG_OTHER = 9    # 碰杠(他人)
+MAH_OPERATOR_KONG_PONG_SELF = 5     # 碰杠(自己)
+MAH_OPERATOR_KONG_PONG_OTHER = 6    # 碰杠(他人)
+MAH_OPERATOR_WIN = 7                # 胡
+MAH_OPERATOR_DRAWN = 8              # 自摸
+MAH_OPERATOR_NO = 9                 # 平局
 
 MAH_OPERATOR_KONG_LIST = [MAH_OPERATOR_KONG_LIGHT, MAH_OPERATOR_KONG_DARK,
                           MAH_OPERATOR_KONG_PONG_SELF, MAH_OPERATOR_KONG_PONG_OTHER]
