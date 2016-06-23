@@ -14,6 +14,7 @@ class PlayerMahjong(Player):
         self._pong_list = []    # 碰 [[card_id, card_id, card_id], ...]
         self._kong_list = []    # 杠 [[card_id, card_id, card_id, card_id], ...]
         self._chow_list = []    # 吃 [[card_id, card_id, card_id], ...]
+        self._others_list = []  # 其他玩家吃,碰,杠. 这样的排不能出现在己方的已经出的牌中 [card_id, ...]
 
     @property
     def drawn_count(self):
@@ -61,8 +62,18 @@ class PlayerMahjong(Player):
                         break
 
     @property
+    def others_list(self):
+        return self._others_list
+
+    @others_list.setter
+    def others_list(self, _card_list):
+        for card_id in _card_list:
+            if card_id in self._cards and card_id not in self._others_list:
+                self._others_list.append(card_id)
+
+    @property
     def pre_list(self):
-        return [card_id for card_id, flag in self._cards.items() if flag]
+        return [card_id for card_id, flag in self._cards.items() if flag and card_id not in self._others_list]
 
     def player_reset(self):
         self._cards = dict()

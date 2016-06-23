@@ -234,6 +234,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
             send.system_notice(dynamic_id, content.PLAY_MAHJONG_PONG_UNVALID.format(cards_info))
             return
         mahjong_operator_pong(room, player, card_list)
+        remove_mahjong_from_others(room, card_list)
     elif player_operator in [games.MAH_OPERATOR_KONG_LIGHT, games.MAH_OPERATOR_KONG_DARK]:
         if not check_mahjong_kong_valid(player, card_list):
             cards_info = games.get_mahjong_name(card_list)
@@ -242,6 +243,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
             send.system_notice(dynamic_id, content.PLAY_MAHJONG_KONG_UNVALID.format(cards_info))
             return
         mahjong_operator_kong(room, player, card_list, player_operator)
+        remove_mahjong_from_others(room, card_list)
 
 
 def select_mahjong_operator_account_id(operators, execute_account_id, execute_position):
@@ -531,6 +533,11 @@ def mahjong_operator_kong(room, player, card_list, player_operator):
     room.execute_account_id = player.account_id     # 需要补一张牌
     dispatch_mahjong_card_account(player.account_id, player.dynamic_id, False)
     del room.operators
+
+
+def remove_mahjong_from_others(room, card_list):
+    for player in room.players:
+        player.others_list = card_list
 
 
 def calc_mahjong_next_position(room, from_start):
