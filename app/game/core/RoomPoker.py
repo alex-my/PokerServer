@@ -102,7 +102,7 @@ class RoomPoker(Room):
 
                 if left_card_count >= card_full_count:
                     full_point = card_full_count * 2 * special_ratio * special_dec_ratio
-                    change_point = (-full_point)
+                    change_point = -full_point
                     win_point += full_point
                 elif left_card_count > 1:
                     dec_point = left_card_count * special_ratio * special_dec_ratio
@@ -132,6 +132,7 @@ class RoomPoker(Room):
                 win_player.last_change_gold = win_point
             info = all_player_info[win_player.account_id]
             info['change_point'] = win_point
+            info['point'] = win_player.point
 
         _info = []
         for _account_id in turn_list:
