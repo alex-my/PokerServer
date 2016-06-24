@@ -215,7 +215,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
             send.system_notice(dynamic_id, content.PLAY_PLEASE_SELECT_CARD)
             return
         if last_card_id not in card_list:
-            if not (player_operator == games.MAH_OPERATOR_KONG_DARK and player.last_dispatch_card_id in card_list):
+            if not (player_operator in [games.MAH_OPERATOR_KONG_DARK, games.MAH_OPERATOR_KONG_PONG_SELF] and player.last_dispatch_card_id in card_list):
                 func.log_error('[game] mahjong_operator PLAY_LAST_CARD_NOT_IN, account_id: {}, room_id: {}'.format(
                         account_id, room_id))
                 send.system_notice(dynamic_id, content.PLAY_LAST_CARD_NOT_IN)
