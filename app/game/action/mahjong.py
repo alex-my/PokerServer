@@ -448,6 +448,9 @@ def _check_mahjong_win(card_id, cards):
 
 def mahjong_operator_none(room, player):
     room.del_operators(player.account_id)
+    if player.account_id == room.execute_account_id:
+        func.log_info('[game] mahjong_operator_none player is executer')
+        return
     player_operators, all_operators = room.operators
     next_flag = True
     if all_operators:
