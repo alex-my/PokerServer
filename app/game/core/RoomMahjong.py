@@ -61,6 +61,8 @@ class RoomMahjong(Room):
         self._operators = new_operators
 
     def pop_card(self):
+        if not self._cards:
+            return -1
         return self._cards.pop()
 
     def is_card_clear(self):

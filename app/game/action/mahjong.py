@@ -42,6 +42,9 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
         room_id, room.room_type, account_id
     ))
     card_id = room.pop_card()
+    if card_id == -1:
+        mahjong_operator_win(room, player, 0, games.MAH_OPERATOR_NO)
+        return
     func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}, card_name: {}'.format(
         account_id, card_id, room.get_mahjong_name(card_id)
     ))
