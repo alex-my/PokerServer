@@ -233,13 +233,14 @@ def dispatch_poker_to_room(room):
     room.random_cards()
     room.choose_special_account_id()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
-    execute_account_id = room.get_original_execute()
-    room.execute_account_id = execute_account_id
+    # execute_account_id = room.get_original_execute()
+    # room.execute_account_id = execute_account_id
+    room.execute_account_id = room.maker_account_id
     ready_list = room.room_ready_list
     for account_id in ready_list:
         player = room.get_player(account_id)
         if player:
-            send.player_dispatch_cards(execute_account_id, player)
+            send.player_dispatch_cards(room.execute_account_id, player)
 
 
 def dispatch_mahjong_to_room(room, **kwargs):
