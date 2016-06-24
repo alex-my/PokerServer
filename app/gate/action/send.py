@@ -100,6 +100,10 @@ def login_success(dynamic_id, user):
     :return:
     """
     response = login_pb2.m_2001_toc()
+    room_proxy_manager = RoomProxyManager()
+    if not room_proxy_manager.is_room_in(user.room_id):
+        user.room_id = 0
+        user.room_type = 0
     # 玩家信息
     user_info = response.user_info
     user_info.account_id = user.account_id
@@ -114,12 +118,16 @@ def login_success(dynamic_id, user):
     user_info.room_type = user.room_type
     user_info.proxy_id = user.proxy_id
     # 房间信息
-    user_rooms = RoomProxyManager().get_user_rooms(user.account_id)
+    user_rooms = room_proxy_manager.get_user_rooms(user.account_id)
     rules = RoomProxyManager().get_all_rules()
     for game_type, _rule in rules.iteritems():
         room_info = response.room_info.add()
         room_info.room_type = game_type
-        room_info.room_id = user_rooms.get(game_type, 0)
+        room_id = user_rooms.get(game_type, 0)
+        if room_proxy_manager.is_room_in(room_id):
+            room_info.room_id = room_id
+        else:
+            room_info.room_id = 0
         prices = _rule['price']
         for rounds, price in prices.items():
             room_price = room_info.room_price.add()

@@ -37,6 +37,9 @@ class RoomProxyManager:
                 'price': conf['room_price']
             }
 
+    def is_room_in(self, room_id):
+        return room_id in self._rooms
+
     def add_room(self, room):
         if not room:
             return
