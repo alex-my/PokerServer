@@ -4,9 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/app/gate/core/RoomProxyManager.py" line="104" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
+    <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="3">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" afterPath="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="play.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
+      <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="257" column="35" selection-start-line="257" selection-start-column="35" selection-end-line="257" selection-end-column="35" />
+            <state relative-caret-position="396">
+              <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+      <file leaf-file-name="PlayerMahjong.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/game/core/PlayerMahjong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
+            <state relative-caret-position="198">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -90,7 +91,6 @@
         <option value="$PROJECT_DIR$/app/gate/action/recharge.py" />
         <option value="$PROJECT_DIR$/app/game/action/room.py" />
         <option value="$PROJECT_DIR$/app/util/common/func.py" />
-        <option value="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
         <option value="$PROJECT_DIR$/app/util/sql/base/server.sql" />
         <option value="$PROJECT_DIR$/app/gate/action/play.py" />
         <option value="$PROJECT_DIR$/app/util/defines/games.py" />
@@ -126,6 +126,7 @@
         <option value="$PROJECT_DIR$/app/gate/core/RoomProxyManager.py" />
         <option value="$PROJECT_DIR$/app/gate/action/send.py" />
         <option value="$PROJECT_DIR$/app/game/action/play.py" />
+        <option value="$PROJECT_DIR$/app/game/core/PlayerMahjong.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
       </list>
     </option>
@@ -195,7 +196,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="mahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/mahjong.py&#10;Room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;User&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/core/User.py&#10;mahj&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;Roo.&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;play.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/play.py&#10;Room&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;oper&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/operators.py&#10;status&#9;null&#9;null&#10;play&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/play.py&#10;Player&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Player.py&#10;mahjo&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;send.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/send.py&#10;room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/room.py&#10;games&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/games.py&#10;rule.py&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/rule.py&#10;room.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/room.proto&#10;operators&#9;null&#9;null&#10;play.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/play.proto&#10;content&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/content.py&#10;mahjong.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;mahjong.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/service/mahjong.py&#10;RoomMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;RoomPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/RoomPoker.py&#10;ser&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;rule&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/rule.py&#10;PlayerPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;room&#9;FILE&#9;file:///home/alex/Work/poker/app/util/proto/source/room.proto&#10;send&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/send.py&#10;client&#9;FILE&#9;file:///home/alex/Work/poker/tool/client_simulator.py&#10;gater&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/gatereload.py&#10;acc&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;todo&#9;FILE&#9;file:///home/alex/Work/poker/todo.lst&#10;PlayerMa&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerMahjong.py&#10;PlayerPok&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;PlayerMahjon&#9;null&#9;null&#10;RoomMah&#9;null&#9;null&#10;Play&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerManager.py&#10;login&#9;FILE&#9;file:///home/alex/Work/poker/app/util/proto/source/login.proto&#10;compi&#9;FILE&#9;file:///home/alex/Work/poker/tool/compile_proto.py&#10;user&#9;null&#9;null&#10;change&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/change.py&#10;compile_proto&#9;null&#9;null&#10;poker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/action/poker.py&#10;config&#9;FILE&#9;file:///home/alex/Work/poker/config.json&#10;reload&#9;FILE&#9;file:///home/alex/Work/poker/tool/reloadmodule.py&#10;account&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;recharge&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/recharge.py&#10;consta&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/constant.py&#10;accou&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="PlayerMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/PlayerMahjong.py&#10;RoomMahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;games&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/games.py&#10;mahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/mahjong.py&#10;Room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;User&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/core/User.py&#10;mahj&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;Roo.&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;play.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/play.py&#10;Room&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;oper&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/operators.py&#10;status&#9;null&#9;null&#10;play&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/play.py&#10;Player&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Player.py&#10;mahjo&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;send.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/send.py&#10;room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/room.py&#10;rule.py&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/rule.py&#10;room.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/room.proto&#10;operators&#9;null&#9;null&#10;play.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/play.proto&#10;content&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/content.py&#10;mahjong.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;mahjong.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/service/mahjong.py&#10;RoomMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;RoomPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/RoomPoker.py&#10;ser&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;rule&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/rule.py&#10;PlayerPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;room&#9;FILE&#9;file:///home/alex/Work/poker/app/util/proto/source/room.proto&#10;send&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/send.py&#10;client&#9;FILE&#9;file:///home/alex/Work/poker/tool/client_simulator.py&#10;gater&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/gatereload.py&#10;acc&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;todo&#9;FILE&#9;file:///home/alex/Work/poker/todo.lst&#10;PlayerPok&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;PlayerMahjon&#9;null&#9;null&#10;RoomMah&#9;null&#9;null&#10;Play&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerManager.py&#10;login&#9;FILE&#9;file:///home/alex/Work/poker/app/util/proto/source/login.proto&#10;compi&#9;FILE&#9;file:///home/alex/Work/poker/tool/compile_proto.py&#10;user&#9;null&#9;null&#10;change&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/change.py&#10;compile_proto&#9;null&#9;null&#10;poker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/action/poker.py&#10;config&#9;FILE&#9;file:///home/alex/Work/poker/config.json&#10;reload&#9;FILE&#9;file:///home/alex/Work/poker/tool/reloadmodule.py&#10;account&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;recharge&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/recharge.py&#10;consta&#9;FILE&#9;file:///home/alex/Work/poker/app/util/defines/constant.py" />
   </component>
   <component name="RunManager" selected="Python.start">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -422,13 +423,6 @@
       <workItem from="1466743486052" duration="750000" />
       <workItem from="1466760098260" duration="9910000" />
       <workItem from="1466776355573" duration="1175000" />
-    </task>
-    <task id="LOCAL-00117" summary="2221">
-      <created>1466518875844</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1466518875844</updated>
     </task>
     <task id="LOCAL-00118" summary="2245">
       <created>1466520304102</created>
@@ -766,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466783025902</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="3">
+      <created>1466783434532</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1466783434532</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -874,7 +875,6 @@
     <MESSAGE value="0029&#10;" />
     <MESSAGE value="0149" />
     <MESSAGE value="0203" />
-    <MESSAGE value="3" />
     <MESSAGE value="fix" />
     <MESSAGE value="3&#10;" />
     <MESSAGE value="4" />
@@ -882,7 +882,8 @@
     <MESSAGE value="321321" />
     <MESSAGE value="1" />
     <MESSAGE value="2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2" />
+    <MESSAGE value="3" />
+    <option name="LAST_COMMIT_MESSAGE" value="3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1007,13 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/PlayerMahjong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/roomfull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1103,13 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/util/defines/operators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1136,14 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1216,6 +1195,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1224,10 +1211,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/PlayerMahjong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
+        <state relative-caret-position="396">
+          <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
           <folding />
         </state>
       </provider>

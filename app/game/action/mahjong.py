@@ -64,6 +64,7 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
             all_operators[_operator] = [[player.account_id, player.position]]
     room.operators = (player_operators, all_operators)
     func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}'.format(account_id, card_id))
+    player.last_dispatch_card_id = card_id
     send.dispatch_mahjong_card(dynamic_id, card_id, operator_list)
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.broad_mahjong_dispatch_card(dynamic_id_list, account_id)
@@ -230,6 +231,10 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     if player_operator == games.MAH_OPERATOR_NONE:
         mahjong_operator_none(room, player)
     elif player_operator in [games.MAH_OPERATOR_WIN, games.MAH_OPERATOR_DRAWN]:
+        # 胡牌：来自于前一个玩家出的牌
+        # 自摸：来自于自己摸的牌
+        if player_operator == games.MAH_OPERATOR_DRAWN:
+            last_card_id = player.last_dispatch_card_id
         mahjong_operator_win(room, player, last_card_id, player_operator)
     elif player_operator == games.MAH_OPERATOR_CHOW:
         raise

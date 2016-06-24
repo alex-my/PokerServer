@@ -16,6 +16,16 @@ class PlayerMahjong(Player):
         self._chow_list = []    # 吃 [[card_id, card_id, card_id], ...]
         self._others_list = []  # 其他玩家吃,碰,杠. 这样的排不能出现在己方的已经出的牌中 [card_id, ...]
 
+        self._last_dispatch_card_id = 0     # 玩家最后一张摸的牌
+
+    @property
+    def last_dispatch_card_id(self):
+        return self._last_dispatch_card_id
+
+    @last_dispatch_card_id.setter
+    def last_dispatch_card_id(self, _card_id):
+        self._last_dispatch_card_id = _card_id
+
     @property
     def drawn_count(self):
         raise KeyError('[game] PlayerMahjong drawn_count unable to call here')
