@@ -98,7 +98,7 @@ test_mahjong_cards_list = [
     [4, 8, 12, 16, 20, 24, 31, 32, 102, 103, 104, 92, 93]
 ]
 
-test_mahjong_cards_flag = False
+test_mahjong_cards_flag = True
 
 
 test_poker_16_cards_list = [
