@@ -218,6 +218,8 @@ def mahjong_operator(dynamic_id, player_operator, cards):
                 send.system_notice(dynamic_id, content.PLAY_LAST_CARD_NOT_IN)
                 return
     player_operators, all_operators = room.operators
+    func.log_info('[game] mahjong_operator player_operators: {}'.format(player_operator))
+    func.log_info('[game] mahjong_operator all_operators: {}'.format(all_operators))
     if account_id not in player_operators:
         func.log_error('[game] mahjong_operator PLAY_OPERATOR_UN_ABLE, account_id: {}, room_id: {}'.format(
                 account_id, room_id))
