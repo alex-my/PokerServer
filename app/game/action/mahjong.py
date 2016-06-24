@@ -483,9 +483,9 @@ def mahjong_operator_none(room, player):
         else:
             next_flag = False
     if next_flag:
-        dispatch_next_card(room)
         send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
     else:
+        dispatch_next_card(room)
         del room.operators
 
 
