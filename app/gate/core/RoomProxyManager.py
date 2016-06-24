@@ -86,6 +86,8 @@ class RoomProxyManager:
         while True:
             room_id = func.random_get(100001, 999999)
             if room_id not in self._rooms:
+                if calc_count <= 10 and '4' in str(room_id):
+                    continue
                 return room_id
             hold_count += 1
             calc_count += 1
