@@ -197,6 +197,9 @@ def notice_owner_must_in(room):
 def check_switch(room):
     if room.room_type in rule.GAME_LIST_MAHJONG:
         room.switch_account_id = room.maker_account_id
+        func.log_info('[game] check_switch MAHJONG switch_account_id: {}, maker_account_id: {}'.format(
+            room.switch_account_id, room.maker_account_id
+        ))
         return True
     return room.switch_account_id > 0
 
@@ -233,20 +236,19 @@ def dispatch_poker_to_room(room):
     room.random_cards()
     room.choose_special_account_id()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
-    # execute_account_id = room.get_original_execute()
-    # room.execute_account_id = execute_account_id
-    room.execute_account_id = room.maker_account_id
+    execute_account_id = room.get_original_execute()
+    room.execute_account_id = execute_account_id
     ready_list = room.room_ready_list
     for account_id in ready_list:
         player = room.get_player(account_id)
         if player:
-            send.player_dispatch_cards(room.execute_account_id, player)
+            send.player_dispatch_cards(execute_account_id, player)
 
 
 def dispatch_mahjong_to_room(room, **kwargs):
     func.log_info('[game] dispatch_mahjong_to_room')
     room.random_cards()
-    execute_account_id = room.get_original_execute()
+    # execute_account_id = room.get_original_execute()
     room.room_player_status(status.PLAYER_STATUS_NORMAL)
     if 'crap_list' in kwargs:
         craps_1, craps_2 = kwargs['crap_list']
@@ -257,10 +259,9 @@ def dispatch_mahjong_to_room(room, **kwargs):
     original_count = room.original_count * room.player_count
     room.mahjong_start = original_count
     room.mahjong_end = 1
-    if room.rounds <= 1:
-        room.maker_account_id = execute_account_id
+    room.execute_account_id = room.maker_account_id
     mahjong_craps = {
-        'maker_account_id': execute_account_id,
+        'maker_account_id': room.execute_account_id,
         'craps': [craps_1, craps_2],
         'mahjong_start_num': room.mahjong_start,
         'mahjong_end_num': room.mahjong_end
@@ -269,8 +270,8 @@ def dispatch_mahjong_to_room(room, **kwargs):
     for account_id in ready_list:
         player = room.get_player(account_id)
         send.send_mahjong_craps(player.dynamic_id, **mahjong_craps)
-        send.player_dispatch_cards(execute_account_id, player)
-        if player.account_id == execute_account_id:
+        send.player_dispatch_cards(room.execute_account_id, player)
+        if player.account_id == room.execute_account_id:
             mahjong.dispatch_mahjong_card(player.dynamic_id, True)
 
 
