@@ -450,7 +450,17 @@ def mahjong_operator_none(room, player):
     if all_operators:
         func.log_info('[game] mahjong_operator_none player_operators: {}'.format(player_operators))
         func.log_info('[game] mahjong_operator_none all_operators: {}'.format(all_operators))
-        operator_account_id = select_mahjong_operator_account_id(all_operators, player.account_id, player.position)
+        # 冗余检查
+        last_all_operators = dict()
+        for _o, info_list in all_operators.items():
+            last_info_list = []
+            for _id, _position in info_list:
+                if _id not in player_operators or _o not in player_operators[_id]:
+                    continue
+                last_info_list.append([_id, _position])
+            if last_info_list:
+                last_all_operators[_o] = last_info_list
+        operator_account_id = select_mahjong_operator_account_id(last_all_operators, player.account_id, player.position)
         func.log_info('[game] mahjong_operator_none account_id: {}, position: {}, operator_account_id: {}'.format(
             player.account_id, player.position, operator_account_id
         ))
