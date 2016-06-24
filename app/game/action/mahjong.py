@@ -463,18 +463,21 @@ def mahjong_operator_none(room, player):
                 last_info_list.append([_id, _position])
             if last_info_list:
                 last_all_operators[_o] = last_info_list
-        operator_account_id = select_mahjong_operator_account_id(last_all_operators, player.account_id, player.position)
-        func.log_info('[game] mahjong_operator_none account_id: {}, position: {}, operator_account_id: {}'.format(
-            player.account_id, player.position, operator_account_id
-        ))
-        for _account_id, operator_list in player_operators.items():
-            if not operator_list:
-                continue
-            _player = room.get_player(_account_id)
-            operator_able = _account_id == operator_account_id
-            if operator_able:
-                next_flag = False
-            send.send_mahjong_operator_select(_player.dynamic_id, operator_able, operator_list)
+        if last_all_operators:
+            operator_account_id = select_mahjong_operator_account_id(last_all_operators, player.account_id, player.position)
+            func.log_info('[game] mahjong_operator_none account_id: {}, position: {}, operator_account_id: {}'.format(
+                player.account_id, player.position, operator_account_id
+            ))
+            for _account_id, operator_list in player_operators.items():
+                if not operator_list:
+                    continue
+                _player = room.get_player(_account_id)
+                operator_able = _account_id == operator_account_id
+                if operator_able:
+                    next_flag = False
+                send.send_mahjong_operator_select(_player.dynamic_id, operator_able, operator_list)
+        else:
+            next_flag = False
     if next_flag:
         dispatch_next_card(room)
         send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
