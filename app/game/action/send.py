@@ -195,6 +195,8 @@ def game_over_mahjong(win_account_id, lose_account_id, win_card_id, win_status, 
             for _award_card_id in _award_card_list:
                 award_card_list.card_id.append(_award_card_id)
         for _card_id in info.get('cards', []):
+            if _card_id == win_card_id:
+                continue
             close_info.card_id.append(_card_id)
         close_info.point_change = info.get('point_change', 0)
         close_info.current_point = info.get('current_point', 0)
