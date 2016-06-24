@@ -4,9 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/gate/core/RoomProxyManager.py" line="106" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
+    <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="188">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/defines/games.py" afterPath="$PROJECT_DIR$/app/util/defines/games.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +37,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.78003293">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="449">
-                  <caret line="455" column="53" selection-start-line="455" selection-start-column="53" selection-end-line="455" selection-end-column="53" />
+                <state relative-caret-position="405">
+                  <caret line="453" column="52" selection-start-line="453" selection-start-column="52" selection-end-line="453" selection-end-column="52" />
                   <folding />
                 </state>
               </provider>
@@ -57,11 +57,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="games.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="games.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="99" selection-end-column="0" />
+                <state relative-caret-position="418">
+                  <caret line="100" column="31" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -162,9 +162,9 @@
         <option value="$PROJECT_DIR$/app/game/action/send.py" />
         <option value="$PROJECT_DIR$/app/auth/action/account.py" />
         <option value="$PROJECT_DIR$/app/gate/core/RoomProxyManager.py" />
-        <option value="$PROJECT_DIR$/app/util/defines/games.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
+        <option value="$PROJECT_DIR$/app/util/defines/games.py" />
       </list>
     </option>
   </component>
@@ -460,13 +460,6 @@
       <workItem from="1466743486052" duration="750000" />
       <workItem from="1466760098260" duration="9910000" />
       <workItem from="1466776355573" duration="1175000" />
-    </task>
-    <task id="LOCAL-00135" summary="mahjong point.">
-      <created>1466671026265</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1466671026265</updated>
     </task>
     <task id="LOCAL-00136" summary="1650">
       <created>1466671834175</created>
@@ -804,7 +797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466792924431</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="188">
+      <created>1466793522267</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1466793522267</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -895,7 +895,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="0026&#10;" />
     <MESSAGE value="0029&#10;" />
     <MESSAGE value="0149" />
     <MESSAGE value="0203" />
@@ -920,7 +919,8 @@
     <MESSAGE value="14" />
     <MESSAGE value="17" />
     <MESSAGE value="187" />
-    <option name="LAST_COMMIT_MESSAGE" value="187" />
+    <MESSAGE value="188" />
+    <option name="LAST_COMMIT_MESSAGE" value="188" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1258,14 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="99" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1276,8 +1268,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="455" column="53" selection-start-line="455" selection-start-column="53" selection-end-line="455" selection-end-column="53" />
+        <state relative-caret-position="405">
+          <caret line="453" column="52" selection-start-line="453" selection-start-column="52" selection-end-line="453" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/defines/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="100" column="31" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
           <folding />
         </state>
       </provider>
