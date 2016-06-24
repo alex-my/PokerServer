@@ -78,8 +78,7 @@ class RoomPoker(Room):
             self._dispatch_turn.append(account_id)
 
     def room_point_change(self):
-        unit_count, player_count = self._config['unit_count'], self._config['player_count']
-        card_full_count = unit_count / player_count
+        card_full_count = self._config['original_count']
 
         all_player_info = dict()
         win_player = None
