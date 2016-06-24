@@ -130,6 +130,7 @@ def mahjong_publish(dynamic_id, card_id):
             continue
         _player_card_list = _player.card_list
         operator_list = []
+        func.log_info('-' * 50)
         func.log_info('[game] mahjong_publish account_id: {} check card_list: {}'.format(_player.account_id, _player_card_list))
         if check_mahjong_win(room, card_id, _player_card_list):
             win_flag = True
@@ -148,6 +149,7 @@ def mahjong_publish(dynamic_id, card_id):
             operator_list.append(games.MAH_OPERATOR_KONG_PONG_OTHER)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
         player_operators[_player.account_id] = operator_list
+        func.log_info('-' * 50)
 
     room.record_last(account_id, [card_id])
     room.operators = (player_operators, operators)
@@ -408,7 +410,7 @@ def _check_mahjong_win(card_id, cards):
                 _match(_card_index, 1, _gather)
 
     for door_id, _, door_card_type in door_list:
-        func.log_info('\n[game] _check_mahjong_win door_id: {}'.format(door_id))
+        func.log_info('[game] _check_mahjong_win door_id: {}'.format(door_id))
         all_gather = copy.deepcopy(all_card_gather)
         win_flag = True
         for _type, _card_gather in all_gather.items():
