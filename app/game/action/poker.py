@@ -74,7 +74,7 @@ def poker_publish(dynamic_id, cards):
         # 上传本局记录
         send.sync_play_history(room)
         room.room_reset()
-        send.game_over(account_id, all_player_info, dynamic_id_list)
+        send.poker_game_over(account_id, all_player_info, dynamic_id_list)
         # 归还在线匹配保证金
         roomfull.back_bail_gold(room)
         # 判断该房间是否失效(达到可玩的局数上限)

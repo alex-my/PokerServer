@@ -162,7 +162,7 @@ def player_dispatch_cards(execute_account_id, player):
     forward.push_object_game(4003, response.SerializeToString(), [player.dynamic_id])
 
 
-def game_over(win_account_id, all_player_info, dynamic_id_list):
+def poker_game_over(win_account_id, all_player_info, dynamic_id_list):
     response = play_pb2.m_4004_toc()
     response.win_account_id = win_account_id
     for account_id, info in all_player_info:
@@ -170,12 +170,13 @@ def game_over(win_account_id, all_player_info, dynamic_id_list):
         close_info.account_id = account_id
         close_info.card_count = info['left_card_count']
         close_info.point_change = info['change_point']
+        close_info.point = info['point']
         _disptach_cards = info['disptach_cards']
         for _dispatch_list in _disptach_cards:
             dispatch_cards = close_info.dispatch_cards.add()
             for _card_id in _dispatch_list:
                 dispatch_cards.card_id.append(_card_id)
-    func.log_info('[game] 4004 game_over dynamic_id_list: {}, response: {}'.format(
+    func.log_info('[game] 4004 poker_game_over dynamic_id_list: {}, response: {}'.format(
         dynamic_id_list, response))
     forward.push_object_game(4004, response.SerializeToString(), dynamic_id_list)
 

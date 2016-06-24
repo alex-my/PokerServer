@@ -122,7 +122,8 @@ class RoomPoker(Room):
             all_player_info[_player.account_id] = {
                 'left_card_count': left_card_count,
                 'disptach_cards': _player.close_cards,
-                'change_point': change_point
+                'change_point': change_point,
+                'point': _player.point
             }
         if win_player and win_point > 0:
             win_player.point_change(win_point)
