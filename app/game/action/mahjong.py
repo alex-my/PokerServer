@@ -164,8 +164,9 @@ def mahjong_publish(dynamic_id, card_id):
         operator_account_id, player_operators, operators
     ))
     if not operators:
-        if room.is_card_clear() and not win_flag:
-            mahjong_operator_win(room, player, 0, games.MAH_OPERATOR_NO)
+        if room.is_card_clear():
+            if not win_flag:
+                mahjong_operator_win(room, player, 0, games.MAH_OPERATOR_NO)
         else:
             dispatch_next_card(room)
 
