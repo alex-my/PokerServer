@@ -63,6 +63,7 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
         for _operator in operator_list:
             all_operators[_operator] = [[player.account_id, player.position]]
     room.operators = (player_operators, all_operators)
+    func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}'.format(account_id, card_id))
     send.dispatch_mahjong_card(dynamic_id, card_id, operator_list)
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.broad_mahjong_dispatch_card(dynamic_id_list, account_id)
