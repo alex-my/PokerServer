@@ -38,8 +38,8 @@
       <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="211" column="42" selection-start-line="211" selection-start-column="42" selection-end-line="211" selection-end-column="42" />
+            <state relative-caret-position="278">
+              <caret line="510" column="77" selection-start-line="510" selection-start-column="77" selection-end-line="510" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
       <file leaf-file-name="send.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="368" column="4" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="4" />
+            <state relative-caret-position="36">
+              <caret line="368" column="25" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -443,13 +443,6 @@
       <workItem from="1466760098260" duration="9910000" />
       <workItem from="1466776355573" duration="1175000" />
     </task>
-    <task id="LOCAL-00119" summary="recharge statistic">
-      <created>1466521580480</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1466521580481</updated>
-    </task>
     <task id="LOCAL-00120" summary="1050">
       <created>1466563847951</created>
       <option name="number" value="00120" />
@@ -786,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466784457943</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="4">
+      <created>1466786167841</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1466786167841</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -807,8 +807,8 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29840922" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22230595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3707165" sideWeight="0.5216676" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3707165" sideWeight="0.47833243" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27725857" sideWeight="0.5216676" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27725857" sideWeight="0.47833243" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30425754" sideWeight="0.6330225" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24226415" sideWeight="0.6648893" order="3" side_tool="false" content_ui="tabs" />
@@ -895,14 +895,14 @@
     <MESSAGE value="0203" />
     <MESSAGE value="fix" />
     <MESSAGE value="3&#10;" />
-    <MESSAGE value="4" />
     <MESSAGE value="321" />
     <MESSAGE value="321321" />
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="3" />
     <MESSAGE value="34" />
-    <option name="LAST_COMMIT_MESSAGE" value="34" />
+    <MESSAGE value="4" />
+    <option name="LAST_COMMIT_MESSAGE" value="4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1156,6 +1156,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1231,14 +1232,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="368" column="4" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/util/defines/content.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1247,10 +1240,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="368" column="25" selection-start-line="368" selection-start-column="4" selection-end-line="368" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="211" column="42" selection-start-line="211" selection-start-column="42" selection-end-line="211" selection-end-column="42" />
+        <state relative-caret-position="278">
+          <caret line="510" column="77" selection-start-line="510" selection-start-column="77" selection-end-line="510" selection-end-column="77" />
           <folding />
         </state>
       </provider>

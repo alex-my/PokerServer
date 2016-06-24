@@ -508,6 +508,9 @@ def check_mahjong_pong_valid(player, card_list):
 
 
 def mahjong_operator_pong(room, player, card_list):
+    func.log_info('[game] mahjong_operator_pong account_id: {}, card_list: {}'.format(
+        player.account_id, card_list
+    ))
     dynamic_id_list = room.get_room_dynamic_id_list()
     player.pong_list = card_list
     player.card_publish_list(card_list)
@@ -545,6 +548,9 @@ def check_mahjong_kong_valid(player, card_list):
 
 
 def mahjong_operator_kong(room, player, card_list, player_operator):
+    func.log_info('[game] mahjong_operator_kong account_id: {}, card_list: {}, player_operator: {}'.format(
+        player.account_id, card_list, player_operator
+    ))
     dynamic_id_list = room.get_room_dynamic_id_list()
     player.kong_list = card_list
     player.card_publish_list(card_list)
