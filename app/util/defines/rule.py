@@ -13,6 +13,8 @@ GAME_LIST_MAHJONG = [GAME_TYPE_ZZMJ]
 rule_configs = {
     GAME_TYPE_PDK: {
         'room_price': {
+            1: 0,
+            2: 0,
             10: 0,
             20: 0,
             30: 0
@@ -24,6 +26,7 @@ rule_configs = {
     },
     GAME_TYPE_ZZMJ: {
         'room_price': {
+            1: 0,
             2: 0,
             10: 0,
             20: 0,
@@ -35,6 +38,8 @@ rule_configs = {
     },
     GAME_TYPE_PDK2: {
         'room_price': {
+            1: 0,
+            2: 0,
             10: 0,
             20: 0,
             30: 0
