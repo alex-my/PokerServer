@@ -5,8 +5,8 @@ import os
 import sys
 import affinity
 import signal
-from twisted.python import log
 from twisted.python.logfile import DailyLogFile
+from twisted.python import log
 from twisted.internet import reactor
 from twisted.web import vhost
 from firefly.distributed.root import PBRoot, BilateralFactory
@@ -80,9 +80,7 @@ class FFGServer(FFServer):
             urls = memconfig.get('urls')
             hostname = str(memconfig.get('hostname'))
             mclient.connect(urls, hostname)
-        log_obj = DailyLogFile('master.log', 'logs/')
-        log.FileLogObserver(log_obj)
-        log.startLogging(sys.stdout)
+        log.startLogging(DailyLogFile('master.log', 'logs/'))
 
         if cpuid:
             affinity.set_process_affinity_mask(os.getpid(), cpuid)

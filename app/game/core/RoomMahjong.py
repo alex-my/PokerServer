@@ -92,6 +92,8 @@ class RoomMahjong(Room):
 
     @property
     def maker_account_id(self):
+        if self._maker_account_id == 0:
+            self._maker_account_id = self._player_list[0]
         return self._maker_account_id
 
     @maker_account_id.setter
@@ -137,6 +139,11 @@ class RoomMahjong(Room):
         self._last_account_id = 0
         self._last_cards = []
         self._rounds += 1
+
+        if self._maker_account_id != self._pre_win_account_id:
+            next_execute_account_id = self.get_original_execute()
+            self._maker_account_id = next_execute_account_id
+            self._switch_account_id = self._maker_account_id
 
     def room_mahjong_close(self, win_status):
         all_player_info = dict()

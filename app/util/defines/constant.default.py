@@ -11,4 +11,5 @@ WECHAT_APIKEY = '39a6c7d8b3f14a9d6cb006bc2ea70b78'          # API密钥，需要
 WECHAT_NOTIFY_URL = 'http://120.76.153.160:11861/RechargeWechatNotify'
 WECHAT_BODY = u'充值'
 
+
 SERVER_FLAG = 'normal'
