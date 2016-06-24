@@ -42,7 +42,7 @@ rule_configs = {
         'player_count': 3,
         'unit_count': 48,        # 48张扑克牌
         'original_count': 15,    # 每个玩家初始牌数
-        'un_except': [47, 46, 45]  # 去除的牌
+        'un_except': [47, 46, 44]  # 去除的牌
     },
 }
 
