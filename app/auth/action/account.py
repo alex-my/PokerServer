@@ -175,7 +175,11 @@ def calc_account_id(cur_account_id):
             continue
         flag = True
         for c in str_account_id:
-            if str_account_id.count(c) >= 5:
+            str_count = str_account_id.count(c)
+            if str_count >= 5:
+                flag = False
+                break
+            elif int(c) in [6, 8, 9] and str_count >= 4:
                 flag = False
                 break
         if flag:
