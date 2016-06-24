@@ -450,6 +450,7 @@ def mahjong_operator_none(room, player):
     room.del_operators(player.account_id)
     if player.account_id == room.execute_account_id:
         func.log_info('[game] mahjong_operator_none player is executer')
+        send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
         return
     player_operators, all_operators = room.operators
     next_flag = True
