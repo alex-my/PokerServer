@@ -141,7 +141,8 @@ class Room(object):
         return self.is_close_t_valid() and len(self._close_room_player) <= 1
 
     def is_creater_agree_close(self):
-        return self._account_id in self._close_room_player
+        # return self._account_id in self._close_room_player
+        return True
 
     def is_room_start(self):
         return self._rounds > 1 or len(self._cards) > 0
