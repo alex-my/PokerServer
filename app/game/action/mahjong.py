@@ -517,6 +517,10 @@ def check_mahjong_kong_valid(player, card_list):
     cur_list = games.MAH_CONFIG[card_id]['cur_list']
     exist_list = player.card_list
     pong_list = player.pong_list
+    func.log_info('[game] check_mahjong_kong_valid account_id: {}, exist_list: {}'.format(
+            player.account_id, exist_list))
+    func.log_info('[game] check_mahjong_kong_valid account_id: {}, pong_list: {}'.format(
+            player.account_id, pong_list))
     exist_pong_list = []
     for _p in pong_list:
         exist_pong_list.extend(_p)
@@ -526,6 +530,8 @@ def check_mahjong_kong_valid(player, card_list):
             return False
         if _card_id in exist_list or _card_id in exist_pong_list:
             exist_count += 1
+    func.log_info('[game] check_mahjong_kong_valid account_id: {}, exist_count: {}'.format(
+            player.account_id, exist_count))
     if exist_list < 3:
         return False
     return True

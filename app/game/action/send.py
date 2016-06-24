@@ -243,9 +243,10 @@ def send_few_card_count(dynamic_id_list, account_id, card_count):
     forward.push_object_game(5104, response.SerializeToString(), dynamic_id_list)
 
 
-def send_poker_room_full(dynamic_id_list, statistic_list):
+def send_poker_room_full(dynamic_id_list, statistic_list, give_up=False):
     response = game_poker_pb2.m_5105_toc()
     response.server_t = func.time_get()
+    response.give_up = 1 if give_up else 0
     for info in statistic_list:
         room_fulls = response.room_fulls.add()
         room_fulls.account_id = info['account_id']
@@ -331,10 +332,11 @@ def send_mahjong_operator_select(dynamic_id, operator_able, operators):
     forward.push_object_game(5206, response.SerializeToString(), [dynamic_id])
 
 
-def send_mahjong_room_full(dynamic_id_list, max_rounds, statistic_list):
+def send_mahjong_room_full(dynamic_id_list, max_rounds, statistic_list, give_up=False):
     response = game_mahjong_pb2.m_5207_toc()
     response.server_t = func.time_get()
     response.max_rounds = max_rounds
+    response.give_up = 1 if give_up else 0
     for info in statistic_list:
         room_fulls = response.room_fulls.add()
         room_fulls.account_id = info['account_id']

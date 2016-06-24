@@ -109,7 +109,7 @@ def user_close(dynamic_id, operate):
                     account_id, room_price, back_origin, room.get_room_brief()
                 ))
             send.system_notice_room(room, content.ROOM_CLOSE_NOW)
-            roomfull.remove_room(room)
+            roomfull.remove_room(room, True)
         else:
             send.system_notice_room(room, content.ROOM_CLOSE_OWNER)
     elif room.is_room_close_first():
