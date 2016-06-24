@@ -116,6 +116,7 @@ def bomb(account_id, card_list, room):
     else:
         change_point = 10
     win_point = 0
+    bomb_change_list = []
     for _account_id in room.room_ready_list:
         _player = room.get_player(_account_id)
         if _account_id == account_id:
@@ -127,12 +128,21 @@ def bomb(account_id, card_list, room):
         total_point = change_point * special_point
         win_point += total_point
         _player.point_change(-total_point)
+        bomb_change_list.append({
+            'account_id': _account_id,
+            'point_changes': -total_point,
+            'current_point': _player.point
+        })
     win_player = room.get_player(account_id)
     win_player.point_change(win_point)
+    bomb_change_list.append({
+        'account_id': account_id,
+        'point_changes': win_point,
+        'current_point': win_player.point
+    })
 
     dynamic_id_list = room.get_room_dynamic_id_list()
-    _point = change_point * (room.player_count - 1)
-    send.send_poker_bomb(account_id, _point, dynamic_id_list)
+    send.send_poker_bomb(bomb_change_list, dynamic_id_list)
 
 
 def check_card_few(player):

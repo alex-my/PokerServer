@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='game_poker.proto',
   package='',
-  serialized_pb=_b('\n\x10game_poker.proto\"\x1b\n\nm_5101_tos\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"\x0c\n\nm_5101_toc\"c\n\nm_5102_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x17\n\x0fnext_account_id\x18\x02 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\x12\x11\n\tcard_list\x18\x04 \x03(\r\"/\n\nm_5103_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\r\n\x05point\x18\x02 \x02(\r\"4\n\nm_5104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"Q\n\nm_5105_toc\x12 \n\nroom_fulls\x18\x01 \x03(\x0b\x32\x0c.p_room_full\x12\x10\n\x08server_t\x18\x02 \x01(\r\x12\x0f\n\x07give_up\x18\x03 \x01(\r\"\x93\x01\n\x0bp_room_full\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04rank\x18\x02 \x02(\r\x12\x14\n\x0cpoint_change\x18\x03 \x02(\x05\x12\x11\n\twin_count\x18\x04 \x02(\r\x12\x12\n\nlose_count\x18\x05 \x02(\r\x12\x12\n\nbomb_count\x18\x06 \x02(\r\x12\x11\n\tmax_point\x18\x07 \x02(\r')
+  serialized_pb=_b('\n\x10game_poker.proto\"\x1b\n\nm_5101_tos\x12\r\n\x05\x63\x61rds\x18\x01 \x03(\r\"\x0c\n\nm_5101_toc\"c\n\nm_5102_toc\x12\x1a\n\x12\x65xecute_account_id\x18\x01 \x02(\r\x12\x17\n\x0fnext_account_id\x18\x02 \x02(\r\x12\r\n\x05\x63\x61rds\x18\x03 \x03(\r\x12\x11\n\tcard_list\x18\x04 \x03(\r\"3\n\nm_5103_toc\x12%\n\x0c\x62omb_changes\x18\x01 \x03(\x0b\x32\x0f.m_bomb_changes\"R\n\x0em_bomb_changes\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x15\n\rpoint_changes\x18\x02 \x02(\x05\x12\x15\n\rcurrent_point\x18\x03 \x02(\x05\"4\n\nm_5104_toc\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x12\n\ncard_count\x18\x02 \x02(\r\"Q\n\nm_5105_toc\x12 \n\nroom_fulls\x18\x01 \x03(\x0b\x32\x0c.p_room_full\x12\x10\n\x08server_t\x18\x02 \x01(\r\x12\x0f\n\x07give_up\x18\x03 \x01(\r\"\x93\x01\n\x0bp_room_full\x12\x12\n\naccount_id\x18\x01 \x02(\r\x12\x0c\n\x04rank\x18\x02 \x02(\r\x12\x14\n\x0cpoint_change\x18\x03 \x02(\x05\x12\x11\n\twin_count\x18\x04 \x02(\r\x12\x12\n\nlose_count\x18\x05 \x02(\r\x12\x12\n\nbomb_count\x18\x06 \x02(\r\x12\x11\n\tmax_point\x18\x07 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -137,16 +137,9 @@ _M_5103_TOC = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='account_id', full_name='m_5103_toc.account_id', index=0,
-      number=1, type=13, cpp_type=3, label=2,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='point', full_name='m_5103_toc.point', index=1,
-      number=2, type=13, cpp_type=3, label=2,
-      has_default_value=False, default_value=0,
+      name='bomb_changes', full_name='m_5103_toc.bomb_changes', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -162,7 +155,51 @@ _M_5103_TOC = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=164,
-  serialized_end=211,
+  serialized_end=215,
+)
+
+
+_M_BOMB_CHANGES = _descriptor.Descriptor(
+  name='m_bomb_changes',
+  full_name='m_bomb_changes',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='account_id', full_name='m_bomb_changes.account_id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='point_changes', full_name='m_bomb_changes.point_changes', index=1,
+      number=2, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='current_point', full_name='m_bomb_changes.current_point', index=2,
+      number=3, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=217,
+  serialized_end=299,
 )
 
 
@@ -198,8 +235,8 @@ _M_5104_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=213,
-  serialized_end=265,
+  serialized_start=301,
+  serialized_end=353,
 )
 
 
@@ -242,8 +279,8 @@ _M_5105_TOC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=267,
-  serialized_end=348,
+  serialized_start=355,
+  serialized_end=436,
 )
 
 
@@ -314,15 +351,17 @@ _P_ROOM_FULL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=351,
-  serialized_end=498,
+  serialized_start=439,
+  serialized_end=586,
 )
 
+_M_5103_TOC.fields_by_name['bomb_changes'].message_type = _M_BOMB_CHANGES
 _M_5105_TOC.fields_by_name['room_fulls'].message_type = _P_ROOM_FULL
 DESCRIPTOR.message_types_by_name['m_5101_tos'] = _M_5101_TOS
 DESCRIPTOR.message_types_by_name['m_5101_toc'] = _M_5101_TOC
 DESCRIPTOR.message_types_by_name['m_5102_toc'] = _M_5102_TOC
 DESCRIPTOR.message_types_by_name['m_5103_toc'] = _M_5103_TOC
+DESCRIPTOR.message_types_by_name['m_bomb_changes'] = _M_BOMB_CHANGES
 DESCRIPTOR.message_types_by_name['m_5104_toc'] = _M_5104_TOC
 DESCRIPTOR.message_types_by_name['m_5105_toc'] = _M_5105_TOC
 DESCRIPTOR.message_types_by_name['p_room_full'] = _P_ROOM_FULL
@@ -354,6 +393,13 @@ m_5103_toc = _reflection.GeneratedProtocolMessageType('m_5103_toc', (_message.Me
   # @@protoc_insertion_point(class_scope:m_5103_toc)
   ))
 _sym_db.RegisterMessage(m_5103_toc)
+
+m_bomb_changes = _reflection.GeneratedProtocolMessageType('m_bomb_changes', (_message.Message,), dict(
+  DESCRIPTOR = _M_BOMB_CHANGES,
+  __module__ = 'game_poker_pb2'
+  # @@protoc_insertion_point(class_scope:m_bomb_changes)
+  ))
+_sym_db.RegisterMessage(m_bomb_changes)
 
 m_5104_toc = _reflection.GeneratedProtocolMessageType('m_5104_toc', (_message.Message,), dict(
   DESCRIPTOR = _M_5104_TOC,

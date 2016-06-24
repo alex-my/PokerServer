@@ -20,9 +20,15 @@ message m_5102_toc {
 
 // 炸弹
 message m_5103_toc {
-    required uint32 account_id = 1;             // 出炸弹的玩家 (自己不会被扣除分数)
-    required uint32 point = 2;                  // 扣除的积分
+    repeated m_bomb_changes bomb_changes = 1;
 }
+
+message m_bomb_changes {
+    required uint32 account_id = 1;             // 玩家账号ID
+    required int32 point_changes = 2;           // 积分变化
+    required int32 current_point = 3;           // 当前积分
+}
+
 
 // 少量牌时候的通知
 message m_5104_toc {

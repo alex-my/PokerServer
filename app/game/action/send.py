@@ -223,10 +223,13 @@ def publish_poker_to_room(dynamic_id, account_id, next_account_id, cards, self_c
     forward.push_object_game(5102, response.SerializeToString(), [dynamic_id])
 
 
-def send_poker_bomb(account_id, point, dynamic_id_list):
+def send_poker_bomb(bomb_change_list, dynamic_id_list):
     response = game_poker_pb2.m_5103_toc()
-    response.account_id = account_id
-    response.point = point
+    for info in bomb_change_list:
+        bomb_changes = response.bomb_changes.add()
+        bomb_changes.account_id = info['account_id']
+        bomb_changes.point_changes = info['point_changes']
+        bomb_changes.current_point = info['current_point']
     func.log_info('[game] 5103 send_poker_bomb dynamic_id_list: {}, response: {}'.format(
         dynamic_id_list, response
     ))

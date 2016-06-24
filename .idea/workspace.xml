@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/play.py" afterPath="$PROJECT_DIR$/app/game/action/play.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/roomfull.py" afterPath="$PROJECT_DIR$/app/game/action/roomfull.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/poker.py" afterPath="$PROJECT_DIR$/app/game/action/poker.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/send.py" afterPath="$PROJECT_DIR$/app/game/action/send.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/game_mahjong_pb2.py" afterPath="$PROJECT_DIR$/app/util/proto/game_mahjong_pb2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/game_poker_pb2.py" afterPath="$PROJECT_DIR$/app/util/proto/game_poker_pb2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" afterPath="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/util/proto/source/game_poker.proto" afterPath="$PROJECT_DIR$/app/util/proto/source/game_poker.proto" />
     </list>
     <ignored path="PokerServer.iws" />
@@ -41,54 +37,14 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3461854">
+    <splitter split-orientation="horizontal" split-proportion="0.38966367">
       <split-first>
         <leaf>
-          <file leaf-file-name="game_mahjong.proto" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.66209084">
-                  <caret line="70" column="27" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="play.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="poker.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="poker.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="game_poker.proto" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_poker.proto">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="34" column="18" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="roomfull.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/action/roomfull.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.7922465">
+                  <caret line="140" column="35" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -98,11 +54,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="send.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.71073556">
+                  <caret line="578" column="46" selection-start-line="578" selection-start-column="41" selection-end-line="578" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="send.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.77402323">
-                  <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="242" column="51" selection-start-line="242" selection-start-column="51" selection-end-line="242" selection-end-column="51" />
                   <folding />
                 </state>
               </provider>
@@ -174,14 +140,14 @@
         <option value="$PROJECT_DIR$/app/game/core/Player.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomMahjong.py" />
         <option value="$PROJECT_DIR$/app/util/defines/rule.py" />
-        <option value="$PROJECT_DIR$/app/game/action/poker.py" />
         <option value="$PROJECT_DIR$/app/game/core/RoomPoker.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
         <option value="$PROJECT_DIR$/app/util/proto/source/game_mahjong.proto" />
-        <option value="$PROJECT_DIR$/app/util/proto/source/game_poker.proto" />
         <option value="$PROJECT_DIR$/app/game/action/play.py" />
         <option value="$PROJECT_DIR$/app/game/action/roomfull.py" />
+        <option value="$PROJECT_DIR$/app/util/proto/source/game_poker.proto" />
         <option value="$PROJECT_DIR$/app/game/action/send.py" />
+        <option value="$PROJECT_DIR$/app/game/action/poker.py" />
       </list>
     </option>
   </component>
@@ -896,13 +862,7 @@
       <workItem from="1466674424722" duration="1927000" />
       <workItem from="1466737908216" duration="1778000" />
       <workItem from="1466743486052" duration="750000" />
-      <workItem from="1466760098260" duration="2516000" />
-    </task>
-    <task id="LOCAL-00109" summary="online recharge.">
-      <created>1466482172743</created>
-      <option name="number" value="00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1466482172743</updated>
+      <workItem from="1466760098260" duration="2972000" />
     </task>
     <task id="LOCAL-00110" summary="mahjong online match.">
       <created>1466484864184</created>
@@ -1192,11 +1152,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466760629915</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="1">
+      <created>1466762628217</created>
+      <option name="number" value="00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1466762628217</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226198000" />
+    <option name="totallyTimeSpent" value="226654000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1218,11 +1184,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18052739" sideWeight="0.35826558" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17962264" sideWeight="0.6417344" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21962264" sideWeight="0.5290698" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21962264" sideWeight="0.5290698" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09105825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26415095" sideWeight="0.49169436" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26415095" sideWeight="0.49169436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1304,11 +1270,11 @@
     <MESSAGE value="0029&#10;" />
     <MESSAGE value="0149" />
     <MESSAGE value="0203" />
-    <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="3" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1539,13 +1505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/Player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4250973">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.01848249">
@@ -1609,33 +1568,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.333333">
-          <caret line="271" column="13" selection-start-line="271" selection-start-column="13" selection-end-line="271" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_poker.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.81415">
           <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
           <folding />
         </state>
@@ -1643,7 +1578,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/roomfull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.30095038">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding />
         </state>
@@ -1659,8 +1594,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/send.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77402323">
-          <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="242" column="51" selection-start-line="242" selection-start-column="51" selection-end-line="242" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71073556">
+          <caret line="578" column="46" selection-start-line="578" selection-start-column="41" selection-end-line="578" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/Player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.888668">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/proto/source/game_poker.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49105367">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7922465">
+          <caret line="140" column="35" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="35" />
           <folding />
         </state>
       </provider>
