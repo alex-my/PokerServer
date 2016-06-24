@@ -62,6 +62,9 @@ def dispatch_mahjong_card_account(account_id, dynamic_id, from_start):
         player_operators[account_id] = operator_list
         for _operator in operator_list:
             all_operators[_operator] = [[player.account_id, player.position]]
+        func.log_info('[game] dispatch_mahjong_card_account account_id: {}, player_operators: {}, all_operators: {}'.format(
+            account_id, player_operators, all_operators
+        ))
     room.operators = (player_operators, all_operators)
     func.log_info('[game] dispatch_mahjong_card_account account_id: {}, card_id: {}'.format(account_id, card_id))
     player.last_dispatch_card_id = card_id
@@ -475,6 +478,8 @@ def mahjong_operator_none(room, player):
     if next_flag:
         dispatch_next_card(room)
         send.send_mahjong_operator([player], player.account_id, games.MAH_OPERATOR_NONE, [])
+    else:
+        del room.operators
 
 
 def dispatch_next_card(room):
