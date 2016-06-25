@@ -33,3 +33,14 @@ message p_change_string {
     required uint32 change_type = 1;
     required string change_value = 2;
 }
+
+// 心跳
+message m_9006_tos {
+
+}
+
+message m_9006_toc {
+
+}
+
+
