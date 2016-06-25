@@ -78,6 +78,16 @@ def system_changes_string(changes):
     forward.push_object_gate_all(9005, response.SerializeToString())
 
 
+def send_heart_tick(dynamic_id):
+    """
+    心跳
+    :param dynamic_id:
+    :return:
+    """
+    response = system_pb2.m_9006_toc()
+    forward.push_object_gate(9006, response.SerializeToString(), [dynamic_id])
+
+
 def recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info):
     response = recharge_pb2.m_9101_toc()
     response.money = money

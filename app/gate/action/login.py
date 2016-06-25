@@ -1,4 +1,5 @@
 # coding:utf8
+from app.gate.gateservice import request_all_game_node
 from app.gate.core.UserManager import UserManager
 from app.gate.core.User import User
 from app.gate.action import send, change
@@ -90,3 +91,27 @@ def bind_proxy(dynamic_id, proxy_id):
     change.award_gold(user, 1500, origins.ORIGIN_PROXY_ACTIVE)
     func.log_info('[gate] bind_proxy account_id: {} bind proxy_id: {}'.format(user.account_id, proxy_id))
 
+
+def heart_tick(dynamic_id):
+    user = UserManager().get_user_by_dynamic(dynamic_id)
+    if not user:
+        func.log_error('[gate] dynamic_id: {} not find'.format(dynamic_id))
+        return
+    UserManager().heart_tick(user.account_id)
+    send.send_heart_tick(dynamic_id)
+
+
+def check_heart_tick_time_out():
+    t = func.time_get()
+    user_manager = UserManager()
+    all_heart_ticks = user_manager.all_heart_tick
+    time_out_list = []
+    for account_id, pre_t in all_heart_ticks.items():
+        if t - pre_t >= 150:        # 客户端60秒上传1次，150秒没有检测到，则判断为离线
+            time_out_list.append(account_id)
+    if time_out_list:
+        func.log_warn('[gate] check_heart_tick_time_out {} user time out, {}'.format(
+            len(time_out_list), time_out_list
+        ))
+        user_manager.remove_heart_tick(time_out_list)
+        request_all_game_node('heart_tick_time_out', time_out_list)

@@ -32,3 +32,9 @@ def bind_proxy_2002(dynamic_id, proto):
     return None
 
 
+@gate_service_handle
+def heart_tick_9006(dynamic_id, proto):
+    login.heart_tick(dynamic_id)
+    return None
+
+

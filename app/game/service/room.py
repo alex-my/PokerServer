@@ -13,6 +13,7 @@ def enter_room_game(**kwargs):
     :return:
     """
     room.enter_room(**kwargs)
+    return None
 
 
 @remoteserviceHandle('gate')
@@ -23,6 +24,7 @@ def user_connect_lost(dynamic_id):
     :return:
     """
     room.leave_room(dynamic_id)
+    return None
 
 
 @remoteserviceHandle('gate')
@@ -33,6 +35,7 @@ def remove_unvalid_room(delete_id_list):
     :return:
     """
     room.remove_unvalid_room(delete_id_list)
+    return None
 
 
 @game_service_handle
@@ -60,5 +63,16 @@ def room_voice_message_3103(dynamic_id, proto):
     argument = room_pb2.m_3103_tos()
     argument.ParseFromString(proto)
     room.room_voice_message(dynamic_id, argument.voice_url)
+    return None
+
+
+@remoteserviceHandle('gate')
+def heart_tick_time_out(time_out_list):
+    """
+    heart tick time out
+    :param time_out_list:
+    :return:
+    """
+    room.game_heart_tick_time_out(time_out_list)
     return None
 

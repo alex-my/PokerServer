@@ -3,7 +3,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, roomfull
 from app.util.common import func
-from app.util.defines import content, games
+from app.util.defines import content, games, status
 
 
 def poker_publish(dynamic_id, cards):
@@ -38,6 +38,7 @@ def poker_publish(dynamic_id, cards):
     if not player:
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
         return
+    player.status_ex = status.PLAYER_STATUS_FRONT   # 冗余
     card_list = [card_id for card_id in cards]
     func.log_info('[poker_publish] account_id: {}, dynamic_id: {}, card_list: {}'.format(
         account_id, dynamic_id, card_list

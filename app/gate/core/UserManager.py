@@ -13,6 +13,7 @@ class UserManager:
         self._users_dynamic = dict()    # {dynamic_id: User, ...}
         self._verify_key = dict()       # {account_id: verify_key, ...}
         self._address = dict()          # {account_id: address, ...}
+        self._heart_tick = dict()       # {account_id: t, ...}
 
     def add_user(self, user):
         account_id = user.account_id
@@ -66,3 +67,16 @@ class UserManager:
 
     def get_all_dynamic_id(self):
         return self._users_dynamic.keys()
+
+    def heart_tick(self, account_id):
+        self._heart_tick[account_id] = func.time_get()
+
+    def remove_heart_tick(self, account_id_list):
+        for account_id in account_id_list:
+            if account_id in self._heart_tick:
+                del self._heart_tick
+
+    @property
+    def all_heart_tick(self):
+        return self._heart_tick
+

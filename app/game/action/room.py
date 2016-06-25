@@ -4,7 +4,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, play, mahjong
 from app.util.common import func
-from app.util.defines import content, operators, rule
+from app.util.defines import content, operators, rule, status
 
 
 def enter_room(**kwargs):
@@ -124,5 +124,13 @@ def room_voice_message(dynamic_id, voice_url):
     dynamic_id_list = room.get_room_dynamic_id_list()
     send.voice_message_to_all(dynamic_id_list, account_id, voice_url)
 
+
+def game_heart_tick_time_out(time_out_list):
+    rooms = RoomManager().rooms
+    for _room in rooms.itervalues():
+        exist_list = _room.is_player_in(time_out_list)
+        if exist_list:
+            for account_id in exist_list:
+                play.notice_all_room_user_operator(_room, account_id, status.PLAYER_STATUS_BACK)
 
 

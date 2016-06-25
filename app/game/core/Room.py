@@ -228,6 +228,12 @@ class Room(object):
     def is_owner_in(self):
         return self._account_id in self._player_list and self._account_id in self._ready_list
 
+    def is_player_in(self, account_id_list):
+        return [account_id
+                for account_id in account_id_list
+                if account_id in self._players and
+                self._players[account_id].status_ex != status.PLAYER_STATUS_BACK]
+
     def random_cards(self):
         unit_count, player_count = self._config['unit_count'], self._config['player_count']
         un_except = self._config.get('un_except', [])

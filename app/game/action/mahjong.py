@@ -5,7 +5,7 @@ from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, roomfull
 from app.util.common import func
-from app.util.defines import content, games
+from app.util.defines import content, games, status
 
 
 def dispatch_mahjong_card(dynamic_id, from_start):
@@ -204,6 +204,7 @@ def mahjong_operator(dynamic_id, player_operator, cards):
                 dynamic_id, account_id, room_id))
         send.system_notice(dynamic_id, content.ROOM_UN_ENTER)
         return
+    player.status_ex = status.PLAYER_STATUS_FRONT   # 冗余
     func.log_info('[game] mahjong_operator account_id: {}, dynamic_id: {}, player_operator: {}, card_list: {}'.format(
         account_id, dynamic_id, player_operator, card_list
     ))
