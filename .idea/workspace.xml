@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/gate/timer/HeartTickTimer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/mahjong.py" afterPath="$PROJECT_DIR$/app/game/action/mahjong.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/poker.py" afterPath="$PROJECT_DIR$/app/game/action/poker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/action/room.py" afterPath="$PROJECT_DIR$/app/game/action/room.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/Room.py" afterPath="$PROJECT_DIR$/app/game/core/Room.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/service/room.py" afterPath="$PROJECT_DIR$/app/game/service/room.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/login.py" afterPath="$PROJECT_DIR$/app/gate/action/login.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/send.py" afterPath="$PROJECT_DIR$/app/gate/action/send.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/core/UserManager.py" afterPath="$PROJECT_DIR$/app/gate/core/UserManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/service/login.py" afterPath="$PROJECT_DIR$/app/gate/service/login.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/timer/times.py" afterPath="$PROJECT_DIR$/app/gate/timer/times.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +47,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="room.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="room.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/game/action/room.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="366">
@@ -87,11 +77,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="login.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="556">
-                  <caret line="116" column="50" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="50" />
+                <state relative-caret-position="402">
+                  <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
                   <folding />
                 </state>
               </provider>
@@ -746,13 +736,6 @@
       <workItem from="1466840697309" duration="192000" />
       <workItem from="1466842481574" duration="820000" />
     </task>
-    <task id="LOCAL-00141" summary="2327">
-      <created>1466695669211</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1466695669211</updated>
-    </task>
     <task id="LOCAL-00142" summary="2338">
       <created>1466696311575</created>
       <option name="number" value="00142" />
@@ -1089,7 +1072,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466863231925</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="7">
+      <created>1466866379074</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1466866379074</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1190,7 +1180,6 @@
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="34" />
-    <MESSAGE value="7" />
     <MESSAGE value="8" />
     <MESSAGE value="9" />
     <MESSAGE value="10" />
@@ -1205,7 +1194,8 @@
     <MESSAGE value="4" />
     <MESSAGE value="5" />
     <MESSAGE value="6" />
-    <option name="LAST_COMMIT_MESSAGE" value="6" />
+    <MESSAGE value="7" />
+    <option name="LAST_COMMIT_MESSAGE" value="7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1544,14 +1534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
@@ -1568,18 +1550,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="116" column="50" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/room.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
           <caret line="127" column="4" selection-start-line="127" selection-start-column="4" selection-end-line="127" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
           <folding />
         </state>
       </provider>

@@ -107,7 +107,7 @@ def check_heart_tick_time_out():
     all_heart_ticks = user_manager.all_heart_tick
     time_out_list = []
     for account_id, pre_t in all_heart_ticks.items():
-        if t - pre_t >= 150:        # 客户端60秒上传1次，150秒没有检测到，则判断为离线
+        if t - pre_t >= 75:        # 客户端30秒上传1次，75秒没有检测到，则判断为离线
             time_out_list.append(account_id)
     if time_out_list:
         func.log_warn('[gate] check_heart_tick_time_out {} user time out, {}'.format(
