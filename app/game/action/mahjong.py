@@ -224,13 +224,13 @@ def mahjong_operator(dynamic_id, player_operator, cards):
                 send.system_notice(dynamic_id, content.PLAY_LAST_CARD_NOT_IN)
                 return
     player_operators, all_operators = room.operators
-    func.log_info('[game] mahjong_operator player_operators: {}'.format(player_operator))
+    func.log_info('[game] mahjong_operator player_operators: {}'.format(player_operators))
     func.log_info('[game] mahjong_operator all_operators: {}'.format(all_operators))
-    if account_id not in player_operators:
-        func.log_error('[game] mahjong_operator PLAY_OPERATOR_UN_ABLE, account_id: {}, room_id: {}'.format(
-                account_id, room_id))
-        send.system_notice(dynamic_id, content.PLAY_OPERATOR_UN_ABLE)
-        return
+    # if account_id not in player_operators:
+    #     func.log_error('[game] mahjong_operator PLAY_OPERATOR_UN_ABLE, account_id: {}, room_id: {}'.format(
+    #             account_id, room_id))
+    #     send.system_notice(dynamic_id, content.PLAY_OPERATOR_UN_ABLE)
+    #     return
     operator_list = player_operators[account_id]
     if player_operator != games.MAH_OPERATOR_NONE and player_operator not in operator_list:
         func.log_error('[game] mahjong_operator PLAY_OPERATOR_NO_RIGHT, account_id: {}, room_id: {}'.format(
@@ -240,8 +240,6 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     if player_operator == games.MAH_OPERATOR_NONE:
         mahjong_operator_none(room, player)
     elif player_operator in [games.MAH_OPERATOR_WIN, games.MAH_OPERATOR_DRAWN]:
-        # 胡牌：来自于前一个玩家出的牌
-        # 自摸：来自于自己摸的牌
         if player_operator == games.MAH_OPERATOR_DRAWN:
             last_card_id = player.last_dispatch_card_id
         mahjong_operator_win(room, player, last_card_id, player_operator)
