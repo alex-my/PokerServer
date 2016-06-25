@@ -158,7 +158,10 @@ class RoomMahjong(Room):
         for account_id, player in self._players.items():
             old_point = player.point
             if account_id == self.win_account_id:
-                win_point = _point * 3
+                if win_status == games.MAH_OPERATOR_DRAWN:
+                    win_point = _point * 3
+                else:
+                    win_point = _point
                 player.point_change(win_point)
                 if self.is_online_match():
                     change.award_gold(account_id, win_point, origins.ORIGIN_ONLINE_MATCH)
