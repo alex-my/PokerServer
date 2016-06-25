@@ -74,7 +74,7 @@ class UserManager:
     def remove_heart_tick(self, account_id_list):
         for account_id in account_id_list:
             if account_id in self._heart_tick:
-                del self._heart_tick
+                del self._heart_tick[account_id]
 
     @property
     def all_heart_tick(self):

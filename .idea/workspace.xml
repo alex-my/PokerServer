@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/action/login.py" afterPath="$PROJECT_DIR$/app/gate/action/login.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/gate/core/UserManager.py" afterPath="$PROJECT_DIR$/app/gate/core/UserManager.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,116 +34,28 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7131783">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="room.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/action/room.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="366">
-                  <caret line="127" column="4" selection-start-line="127" selection-start-column="4" selection-end-line="127" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="544">
-                  <caret line="192" column="55" selection-start-line="192" selection-start-column="55" selection-end-line="193" selection-end-column="57" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="poker.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/action/poker.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="40" selection-end-column="56" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="402">
-                  <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="room.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/game/service/room.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="498">
-                  <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="UserManager.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/gate/core/UserManager.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="385">
-                  <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="RoomManager.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/core/RoomManager.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="113">
-                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="230" column="20" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="play.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/game/action/play.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="514">
-                  <caret line="139" column="62" selection-start-line="139" selection-start-column="62" selection-end-line="139" selection-end-column="62" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="UserManager.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/gate/core/UserManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="99" column="22" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -208,13 +120,13 @@
         <option value="$PROJECT_DIR$/app/gate/action/send.py" />
         <option value="$PROJECT_DIR$/app/gate/timer/times.py" />
         <option value="$PROJECT_DIR$/app/gate/timer/HeartTickTimer.py" />
-        <option value="$PROJECT_DIR$/app/gate/core/UserManager.py" />
         <option value="$PROJECT_DIR$/app/game/service/room.py" />
         <option value="$PROJECT_DIR$/app/game/core/Room.py" />
         <option value="$PROJECT_DIR$/app/game/action/room.py" />
         <option value="$PROJECT_DIR$/app/game/action/poker.py" />
         <option value="$PROJECT_DIR$/app/game/action/mahjong.py" />
         <option value="$PROJECT_DIR$/app/gate/action/login.py" />
+        <option value="$PROJECT_DIR$/app/gate/core/UserManager.py" />
       </list>
     </option>
   </component>
@@ -235,10 +147,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="434" />
+    <option name="y" value="119" />
     <option name="width" value="1861" />
-    <option name="height" value="1096" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -393,7 +305,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="play.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/play.py&#10;play&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/play.py&#10;Room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;Roo&#9;FILE&#9;file://E:/Work/PokerServer/app/game/service/room.py&#10;UserManager&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/core/UserManager.py&#10;sys&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/system.proto&#10;send.py&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/send.py&#10;login&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/login.py&#10;syste&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/system.proto&#10;oper&#9;FILE&#9;file:///Users/alex/Code/PokerServer/app/util/defines/operators.py&#10;status&#9;FILE&#9;file:///Users/alex/Code/PokerServer/app/util/defines/status.py&#10;games&#9;null&#9;null&#10;send&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/send.py&#10;game&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;operators&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/operators.py&#10;account&#9;FILE&#9;file://E:/Work/PokerServer/app/auth/action/account.py&#10;room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/room.py&#10;rule&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/rule.py&#10;RoomMah&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;content&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/content.py&#10;PlayerMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/PlayerMahjong.py&#10;RoomMahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;mahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/mahjong.py&#10;User&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/core/User.py&#10;mahj&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;Roo.&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;Room&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;Player&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Player.py&#10;mahjo&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;rule.py&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/rule.py&#10;room.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/room.proto&#10;play.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/play.proto&#10;mahjong.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;mahjong.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/service/mahjong.py&#10;RoomMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;RoomPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/RoomPoker.py&#10;ser&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;PlayerPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;room&#9;FILE&#9;file:///home/alex/Work/poker/app/util/proto/source/room.proto&#10;client&#9;FILE&#9;file:///home/alex/Work/poker/tool/client_simulator.py&#10;gater&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/gatereload.py&#10;acc&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;todo&#9;FILE&#9;file:///home/alex/Work/poker/todo.lst&#10;PlayerPok&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;PlayerMahjon&#9;null&#9;null&#10;Play&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerManager.py&#10;compi&#9;FILE&#9;file:///home/alex/Work/poker/tool/compile_proto.py&#10;user&#9;null&#9;null&#10;change&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/change.py&#10;compile_proto&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="User&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/core/UserManager.py&#10;syst&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/system.proto&#10;play.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/play.py&#10;play&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/play.py&#10;Room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;Roo&#9;FILE&#9;file://E:/Work/PokerServer/app/game/service/room.py&#10;UserManager&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/core/UserManager.py&#10;sys&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/system.proto&#10;send.py&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/send.py&#10;login&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/login.py&#10;syste&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/system.proto&#10;oper&#9;FILE&#9;file:///Users/alex/Code/PokerServer/app/util/defines/operators.py&#10;status&#9;FILE&#9;file:///Users/alex/Code/PokerServer/app/util/defines/status.py&#10;games&#9;null&#9;null&#10;send&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/send.py&#10;game&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;operators&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/operators.py&#10;account&#9;FILE&#9;file://E:/Work/PokerServer/app/auth/action/account.py&#10;room.py&#9;FILE&#9;file://E:/Work/PokerServer/app/gate/action/room.py&#10;rule&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/rule.py&#10;RoomMah&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;content&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/content.py&#10;PlayerMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/PlayerMahjong.py&#10;RoomMahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;mahjong&#9;FILE&#9;file://E:/Work/PokerServer/app/game/action/mahjong.py&#10;mahj&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;Roo.&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Room.py&#10;Room&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;Player&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/Player.py&#10;mahjo&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;rule.py&#9;FILE&#9;file://E:/Work/PokerServer/app/util/defines/rule.py&#10;room.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/room.proto&#10;play.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/play.proto&#10;mahjong.proto&#9;FILE&#9;file://E:/Work/PokerServer/app/util/proto/source/game_mahjong.proto&#10;mahjong.py&#9;FILE&#9;file://E:/Work/PokerServer/app/game/service/mahjong.py&#10;RoomMa&#9;FILE&#9;file://E:/Work/PokerServer/app/game/core/RoomMahjong.py&#10;RoomPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/RoomPoker.py&#10;ser&#9;FILE&#9;file:///home/alex/Work/poker/app/util/sql/base/server.sql&#10;PlayerPoker&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;room&#9;FILE&#9;file:///home/alex/Work/poker/app/util/proto/source/room.proto&#10;client&#9;FILE&#9;file:///home/alex/Work/poker/tool/client_simulator.py&#10;gater&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/gatereload.py&#10;acc&#9;FILE&#9;file:///home/alex/Work/poker/app/auth/action/account.py&#10;todo&#9;FILE&#9;file:///home/alex/Work/poker/todo.lst&#10;PlayerPok&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerPoker.py&#10;PlayerMahjon&#9;null&#9;null&#10;Play&#9;FILE&#9;file:///home/alex/Work/poker/app/game/core/PlayerManager.py&#10;compi&#9;FILE&#9;file:///home/alex/Work/poker/tool/compile_proto.py&#10;user&#9;null&#9;null&#10;change&#9;FILE&#9;file:///home/alex/Work/poker/app/gate/action/change.py" />
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
     <UpdatedFiles>
@@ -736,13 +648,6 @@
       <workItem from="1466840697309" duration="192000" />
       <workItem from="1466842481574" duration="820000" />
     </task>
-    <task id="LOCAL-00142" summary="2338">
-      <created>1466696311575</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1466696311575</updated>
-    </task>
     <task id="LOCAL-00143" summary="5210">
       <created>1466696652194</created>
       <option name="number" value="00143" />
@@ -1079,7 +984,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466866379074</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="7">
+      <created>1466867661867</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1466867661867</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1095,15 +1007,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
+    <frame x="434" y="119" width="1861" height="1092" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15085025" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22230595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23260644" sideWeight="0.46242458" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23357664" sideWeight="0.46242458" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22310406" sideWeight="0.6356256" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23260644" sideWeight="0.5375754" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23357664" sideWeight="0.5375754" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24226415" sideWeight="0.6648893" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21910696" sideWeight="0.5194734" order="13" side_tool="false" content_ui="tabs" />
@@ -1208,13 +1120,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config.default.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/install.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1285,13 +1190,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1406,22 +1304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/proto/source/system.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/action/send.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/timer/TimeBase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1494,14 +1376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gate/core/UserManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/RoomManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -1520,8 +1394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="192" column="55" selection-start-line="192" selection-start-column="55" selection-end-line="193" selection-end-column="57" />
+        <state relative-caret-position="176">
+          <caret line="230" column="20" selection-start-line="230" selection-start-column="8" selection-end-line="230" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1542,14 +1416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/service/room.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/room.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -1566,10 +1432,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/proto/source/system.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/service/room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/action/send.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/core/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="301" column="8" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/initconfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/gate/action/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+        <state relative-caret-position="182">
+          <caret line="99" column="22" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gate/core/UserManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
           <folding />
         </state>
       </provider>
