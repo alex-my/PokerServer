@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='system.proto',
   package='',
-  serialized_pb=_b('\n\x0csystem.proto\"\x1d\n\nm_9001_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t\"\x17\n\nm_9002_toc\x12\t\n\x01t\x18\x01 \x02(\r\"1\n\nm_9003_toc\x12#\n\x0brole_change\x18\x01 \x03(\x0b\x32\x0e.p_role_change\":\n\rp_role_change\x12\x13\n\x0b\x63hange_type\x18\x01 \x02(\r\x12\x14\n\x0c\x63hange_value\x18\x02 \x02(\r\"\x1d\n\nm_9004_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t\"/\n\nm_9005_toc\x12!\n\x07\x63hanges\x18\x01 \x03(\x0b\x32\x10.p_change_string\"<\n\x0fp_change_string\x12\x13\n\x0b\x63hange_type\x18\x01 \x02(\r\x12\x14\n\x0c\x63hange_value\x18\x02 \x02(\t')
+  serialized_pb=_b('\n\x0csystem.proto\"\x1d\n\nm_9001_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t\"\x17\n\nm_9002_toc\x12\t\n\x01t\x18\x01 \x02(\r\"1\n\nm_9003_toc\x12#\n\x0brole_change\x18\x01 \x03(\x0b\x32\x0e.p_role_change\":\n\rp_role_change\x12\x13\n\x0b\x63hange_type\x18\x01 \x02(\r\x12\x14\n\x0c\x63hange_value\x18\x02 \x02(\r\"\x1d\n\nm_9004_toc\x12\x0f\n\x07\x63ontent\x18\x01 \x02(\t\"/\n\nm_9005_toc\x12!\n\x07\x63hanges\x18\x01 \x03(\x0b\x32\x10.p_change_string\"<\n\x0fp_change_string\x12\x13\n\x0b\x63hange_type\x18\x01 \x02(\r\x12\x14\n\x0c\x63hange_value\x18\x02 \x02(\t\"\x0c\n\nm_9006_tos\"\x0c\n\nm_9006_toc')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -248,6 +248,52 @@ _P_CHANGE_STRING = _descriptor.Descriptor(
   serialized_end=323,
 )
 
+
+_M_9006_TOS = _descriptor.Descriptor(
+  name='m_9006_tos',
+  full_name='m_9006_tos',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=325,
+  serialized_end=337,
+)
+
+
+_M_9006_TOC = _descriptor.Descriptor(
+  name='m_9006_toc',
+  full_name='m_9006_toc',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=339,
+  serialized_end=351,
+)
+
 _M_9003_TOC.fields_by_name['role_change'].message_type = _P_ROLE_CHANGE
 _M_9005_TOC.fields_by_name['changes'].message_type = _P_CHANGE_STRING
 DESCRIPTOR.message_types_by_name['m_9001_toc'] = _M_9001_TOC
@@ -257,6 +303,8 @@ DESCRIPTOR.message_types_by_name['p_role_change'] = _P_ROLE_CHANGE
 DESCRIPTOR.message_types_by_name['m_9004_toc'] = _M_9004_TOC
 DESCRIPTOR.message_types_by_name['m_9005_toc'] = _M_9005_TOC
 DESCRIPTOR.message_types_by_name['p_change_string'] = _P_CHANGE_STRING
+DESCRIPTOR.message_types_by_name['m_9006_tos'] = _M_9006_TOS
+DESCRIPTOR.message_types_by_name['m_9006_toc'] = _M_9006_TOC
 
 m_9001_toc = _reflection.GeneratedProtocolMessageType('m_9001_toc', (_message.Message,), dict(
   DESCRIPTOR = _M_9001_TOC,
@@ -306,6 +354,20 @@ p_change_string = _reflection.GeneratedProtocolMessageType('p_change_string', (_
   # @@protoc_insertion_point(class_scope:p_change_string)
   ))
 _sym_db.RegisterMessage(p_change_string)
+
+m_9006_tos = _reflection.GeneratedProtocolMessageType('m_9006_tos', (_message.Message,), dict(
+  DESCRIPTOR = _M_9006_TOS,
+  __module__ = 'system_pb2'
+  # @@protoc_insertion_point(class_scope:m_9006_tos)
+  ))
+_sym_db.RegisterMessage(m_9006_tos)
+
+m_9006_toc = _reflection.GeneratedProtocolMessageType('m_9006_toc', (_message.Message,), dict(
+  DESCRIPTOR = _M_9006_TOC,
+  __module__ = 'system_pb2'
+  # @@protoc_insertion_point(class_scope:m_9006_toc)
+  ))
+_sym_db.RegisterMessage(m_9006_toc)
 
 
 # @@protoc_insertion_point(module_scope)
