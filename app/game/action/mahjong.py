@@ -152,7 +152,7 @@ def mahjong_publish(dynamic_id, card_id):
         if check_mahjong_light_kong(card_id, _player_card_list):
             operator_list.append(games.MAH_OPERATOR_KONG_LIGHT)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
-        elif check_mahjong_pong_kong(card_id, _player.pong_list):
+        if check_mahjong_pong_kong(card_id, _player.pong_list):
             operator_list.append(games.MAH_OPERATOR_KONG_PONG_OTHER)
             _add_operator_log(_player.account_id, _player.position, games.MAH_OPERATOR_KONG_LIGHT, operators)
         player_operators[_player.account_id] = operator_list

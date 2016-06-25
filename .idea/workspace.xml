@@ -38,8 +38,8 @@
       <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13945578">
-              <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.2693182">
+              <caret line="143" column="25" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -137,8 +137,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="805" />
-    <option name="y" value="131" />
+    <option name="x" value="381" />
+    <option name="y" value="73" />
     <option name="width" value="2136" />
     <option name="height" value="1224" />
   </component>
@@ -836,13 +836,7 @@
       <workItem from="1466830512575" duration="182000" />
       <workItem from="1466838811974" duration="127000" />
       <workItem from="1466840697309" duration="192000" />
-      <workItem from="1466842481574" duration="88000" />
-    </task>
-    <task id="LOCAL-00139" summary="2302">
-      <created>1466694194052</created>
-      <option name="number" value="00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1466694194052</updated>
+      <workItem from="1466842481574" duration="820000" />
     </task>
     <task id="LOCAL-00140" summary="2309">
       <created>1466694592837</created>
@@ -1132,11 +1126,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466840831628</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="6">
+      <created>1466842574821</created>
+      <option name="number" value="00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1466842574821</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235356000" />
+    <option name="totallyTimeSpent" value="236088000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1148,13 +1148,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="805" y="131" width="2136" height="1224" extended-state="0" />
+    <frame x="381" y="73" width="2136" height="1224" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22230595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19753087" sideWeight="0.3643744" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19787987" sideWeight="0.3643744" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30425754" sideWeight="0.6302798" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21910696" sideWeight="0.5216676" order="13" side_tool="false" content_ui="tabs" />
@@ -1171,7 +1172,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24226415" sideWeight="0.6648893" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1233,7 +1233,6 @@
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="34" />
-    <MESSAGE value="6" />
     <MESSAGE value="7" />
     <MESSAGE value="8" />
     <MESSAGE value="9" />
@@ -1248,7 +1247,8 @@
     <MESSAGE value="3" />
     <MESSAGE value="4" />
     <MESSAGE value="5" />
-    <option name="LAST_COMMIT_MESSAGE" value="5" />
+    <MESSAGE value="6" />
+    <option name="LAST_COMMIT_MESSAGE" value="6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1607,8 +1607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13945578">
-          <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.2693182">
+          <caret line="143" column="25" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="25" />
           <folding />
         </state>
       </provider>
