@@ -231,12 +231,12 @@ def mahjong_operator(dynamic_id, player_operator, cards):
     #             account_id, room_id))
     #     send.system_notice(dynamic_id, content.PLAY_OPERATOR_UN_ABLE)
     #     return
-    operator_list = player_operators[account_id]
-    if player_operator != games.MAH_OPERATOR_NONE and player_operator not in operator_list:
-        func.log_error('[game] mahjong_operator PLAY_OPERATOR_NO_RIGHT, account_id: {}, room_id: {}'.format(
-                account_id, room_id))
-        send.system_notice(dynamic_id, content.PLAY_OPERATOR_NO_RIGHT)
-        return
+    # operator_list = player_operators[account_id]
+    # if player_operator != games.MAH_OPERATOR_NONE and player_operator not in operator_list:
+    #     func.log_error('[game] mahjong_operator PLAY_OPERATOR_NO_RIGHT, account_id: {}, room_id: {}'.format(
+    #             account_id, room_id))
+    #     send.system_notice(dynamic_id, content.PLAY_OPERATOR_NO_RIGHT)
+    #     return
     if player_operator == games.MAH_OPERATOR_NONE:
         mahjong_operator_none(room, player)
     elif player_operator in [games.MAH_OPERATOR_WIN, games.MAH_OPERATOR_DRAWN]:

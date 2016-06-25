@@ -38,18 +38,8 @@
       <file leaf-file-name="mahjong.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41950113">
-              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="232" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoomMahjong.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="169" column="40" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.13945578">
+              <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -147,8 +137,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1070" />
-    <option name="y" value="101" />
+    <option name="x" value="805" />
+    <option name="y" value="131" />
     <option name="width" value="2136" />
     <option name="height" value="1224" />
   </component>
@@ -845,13 +835,8 @@
       <workItem from="1466776355573" duration="1175000" />
       <workItem from="1466830512575" duration="182000" />
       <workItem from="1466838811974" duration="127000" />
-      <workItem from="1466840697309" duration="127000" />
-    </task>
-    <task id="LOCAL-00138" summary="2301">
-      <created>1466694107937</created>
-      <option name="number" value="00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1466694107937</updated>
+      <workItem from="1466840697309" duration="192000" />
+      <workItem from="1466842481574" duration="88000" />
     </task>
     <task id="LOCAL-00139" summary="2302">
       <created>1466694194052</created>
@@ -1141,11 +1126,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466838906862</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="5">
+      <created>1466840831628</created>
+      <option name="number" value="00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1466840831628</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235203000" />
+    <option name="totallyTimeSpent" value="235356000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1157,7 +1148,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1070" y="101" width="2136" height="1224" extended-state="0" />
+    <frame x="805" y="131" width="2136" height="1224" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1170,7 +1161,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29840922" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22310406" sideWeight="0.6356256" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1185,6 +1175,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24226415" sideWeight="0.6648893" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22310406" sideWeight="0.6356256" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1242,7 +1233,6 @@
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="34" />
-    <MESSAGE value="5" />
     <MESSAGE value="6" />
     <MESSAGE value="7" />
     <MESSAGE value="8" />
@@ -1257,7 +1247,8 @@
     <MESSAGE value="188" />
     <MESSAGE value="3" />
     <MESSAGE value="4" />
-    <option name="LAST_COMMIT_MESSAGE" value="4" />
+    <MESSAGE value="5" />
+    <option name="LAST_COMMIT_MESSAGE" value="5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1603,7 +1594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28004536">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1615,18 +1605,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
+    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="40" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.13945578">
+          <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/action/mahjong.py">
+    <entry file="file://$PROJECT_DIR$/app/game/core/RoomMahjong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41950113">
-          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="232" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="40" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
           <folding />
         </state>
       </provider>
