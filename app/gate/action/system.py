@@ -1,7 +1,6 @@
 # coding:utf8
 import datetime
 import os
-import sys
 import stat
 import time
 import tarfile
@@ -25,6 +24,9 @@ def clear_files(paths):
     c_st = time.strftime('%Y-%m-%d', c_t)
     c_year, c_month, c_day = c_st.split('-')
     c_td = datetime.datetime(int(c_year), int(c_month), int(c_day))
+
+    if not os.path.exists(paths):
+        return
 
     file_list = os.listdir(paths)
     for f in file_list:

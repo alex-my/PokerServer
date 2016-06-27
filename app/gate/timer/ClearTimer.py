@@ -11,4 +11,5 @@ class ClearTimer(ITimer):
         func.log_info('[gate] ClearTimer check do')
         system.clear_logs()
         system.clear_db_backup()
+        system.backup_db()
 
