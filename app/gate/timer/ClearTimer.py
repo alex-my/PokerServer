@@ -7,8 +7,9 @@ from app.util.common import func
 class ClearTimer(ITimer):
 
     def do(self):
-        self.start(12 * 3600)
-        func.log_info('[gate] ClearTimer check do')
+        interval = func.next_interval(5, 0, 0)
+        self.start(interval)
+        func.log_info('[gate] ClearTimer check do, next: {}'.format(interval))
         system.clear_logs()
         system.clear_db_backup()
         system.backup_db()

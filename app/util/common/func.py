@@ -9,6 +9,7 @@ import shutil
 import string
 import sys
 import time
+import datetime
 
 
 INFO = '\033[92m'
@@ -183,6 +184,30 @@ def date_second(d1, d2):
     st1 = stamp_to_time(d1)
     st2 = stamp_to_time(d2)
     return time.mktime(st1) - time.mktime(st2)
+
+
+def next_interval(hour=None, minute=None, second=None):
+    """
+    计算下一个时刻距离现在的秒数
+    :param hour:
+    :param minute:
+    :param second:
+    :return:
+    """
+    cur = datetime.datetime.now()
+    if hour is not None and minute is not None and second is not None:
+        next_t = cur.replace(hour=hour, minute=minute, second=second)
+    elif minute is not None and second is not None:
+        next_t = cur.replace(minute=minute, second=second)
+    elif hour is not None:
+        next_t = cur.replace(hour=hour)
+    elif minute is not None:
+        next_t = cur.replace(minute=minute)
+    elif second is not None:
+        next_t = cur.replace(minute=minute, second=second)
+    else:
+        return 0
+    return (next_t - cur).seconds
 
 
 def pack_data(data):
