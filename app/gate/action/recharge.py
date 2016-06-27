@@ -113,7 +113,7 @@ def recharge_statistic_self(user, money):
     _month = func.month_now()
     if _month != user.month:
         user.month = _month
-        user.month_recharge = -user.month_recharge
+        user.month_recharge -= user.month_recharge
         user.month_proxy_recharge -= user.month_proxy_recharge
     user.month_recharge = money
     user.all_recharge = money
@@ -132,7 +132,7 @@ def recharge_statistic_proxy_online(user, money):
     _month = func.month_now()
     if _month != user.month:
         user.month = _month
-        user.month_recharge = -user.month_recharge
+        user.month_recharge -= user.month_recharge
         user.month_proxy_recharge -= user.month_proxy_recharge
     user.month_proxy_recharge += money
     user.all_proxy_recharge += money
