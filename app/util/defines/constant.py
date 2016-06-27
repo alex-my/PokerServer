@@ -12,3 +12,7 @@ WECHAT_NOTIFY_URL = 'http://120.76.153.160:11861/RechargeWechatNotify'
 WECHAT_BODY = u'充值'
 
 SERVER_FLAG = 'normal'
+DB_NAME = 'bbg_server'
+DB_PASSWD = '123456'
+DB_HOST = '127.0.0.1'
+DB_USER = 'root'

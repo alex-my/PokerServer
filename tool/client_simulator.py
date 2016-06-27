@@ -31,9 +31,9 @@ if os.name != 'nt' and os.name != 'posix':
 
 
 client_config = {
-    'auth_server_ip': '120.76.153.160',
-    # 'auth_server_ip': '127.0.0.1',
-    'auth_server_port': 13831,
+    # 'auth_server_ip': '120.76.153.160',
+    'auth_server_ip': '127.0.0.1',
+    'auth_server_port': 11831,
     'user_name': str('z222'),
     'password': '1'
 }

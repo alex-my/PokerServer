@@ -51,16 +51,6 @@ class RechargeWechatNotify(resource.Resource):
 
 
 @webapp_handle
-class RechargeWechatTest(resource.Resource):
-    """
-    测试充值 http://127.0.0.1:11861/RechargeWechatTest
-    """
-    def render(self, request):
-        recharge.test_wechat_prepay_id(1, '12345')
-        return "SUCCESS"
-
-
-@webapp_handle
 class AwardGold(resource.Resource):
     """
     直接充值金币

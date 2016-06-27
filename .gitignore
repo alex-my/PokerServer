@@ -6,3 +6,5 @@
 config.json
 constant
 master.log*
+bbg_server-*
+*.tar.gz
