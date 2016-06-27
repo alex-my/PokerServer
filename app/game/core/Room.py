@@ -257,12 +257,19 @@ class Room(object):
                 player.cards = card_list
                 dispatch_list.extend(card_list)
         else:
-            for index in xrange(player_count):
+            # for index in xrange(player_count):
+            #     card_list = self._cards[index * original_count: (index + 1) * original_count]
+            #     account_id = self._ready_list[index]
+            #     player = self.get_player(account_id)
+            #     player.cards = card_list
+            #     dispatch_list.extend(card_list)
+            index = 0
+            for player in self._players.values():
                 card_list = self._cards[index * original_count: (index + 1) * original_count]
-                account_id = self._ready_list[index]
-                player = self.get_player(account_id)
                 player.cards = card_list
                 dispatch_list.extend(card_list)
+                index += 1
+
         cards = [card_id for card_id in self._cards if card_id not in dispatch_list]
         self._cards = cards
 
