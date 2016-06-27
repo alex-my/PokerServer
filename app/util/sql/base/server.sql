@@ -21,6 +21,7 @@ CREATE TABLE `account` (
   `room_type` int(3) unsigned NOT NULL DEFAULT '0' COMMENT '当前进入的游戏类型',
   `gold` int(10) DEFAULT '0' COMMENT '元宝',
   `proxy_id` int(10) DEFAULT '0' COMMENT '上级ID',
+  `proxy_count` int(10) DEFAULT '0' COMMENT '下级数量',
   `month` int(10) DEFAULT '0' COMMENT '本月月份',
   `month_recharge` int(10) DEFAULT '0' COMMENT '当月充值',
   `all_recharge` int(10) DEFAULT '0' COMMENT '总充值',

@@ -157,6 +157,13 @@ def login_success(dynamic_id, user):
     forward.push_object_gate(2001, response.SerializeToString(), [dynamic_id])
 
 
+def bind_success(dynamic_id, proxy_id):
+    response = login_pb2.m_2002_toc()
+    response.proxy_id = proxy_id
+    func.log_info('[game] 2002 dynamic_id: {}, response: {}'.format(dynamic_id, response))
+    forward.push_object_gate(2002, response.SerializeToString(), [dynamic_id])
+
+
 def create_room(dynamic_id, room_id, room_type, room_help, rounds):
     """
     create room success

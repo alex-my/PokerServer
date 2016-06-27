@@ -88,8 +88,28 @@ def bind_proxy(dynamic_id, proxy_id):
         send.system_notice(dynamic_id, content.PROXY_ID_EXIST)
         return
     user.proxy_id = proxy_id
+    proxy_stastics(proxy_id)
     change.award_gold(user, 1500, origins.ORIGIN_PROXY_ACTIVE)
+    send.bind_success(dynamic_id, proxy_id)
     func.log_info('[gate] bind_proxy account_id: {} bind proxy_id: {}'.format(user.account_id, proxy_id))
+
+
+def proxy_stastics(proxy_id):
+    user = UserManager().get_user(proxy_id)
+    if user:
+        user.proxy_count = 1
+        func.log_info('[gate] proxy_stastics proxy_id: {} online add one'.format(proxy_id))
+    else:
+        sql = 'update {} set proxy_count = proxy_count + {} where account_id = {}'.format(
+            dbname.DB_ACCOUNT, 1, proxy_id
+        )
+        try:
+            dbexecute.execute(sql)
+            func.log_info('[gate] proxy_stastics proxy_id: {} offline add one'.format(proxy_id))
+        except Exception as e:
+            func.log_error('[gate] proxy_stastics proxy_id: {}, sql: {}, error: {}'.format(
+                proxy_id, sql, e.message
+            ))
 
 
 def heart_tick(dynamic_id):

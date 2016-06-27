@@ -1,7 +1,7 @@
 # coding:utf8
 from twisted.web import resource
 from firefly.server.globalobject import GlobalObject
-from app.gate.action import infomation, recharge
+from app.gate.action import infomation, recharge, login
 from app.util.common import func
 
 
@@ -51,6 +51,38 @@ class RechargeWechatNotify(resource.Resource):
 
 
 @webapp_handle
+class RechargeStasticsTest(resource.Resource):
+    """
+    测试充值成功后的统计
+    120.76.153.160:11861/RechargeStasticsTest?id=380001
+    http://127.0.0.1:11861/RechargeStasticsTest?id=380001
+    """
+    def render(self, request):
+        try:
+            account_id = int(request.args.get('id')[0])
+            recharge.test_recharge_statistic(account_id)
+        except Exception as e:
+            func.log_error('[gate] RechargeStasticsTest error: {}'.format(e.message))
+        return "SUCCESS"
+
+
+@webapp_handle
+class BindStasticsTest(resource.Resource):
+    """
+    测试激活数量统计
+    120.76.153.160:11861/BindStasticsTest?id=380001
+    http://127.0.0.1:11861/BindStasticsTest?id=380001
+    """
+    def render(self, request):
+        try:
+            account_id = int(request.args.get('id')[0])
+            login.proxy_stastics(account_id)
+        except Exception as e:
+            func.log_error('[gate] RechargeStasticsTest error: {}'.format(e.message))
+        return "SUCCESS"
+
+
+@webapp_handle
 class AwardGold(resource.Resource):
     """
     直接充值金币
@@ -58,9 +90,9 @@ class AwardGold(resource.Resource):
     127.0.0.1:11861/AwardGold?id=X&&gold=Y
     """
     def render(self, request):
-        role_id = int(request.args.get('id')[0])
+        account_id = int(request.args.get('id')[0])
         gold_count = int(request.args.get('gold')[0])
-        return infomation.gm_award_gold(role_id, gold_count)
+        return recharge.gm_award_gold(account_id, gold_count)
 
 
 @webapp_handle

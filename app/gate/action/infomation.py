@@ -40,32 +40,6 @@ def output_server_information():
     return str(info)
 
 
-def gm_award_gold(account_id, gold_count):
-    if account_id != 0:
-        change.award_gold_by_account(account_id, gold_count, origins.ORIGIN_RECHARGE_GM)
-        return 'account_id: {}, add gold: {} SUCCESS'.format(account_id, gold_count)
-    else:
-        try:
-            gm_award_gold_all(gold_count)
-            return 'add all user gold: {} SUCCESS'.format(gold_count)
-        except Exception as e:
-            func.log_error('[gate] gm_award_gold award all gold_count: {}, failed: {}'.format(
-                gold_count, e.message
-            ))
-    return 'failed.'
-
-
-def gm_award_gold_all(gold_count):
-    sql = 'select `account_id` from {}'.format(dbname.DB_ACCOUNT)
-    results = dbexecute.query_all(sql)
-    if results:
-        for result in results:
-            account_id = result['account_id']
-            change.award_gold_by_account(account_id, gold_count, origins.ORIGIN_RECHARGE_GM_ALL)
-    else:
-        func.log_info('[gate] gm_award_gold_all no account here.')
-
-
 def modify_account_id(old_account_id, cur_account_id):
     user = UserManager().get_user(old_account_id)
     if user:

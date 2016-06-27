@@ -19,6 +19,7 @@ class User(object):
         self._room_type = 0
         self._gold = 0
         self._proxy_id = 0
+        self._proxy_count = 0
         self._month = 0
         self._month_recharge = 0
         self._all_recharge = 0
@@ -56,6 +57,7 @@ class User(object):
         self._room_type = data.get('room_type', 0)
         self._gold = data.get('gold', 0)
         self._proxy_id = data.get('proxy_id', 0)
+        self._proxy_count = data.get('proxy_count', 0)
         self._month = data.get('month', 0)
         self._month_recharge = data.get('month_recharge', 0)
         self._all_recharge = data.get('all_recharge', 0)
@@ -150,6 +152,14 @@ class User(object):
     @proxy_id.setter
     def proxy_id(self, _proxy_id):
         self._proxy_id = _proxy_id
+
+    @property
+    def proxy_count(self):
+        return self._proxy_count
+
+    @proxy_count.setter
+    def proxy_count(self, _add_count):
+        self._proxy_count += _add_count
 
     @property
     def month(self):
@@ -321,6 +331,7 @@ class User(object):
             'room_type': self._room_type,
             'gold': self._gold,
             'proxy_id': self._proxy_id,
+            'proxy_count': self._proxy_count,
             'month': self._month,
             'month_recharge': self._month_recharge,
             'all_recharge': self._all_recharge,

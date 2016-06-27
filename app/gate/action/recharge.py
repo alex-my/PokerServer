@@ -29,8 +29,6 @@ def get_wechat_prepay_info(dynamic_id, money):
     if money >= 10000000:     # 10W元
         send.system_notice(dynamic_id, content.RECHARGE_MONEY_TO_LARGE)
         return
-    # Alex
-    money = 1
     user = UserManager().get_user_by_dynamic(dynamic_id)
     if not user:
         send.system_notice(dynamic_id, content.ENTER_DYNAMIC_LOGIN_EXPIRE)
@@ -100,6 +98,15 @@ def wechat_recharge_success(notice_content):
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} FAILED'.format(
             account_id, money
         ))
+
+
+def test_recharge_statistic(account_id):
+    user = UserManager().get_user(account_id)
+    if not user:
+        return
+    money = 10
+    recharge_statistic_self(user, money)
+    recharge_statistic_proxy(user.proxy_id, money)
 
 
 def recharge_statistic_self(user, money):
@@ -197,4 +204,30 @@ def check_repeated_order_from_db(pay):
         return True
     else:
         return False
+
+
+def gm_award_gold(account_id, gold_count):
+    if account_id != 0:
+        change.award_gold_by_account(account_id, gold_count, origins.ORIGIN_RECHARGE_GM)
+        return 'account_id: {}, add gold: {} SUCCESS'.format(account_id, gold_count)
+    else:
+        try:
+            gm_award_gold_all(gold_count)
+            return 'add all user gold: {} SUCCESS'.format(gold_count)
+        except Exception as e:
+            func.log_error('[gate] gm_award_gold award all gold_count: {}, failed: {}'.format(
+                    gold_count, e.message
+            ))
+    return 'failed.'
+
+
+def gm_award_gold_all(gold_count):
+    sql = 'select `account_id` from {}'.format(dbname.DB_ACCOUNT)
+    results = dbexecute.query_all(sql)
+    if results:
+        for result in results:
+            account_id = result['account_id']
+            change.award_gold_by_account(account_id, gold_count, origins.ORIGIN_RECHARGE_GM_ALL)
+    else:
+        func.log_info('[gate] gm_award_gold_all no account here.')
 
