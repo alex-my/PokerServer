@@ -70,11 +70,17 @@ def user_leave(dynamic_id, operate):
     room = room_manager.get_room(room_id)
     if not room:
         return False
-    notice_all_room_user_operator(room, account_id, operate)
-    player = room.get_player(account_id)
-    if player:
-        player.status = operators.USER_OPERATOR_OFFLINE
-    room.drop_player(account_id)
+    # modify
+    # 如果还未开始,非房主离线,则删除
+    if not room.is_room_start() and account_id != room.owner_account_id:
+        notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_EXIT)
+        room.remove_player(account_id)
+    else:
+        notice_all_room_user_operator(room, account_id, operate)
+        player = room.get_player(account_id)
+        if player:
+            player.status = operators.USER_OPERATOR_OFFLINE
+        room.drop_player(account_id)
     return True
 
 
