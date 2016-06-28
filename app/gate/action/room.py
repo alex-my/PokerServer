@@ -177,6 +177,21 @@ def enter_room_confirm(account_id, dynamic_id, node_name, room_id, room_data, op
         send.enter_mahjong_room(user.dynamic_id, room_id, room_data, operator_account_id, player_operators)
 
 
+def remove_room_id(account_id, room_id):
+    user = UserManager().get_user(account_id)
+    if not user:
+        func.log_info('[gate] remove_room_id un find account_id: {}, room_id: {}'.format(
+            account_id, room_id
+        ))
+        return
+    if user.record_room_id == room_id:
+        user.record_room_id = 0
+        user.record_room_type = 0
+    if user.room_id == room_id:
+        user.room_id = 0
+        user.room_type = 0
+
+
 def remove_room(room_id):
     """
     删除房间

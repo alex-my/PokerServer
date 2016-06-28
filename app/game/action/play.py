@@ -1,5 +1,6 @@
 # coding:utf8
 from twisted.internet import reactor
+from app.game.gameservice import request_gate_node
 from app.game.core.PlayerManager import PlayerManager
 from app.game.core.RoomManager import RoomManager
 from app.game.action import send, mahjong, change, roomfull
@@ -75,6 +76,7 @@ def user_leave(dynamic_id, operate):
     if not room.is_room_start() and account_id != room.owner_account_id:
         notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_EXIT)
         room.remove_player(account_id)
+        request_gate_node('remove_room_id', account_id, room_id)
     else:
         notice_all_room_user_operator(room, account_id, operate)
         player = room.get_player(account_id)

@@ -34,6 +34,7 @@ class Room(object):
         self._close_room_player = []    # 关闭房间的玩家
         self._close_t = 0               # 关闭房间申请时间
         self._game_begin = False        # 游戏是否开始
+        self._empty_position = []       # 空闲座位
         self._data = None
 
     def init(self, result):
@@ -209,6 +210,11 @@ class Room(object):
         return self._players.get(account_id)
 
     def get_player_position(self, account_id):
+        if self._empty_position:
+            first_position = self._empty_position[0]
+            self._empty_position.remove(first_position)
+            return first_position
+
         for index, _id in enumerate(self._player_list):
             if _id == account_id:
                 return index + 1
@@ -338,6 +344,9 @@ class Room(object):
         if account_id in self._ready_list:
             self._ready_list.remove(account_id)
         if account_id in self._players:
+            player = self._players[account_id]
+            if player.position > 0:
+                self._empty_position.append(player.position)
             del self._players[account_id]
         if account_id in self._player_list:
             self._player_list.remove(account_id)

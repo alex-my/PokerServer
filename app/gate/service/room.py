@@ -52,6 +52,18 @@ def enter_room_gate(account_id, dynamic_id, node_name, room_id, room_data, opera
 
 
 @rootserviceHandle
+def remove_room_id(account_id, room_id):
+    """
+    删除房间号
+    :param account_id:
+    :param room_id:
+    :return:
+    """
+    room.remove_room_id(account_id, room_id)
+    return None
+
+
+@rootserviceHandle
 def remove_room(room_id):
     """
     game节点请求移除房间
