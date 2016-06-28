@@ -210,6 +210,11 @@ class Room(object):
         return self._players.get(account_id)
 
     def get_player_position(self, account_id):
+        if account_id in self._players:
+            player = self._players[account_id]
+            if player.position > 0:
+                return player.position
+
         if self._empty_position:
             first_position = self._empty_position[0]
             self._empty_position.remove(first_position)
