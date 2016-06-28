@@ -184,6 +184,9 @@ def remove_room_id(account_id, room_id):
             account_id, room_id
         ))
         return
+    func.log_info('[gate] remove_room_id account_id: {}, room_id: {}, record_room_id: {}, user_room_id: {}'.format(
+        account_id, room_id, user.record_room_id, user.room_id
+    ))
     if user.record_room_id == room_id:
         user.record_room_id = 0
         user.record_room_type = 0
