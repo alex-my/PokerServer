@@ -38,6 +38,7 @@ def get_wechat_prepay_info(dynamic_id, money):
         return
     proxy_id = user.proxy_id
     pay = recharge_wechat.WechatPay()
+    money = int(money * 100)
     pay.init(
             nonce_str=func.random_string_r(16, 30),
             attach='{}/{}'.format(proxy_id, user.account_id),
