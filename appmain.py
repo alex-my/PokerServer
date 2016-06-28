@@ -80,8 +80,8 @@ class FFGServer(FFServer):
             urls = memconfig.get('urls')
             hostname = str(memconfig.get('hostname'))
             mclient.connect(urls, hostname)
-        log.startLogging(DailyLogFile('master.log', 'logs/'))
-        # log.startLogging(sys.stdout)
+        # log.startLogging(DailyLogFile('master.log', 'logs/'))
+        log.startLogging(sys.stdout)
 
         if cpuid:
             affinity.set_process_affinity_mask(os.getpid(), cpuid)
