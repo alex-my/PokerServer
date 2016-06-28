@@ -38,8 +38,8 @@
       <file leaf-file-name="Room.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="340" column="44" selection-start-line="340" selection-start-column="44" selection-end-line="340" selection-end-column="44" />
+            <state relative-caret-position="346">
+              <caret line="338" column="41" selection-start-line="338" selection-start-column="41" selection-end-line="338" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -167,10 +167,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="801" />
+    <option name="y" value="55" />
     <option name="width" value="1861" />
-    <option name="height" value="1096" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -451,13 +451,6 @@
       <workItem from="1467018741119" duration="424000" />
       <workItem from="1467019268620" duration="212000" />
       <workItem from="1467083744878" duration="5979000" />
-    </task>
-    <task id="LOCAL-00152" summary="1">
-      <created>1466737943470</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1466737943471</updated>
     </task>
     <task id="LOCAL-00153" summary="2">
       <created>1466738018465</created>
@@ -795,7 +788,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467122888160</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="2">
+      <created>1467123082454</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1467123082454</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -811,14 +811,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
+    <frame x="801" y="55" width="1861" height="1092" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16620955" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22230595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24504693" sideWeight="0.34195933" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35929388" sideWeight="0.5295749" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3607925" sideWeight="0.5295749" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2416" sideWeight="0.48521256" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297342" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -909,9 +909,9 @@
     <MESSAGE value="4" />
     <MESSAGE value="5" />
     <MESSAGE value="6" />
-    <MESSAGE value="2" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1269,8 +1269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="340" column="44" selection-start-line="340" selection-start-column="44" selection-end-line="340" selection-end-column="44" />
+        <state relative-caret-position="346">
+          <caret line="338" column="41" selection-start-line="338" selection-start-column="41" selection-end-line="338" selection-end-column="41" />
           <folding />
         </state>
       </provider>
