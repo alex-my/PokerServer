@@ -88,6 +88,8 @@ def wechat_recharge_success(notice_content):
         recharge_gold = calc_money_to_gold(money)
         save_order_to_db(pay, recharge_gold, origins.ORIGIN_RECHARGE_WECHAT)
         change.award_gold(user, recharge_gold, origins.ORIGIN_RECHARGE_MONEY)
+        # save
+        user.user_save()
         # statistic
         recharge_statistic_self(user, money)
         recharge_statistic_proxy(user.proxy_id, money)

@@ -95,6 +95,8 @@ def bind_proxy(dynamic_id, proxy_id):
     user.proxy_id = proxy_id
     proxy_stastics(proxy_id)
     change.award_gold(user, constant.GOLD_BIND_PROXY, origins.ORIGIN_PROXY_ACTIVE)
+    # save
+    user.user_save()
     send.bind_success(dynamic_id, proxy_id)
     send.system_notice(dynamic_id, content.PROXY_ID_SUCCESS)
     func.log_info('[gate] bind_proxy account_id: {} bind proxy_id: {}'.format(user.account_id, proxy_id))
