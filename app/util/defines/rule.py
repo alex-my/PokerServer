@@ -57,9 +57,10 @@ POKER_PER_PRICE = 10            # 扑克每局费用
 MAHJONG_PER_PRICE = 8           # 麻将每局费用
 
 
-ONLINE_MATCH_MIN_GOLD = 1000        # 在线匹配允许进入的金币数量
+ONLINE_MATCH_MIN_GOLD = 2000        # 在线匹配允许进入的金币数量
 ONLINE_MATCH_BAIL = 50              # 在线匹配保证金
+ONLINE_RATIO = 2                    # 在线匹配积分和金币的倍数(1积分=2金币)
 
-
+ROOM_EXPIRE = 24 * 3600             # 房间有效期
 
 

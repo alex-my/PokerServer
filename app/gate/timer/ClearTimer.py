@@ -1,5 +1,6 @@
 # coding:utf8
 from app.gate.timer.TimeBase import ITimer
+from app.gate.core.RoomProxyManager import RoomProxyManager
 from app.gate.action import system
 from app.util.common import func
 
@@ -13,4 +14,5 @@ class ClearTimer(ITimer):
         system.clear_logs()
         system.clear_db_backup()
         system.backup_db()
+        RoomProxyManager().clear_unvalid_room()
 

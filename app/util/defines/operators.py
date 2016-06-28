@@ -11,7 +11,7 @@ USER_OPERATOR_WARN = 5              # 报警
 USER_OPERATOR_BACK = 6              # 切到后台
 USER_OPERATOR_FRONT = 7             # 回到前台
 USER_OPERATOR_NONE = 9              # 无(正常)
-
+USER_OPERATOR_EXIT = 10             # 退出房间
 
 
 

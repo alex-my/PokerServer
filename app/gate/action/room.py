@@ -133,6 +133,10 @@ def enter_room(dynamic_id, room_id):
     if not room:
         send.system_notice(dynamic_id, content.ROOM_UN_EXIST)
         return
+    # check expire time
+    if room.is_expire():
+        send.system_notice(dynamic_id, content.ROOM_EXPIRE)
+        return
     # check price
     if not check_room_price(user, room):
         return

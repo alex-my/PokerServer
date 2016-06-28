@@ -140,7 +140,8 @@ class Room(object):
     def is_room_close_first(self):
         return self.is_close_t_valid() and len(self._close_room_player) <= 1
 
-    def is_creater_agree_close(self):
+    @staticmethod
+    def is_creater_agree_close():
         # return self._account_id in self._close_room_player
         return True
 

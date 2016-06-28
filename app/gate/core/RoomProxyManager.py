@@ -40,6 +40,9 @@ class RoomProxyManager:
     def is_room_in(self, room_id):
         return room_id in self._rooms
 
+    def is_room_expire(self, room_id):
+        return room_id not in self._rooms or self._rooms[room_id].is_expire()
+
     def add_room(self, room):
         if not room:
             return
@@ -98,8 +101,8 @@ class RoomProxyManager:
 
     def clear_unvalid_room(self):
         t = func.time_get()
-        expire_t = t - 365 * 24 * 3600          # 玩家正常创建的房间保存1年
-        online_expire_t = t - 60 * 24 * 3600    # 在线匹配房间保存2个月
+        expire_t = t - 2 * 24 * 3600          # 玩家正常创建的房间保存2天
+        online_expire_t = t - 2 * 24 * 3600     # 在线匹配房间保存2天
         delete_id_list = []
         for room_id, room in self._rooms.iteritems():
             if not room:

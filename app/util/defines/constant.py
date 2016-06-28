@@ -16,3 +16,9 @@ DB_NAME = 'bbg_server'
 DB_PASSWD = '123456'
 DB_HOST = '127.0.0.1'
 DB_USER = 'root'
+
+
+GOLD_ORIGIN = 1500                                          # 玩家建号赠送
+GOLD_BIND_PROXY = 500                                       # 绑定账号赠送
+
+

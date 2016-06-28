@@ -3,7 +3,7 @@ import hashlib
 from app.auth.action import send
 from app.auth.authservice import request_gate_node
 from app.util.common import func
-from app.util.defines import channel, content, dbname
+from app.util.defines import channel, content, dbname, constant
 from app.util.driver import dbexecute
 
 
@@ -160,7 +160,7 @@ def _register_process(user_name, password, name, uuid, channel_id, sex, head_fra
         'sex': sex,
         'head_frame': head_frame,
         'head_icon': head_icon,
-        'gold': 20000
+        'gold': constant.GOLD_ORIGIN
     }
     if dbexecute.insert_record(**{'table': dbname.DB_ACCOUNT, 'data': account_data}) > 0:
         return account_id

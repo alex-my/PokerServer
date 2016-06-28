@@ -65,7 +65,119 @@
           "rootname": "share"
         }
       ],
-      "name": "game",
+      "name": "game1",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game2": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game2",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game3": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game3",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game4": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game4",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game5": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game5",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game6": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game,",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game7,": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game7",
+      "db": true,
+      "app": "app.gameserver",
+      "reload": "app.game.gamereload"
+    },
+    "game8": {
+      "remoteport":[
+        {
+          "rootport": 11902,
+          "rootname": "gate"
+        },
+        {
+          "rootport": 11903,
+          "rootname": "share"
+        }
+      ],
+      "name": "game8",
       "db": true,
       "app": "app.gameserver",
       "reload": "app.game.gamereload"

@@ -4,7 +4,8 @@ from app.gate.core.UserManager import UserManager
 from app.gate.core.User import User
 from app.gate.action import send, change
 from app.util.common import func
-from app.util.defines import content, dbname, origins
+from app.util.common.config import i
+from app.util.defines import content, dbname, origins, informations, constant
 from app.util.driver import dbexecute
 
 
@@ -47,7 +48,11 @@ def user_login(dynamic_id, account_id, verify_key):
     user.room_id, user.room_type = 0, 0
     user.record_room_id, user.record_room_type = 0, 0
     # 推送信息
-    send.marquee_to_user(dynamic_id, content.LOGIN_NOTICE)
+    contact = i(informations.INFOMATION_TYPE_CONTACT)
+    if contact:
+        send.marquee_to_user(dynamic_id, contact)
+    else:
+        send.marquee_to_user(dynamic_id, content.LOGIN_NOTICE)
 
 
 def _user_lock_tips(user):
@@ -89,8 +94,9 @@ def bind_proxy(dynamic_id, proxy_id):
         return
     user.proxy_id = proxy_id
     proxy_stastics(proxy_id)
-    change.award_gold(user, 1500, origins.ORIGIN_PROXY_ACTIVE)
+    change.award_gold(user, constant.GOLD_BIND_PROXY, origins.ORIGIN_PROXY_ACTIVE)
     send.bind_success(dynamic_id, proxy_id)
+    send.system_notice(dynamic_id, content.PROXY_ID_SUCCESS)
     func.log_info('[gate] bind_proxy account_id: {} bind proxy_id: {}'.format(user.account_id, proxy_id))
 
 

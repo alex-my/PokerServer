@@ -5,13 +5,13 @@ message m_4001_tos {
 }
 
 message m_4001_toc {
-    required uint32 operate = 1; // 1 准备, 2 暂离, 3 解散房间, 4 切牌
+    required uint32 operate = 1; // 1 准备, 2 暂离, 3 解散房间, 4 切牌, 10 离开房间
 }
 
 // 向房间内所有玩家广播某个玩家的操作
 message m_4002_toc {
     required uint32 account_id = 1; // 账号ID
-    required uint32 operate = 2; // 1 准备, 2 暂离, 3 解散房间, 4 切牌
+    required uint32 operate = 2; // 1 准备, 2 暂离, 3 解散房间, 4 切牌, 10 离开房间
 }
 
 // 所有玩家准备好后, 发牌给所有玩家

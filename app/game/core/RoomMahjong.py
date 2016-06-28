@@ -2,7 +2,7 @@
 from app.game.core.Room import Room
 from app.game.action import change
 from app.util.common import func
-from app.util.defines import dbname, games, status, origins
+from app.util.defines import dbname, games, status, origins, rule
 from app.util.driver import dbexecute
 
 
@@ -164,8 +164,9 @@ class RoomMahjong(Room):
                     win_point = _point
                 player.point_change(win_point)
                 if self.is_online_match():
-                    change.award_gold(account_id, win_point, origins.ORIGIN_ONLINE_MATCH)
-                    player.last_change_gold = win_point
+                    change_gold = win_point * rule.ONLINE_RATIO
+                    change.award_gold(account_id, change_gold, origins.ORIGIN_ONLINE_MATCH)
+                    player.last_change_gold = change_gold
                 if win_status == games.MAH_OPERATOR_WIN:
                     player.win_count = 1
                 else:
@@ -173,8 +174,9 @@ class RoomMahjong(Room):
             elif account_id == self.lose_account_id or win_status == games.MAH_OPERATOR_DRAWN:
                 player.point_change(-_point)
                 if self.is_online_match():
-                    change.spend_gold(account_id, _point, origins.ORIGIN_ONLINE_MATCH)
-                    player.last_change_gold = -_point
+                    change_gold = _point * rule.ONLINE_RATIO
+                    change.spend_gold(account_id, change_gold, origins.ORIGIN_ONLINE_MATCH)
+                    player.last_change_gold = -change_gold
                 player.lose_count = 1
                 if account_id == self.lose_account_id:
                     player.help_count = 1

@@ -1,5 +1,6 @@
 # coding:utf8
-from app.util.defines import games
+from app.util.common import func
+from app.util.defines import games, rule
 
 
 class RoomProxy(object):
@@ -74,5 +75,8 @@ class RoomProxy(object):
             self._account_id_list.append(_id)
 
     def is_online_match(self):
-        self._room_help == games.HELP_ONLINE_MATCH
+        return self._room_help == games.HELP_ONLINE_MATCH
+
+    def is_expire(self):
+        return func.time_get() - self._create_time >= rule.ROOM_EXPIRE
 

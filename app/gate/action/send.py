@@ -111,7 +111,7 @@ def login_success(dynamic_id, user):
     """
     response = login_pb2.m_2001_toc()
     room_proxy_manager = RoomProxyManager()
-    if not room_proxy_manager.is_room_in(user.room_id):
+    if room_proxy_manager.is_room_expire(user.room_id):
         user.room_id = 0
         user.room_type = 0
     # 玩家信息
@@ -134,7 +134,7 @@ def login_success(dynamic_id, user):
         room_info = response.room_info.add()
         room_info.room_type = game_type
         room_id = user_rooms.get(game_type, 0)
-        if room_proxy_manager.is_room_in(room_id):
+        if not room_proxy_manager.is_room_expire(room_id):
             room_info.room_id = room_id
         else:
             room_info.room_id = 0
