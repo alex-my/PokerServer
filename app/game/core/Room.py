@@ -336,9 +336,9 @@ class Room(object):
         if account_id in self._ready_list:
             self._ready_list.remove(account_id)
         if account_id in self._players:
-            del self._players
+            del self._players[account_id]
         if account_id in self._player_list:
-            del self._player_list
+            del self._player_list[account_id]
 
     def get_room_statistic(self):
         statistic_list = []

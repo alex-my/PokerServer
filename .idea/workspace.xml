@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b4b0b46-2176-4e06-b3f0-5466b7f070e0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/initconfig.py" afterPath="$PROJECT_DIR$/app/game/initconfig.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/game/core/Room.py" afterPath="$PROJECT_DIR$/app/game/core/Room.py" />
     </list>
     <ignored path="PokerServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,17 +35,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Room.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="234" column="46" selection-start-line="234" selection-start-column="38" selection-end-line="234" selection-end-column="46" />
+            <state relative-caret-position="376">
+              <caret line="340" column="44" selection-start-line="340" selection-start-column="44" selection-end-line="340" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="initconfig.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="initconfig.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/game/initconfig.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
@@ -145,8 +145,8 @@
         <option value="$PROJECT_DIR$/logs/master.log" />
         <option value="$PROJECT_DIR$/appmain.py" />
         <option value="$PROJECT_DIR$/app/gate/timer/times.py" />
-        <option value="$PROJECT_DIR$/app/game/core/Room.py" />
         <option value="$PROJECT_DIR$/app/game/initconfig.py" />
+        <option value="$PROJECT_DIR$/app/game/core/Room.py" />
       </list>
     </option>
   </component>
@@ -451,13 +451,6 @@
       <workItem from="1467018741119" duration="424000" />
       <workItem from="1467019268620" duration="212000" />
       <workItem from="1467083744878" duration="5979000" />
-    </task>
-    <task id="LOCAL-00151" summary="0203">
-      <created>1466704984324</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1466704984324</updated>
     </task>
     <task id="LOCAL-00152" summary="1">
       <created>1466737943470</created>
@@ -795,7 +788,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467098875417</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="1">
+      <created>1467122888159</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1467122888160</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -909,9 +909,9 @@
     <MESSAGE value="4" />
     <MESSAGE value="5" />
     <MESSAGE value="6" />
-    <MESSAGE value="1" />
     <MESSAGE value="2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1259,18 +1259,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="234" column="46" selection-start-line="234" selection-start-column="38" selection-end-line="234" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/game/initconfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/game/core/Room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="340" column="44" selection-start-line="340" selection-start-column="44" selection-end-line="340" selection-end-column="44" />
           <folding />
         </state>
       </provider>
