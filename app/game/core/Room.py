@@ -33,6 +33,7 @@ class Room(object):
         self._switch_account_id = 0     # 切牌
         self._close_room_player = []    # 关闭房间的玩家
         self._close_t = 0               # 关闭房间申请时间
+        self._game_begin = False        # 游戏是否开始
         self._data = None
 
     def init(self, result):
@@ -146,7 +147,7 @@ class Room(object):
         return True
 
     def is_room_start(self):
-        return self._rounds > 1 or len(self._cards) > 0
+        return self._game_begin
 
     def is_room_dispatch_able(self):
         if self.room_type in rule.GAME_LIST_MAHJONG:
@@ -236,6 +237,7 @@ class Room(object):
                 self._players[account_id].status_ex != status.PLAYER_STATUS_BACK]
 
     def random_cards(self):
+        self._game_begin = True
         unit_count, player_count = self._config['unit_count'], self._config['player_count']
         un_except = self._config.get('un_except', [])
         self._cards = [_id for _id in range(1, unit_count + 1) if _id not in un_except]
