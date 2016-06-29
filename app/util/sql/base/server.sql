@@ -113,7 +113,7 @@ CREATE TABLE `infomation` (
 INSERT INTO `infomation` (`id`, `content`, `desc`)
 VALUES
   (1, '文明游戏,禁止赌博', '跑马灯'),
-  (2, '充值请联系微信账号34192391', '联系方式'),
+  (2, '充值', '联系方式'),
   (3, '101', '版本号');
 
 

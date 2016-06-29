@@ -48,7 +48,7 @@ def user_login(dynamic_id, account_id, verify_key):
     user.room_id, user.room_type = 0, 0
     user.record_room_id, user.record_room_type = 0, 0
     # 推送信息
-    contact = i(informations.INFOMATION_TYPE_CONTACT)
+    contact = i(informations.INFOMATION_TYPE_MARQUEE)
     if contact:
         send.marquee_to_user(dynamic_id, contact)
     else:
