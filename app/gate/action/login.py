@@ -92,6 +92,9 @@ def bind_proxy(dynamic_id, proxy_id):
     if user.proxy_id > 0:
         send.system_notice(dynamic_id, content.PROXY_ID_EXIST)
         return
+    if user.account_id == proxy_id:
+        send.system_notice(dynamic_id, content.PROXY_ID_ERROR)      # PROXY_ID_SELF
+        return
     user.proxy_id = proxy_id
     proxy_stastics(proxy_id)
     change.award_gold(user, constant.GOLD_BIND_PROXY, origins.ORIGIN_PROXY_ACTIVE)

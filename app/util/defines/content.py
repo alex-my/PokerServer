@@ -18,6 +18,7 @@ PROXY_ID_LACK = u'请输入邀请码'
 PROXY_ID_ERROR = u'请输入正确的邀请码'
 PROXY_ID_EXIST = u'您已经激活'
 PROXY_ID_SUCCESS = u'绑定成功'
+PROXY_ID_SELF = u'请勿输入自己的账号'
 
 LOGIN_VERIFY_FAILED = u'验证失败'
 LOGIN_DO_NOT_EXIST = u'玩家不存在'
