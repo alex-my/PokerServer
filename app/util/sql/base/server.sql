@@ -113,7 +113,8 @@ CREATE TABLE `infomation` (
 INSERT INTO `infomation` (`id`, `content`, `desc`)
 VALUES
   (1, '文明游戏,禁止赌博', '跑马灯'),
-  (2, '充值请联系微信账号34192391', '联系方式');
+  (2, '充值请联系微信账号34192391', '联系方式'),
+  (3, '101', '版本号');
 
 
 -- user
@@ -148,7 +149,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `account_id`, `user_name`, `password`, `locked`, `create_time`, `last_login`, `name`, `sex`, `month`, `month_recharge`, `all_recharge`, `month_proxy_recharge`, `all_proxy_recharge`, `level`, `superiorId`, `insertingCoil`, `address`, `phone`, `card`, `city`, `remark`)
 VALUES
-  (1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1465567986, 1465567986, 'admin123', 1, 0, 0, 0, 0, 0, 0, '0', 0, '0', '0', 0, '', '0'),
+  (1, 'admin', 'admin', '1e365d6ec6154ee0c76fb50aa43ce175', 1, 1465567986, 1465567986, 'admin123', 1, 0, 0, 0, 0, 0, 0, '0', 0, '0', '0', 0, '', '0'),
   (2, '38000', '38000', '334930f6237bf19668609cf3673fe3f5', 1, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, '', '');
 
 
