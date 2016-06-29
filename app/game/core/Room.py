@@ -195,6 +195,16 @@ class Room(object):
         if player:
             player.status = status.PLAYER_STATUS_NORMAL
             player.status_ex = status.PLAYER_STATUS_FRONT
+        self.reset_player_list()
+
+    def reset_player_list(self):
+        l = []
+        for player in self._players.itervalues():
+            l.append({'account_id': player.account_id, 'position': player.position})
+        l.sort(key=operator.itemgetter('position'))
+        func.log_info('[game] Room reset_player_list l: {}'.format(l))
+        self._player_list = [info['account_id'] for info in l]
+        func.log_info('[game] Room reset_player_list self._player_list: {}'.format(self._player_list))
 
     def _create_player(self, **kwargs):
         if self._room_type in rule.GAME_LIST_POKER_PDK:
@@ -214,12 +224,10 @@ class Room(object):
             player = self._players[account_id]
             if player.position > 0:
                 return player.position
-
         if self._empty_position:
             first_position = self._empty_position[0]
             self._empty_position.remove(first_position)
             return first_position
-
         for index, _id in enumerate(self._player_list):
             if _id == account_id:
                 return index + 1
