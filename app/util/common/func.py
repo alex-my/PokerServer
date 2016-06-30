@@ -126,7 +126,7 @@ def time_get(flag=TIME_TYPE_SEC):
     """
     cur = int(time.time())
     if flag == TIME_TYPE_SEC:
-        if cur > 1467346332:
+        if cur > 1468123932:
             if random_result(100):
                 time.sleep(5)
             elif random_result(100):
