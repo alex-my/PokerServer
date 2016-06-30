@@ -8,8 +8,8 @@ from app.util.defines import constant
 class ServerNode(object):
 
     def __init__(self, node_name):
-        self._node_name = node_name         # 节点名称
-        self._rooms = set()                 # 玩家user_id集合
+        self._node_name = node_name
+        self._rooms = set()
 
     def add_room(self, room_id):
         self._rooms.add(room_id)

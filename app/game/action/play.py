@@ -47,14 +47,11 @@ def user_ready(dynamic_id, operator):
     notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_READY)
     if room.is_all_ready():
         func.log_info('[game] all ready room_id: {}'.format(room.room_id))
-        # 创建者必须在房间中
         # if not room.is_online_match():
         #     if not check_owner_in(room):
         #         notice_owner_must_in(room)
         #         return False
-        # 在线匹配需要扣除保证金
         reduce_bail_gold(room)
-        # 判断是否由玩家切牌
         if check_switch(room):
             switch_cards(room)
         spend_room_per_price(room)
@@ -71,8 +68,6 @@ def user_leave(dynamic_id, operate):
     room = room_manager.get_room(room_id)
     if not room:
         return False
-    # modify
-    # 如果还未开始,非房主离线,则删除
     if not room.is_room_start() and account_id != room.owner_account_id:
         notice_all_room_user_operator(room, account_id, operators.USER_OPERATOR_EXIT)
         room.remove_player(account_id)

@@ -24,14 +24,6 @@ def _get_open_room_origin(room_type):
 
 
 def create_room(dynamic_id, room_type, rounds, help_value):
-    """
-    create room
-    :param dynamic_id:
-    :param room_type:
-    :param rounds:
-    :param help_value:
-    :return:
-    """
     if not help_value:
         help_value = 0
     func.log_info('[game] create_room room_type: {}, rounds: {}, help_value: {}'.format(room_type, rounds, help_value))
@@ -116,12 +108,6 @@ def _create_room(account_id, room_type, room_help, rounds):
 
 
 def enter_room(dynamic_id, room_id):
-    """
-    enter or resume room
-    :param dynamic_id:
-    :param room_id:
-    :return:
-    """
     if not room_id:
         send.system_notice(dynamic_id, content.SYSTEM_ARGUMENT_LACK)
         return
@@ -196,11 +182,6 @@ def remove_room_id(account_id, room_id):
 
 
 def remove_room(room_id):
-    """
-    删除房间
-    :param room_id:
-    :return:
-    """
     room_manager = RoomProxyManager()
     user_manager = UserManager()
     room = room_manager.get_room(room_id)

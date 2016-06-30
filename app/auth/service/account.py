@@ -6,13 +6,6 @@ from app.util.proto import login_pb2
 
 @auth_service_handle
 def account_register_1001(dynamic_id, address, proto):
-    """
-    账号注册
-    :param dynamic_id:
-    :param address: ('127.0.0.132', 64801)
-    :param proto:
-    :return:
-    """
     argument = login_pb2.m_1001_tos()
     argument.ParseFromString(proto)
     account.account_register(dynamic_id, address, argument.user_name, argument.password)
@@ -20,13 +13,6 @@ def account_register_1001(dynamic_id, address, proto):
 
 @auth_service_handle
 def account_verify_1002(dynamic_id, address, proto):
-    """
-    官方裸包登陆游戏
-    :param dynamic_id:
-    :param address: ('127.0.0.132', 64801)
-    :param proto:
-    :return:
-    """
     argument = login_pb2.m_1002_tos()
     argument.ParseFromString(proto)
     account.account_verify_official(dynamic_id, address, argument.user_name, argument.password)
@@ -34,13 +20,6 @@ def account_verify_1002(dynamic_id, address, proto):
 
 @auth_service_handle
 def account_channel_verify_1003(dynamic_id, address, proto):
-    """
-    渠道包登陆游戏
-    :param dynamic_id:
-    :param address: ('127.0.0.132', 64801)
-    :param proto:
-    :return:
-    """
     argument = login_pb2.m_1003_tos()
     argument.ParseFromString(proto)
     account.account_verify_channel(dynamic_id, address, argument.user_name, argument.channel_id, argument.uuid,

@@ -8,10 +8,6 @@ from app.util.defines import content, operators, rule, status
 
 
 def enter_room(**kwargs):
-    """
-    enter or resume room
-    :return:
-    """
     func.log_info('[game] enter_room: {}'.format(kwargs))
     dynamic_id, account_id, room_id = kwargs['dynamic_id'], kwargs['account_id'], kwargs['room_id']
     room_manager = RoomManager()

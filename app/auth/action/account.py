@@ -8,14 +8,6 @@ from app.util.driver import dbexecute
 
 
 def account_register(dynamic_id, address, user_name, password):
-    """
-    账号注册
-    :param dynamic_id:
-    :param address:
-    :param user_name:
-    :param password:
-    :return:
-    """
     if not user_name or not password:
         send.system_notice(dynamic_id, content.ACCOUNT_NULL)
         return
@@ -47,14 +39,6 @@ def _create_token_key(user_name, password):
 
 
 def account_verify_official(dynamic_id, address, user_name, password):
-    """
-    官方登陆
-    :param dynamic_id:
-    :param address: ('127.0.0.132', 64801)
-    :param user_name:
-    :param password:
-    :return:
-    """
     if not user_name or not password:
         send.system_notice(dynamic_id, content.ACCOUNT_NULL)
         return
@@ -78,19 +62,6 @@ def account_verify_official(dynamic_id, address, user_name, password):
 
 
 def account_verify_channel(dynamic_id, address, user_name, channel_id, uuid, name, head_frame, head_icon, sex):
-    """
-    渠道登陆
-    :param dynamic_id:
-    :param address: ('127.0.0.132', 64801)
-    :param user_name:
-    :param channel_id:
-    :param uuid:
-    :param name:
-    :param head_frame:
-    :param head_icon:
-    :param sex:
-    :return:
-    """
     func.log_info('[auth] account_verify_channel dynamic_id: {}, user_name: {}, channel_id: {}, uuid: {}, head_frame: {}, head_icon: {}, sex: {}'.format(
             dynamic_id, user_name, channel_id, uuid, head_frame, head_icon, sex
     ))

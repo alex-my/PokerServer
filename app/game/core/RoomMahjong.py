@@ -15,8 +15,8 @@ class RoomMahjong(Room):
         self._craps_list = []
         self._start_num = 0
         self._end_num = 0
-        self._maker_account_id = 0        # 庄家帐号ID
-        self._lose_account_id = 0         # 放炮的玩家帐号ID
+        self._maker_account_id = 0
+        self._lose_account_id = 0
 
     def get_original_execute(self):
         if self._maker_account_id == 0:

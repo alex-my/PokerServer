@@ -11,9 +11,6 @@ from app.util.defines import constant, content
 
 
 class WechatPay(object):
-    """
-    签名验证
-    """
     def __init__(self):
         self._params = dict()
         self._url = 'https://api.mch.weixin.qq.com/pay/unifiedorder'
@@ -41,11 +38,6 @@ class WechatPay(object):
 
     @staticmethod
     def key_value_url(value):
-        """
-        将键值对转为 key1=value1&key2=value2
-        :param value:
-        :return:
-        """
         key_az = sorted(value.keys())
         pair_array = []
         for k in key_az:
@@ -64,8 +56,6 @@ class WechatPay(object):
         params['sign'] = sign
 
     def get_req_xml(self):
-        """拼接XML
-        """
         self.get_sign(self._params)
         xml = "<xml>"
         for k, v in self._params.items():
@@ -95,10 +85,6 @@ class WechatPay(object):
         return self._params.get('prepay_id', -1)
 
     def re_finall(self):
-        """
-        得到prepay_id后再次签名，然后返回给客户端
-        :return:
-        """
         self.calc_prepay_id()
         if self._error:
             return
@@ -122,9 +108,7 @@ class WechatPay(object):
 
 
 class WechatResponse(WechatPay):
-    """
-    收到通知时再次验证
-    """
+
     def __init__(self, xml):
         """
         :param xml: 支付成功回调的XML
@@ -152,7 +136,6 @@ class WechatResponse(WechatPay):
         return int(self._xml_json['total_fee'])
 
     def verify(self):
-        """验证签名"""
         self._xml_json.pop('sign')
         self.get_sign(self._xml_json)
         func.log_info('[gate] pre_sign: {}'.format(self._sign))

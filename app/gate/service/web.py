@@ -15,7 +15,7 @@ def webapp_handle(cls):
 @webapp_handle
 class Information(resource.Resource):
     """
-    管理后台对infomation表的操作 http://127.0.0.1:11861/Information?id=1
+    http://127.0.0.1:11861/Information?id=1
     """
     def render(self, request):
         info_id = int(request.args.get('id')[0])
@@ -27,7 +27,7 @@ class Information(resource.Resource):
 @webapp_handle
 class ServerInformation(resource.Resource):
     """
-    输出服务器信息  http://120.76.153.160:11861/ServerInformation
+    http://120.76.153.160:11861/ServerInformation
     """
     def render(self, request):
         func.log_info('[gate] ServerInfomation')
@@ -37,9 +37,7 @@ class ServerInformation(resource.Resource):
 
 @webapp_handle
 class RechargeWechatNotify(resource.Resource):
-    """
-    微信充值成功的异步通知
-    """
+
     isLeaf = True
 
     def render(self, request):
@@ -53,7 +51,6 @@ class RechargeWechatNotify(resource.Resource):
 @webapp_handle
 class RechargeStasticsTest(resource.Resource):
     """
-    测试充值成功后的统计
     120.76.153.160:11861/RechargeStasticsTest?id=380001
     http://127.0.0.1:11861/RechargeStasticsTest?id=380001
     """
@@ -69,7 +66,6 @@ class RechargeStasticsTest(resource.Resource):
 @webapp_handle
 class BindStasticsTest(resource.Resource):
     """
-    测试激活数量统计
     120.76.153.160:11861/BindStasticsTest?id=380001
     http://127.0.0.1:11861/BindStasticsTest?id=380001
     """
@@ -85,7 +81,6 @@ class BindStasticsTest(resource.Resource):
 @webapp_handle
 class AwardGold(resource.Resource):
     """
-    直接充值金币
     120.76.153.160:11861/AwardGold?id=X&&gold=Y
     127.0.0.1:11861/AwardGold?id=X&&gold=Y
     """
@@ -98,7 +93,6 @@ class AwardGold(resource.Resource):
 @webapp_handle
 class ModifyAccountId(resource.Resource):
     """
-    强制更改账号ID
     120.76.153.160:11861/ModifyAccountId?id=380001&&id=388888
     http://127.0.0.1:11861/ModifyAccountId?id=380001&&id=388888
     """

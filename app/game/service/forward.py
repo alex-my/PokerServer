@@ -10,13 +10,6 @@ def push_object_game(target_key, msg, send_list):
 
 @remoteserviceHandle('gate')
 def forwarding_game(target_key, dynamic_id, data):
-    """
-    dispatch
-    :param target_key:
-    :param dynamic_id:
-    :param data:
-    :return:
-    """
     func.log_info('[game] forwarding_game, target_key: {}, dynamic_id: {}'.format(target_key, dynamic_id))
     if game_service.is_target_local(target_key):
         game_service.callTarget(target_key, dynamic_id, data)

@@ -10,7 +10,7 @@ class NetCommandService(CommandService):
 
     def callTargetSingle(self, target_key, *args, **kw):
         self._lock.acquire()
-        target = self.getTarget(0)  # 使用forwarding_0
+        target = self.getTarget(0)
         try:
             if not target:
                 func.log_info('[Net callTargetSingle] the command ' + str(target_key) + ' not Found on service')
@@ -39,20 +39,11 @@ def network_service_handle(target):
 
 @network_service_handle
 def forwarding_0(target_key, _conn, data):
-    """
-    消息转发，将客户端发送的消息请求转发给gate分配处理
-    :param target_key: 协议号
-    :param _conn:
-    :param data:
-    :return:
-    """
-    # 转发到游戏服务器
     if target_key >= 2000:
         return GlobalObject().remote['gate'].callRemote("forwarding",
                                                         target_key,
                                                         _conn.transport.sessionno,
                                                         data)
-    # 转发到账号服务器
     else:
         return GlobalObject().remote['auth'].callRemote("forwarding",
                                                         target_key,

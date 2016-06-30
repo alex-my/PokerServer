@@ -384,7 +384,6 @@ def _check_mahjong_win(card_id, cards):
     card_list = [card_id] + cards
     card_list.sort()
     func.log_info('[game] _check_mahjong_win card_list: {}'.format(card_list))
-    # 统计
     all_card_gather = dict()
 
     for card_id in card_list:
@@ -522,10 +521,8 @@ def check_mahjong_pong_valid(player, card_list):
     exist_list = player.card_list
     exist_count = 0
     for _card_id in card_list:
-        # 都需要一样
         if _card_id not in cur_list:
             return False
-        # 玩家手上至少需要拥有两张
         if _card_id in exist_list:
             exist_count += 1
     if exist_count < 2:
@@ -584,7 +581,6 @@ def mahjong_operator_kong(room, player, card_list, player_operator):
     room.execute_account_id = player.account_id     # 需要补一张牌
     dispatch_mahjong_card_account(player.account_id, player.dynamic_id, False)
     del room.operators
-    # 扣分
     mahjong_point_changes(room, player.account_id, player_operator)
 
 
@@ -654,11 +650,8 @@ def calc_mahjong_next_position(room, from_start):
 
 def mahjong_close(room, win_account_id, win_card_id, win_status):
     room.win_account_id = win_account_id
-    # 结算本局
     all_player_info = room.room_mahjong_close(win_status)
-    # 上传本局记录
     send.sync_play_history(room)
-    # 归还在线匹配保证金
     roomfull.back_bail_gold(room)
     room.room_reset()
     dynamic_id_list = room.get_room_dynamic_id_list()

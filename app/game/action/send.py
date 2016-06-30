@@ -6,12 +6,6 @@ from app.util.proto import system_pb2, room_pb2, play_pb2, game_poker_pb2, game_
 
 
 def system_notice(dynamic_id, content):
-    """
-    系统通知
-    :param dynamic_id: 客户端动态ID
-    :param content: 内容
-    :return:
-    """
     response = system_pb2.m_9001_toc()
     response.content = content
     func.log_warn('[game] system_notice dynamic_id: {}'.format(dynamic_id))
@@ -19,12 +13,6 @@ def system_notice(dynamic_id, content):
 
 
 def system_notice_room(room, content):
-    """
-    通知全房间
-    :param room:
-    :param content:
-    :return:
-    """
     dynamic_id_list = room.get_room_dynamic_id_list()
     response = system_pb2.m_9001_toc()
     response.content = content
@@ -131,12 +119,6 @@ def voice_message_to_all(dynamic_id_list, account_id, voice_url):
 
 
 def user_operator(dynamic_id, operator):
-    """
-    user operator
-    :param dynamic_id:
-    :param operator:
-    :return:
-    """
     response = play_pb2.m_4001_toc()
     response.operate = operator
     func.log_info('[game] 4001 user_operator dynamic_id: {}, response: {}'.format(dynamic_id, response))

@@ -6,13 +6,6 @@ from app.gate.core.UserManager import UserManager
 
 @rootserviceHandle
 def forwarding(target_key, dynamic_id, data):
-    """
-    转发来自net消息
-    :param target_key: 协议ID
-    :param dynamic_id: 客户端动态ID
-    :param data: 数据
-    :return:
-    """
     if gate_service.is_target_local(target_key):
         return gate_service.callTarget(target_key, dynamic_id, data)
     else:
@@ -31,13 +24,6 @@ def forwarding(target_key, dynamic_id, data):
 
 @rootserviceHandle
 def push_object(target_key, msg, send_list):
-    """
-    推送消息到net
-    :param target_key: 协议ID
-    :param msg:
-    :param send_list: [dynamic_id, ...]
-    :return:
-    """
     push_object_gate(target_key, msg, send_list)
 
 

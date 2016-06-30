@@ -8,7 +8,6 @@ from app.util.driver import dbexecute
 
 
 def information_execute(info_id):
-    # 重新载入信息配置
     Config().load_special_infomation(info_id)
 
     if info_id == informations.INFOMATION_TYPE_MARQUEE:

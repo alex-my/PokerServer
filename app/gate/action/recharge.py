@@ -20,14 +20,8 @@ def test_wechat_prepay_id(money, proxy_id, ip='127.0.0.1'):
 
 def get_wechat_prepay_info(dynamic_id, money):
     func.log_info('[gate] get_wechat_prepay_info money: {}'.format(money))
-    # if not proxy_id:
-    #     send.system_notice(dynamic_id, content.RECHARGE_PROXY_ID_NEED)
-    #     return
     if not money or not isinstance(money, int):
         send.system_notice(dynamic_id, content.RECHARGE_MONEY_IS_NEED)
-        return
-    if money >= 10000000:     # 10W元
-        send.system_notice(dynamic_id, content.RECHARGE_MONEY_TO_LARGE)
         return
     user = UserManager().get_user_by_dynamic(dynamic_id)
     if not user:

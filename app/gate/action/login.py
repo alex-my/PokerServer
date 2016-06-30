@@ -10,13 +10,6 @@ from app.util.driver import dbexecute
 
 
 def user_login(dynamic_id, account_id, verify_key):
-    """
-    玩家登陆
-    :param dynamic_id:
-    :param account_id:
-    :param verify_key:
-    :return:
-    """
     if not account_id or not verify_key:
         send.system_notice(dynamic_id, content.ACCOUNT_NULL)
         return
@@ -36,7 +29,6 @@ def user_login(dynamic_id, account_id, verify_key):
     if user.is_lock():
         _user_lock_tips(user)
         return
-    # load play history
     load_play_history(user)
 
     address = UserManager().get_user_address(account_id)
@@ -44,10 +36,10 @@ def user_login(dynamic_id, account_id, verify_key):
     user.dynamic_id = dynamic_id
     UserManager().add_user(user)
     send.login_success(dynamic_id, user)
-    # 清理最后的房间
+
     user.room_id, user.room_type = 0, 0
     user.record_room_id, user.record_room_type = 0, 0
-    # 推送信息
+
     contact = i(informations.INFOMATION_TYPE_MARQUEE)
     if contact:
         send.marquee_to_user(dynamic_id, contact)

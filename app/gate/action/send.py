@@ -9,24 +9,12 @@ from app.util.proto import system_pb2, recharge_pb2, login_pb2, room_pb2
 
 
 def system_notice(dynamic_id, content):
-    """
-    系统通知
-    :param dynamic_id: 客户端动态ID
-    :param content: 内容
-    :return:
-    """
     response = system_pb2.m_9001_toc()
     response.content = content
     forward.push_object_gate(9001, response.SerializeToString(), [dynamic_id])
 
 
 def user_change(dynamic_id, changes):
-    """
-    变化(整型版本)
-    :param dynamic_id:
-    :param changes:
-    :return:
-    """
     response = system_pb2.m_9003_toc()
     for change_type, change_value in changes.items():
         role_change = response.role_change.add()
@@ -50,12 +38,6 @@ def marquee_to_user(dynamic_id, content):
 
 
 def change_string(dynamic_id, changes):
-    """
-    变化(字符串版本)
-    :param dynamic_id:
-    :param changes:
-    :return:
-    """
     response = system_pb2.m_9005_toc()
     for change_type, change_value in changes.items():
         _changes = response.changes.add()
@@ -65,11 +47,6 @@ def change_string(dynamic_id, changes):
 
 
 def system_changes_string(changes):
-    """
-    系统变化
-    :param changes:
-    :return:
-    """
     response = system_pb2.m_9005_toc()
     for change_type, change_value in changes.items():
         _changes = response.changes.add()
@@ -79,11 +56,6 @@ def system_changes_string(changes):
 
 
 def send_heart_tick(dynamic_id):
-    """
-    心跳
-    :param dynamic_id:
-    :return:
-    """
     response = system_pb2.m_9006_toc()
     forward.push_object_gate(9006, response.SerializeToString(), [dynamic_id])
 
@@ -103,12 +75,6 @@ def recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info):
 
 
 def login_success(dynamic_id, user):
-    """
-    推送玩家账号登陆成功信息
-    :param dynamic_id:
-    :param user: 玩家ID
-    :return:
-    """
     response = login_pb2.m_2001_toc()
     room_proxy_manager = RoomProxyManager()
     if room_proxy_manager.is_room_expire(user.room_id):
@@ -165,15 +131,6 @@ def bind_success(dynamic_id, proxy_id):
 
 
 def create_room(dynamic_id, room_id, room_type, room_help, rounds):
-    """
-    create room success
-    :param dynamic_id:
-    :param room_id:
-    :param room_type:
-    :param room_help:
-    :param rounds:
-    :return:
-    """
     response = room_pb2.m_3001_toc()
     response.room_id = room_id
     response.room_type = room_type
@@ -184,15 +141,6 @@ def create_room(dynamic_id, room_id, room_type, room_help, rounds):
 
 
 def enter_poker_room(dynamic_id, room_id, room_type, room_help, room_data):
-    """
-    enter/resume room
-    :param dynamic_id:
-    :param room_id:
-    :param room_type:
-    :param room_help:
-    :param room_data:
-    :return:
-    """
     response = room_pb2.m_3002_toc()
     response.room_id = room_id
     response.room_type = room_type
@@ -225,15 +173,6 @@ def enter_poker_room(dynamic_id, room_id, room_type, room_help, room_data):
 
 
 def enter_mahjong_room(dynamic_id, room_id, room_data, operator_account_id, player_operators):
-    """
-    enter/resume room
-    :param dynamic_id:
-    :param room_id:
-    :param room_data:
-    :param operator_account_id:
-    :param player_operators:
-    :return:
-    """
     response = room_pb2.m_3003_toc()
     response.room_id = room_id
     if room_data:
