@@ -121,6 +121,11 @@ def enter_room(dynamic_id, room_id):
         return
     # check expire time
     if room.is_expire():
+        if user.room_id == room_id:
+            user.room_id = user.room_type = 0
+        if user.record_room_id == room_id:
+            user.record_room_id = user.record_room_type = 0
+        RoomProxyManager().remove_room(room_id, room.room_type, user.account_id)
         send.system_notice(dynamic_id, content.ROOM_EXPIRE)
         return
     # check price

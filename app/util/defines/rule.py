@@ -61,6 +61,6 @@ ONLINE_MATCH_MIN_GOLD = 2000        # 在线匹配允许进入的金币数量
 ONLINE_MATCH_BAIL = 50              # 在线匹配保证金
 ONLINE_RATIO = 2                    # 在线匹配积分和金币的倍数(1积分=2金币)
 
-ROOM_EXPIRE = 24 * 3600             # 房间有效期
+ROOM_EXPIRE = 24 * 3600 * 10            # 房间有效期
 
 
