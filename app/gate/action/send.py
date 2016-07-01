@@ -76,8 +76,10 @@ def recharge_wechat_prepay_info(dynamic_id, money, proxy_id, prepay_info):
 
 def login_success(dynamic_id, user):
     response = login_pb2.m_2001_toc()
+    remove_room_id_list = []
     room_proxy_manager = RoomProxyManager()
-    if room_proxy_manager.is_room_expire(user.room_id):
+    if user.room_id > 0 and room_proxy_manager.is_room_expire(user.room_id):
+        remove_room_id_list.append(user.room_id)
         user.room_id = 0
         user.room_type = 0
     # 玩家信息
@@ -103,6 +105,8 @@ def login_success(dynamic_id, user):
         if not room_proxy_manager.is_room_expire(room_id):
             room_info.room_id = room_id
         else:
+            if room_id > 0:
+                remove_room_id_list.append(room_id)
             room_info.room_id = 0
         prices = _rule['price']
         for rounds, price in prices.items():
@@ -121,6 +125,7 @@ def login_success(dynamic_id, user):
 
     func.log_info('[game] 2001 account_id: {}, response: {}'.format(user.account_id, response))
     forward.push_object_gate(2001, response.SerializeToString(), [dynamic_id])
+    # TODO: remove expired room
 
 
 def bind_success(dynamic_id, proxy_id):

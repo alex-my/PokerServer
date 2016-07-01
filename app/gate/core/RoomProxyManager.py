@@ -59,6 +59,16 @@ class RoomProxyManager:
             if room_type in user_rooms and user_rooms[room_type] == room_id:
                 del user_rooms[room_type]
 
+    def remove_room_force(self, room_id, account_id):
+        if room_id in self._rooms:
+            del self._rooms[room_id]
+        if account_id in self._user_rooms:
+            user_rooms = self._user_rooms[account_id]
+            for _type, _id in user_rooms.items():
+                if _id == room_id:
+                    del user_rooms[_type]
+                    break
+
     def get_room(self, room_id):
         return self._rooms.get(room_id)
 
