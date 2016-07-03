@@ -101,6 +101,7 @@ def proxy_stastics(proxy_id):
     user = UserManager().get_user(proxy_id)
     if user:
         user.proxy_count = 1
+        user.user_save()
         func.log_info('[gate] proxy_stastics proxy_id: {} online add one'.format(proxy_id))
     else:
         sql = 'update {} set proxy_count = proxy_count + {} where account_id = {}'.format(
