@@ -39,10 +39,10 @@ def create_room(dynamic_id, room_type, rounds, help_value):
         return
     room_manager = RoomProxyManager()
     # check repeated create
-    old_room = room_manager.get_user_special_room(user.account_id, room_type)
-    if old_room and not old_room.is_expire():
-        send.system_notice(dynamic_id, content.ROOM_TYPE_EXIST.format(old_room.room_id))
-        return
+    # old_room = room_manager.get_user_special_room(user.account_id, room_type)
+    # if old_room and not old_room.is_expire():
+    #     send.system_notice(dynamic_id, content.ROOM_TYPE_EXIST.format(old_room.room_id))
+    #     return
     # check price
     room_price = room_manager.get_room_price(room_type, rounds)
     if room_price < 0:
