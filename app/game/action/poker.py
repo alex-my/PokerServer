@@ -109,10 +109,12 @@ def bomb(account_id, card_list, room):
             continue
         if room.is_special(_account_id):
             special_point = 2
-            func.log_info('[game] bomb _account_id: {} is special'.format(_account_id))
+            func.log_info('[game] bomb room_id: {}, _account_id: {} is special'.format(
+                    room.room_id, _account_id))
         else:
             special_point = 1
-            func.log_info('[game] bomb _account_id: {} is not special'.format(_account_id))
+            func.log_info('[game] bomb room_id: {}, _account_id: {} is not special'.format(
+                    room.room_id, _account_id))
         total_point = change_point * special_point
         win_point += total_point
         _player.point_change(-total_point)
