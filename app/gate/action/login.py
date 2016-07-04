@@ -88,7 +88,10 @@ def bind_proxy(dynamic_id, proxy_id):
         send.system_notice(dynamic_id, content.PROXY_ID_ERROR)      # PROXY_ID_SELF
         return
     user.proxy_id = proxy_id
-    proxy_stastics(proxy_id)
+    try:
+        proxy_stastics(proxy_id)
+    except Exception as e:
+        func.log_error('[gate] bind_proxy proxy_id: {}, failed: {}'.format(proxy_id, e.message))
     change.award_gold(user, constant.GOLD_BIND_PROXY, origins.ORIGIN_PROXY_ACTIVE)
     # save
     user.user_save()
@@ -103,17 +106,37 @@ def proxy_stastics(proxy_id):
         user.proxy_count = 1
         user.user_save()
         func.log_info('[gate] proxy_stastics proxy_id: {} online add one'.format(proxy_id))
+        sync_proxy_count(proxy_id, user.proxy_count)
     else:
-        sql = 'update {} set proxy_count = proxy_count + {} where account_id = {}'.format(
-            dbname.DB_ACCOUNT, 1, proxy_id
-        )
-        try:
-            dbexecute.execute(sql)
-            func.log_info('[gate] proxy_stastics proxy_id: {} offline add one'.format(proxy_id))
-        except Exception as e:
-            func.log_error('[gate] proxy_stastics proxy_id: {}, sql: {}, error: {}'.format(
-                proxy_id, sql, e.message
-            ))
+        sql = 'select `proxy_count` from {} where account_id={}'.format(dbname.DB_ACCOUNT, proxy_id)
+        result = dbexecute.query_one(sql)
+        if result is None:
+            return
+        proxy_count = result.get('proxy_count', 0) + 1
+
+        dbexecute.update_record(
+                table=dbname.DB_ACCOUNT,
+                where={'account_id': proxy_id},
+                data={'proxy_count': proxy_count})
+        func.log_info('[gate] proxy_stastics proxy_id: {} offline add one'.format(proxy_id))
+        sync_proxy_count(proxy_id, proxy_count)
+
+
+def sync_proxy_count(account_id, proxy_count):
+    try:
+        dbexecute.update_record(
+                table=dbname.DB_USER,
+                where={'account_id': account_id},
+                data={'insertingCoil': proxy_count})
+    except Exception as e:
+        pass
+
+
+def sync_all_proxy_count_statistic():
+    sql = 'update user a, account b set ' \
+          'a.insertingCoil=b.proxy_count ' \
+          'where a.account_id=b.account_id;'
+    dbexecute.execute(sql)
 
 
 def heart_tick(dynamic_id):
@@ -139,3 +162,10 @@ def check_heart_tick_time_out():
         ))
         user_manager.remove_heart_tick(time_out_list)
         request_all_game_node('heart_tick_time_out', time_out_list)
+
+
+def is_user_online(account_id):
+    if UserManager().get_user(account_id):
+        return {'{} is online'.format(account_id)}.__str__()
+    else:
+        return {'{} is offline'.format(account_id)}.__str__()

@@ -84,8 +84,9 @@ def wechat_recharge_success(notice_content):
         save_order_to_db(pay, recharge_gold, origins.ORIGIN_RECHARGE_WECHAT)
         change.award_gold(user, recharge_gold, origins.ORIGIN_RECHARGE_MONEY)
         # statistic
-        recharge_statistic_self(user, money)
-        recharge_statistic_proxy(user.proxy_id, money)
+        statistic_money = int(money / 100)      # fee to yuan
+        recharge_statistic_self(user, statistic_money)
+        recharge_statistic_proxy(user.proxy_id, statistic_money)
         # save
         user.user_save()
         func.log_info('[gate] wechat_recharge_success account_id: {}, money: {} SUCCESS'.format(
@@ -114,6 +115,9 @@ def recharge_statistic_self(user, money):
         user.month_proxy_recharge -= user.month_proxy_recharge
     user.month_recharge = money
     user.all_recharge = money
+    sync_user_recharge(user.account_id, _month,
+                       user.month_recharge, user.all_recharge,
+                       user.month_proxy_recharge, user.all_proxy_recharge)
 
 
 def recharge_statistic_proxy(proxy_id, money):
@@ -134,7 +138,10 @@ def recharge_statistic_proxy_online(user, money):
     user.month_proxy_recharge += money
     user.all_proxy_recharge += money
     user.user_save()
-    recharge_statistic_proxy(user.proxy_id, money)
+    sync_user_recharge(user.account_id, _month,
+                       user.month_recharge, user.all_recharge,
+                       user.month_proxy_recharge, user.all_proxy_recharge)
+    # recharge_statistic_proxy(user.proxy_id, money)
 
 
 def recharge_statistic_proxy_offline(account_id, money):
@@ -164,7 +171,63 @@ def recharge_statistic_proxy_offline(account_id, money):
                 'month_proxy_recharge': month_proxy_recharge,
                 'all_proxy_recharge': all_proxy_recharge
             })
-    recharge_statistic_proxy(proxy_id, money)
+    sync_user_recharge(account_id, _month, month_recharge, all_recharge, month_proxy_recharge, all_proxy_recharge)
+    # recharge_statistic_proxy(proxy_id, money)
+
+
+def sync_user_recharge(account_id, month, month_recharge, all_recharge, month_proxy_recharge, all_proxy_recharge):
+    try:
+        update_data = {
+            'month': month,
+            'month_recharge': month_recharge,
+            'all_recharge': all_recharge,
+            'month_proxy_recharge': month_proxy_recharge,
+            'all_proxy_recharge': all_proxy_recharge
+        }
+
+        dbexecute.update_record(
+                table=dbname.DB_USER,
+                where={'account_id': account_id},
+                data=update_data)
+    except Exception as e:
+        pass
+
+
+def sync_all_recharge_statistic():
+    sql = 'update user a, account b set ' \
+          'a.month=b.month, ' \
+          'a.month_recharge=b.month_recharge, ' \
+          'a.all_recharge=b.all_recharge, ' \
+          'a.month_proxy_recharge=b.month_proxy_recharge, ' \
+          'a.all_proxy_recharge=b.all_proxy_recharge ' \
+          'where a.account_id=b.account_id;'
+    dbexecute.execute(sql)
+
+
+def sync_all_proxy_recharge():
+    select_all_sql = 'select `account_id` from {}'.format(dbname.DB_ACCOUNT)
+    results = dbexecute.query_all(select_all_sql)
+    if not results:
+        return
+    for result in results:
+        account_id = result['account_id']
+        sql = 'select sum(`all_recharge`) money from {} where `proxy_id`={}'.format(dbname.DB_ACCOUNT, account_id)
+        r = dbexecute.query_one(sql)
+        if r and r.get('money') > 0:
+            money = r.get('money')
+            dbexecute.update_record(
+                    table=dbname.DB_ACCOUNT,
+                    where={'account_id': account_id},
+                    data={'month_proxy_recharge': money, 'all_proxy_recharge': money})
+
+
+def recharge_fee_to_yuan():
+    sql = 'update account set ' \
+          'month_recharge = month_recharge / 100, ' \
+          'all_recharge = all_recharge / 100, ' \
+          'month_proxy_recharge = month_proxy_recharge / 100, ' \
+          'all_proxy_recharge = all_proxy_recharge / 100;'
+    dbexecute.execute(sql)
 
 
 def calc_money_to_gold(money):

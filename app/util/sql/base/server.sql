@@ -55,8 +55,6 @@ CREATE TABLE `infomation` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `infomation` WRITE;
-/*!40000 ALTER TABLE `infomation` DISABLE KEYS */;
 
 INSERT INTO `infomation` (`id`, `content`, `desc`)
 VALUES
@@ -107,6 +105,7 @@ CREATE TABLE `recharge` (
   `ingot` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '转化的代币',
   `origin` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '充值来源',
   `time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '充值时间',
+  `level` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '级别',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_op_id` (`op_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

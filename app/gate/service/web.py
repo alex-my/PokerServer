@@ -15,7 +15,7 @@ def webapp_handle(cls):
 @webapp_handle
 class Information(resource.Resource):
     """
-    http://127.0.0.1:11861/Information?id=1
+    127.0.0.1:11861/Information?id=1
     """
     def render(self, request):
         info_id = int(request.args.get('id')[0])
@@ -27,7 +27,7 @@ class Information(resource.Resource):
 @webapp_handle
 class ServerInformation(resource.Resource):
     """
-    http://120.76.153.160:11861/ServerInformation
+    120.76.153.160:11861/ServerInformation
     """
     def render(self, request):
         func.log_info('[gate] ServerInfomation')
@@ -52,7 +52,7 @@ class RechargeWechatNotify(resource.Resource):
 class RechargeStasticsTest(resource.Resource):
     """
     120.76.153.160:11861/RechargeStasticsTest?id=380001
-    http://127.0.0.1:11861/RechargeStasticsTest?id=380001
+    127.0.0.1:11861/RechargeStasticsTest?id=380001
     """
     def render(self, request):
         try:
@@ -67,7 +67,7 @@ class RechargeStasticsTest(resource.Resource):
 class BindStasticsTest(resource.Resource):
     """
     120.76.153.160:11861/BindStasticsTest?id=380001
-    http://127.0.0.1:11861/BindStasticsTest?id=380001
+    127.0.0.1:11861/BindStasticsTest?id=380001
     """
     def render(self, request):
         try:
@@ -94,7 +94,7 @@ class AwardGold(resource.Resource):
 class ModifyAccountId(resource.Resource):
     """
     120.76.153.160:11861/ModifyAccountId?id=380001&&id=388888
-    http://127.0.0.1:11861/ModifyAccountId?id=380001&&id=388888
+    127.0.0.1:11861/ModifyAccountId?id=380001&&id=388888
     """
     def render(self, request):
         old_account_id = int(request.args.get('id')[0])
@@ -103,3 +103,89 @@ class ModifyAccountId(resource.Resource):
             old_account_id, cur_account_id
         ))
         return infomation.modify_account_id(old_account_id, cur_account_id)
+
+
+@webapp_handle
+class IsUserOnline(resource.Resource):
+    """
+    120.76.153.160:11861/IsUserOnline?id=380001
+    127.0.0.1:11861/IsUserOnline?id=380001
+    """
+    def render(self, request):
+        account_id = int(request.args.get('id')[0])
+        return login.is_user_online(account_id)
+
+
+@webapp_handle
+class SyncAllRechargeStatistic(resource.Resource):
+    """
+    120.76.153.160:11861/SyncAllRechargeStatistic
+    127.0.0.1:11861/SyncAllRechargeStatistic
+    """
+    def render(self, request):
+        func.log_info('[gate] SyncAllRechargeStatistic')
+        recharge.sync_all_recharge_statistic()
+        return "SUCCESS"
+
+
+@webapp_handle
+class SyncAllRechargeStatistic(resource.Resource):
+    """
+    120.76.153.160:11861/SyncAllRechargeStatistic
+    127.0.0.1:11861/SyncAllRechargeStatistic
+    """
+    def render(self, request):
+        func.log_info('[gate] SyncAllRechargeStatistic')
+        recharge.sync_all_recharge_statistic()
+        return "SUCCESS"
+
+
+@webapp_handle
+class SyncAllProxyCountStatistic(resource.Resource):
+    """
+    120.76.153.160:11861/SyncAllProxyCountStatistic
+    127.0.0.1:11861/SyncAllProxyCountStatistic
+    """
+    def render(self, request):
+        func.log_info('[gate] SyncAllProxyCountStatistic')
+        login.sync_all_proxy_count_statistic()
+        return "SUCCESS"
+
+
+@webapp_handle
+class SyncAllProxyRecharge(resource.Resource):
+    """
+    120.76.153.160:11861/SyncAllProxyRecharge
+    127.0.0.1:11861/SyncAllProxyRecharge
+    """
+    def render(self, request):
+        func.log_info('[gate] SyncAllProxyRecharge')
+        recharge.sync_all_proxy_recharge()
+        return "SUCCESS"
+
+
+@webapp_handle
+class SyncAllCommand(resource.Resource):
+    """
+    120.76.153.160:11861/SyncAllCommand
+    127.0.0.1:11861/SyncAllCommand
+    """
+    def render(self, request):
+        func.log_info('[gate] SyncAllCommand')
+        recharge.sync_all_proxy_recharge()
+        recharge.sync_all_recharge_statistic()
+        login.sync_all_proxy_count_statistic()
+        return "SUCCESS"
+
+
+@webapp_handle
+class RechargeFeeToYuan(resource.Resource):
+    """
+    120.76.153.160:11861/RechargeFeeToYuan
+    127.0.0.1:11861/RechargeFeeToYuan
+    """
+    def render(self, request):
+        func.log_info('[gate] RechargeFeeToYuan')
+        recharge.recharge_fee_to_yuan()
+        return "SUCCESS"
+
