@@ -10,6 +10,7 @@ import string
 import sys
 import time
 import datetime
+from twisted.python import log
 
 
 INFO = '\033[92m'
@@ -32,9 +33,9 @@ def log_info(message, function_pos_list=None):
         return
     if function_pos_list:
         function_name, line_no, file_name = function_pos_list
-        print('{} {}, {}: {} {} {}'.format(INFO, message, function_name, line_no, file_name, END))
+        log.msg('{} {}, {}: {} {} {}'.format(INFO, message, function_name, line_no, file_name, END))
     else:
-        print('{} {} {}'.format(INFO, message, END))
+        log.msg('{} {} {}'.format(INFO, message, END))
 
 
 def log_warn(message, function_pos_list=None):
@@ -42,9 +43,9 @@ def log_warn(message, function_pos_list=None):
         return
     if function_pos_list:
         function_name, line_no, file_name = function_pos_list
-        print('{} {}, {}: {} {} {}'.format(WARNING, message, function_name, line_no, file_name, END))
+        log.msg('{} {}, {}: {} {} {}'.format(WARNING, message, function_name, line_no, file_name, END))
     else:
-        print('{} {} {}'.format(WARNING, message, END))
+        log.msg('{} {} {}'.format(WARNING, message, END))
 
 
 def log_error(message, function_pos_list=None):
@@ -52,9 +53,9 @@ def log_error(message, function_pos_list=None):
         return
     if function_pos_list:
         function_name, line_no, file_name = function_pos_list
-        print('{} {}, {}: {} {} {}'.format(ERROR, message, function_name, line_no, file_name, END))
+        log.msg('{} {}, {}: {} {} {}'.format(ERROR, message, function_name, line_no, file_name, END))
     else:
-        print('{} {} {}'.format(ERROR, message, END))
+        log.msg('{} {} {}'.format(ERROR, message, END))
 
 
 def log_exception(message, function_pos_list=None):
@@ -62,9 +63,9 @@ def log_exception(message, function_pos_list=None):
         return
     if function_pos_list:
         function_name, line_no, file_name = function_pos_list
-        print('{} {}, {}: {} {} {}'.format(EXCEPTION, message, function_name, line_no, file_name, END))
+        log.msg('{} {}, {}: {} {} {}'.format(EXCEPTION, message, function_name, line_no, file_name, END))
     else:
-        print('{} {} {}'.format(EXCEPTION, message, END))
+        log.msg('{} {} {}'.format(EXCEPTION, message, END))
 
 
 def log_config(message, function_pos_list=None):
@@ -72,9 +73,9 @@ def log_config(message, function_pos_list=None):
         return
     if function_pos_list:
         function_name, line_no, file_name = function_pos_list
-        print('{} {}, {}: {} {} {}'.format(CONFIG, message, function_name, line_no, file_name, END))
+        log.msg('{} {}, {}: {} {} {}'.format(CONFIG, message, function_name, line_no, file_name, END))
     else:
-        print('{} {} {}'.format(CONFIG, message, END))
+        log.msg('{} {} {}'.format(CONFIG, message, END))
 
 
 def random_get(min_value, max_value, step=1):
